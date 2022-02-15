@@ -110,7 +110,7 @@ python3 bot.py
 [![telegram badge](https://img.shields.io/badge/Telegram-Channel-30302f?style=flat&logo=telegram)](https://t.me/hagadmansa)
 
 ## Credits 
-* [![EvaMaria-Devolopers](https://img.shields.io/static/v1?label=Eva Maria&message=Devolopers&color=critical)](https://t.me/EvaMariaDevs)
+* [![EvaMaria-Devolopers](https://img.shields.io/static/v1?label=EvaMaria&message=Devolopers&color=critical)](https://t.me/EvaMariaDevs)
 
 
 ## Thanks to 
