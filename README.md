@@ -1,19 +1,6 @@
-<p align="center">
-  <img src="assets/logo.jpg" alt="Eva Maria Logo">
-</p>
 <h1 align="center">
   <b>Eva Maria Bot</b>
 </h1>
-
-
-[![Stars](https://img.shields.io/github/stars/EvamariaTG/EvaMaria?style=flat-square&color=yellow)](https://github.com/EvamariaTG/EvaMaria/stargazers)
-[![Forks](https://img.shields.io/github/forks/EvamariaTG/EvaMaria?style=flat-square&color=orange)](https://github.com/EvamariaTG/EvaMaria/fork)
-[![Size](https://img.shields.io/github/repo-size/EvamariaTG/EvaMaria?style=flat-square&color=green)](https://github.com/EvamariaTG/EvaMaria/)   
-[![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/EvamariaTG/EvaMaria)   
-[![Contributors](https://img.shields.io/github/contributors/EvamariaTG/EvaMaria?style=flat-square&color=green)](https://github.com/EvamariaTG/EvaMaria/graphs/contributors)
-[![License](https://img.shields.io/badge/License-AGPL-blue)](https://github.com/EvamariaTG/EvaMaria/blob/main/LICENSE)
-[![Sparkline](https://stars.medv.io/EvamariaTG/EvaMaria.svg)](https://stars.medv.io/EvamariaTG/EvaMaria)
-
 
 ## Features
 
@@ -32,8 +19,6 @@
 - [x] File Store
 ## Variables
 
-Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up with your edits.
-
 ### Required Variables
 * `BOT_TOKEN`: Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token.
 * `API_ID`: Get this value from [telegram.org](https://my.telegram.org/apps)
@@ -43,16 +28,32 @@ Read [this](https://telegram.dog/TeamEvamaria/12) before you start messing up wi
 * `DATABASE_URI`: [mongoDB](https://www.mongodb.com) URI. Get this value from [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/1G1XwEOnxxo)
 * `DATABASE_NAME`: Name of the database in [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/1G1XwEOnxxo)
 * `LOG_CHANNEL` : A channel to log the activities of bot. Make sure bot is an admin in the channel.
+* 
 ### Optional Variables
 * `PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
-* Check [info.py](https://github.com/EvamariaTG/evamaria/blob/master/info.py) for more
+* `IMDB_TEMPLATE`: To [Customize](https://t.me/TeamEvamaria/9) imdb data.
+* `SUPPORT_CHAT`: Add your own chat as a support chat instead of [@hagadmansachat](https://t.me/hagadmansachat).
+* `P_TTI_SHOW_OFF`: (Use True or False) - If True users will be redirected to send /start to Bot PM. else files will be sent directly to users PM.
+* `IMDB`: (Use True or False) - To disable or enable imdb data.
+* `SINGLE_BUTTON`: (Use True or False) - If set True, file name and files size will be shown in a single button instead of two separate button.
+* `CUSTOM_FILE_CAPTION`: Same as IMDB template , you can customize the caption for files  (available keys , file_name, file_size, file_caption ) <br> Example: File Name - {file_name} File Size - {file_size} X Join my channel [@hagadmansa](https://t.me/hagadmansa) or visit my website www.hagadmansa.com  
+* `LONG_IMDB_DESCRIPTION`: (Use True or False) Long IMDB story line will be used if enabled.
+* `SPELL_CHECK_REPLY`: (Use True or False) - if enabled, bot will be suggesting related movies if keyword not found in database.
+* `MAX_LIST_ELM`: long lists like long casts list can be shortened using this value. list will be shortened to first n elements where n is the value for this config var. For example if 4 is used list will be shortened to foist 4 elements.
+* `AUTH_CHANNEL`: To enable force subscribe (make sure bot is admin in `AUTH_CHANNEL`). Delete this var if you do not need fsub.
+* `AUTH_USERS`: To restrict the use of inline queries to specified users.
+* `UPSTREAM_REPO`: If you want to use a customized fork of [EvaMaria](https://github.com/hagadmansa/EvaMaria), You can fill this config with github url of your fork.
+* `BATCH_FILE_CAPTION`: Same as `CUSTOM_FILE_CAPTION`, use in case you want separate captions for batch files.
+* `MELCOW_NEW_USERS`: Use False if you want the bot to not to welcome new users in groups.
+* `PROTECT_CONTANT`: Use True/False . If set to true files from bot cannot be forwarded to any chat.
+* `PUBLIC_FILE_STORE`: Use False if you don't want your bot to be used as a filestore bot by others.
+* Check [info.py](https://github.com/hagadmansa/evamaria/blob/master/info.py) for more
 
 
 ## Deploy
-You can deploy this bot anywhere.
 
-<i>**[Watch Deploying Tutorial...](https://youtu.be/1G1XwEOnxxo)**</i>
+[![YouTube](https://img.shields.io/badge/YouTube-Video%20Tutorial-red?logo=youtube)](https://youtu.be/1G1XwEOnxxo)
 
 <details><summary>Deploy To Heroku</summary>
 <p>
@@ -105,8 +106,8 @@ python3 bot.py
 • /link - to create link for one post
 ```
 ## Support
-[![telegram badge](https://img.shields.io/badge/Telegram-Group-30302f?style=flat&logo=telegram)](https://telegram.dog/EvaMariaSupport)
-[![telegram badge](https://img.shields.io/badge/Telegram-Channel-30302f?style=flat&logo=telegram)](https://telegram.dog/TeamEvamaria)
+[![telegram badge](https://img.shields.io/badge/Telegram-Group-30302f?style=flat&logo=telegram)](https://t.me/hagadmansachat)
+[![telegram badge](https://img.shields.io/badge/Telegram-Channel-30302f?style=flat&logo=telegram)](https://t.me/hagadmansa)
 
 ## Credits 
 * [![EvaMaria-Devs](https://img.shields.io/static/v1?label=EvaMaria&message=devs&color=critical)](https://telegram.dog/EvaMariaDevs)
@@ -118,13 +119,6 @@ python3 bot.py
  - Thanks To [Trojanz](https://github.com/trojanzhex) for Their Awesome [Unlimited Filter Bot](https://github.com/TroJanzHEX/Unlimited-Filter-Bot) And [AutoFilterBoT](https://github.com/trojanzhex/auto-filter-bot)
  - Thanks To All Everyone In This Journey
 
-### Note
-
-[Note To A So Called Dev](https://telegram.dog/subin_works/203): 
-
-Kanging this codes and and editing a few lines and releasing a V.x  or an [alpha](https://telegram.dog/subin_works/204), beta , gama branches of your repo won't make you a Developer.
-Fork the repo and edit as per your needs.
-
 ## Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
 Licensed under [GNU AGPL 2.0.](https://github.com/EvamariaTG/evamaria/blob/master/LICENSE)
@@ -133,4 +127,3 @@ Selling The Codes To Other People For Money Is *Strictly Prohibited*.
 ## Inspiration
 This is an attempt to create a clone of a BOAT made out of [banana trees 🌳](https://telegram.dog/GetTGLink/4187)
 
-[![For Vaza](https://telegra.ph/file/e743b0c8a04252774bac2.jpg)](https://telegra.ph/file/98342dc186fd7484cba91.mp4 "Oru Kootam Vazhakalk samarpikkunnu")
