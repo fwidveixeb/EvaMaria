@@ -404,7 +404,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('🔅 Share', url='https://t.me/share/url?url=t.me/hagadmansa&text=👋Hey, check out this amazing bot to download free movies.'),
+            InlineKeyboardButton('🔅 Share', url='https://youtube.com'),
             InlineKeyboardButton('📣 Updates', url='https://t.me/hagadmansa')
         ], [
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
