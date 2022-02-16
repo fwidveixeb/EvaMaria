@@ -20,8 +20,7 @@ Here is the help for my commands"""
 - <a href=https://t.me/TeamEvamaria>Team Eva Maria</a>"""
     MANUELFILTER_TXT = """<b>ℹ️ Help</b> > Manual Filters
 
-🔑 Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message
-
+🔑 Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message.
 <b❗️NOTE:</b>
 
 1. Your Bot should have admin privillage.
