@@ -6,23 +6,23 @@ Here is the help for my commands"""
     ABOUT_TXT = """✯ My Name: {}
 ✯ Creator: <a href=https://t.me/himanshurastogiofficial>Himanshu Rastogi</a>
 ✯ Library: <a href=https://pyrogram.org>Pyrogram</a>
-✯ Language: <a href=https:/python.org>Python 3</a>
+✯ Language: <a href=https://python.org>Python 3</a>
 ✯ Database: <a href=https://mongodb.com/>MongoDB</a>
 ✯ Server: <a href=https://heroku.com/>Heroku</a>
 ✯ Build Status: v1.0.1 [Beta]"""
-    SOURCE_TXT = """<b>❗️ NOTE:</b>
+    SOURCE_TXT = """<b>❗️NOTE:</b>
     
 - Eva Maria is a open source project. 
 - Source - https://github.com/HagadMansa/EvaMaria  
 
-<b>👨‍💻 DEVS:</b>
+<b>👨‍💻 My Devolopers:</b>
 
 - <a href=https://t.me/TeamEvamaria>Team Eva Maria</a>"""
-    MANUELFILTER_TXT = """<b>ℹ️ Help</b>:Filters
+    MANUELFILTER_TXT = """<b>ℹ️ Help</b> > Manual Filters
 
 🔑 Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message
 
-<b❗️ NOTE:</b>
+<b❗️NOTE:</b>
 
 1. Your Bot should have admin privillage.
 2. Only admins can add filters in a chat.
@@ -34,11 +34,11 @@ Here is the help for my commands"""
 • /filters - list all the filters of a chat
 • /del - delete a specific filter in chat
 • /delall - delete the whole filters in a chat (chat owner only)"""
-    BUTTON_TXT = """<b>ℹ️ Help</b>: Buttons
+    BUTTON_TXT = """<b>ℹ️ Help</b> > Manual Filters > Buttons
 
 - This Bot Supports both url and alert inline buttons.
 
-<b>❗️ NOTE:</b>
+<b>❗️NOTE:</b>
 
 1. Telegram will not allows you to send buttons without any content, so content is mandatory.
 2. This Bot supports buttons with any telegram media type.
@@ -49,20 +49,20 @@ Here is the help for my commands"""
 
 <b>🔔 Alert buttons:</b>
 <code>[Button Text](buttonalert:This is an alert message)</code>"""
-    AUTOFILTER_TXT = """<b>ℹ️ Help</b>: Auto Filter
+    AUTOFILTER_TXT = """<b>ℹ️ Help</b> > Auto Filter
 
-<b>❗️ NOTE:</b>
+<b>❗️NOTE:</b>
 
 1. Make me the admin of your channel if it's private.
 2. make sure that your channel does not contains camrips, porn and fake files.
 3. Forward the last message to me with quotes.
  I'll add all the files in that channel to my db."""
-    CONNECTION_TXT = """<b>ℹ️ Help</b>: Connections
+    CONNECTION_TXT = """<b>ℹ️ Help</b> > Connections
 
 - Used to connect bot to PM for managing filters 
 - It helps to avoid spamming in groups.
 
-<b>❗️ NOTE:</b>
+<b>❗️NOTE:</b>
 
 1. Only admins can add a connection.
 2. Send <code>/connect</code> for connecting me to ur PM
@@ -72,9 +72,9 @@ Here is the help for my commands"""
 • /connect  - connect a particular chat to your PM.
 • /disconnect  - disconnect from a chat.
 • /connections - list all your connections."""
-    EXTRAMOD_TXT = """<b>ℹ️ Help</b>: >Extra Modules
+    EXTRAMOD_TXT = """<b>ℹ️ Help</b> > Extra Mods
 
-<b>❗️ NOTE:</b>
+<b>❗️NOTE:</b>
 
 - These are the extra features of This Bot.
 
@@ -84,9 +84,9 @@ Here is the help for my commands"""
 • /info  - get information about a user.
 • /imdb  - get the film information from IMDb source.
 • /search  - get the film information from various sources."""
-    ADMIN_TXT = """<b>ℹ️ Help</b>: Admin
+    ADMIN_TXT = """<b>ℹ️ Help</b> > Extra Mods > Admin
 
-<b>❗️ NOTE:</b>
+<b>❗️NOTE:</b>
 
 - This module only works for my admins
 
