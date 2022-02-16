@@ -1,5 +1,6 @@
 class script(object):
     START_TXT = """👋 Hello {},
+    
 🤖 My Name is Hagadmansa Robot, I can provide you movies, Just visit my website <i><b>www.hagadmansa.com</b></i>. 
 
 🧐 Don't know how to watch or download? No worry just <a href=https://t.me/hagadmansa/2>Click here</a> to watch a tutorial on YouTube."""
@@ -15,11 +16,11 @@ Here is the help for my commands"""
     SOURCE_TXT = """<b>❗️NOTE:</b>
     
 - Eva Maria is a open source project. 
-- Source - https://github.com/HagadMansa/EvaMaria  
+- <a href=https://github.com/HagadMansa/EvaMaria>Click here<a/> to get my source code.
 
-<b>👨‍💻 My Devolopers:</b>
+<b> My Creator </b> is <a href=https://t.me/himanshurastogiofficial>Himanshu Rastogi</a>.
 
-- <a href=https://t.me/TeamEvamaria>Team Eva Maria</a>"""
+<b>👨‍💻 My Devoloper</b> is <a href=https://t.me/TeamEvamaria>Team Eva Maria</a>"""
     MANUELFILTER_TXT = """<b>ℹ️ Help</b> > Manual Filters
 
 🔑 Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message.
