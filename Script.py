@@ -17,8 +17,8 @@ Here is the help for my commands"""
 ✯ Build Status: v1.0.1 [Beta]"""
     SOURCE_TXT = """<b>❗️NOTE:</b>
     
-- Eva Maria is a open source project. 
-- <a href=https://github.com/HagadMansa/EvaMaria>Click here<a/> to get my source code.
+- Get my source code <a href=https://github.com/HagadMansa/EvaMaria>here</a>.
+- Eva Maria is a open source project.
 
 <b>👨‍💻 My Creator </b> is <a href=https://t.me/himanshurastogiofficial>Himanshu Rastogi</a>.
 
