@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/EvamariaTG/EvaMaria",
-    "repository": "https://github.com/EvamariaTG/EvaMaria",
+    "website": "https://hagadmansa.com",
+    "repository": "https://github.com/Hagadmansa/EvaMaria",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
@@ -31,19 +31,19 @@
             "required": true
         },
         "CHANNELS": {
-            "description": "Username or ID of channel or group. Separate multiple IDs by space.",
+            "description": "Username or ID of channel or group. This is bot database group/channel if you want to add multiple databases then Separate multiple IDs by space. make sure bot is admin in your group/channel. Give a channel id use private channel (recommended)",
             "required": false
         },
         "ADMINS": {
-            "description": "Username or ID of Admin. Separate multiple Admins by space.",
+            "description": "Username or ID of Admins which have access to Bot's all commands. Separate multiple Admins by space.",
             "required": true
         },
         "PICS": {
-            "description": "Add some telegraph link of pictures .",
+            "description": "Add some telegraph link of pictures get this value from @hk_telegraph_bot on Telegram. If you want to add multiple images then Separate links by space bot will share a random image on /start.",
             "required": false
         },
         "LOG_CHANNEL": {
-            "description": "Bot Logs,Give a channel id with -100xxxxxxx",
+            "description": "Bot Logs, where bot will share his activies like new user joined, batch json file created etc. Give a channel id use private channel (recommended)",
             "required": true
         },
         "AUTH_USERS": {
@@ -51,7 +51,7 @@
             "required": false
         },
         "AUTH_CHANNEL": {
-            "description": "ID of channel.Make sure bot is admin in this channel. Without subscribing this channel users cannot use bot.",
+            "description": "ID of that channel which you want to force subscribe by your user. Make sure bot is admin in this channel. Without subscribing this channel users cannot use bot.",
             "required": false
         },
         "DATABASE_URI": {
@@ -66,7 +66,12 @@
             "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use different collection name for each bot",
             "value": "Telegram_files",
             "required": false
-        }
+        },
+        "UPSTREAM_REPO": {
+            "description": "Default is https://github.com/hagadmansa/EvaMaria. without this your bot will not work. Do not change if you don't know python.",
+            "value": "https://github.com/hagadmansa/EvaMaria",
+            "required": true
+            
     },
     "addons": [],
     "buildpacks": [{
