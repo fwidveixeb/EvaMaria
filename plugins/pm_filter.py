@@ -403,7 +403,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('z🌐 Website', url='https://hagadmansa.com'),
+            InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
             InlineKeyboardButton('📣 Updates', url='https://t.me/hagadmansa')
         ], [
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
