@@ -57,7 +57,7 @@
 ### Deploy To Heroku
 <p>
 <br>
-<a href="https://heroku.com/?template=https://github.com/hagadmansa/EvaMaria">
+<a href="https://heroku.com/depoly?template=https://github.com/hagadmansa/EvaMaria">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
