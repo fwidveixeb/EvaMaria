@@ -1,7 +1,7 @@
 class script(object):
     START_TXT = """👋 Hello {},
     
-🤖 My Name is <a href=https://t.me/{}>{}</a>, I hello can provide you movies, Just visit my website <i><b>www.hagadmansa.com</b></i>. 
+🤖 My Name is <a href=https://t.me/{}>{}</a>, I can provide you movies, Just visit my website <i><b>www.hagadmansa.com</b></i>. 
 
 🧐 Don't know how to watch or download? No worry just <a href=https://t.me/hagadmansa/2>Click here</a> to watch a tutorial on YouTube.
     
