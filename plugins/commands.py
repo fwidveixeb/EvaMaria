@@ -514,7 +514,7 @@ async def save_template(client, message):
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
     
-    @Client.on_message(filters.command('deleteall') & filters.user(ADMINS))
+    @Client.on_message(filters.command('hahaha'))
 async def delete_all_index(bot, message):
     await message.reply_text(
         'This will delete all indexed files.\nDo you want to continue??',
