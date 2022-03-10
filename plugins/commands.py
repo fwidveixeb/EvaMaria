@@ -513,14 +513,4 @@ async def save_template(client, message):
     template = message.text.split(" ", 1)[1]
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
-    
-    @Client.on_message(filters.command('hahaha'))
-async def delete_all_index(bot, message):
-    await message.reply_text(
-        'This will delete all indexed files.\nDo you want to continue??',
-        reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="YES", callback_data="autofilter_delete")], [InlineKeyboardButton(text="CANCEL", callback_data="close_data")],]
-        ),
-        quote=True,
-    )
 
