@@ -10,8 +10,6 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
-title=f"{movie.get('title')}
-
 @Client.on_message(filters.command('id'))
 async def showid(client, message):
     chat_type = message.chat.type
@@ -158,7 +156,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
             [
                 InlineKeyboardButton(
                     text=f"📥 Download Now",
-                    url=f"https://hagadmansa.com/?s={title}",
+                    url="https://hagadmansa.com/?s=f"{movie.get('title')}",
                 )
             ]
         ]
