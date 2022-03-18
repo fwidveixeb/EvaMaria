@@ -156,7 +156,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
             [
                 InlineKeyboardButton(
                     text=f"📥 Download Now",
-                    url="https://hagadmansa.com/?s=imdb['title']",
+                    url="https://hagadmansa.com/?s={movie.get('title')}",
                 )
             ]
         ]
