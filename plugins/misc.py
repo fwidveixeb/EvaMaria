@@ -10,6 +10,8 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+title=f"{movie.get('title')}
+
 @Client.on_message(filters.command('id'))
 async def showid(client, message):
     chat_type = message.chat.type
