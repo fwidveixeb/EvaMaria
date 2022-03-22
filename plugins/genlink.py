@@ -3,7 +3,7 @@ import asyncio
 import urllib.parse
 import logging
 from urllib.parse import quote_plus
-from WebStreamer.bot import StreamBot
+from pyrogram import StreamBot
 from pyrogram import filters, Client
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
 from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, PUBLIC_FILE_STORE
