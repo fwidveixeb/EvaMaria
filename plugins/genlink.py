@@ -143,7 +143,7 @@ async def gen_link_batch(bot, message):
     group=4,
 )
 async def media_receive_handler(bot, Message):
-    log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+    log_msg = await bot.forward(chat_id=Var.BIN_CHANNEL)
     file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
     string += file_id
