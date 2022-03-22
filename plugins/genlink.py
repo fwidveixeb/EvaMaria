@@ -146,7 +146,7 @@ async def media_receive_handler(_, m: Message):
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     
     await log_msg.reply_text(
-            text=f"😎 Hello Himanshu, i generated 2 links for **{m.from_user.mention(style='md')}**. You can view **{m.from_user.mention(style='md')}'s** all generated links with **#u{m.chat.id}**.",
+            text=f"😎 Hello Himanshu, i generated 2 links for **{message.from_user.mention(style='md')}**. You can view **{message.from_user.mention(style='md')}'s** all generated links with **#u{message.chat.id}**.",
             quote=True,
             parse_mode="markdown",
             reply_markup=InlineKeyboardMarkup(
