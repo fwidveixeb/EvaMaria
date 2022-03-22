@@ -3,7 +3,6 @@ import asyncio
 import urllib.parse
 import logging
 from urllib.parse import quote_plus
-from pyrogram import StreamBot
 from pyrogram import filters, Client
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
 from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, PUBLIC_FILE_STORE
@@ -129,7 +128,7 @@ async def gen_link_batch(bot, message):
     file_id, ref = unpack_new_file_id(post.document.file_id)
     await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{temp.U_NAME}?start=BATCH-{file_id}")
 
-@StreamBot.on_message(
+@Client.on_message(
     filters.private
     & (
         filters.document
