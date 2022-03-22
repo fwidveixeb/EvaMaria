@@ -142,7 +142,7 @@ async def gen_link_batch(bot, message):
     ),
     group=4,
 )
-async def media_receive_handler(_, m: Message):
+async def media_receive_handler(bot, Message):
     log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
     file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
@@ -150,7 +150,7 @@ async def media_receive_handler(_, m: Message):
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     
     await log_msg.reply_text(
-            text=f"😎 Hello Himanshu, i generated 2 links for **{message.from_user.mention(style='md')}**. You can view **{message.from_user.mention(style='md')}'s** all generated links with **#u{message.chat.id}**.",
+            text=f"😎 Hello Himanshu, i generated 2 links for **{m.from_user.mention(style='md')}**. You can view **{m.from_user.mention(style='md')}'s** all generated links with **#u{message.chat.id}**.",
             quote=True,
             parse_mode="markdown",
             reply_markup=InlineKeyboardMarkup(
