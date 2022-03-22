@@ -150,7 +150,7 @@ async def media_receive_handler(bot, Message):
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     
     await log_msg.reply_text(
-            text=f"😎 Hello Himanshu, i generated 2 links for **{m.from_user.mention(style='md')}**. You can view **{m.from_user.mention(style='md')}'s** all generated links with **#u{message.chat.id}**.",
+            text="""😎 Hello Himanshu, i generated 2 links for.""",
             quote=True,
             parse_mode="markdown",
             reply_markup=InlineKeyboardMarkup(
@@ -168,7 +168,7 @@ async def media_receive_handler(bot, Message):
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Full link', url=stream_link),
+                        InlineKeyboardButton('📥 Full link', url=f"Here is your Link:\nhttps://t.me/hagadmansarobot?start={outstr}"),
                         InlineKeyboardButton('📦 Short link', url='https://t.me/hagadmansa')
                     ]
                 ]
