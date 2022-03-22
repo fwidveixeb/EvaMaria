@@ -123,3 +123,51 @@ async def gen_link_batch(bot, message):
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
     await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{temp.U_NAME}?start=BATCH-{file_id}")
+
+@StreamBot.on_message(
+    filters.private
+    & (
+        filters.document
+        | filters.video
+        | filters.audio
+        | filters.animation
+        | filters.voice
+        | filters.video_note
+        | filters.photo
+        | filters.sticker
+    ),
+    group=4,
+)
+async def media_receive_handler(_, m: Message):
+    log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+    file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
+    string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
+    string += file_id
+    outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
+    
+    await log_msg.reply_text(
+            text=f"😎 Hello Himanshu, i generated 2 links for **{m.from_user.mention(style='md')}**. You can view **{m.from_user.mention(style='md')}'s** all generated links with **#u{m.chat.id}**.",
+            quote=True,
+            parse_mode="markdown",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('📥 Full link', url=f"Here is your Link:\nhttps://t.me/hagadmansarobot?start={outstr}"),
+                        InlineKeyboardButton('📦 Short link', url='https://t.me/hagadmansa')
+                    ]
+                ]
+            )
+    )
+    
+    await m.reply_text(
+        text="""<b>🤓 I generated 2 links for you, but both links work same. Just hold the inline button to copy the link.</b>""",
+        reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('📥 Full link', url=stream_link),
+                        InlineKeyboardButton('📦 Short link', url='https://t.me/hagadmansa')
+                    ]
+                ]
+            )
+        )
+    
