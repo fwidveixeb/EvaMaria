@@ -152,18 +152,15 @@ async def imdb_search(client, message):
 async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     i, movie = quer_y.data.split('#')
     imdb = await get_poster(query=movie, id=True)
-    btn = [
-            [
-                InlineKeyboardButton(
+    btn = [[
+            InlineKeyboardButton(
                     text=f"📥 {imdb.get('title')}",
-                    url=f"https://hagadmansa.com/movies/{imdb.get('title')}".replace(' ', '-'),
-                )
-                InlineKeyboardButton(
+                    url=f"https://hagadmansa.com/movies/{imdb.get('title')}".replace(' ', '-')
+                    ],[
+            InlineKeyboardButton(
                     text="❓How to download?",
-                    url=f"https://t.me/hagadmansa/2"
-                )
-            ] 
-        ]
+                    url=f"https://t.me/hagadmansa/2")
+           ]]
     message = quer_y.message.reply_to_message or quer_y.message
     if imdb:
         caption = IMDB_TEMPLATE.format(
