@@ -156,11 +156,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
             InlineKeyboardButton(
                     text=f"📥 {imdb.get('title')}",
                     url=f"https://hagadmansa.com/movies/{imdb.get('title')}".replace(' ', '-'))
-                    ],[
-            InlineKeyboardButton(
-                    text="❓How to download?",
-                    url=f"https://t.me/hagadmansa/2")
-           ]]
+                    ]]
     message = quer_y.message.reply_to_message or quer_y.message
     if imdb:
         caption = IMDB_TEMPLATE.format(
