@@ -2,7 +2,7 @@ import asyncio
 import urllib.parse
 import logging
 from pyrogram import filters
-from database.vars import Var
+from Database.vars import Var
 from urllib.parse import quote_plus
 from database.bot import StreamBot
 from database.utils import get_hash, get_name
