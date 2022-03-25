@@ -2,10 +2,10 @@ import asyncio
 import urllib.parse
 import logging
 from pyrogram import filters
-from Database.vars import Var
+from WebStreamer.vars import Var
 from urllib.parse import quote_plus
-from database.bot import StreamBot
-from database.utils import get_hash, get_name
+from WebStreamer.bot import StreamBot
+from WebStreamer.utils import get_hash, get_name
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 @StreamBot.on_message(
