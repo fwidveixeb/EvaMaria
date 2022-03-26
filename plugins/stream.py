@@ -4,7 +4,6 @@ import logging
 from pyrogram import filters
 from Vars import Var
 from urllib.parse import quote_plus
-from plugins import get_hash, get_name
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 def get_hash(media_msg: Message) -> str:
