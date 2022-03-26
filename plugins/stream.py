@@ -4,8 +4,8 @@ import logging
 from pyrogram import filters
 from Vars import Var
 from urllib.parse import quote_plus
-from EvaMaria.bot import StreamBot
-from EvaMaria.utils import get_hash, get_name
+import StreamBot
+import get_hash, get_name
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 @StreamBot.on_message(
