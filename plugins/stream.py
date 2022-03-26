@@ -2,7 +2,7 @@ import asyncio
 import urllib.parse
 import logging
 from pyrogram import filters
-from EvaMaria.vars import Var
+from EvaMaria.Vars import Var
 from urllib.parse import quote_plus
 from EvaMaria.bot import StreamBot
 from EvaMaria.utils import get_hash, get_name
