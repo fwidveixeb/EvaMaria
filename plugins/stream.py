@@ -2,6 +2,7 @@ import asyncio
 import urllib.parse
 from pyrogram import Client
 import logging
+from typing import Any, Optional
 from pyrogram import filters
 from Vars import Var
 from urllib.parse import quote_plus
