@@ -4,11 +4,10 @@ import logging
 from pyrogram import filters
 from Vars import Var
 from urllib.parse import quote_plus
-import StreamBot
 import get_hash, get_name
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
-@StreamBot.on_message(
+@Client.on_message(
     filters.private
     & (
         filters.document
