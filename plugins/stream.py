@@ -1,6 +1,6 @@
 import asyncio
 import urllib.parse
-import client
+from pyrogram import Client
 import logging
 from pyrogram import filters
 from Vars import Var
