@@ -7,6 +7,7 @@ from pyrogram import filters
 from Vars import Var
 from pyrogram.file_id import FileId
 from urllib.parse import quote_plus
+from database.ia_filterdb import unpack_new_file_id
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 def get_hash(media_msg: Message) -> str:
