@@ -75,6 +75,9 @@ async def media_receive_handler(b, m: Message):
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     
+    if log_msg =! 1
+        return await message.reply("send 1 file at a time.")
+    
     await log_msg.reply_text(
             text=f"😎 Hello Himanshu, i generated 2 links for **{m.from_user.mention(style='md')}**. You can view **{m.from_user.mention(style='md')}'s** all generated links with **#u{m.chat.id}**.",
             quote=True,
