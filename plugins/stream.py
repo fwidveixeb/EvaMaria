@@ -50,6 +50,11 @@ def get_media_from_message(message: "Message") -> Any:
         media = getattr(message, attr, None)
         if media:
             return media
+     
+def get_file_id(message):
+    media=message.document or message.audio or message.video or message.photo
+    return media.file_id
+file_id = get_file_id(m)
 
 @Client.on_message(
     filters.private
