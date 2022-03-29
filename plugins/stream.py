@@ -76,7 +76,6 @@ async def media_receive_handler(b, m: Message):
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
     replied = m.reply_to_message
     file_type = log_msg.media
-    file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
     string = file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
   
