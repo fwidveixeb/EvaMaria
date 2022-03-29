@@ -1,4 +1,5 @@
 import asyncio
+import base64
 import urllib.parse
 from pyrogram import Client
 import logging
