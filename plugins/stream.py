@@ -75,7 +75,7 @@ async def media_receive_handler(b, m: Message):
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     
-    if log_msg =! 1:
+    if log_msg != 1:
         return await message.reply("send 1 file at a time.")
     
     await log_msg.reply_text(
