@@ -2,8 +2,11 @@ import re
 import asyncio
 import urllib.parse
 import logging
+from typing import Any, Optional
 from urllib.parse import quote_plus
+from Vars import Var
 from pyrogram import filters, Client
+from pyrogram.file_id import FileId
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
 from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, PUBLIC_FILE_STORE
 from database.ia_filterdb import unpack_new_file_id
@@ -38,7 +41,21 @@ async def gen_link_s(bot, message):
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-    await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={outstr}")
+    log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
+    stream_link = f"https://download.hagadmansa.com/{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
+    await message.reply(
+             text="""Here is your Link""",
+             quote=True,
+             parse_mode="markdown",
+             reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('📦 File link', url=f'https://t.me/{temp.U_NAME}?start={outstr}'),
+                        InlineKeyboardButton('📥 Stream link', url=stream_link)
+                    ]
+                ]
+            )
+        )
     
     
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
