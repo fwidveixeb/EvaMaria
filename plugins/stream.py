@@ -71,8 +71,8 @@ def get_file_id(message):
 )
 async def media_receive_handler(b, m: Message):
     log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
-    stream_link = f"https://download.hagadmansa.com/{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
-    short_link = f"https://download.hagadmansa.com/{get_hash(log_msg)}{log_msg.message_id}"
+    stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
+    short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
     
     await log_msg.reply_text(
@@ -82,8 +82,7 @@ async def media_receive_handler(b, m: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Full link', url=stream_link),
-                        InlineKeyboardButton('📦 Short link', url=short_link)
+                        InlineKeyboardButton('📥 Full link', url=short_link)
                     ]
                 ]
             )
@@ -96,8 +95,8 @@ async def media_receive_handler(b, m: Message):
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Full link', url=stream_link),
-                        InlineKeyboardButton('📦 Short link', url=short_link)
+                        InlineKeyboardButton('📥 Stream link', url=short_link),
+                        InlineKeyboardButton('📦 Full link', url=stream_link)
                     ]
                 ]
             )
