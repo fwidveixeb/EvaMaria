@@ -5,4 +5,5 @@ load_dotenv()
 
 class Var(object):
     BIN_CHANNEL = int(environ.get("BIN_CHANNEL", None))
+    URL = f"https://download.hagadmansa.com/"
      
