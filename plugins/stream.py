@@ -83,7 +83,7 @@ async def media_receive_handler(b, m: Message):
                 [
                     [
                         InlineKeyboardButton('📥 Full link', url=stream_link),
-                        InlineKeyboardButton('🤖 Bot link', url=f"https://t.me/{temp.U_NAME}?start={outstr}")
+                        InlineKeyboardButton('📦 Short link', url=short_link)
                     ]
                 ]
             )
@@ -97,7 +97,7 @@ async def media_receive_handler(b, m: Message):
                 [
                     [
                         InlineKeyboardButton('📥 Full link', url=stream_link),
-                        InlineKeyboardButton('🤖 Bot link', url=f"https://t.me/{temp.U_NAME}?start={outstr}")
+                        InlineKeyboardButton('📦 Short link', url=short_link)
                     ]
                 ]
             )
