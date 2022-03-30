@@ -82,21 +82,21 @@ async def media_receive_handler(b, m: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Full link', url=short_link)
+                        InlineKeyboardButton('📥 Stream link', url=short_link),
+                        InlineKeyboardButton('📦 Full link', url=stream_link)
                     ]
                 ]
             )
     )
     
     await m.reply_text(
-        text="""<b>🤓 I generated 2 links for you, but both links work same. Just hold the inline button to copy the link.</b>""",
+        text="""<b>🤓 I generated link for you, just reply the file with /link to generate an extra link.</b>""",
         quote=True,
         parse_mode="html",
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Stream link', url=short_link),
-                        InlineKeyboardButton('📦 Full link', url=stream_link)
+                        InlineKeyboardButton('📥 Stream link', url=short_link)
                     ]
                 ]
             )
