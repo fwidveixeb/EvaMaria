@@ -28,29 +28,6 @@ async def allowed(_, __, message):
         return True
     return False
 
-def get_hash(media_msg: Message) -> str:
-    media = get_media_from_message(media_msg)
-    return getattr(media, "file_unique_id", "")[:6]
-
-def get_name(media_msg: Message) -> str:
-    media = get_media_from_message(media_msg)
-    return getattr(media, "file_name", "")
-
-def get_media_from_message(message: "Message") -> Any:
-    media_types = (
-        "audio",
-        "document",
-        "photo",
-        "sticker",
-        "animation",
-        "video",
-        "voice",
-        "video_note",
-    )
-    for attr in media_types:
-        media = getattr(message, attr, None)
-        if media:
-            return media
 
 @Client.on_message(filters.command(['link', 'plink']) & filters.create(allowed))
 async def gen_link_s(bot, message):
@@ -66,8 +43,6 @@ async def gen_link_s(bot, message):
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-    log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.message_id)
-    stream_link = f"https://download.hagadmansa.com/{log_msg.message_id}/{quote_plus(get_name(message))}?hash={get_hash(log_msg)}"
     await message.reply(
              text="""Here is your Link""",
              quote=True,
@@ -75,8 +50,7 @@ async def gen_link_s(bot, message):
              reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📦 File link', url=f'https://t.me/{temp.U_NAME}?start={outstr}'),
-                        InlineKeyboardButton('📥 Stream link', url=stream_link)
+                        InlineKeyboardButton('📦 File link', url=f'https://t.me/{temp.U_NAME}?start={outstr}')
                     ]
                 ]
             )
