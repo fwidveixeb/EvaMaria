@@ -36,6 +36,22 @@ def get_name(media_msg: Message) -> str:
     media = get_media_from_message(media_msg)
     return getattr(media, "file_name", "")
 
+def get_media_from_message(message: "Message") -> Any:
+    media_types = (
+        "audio",
+        "document",
+        "photo",
+        "sticker",
+        "animation",
+        "video",
+        "voice",
+        "video_note",
+    )
+    for attr in media_types:
+        media = getattr(message, attr, None)
+        if media:
+            return media
+
 @Client.on_message(filters.command(['link', 'plink']) & filters.create(allowed))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
