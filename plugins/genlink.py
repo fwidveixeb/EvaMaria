@@ -44,7 +44,7 @@ async def gen_link_s(bot, message):
     await message.reply(
              text="""<b>😎 I generated one more link for you, no need to say thank you.</b>""",
              quote=True,
-             parse_mode="markdownhtml",
+             parse_mode="html",
              reply_markup=InlineKeyboardMarkup(
                 [
                     [
