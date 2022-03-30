@@ -70,9 +70,12 @@ async def media_receive_handler(b, m: Message):
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
+    file_id = {log_msg.file_id}
+    string = file_id
+    outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     
     await log_msg.reply_text(
-            text=f"User: **{m.from_user.mention(style='md')}**. Track: **#u{m.chat.id}**. File: **#{get_hash(log_msg)}{log_msg.message_id}**",
+            text=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** File: **#{get_hash(log_msg)}{log_msg.message_id}**",
             quote=True,
             parse_mode="markdown",
             reply_markup=InlineKeyboardMarkup(
@@ -92,7 +95,8 @@ async def media_receive_handler(b, m: Message):
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Stream link', url=short_link)
+                        InlineKeyboardButton('📥 Stream link', url=short_link),
+                        InlineKeyboardButton('New Link', url=f'https://t.me/{temp.U_NAME}?start={outstr})
                     ]
                 ]
             )
