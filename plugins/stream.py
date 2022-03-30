@@ -70,10 +70,6 @@ async def media_receive_handler(b, m: Message):
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
-    file_id = get_file_id(m)
-    string = 'filep_' if m.text.lower().strip() == "/plink" else 'file_'
-    string += file_id
-    outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     
     await log_msg.reply_text(
             text=f"😎 Hello Himanshu, i generated 2 links for **{m.from_user.mention(style='md')}**. You can view **{m.from_user.mention(style='md')}'s** all generated links with **#u{m.chat.id}**.",
@@ -96,8 +92,7 @@ async def media_receive_handler(b, m: Message):
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Stream link', url=short_link),
-                        InlineKeyboardButton('New link', url=f'https://t.me/hagadmansarobot?start={outstr}')
+                        InlineKeyboardButton('📥 Stream link', url=short_link)
                     ]
                 ]
             )
