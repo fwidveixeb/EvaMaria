@@ -72,7 +72,7 @@ async def media_receive_handler(b, m: Message):
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
     
     await log_msg.reply_text(
-            text=f"😎 Hello Himanshu, i generated 2 links for **{m.from_user.mention(style='md')}**. You can view **{m.from_user.mention(style='md')}'s** all generated links with **#u{m.chat.id}**.",
+            text=f"User: **{m.from_user.mention(style='md')}**. Track: **#u{m.chat.id}**. File: **#{get_hash(log_msg)}{log_msg.message_id}**",
             quote=True,
             parse_mode="markdown",
             reply_markup=InlineKeyboardMarkup(
