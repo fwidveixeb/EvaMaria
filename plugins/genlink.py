@@ -41,8 +41,8 @@ async def gen_link_s(bot, message):
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-    log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
-    stream_link = f"https://download.hagadmansa.com/{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
+    log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.message_id)
+    stream_link = f"https://download.hagadmansa.com/{log_msg.message_id}/{quote_plus(get_name(message))}?hash={get_hash(log_msg)}"
     await message.reply(
              text="""Here is your Link""",
              quote=True,
