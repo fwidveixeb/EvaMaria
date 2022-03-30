@@ -51,9 +51,9 @@ def get_media_from_message(message: "Message") -> Any:
         if media:
             return media
      
-def get_file_id(message):
-    media=message.document or message.audio or message.video or message.photo
-    return media.file_id
+def media(message):
+    media=message.document or message.audio or message.video
+    return media
 
 @Client.on_message(
     filters.private
@@ -65,6 +65,9 @@ def get_file_id(message):
     group=4,
 )
 async def media_receive_handler(b, m: Message):
+    file_type = media
+    if file_type not in ["video", 'audio', 'document']:
+        return await message.reply("Reply to a supported media")
     log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
