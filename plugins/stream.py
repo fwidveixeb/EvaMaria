@@ -74,7 +74,13 @@ async def media_receive_handler(b, m: Message):
     stream_link = f"https://download.hagadmansa.com/{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
     short_link = f"https://download.hagadmansa.com/{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
-  
+    replied = message.reply_to_message
+    file_type = replied.media
+    file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
+    string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
+    string += file_id
+    outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
+    
     await log_msg.reply_text(
             text=f"😎 Hello Himanshu, i generated 2 links for **{m.from_user.mention(style='md')}**. You can view **{m.from_user.mention(style='md')}'s** all generated links with **#u{m.chat.id}**.",
             quote=True,
@@ -83,7 +89,7 @@ async def media_receive_handler(b, m: Message):
                 [
                     [
                         InlineKeyboardButton('📥 Full link', url=stream_link),
-                        InlineKeyboardButton('📦 Short link', url=short_link)
+                        InlineKeyboardButton('📦 Short link', url=f'https://t.me/{temp.U_NAME}?start={outstr}')
                     ]
                 ]
             )
@@ -97,7 +103,7 @@ async def media_receive_handler(b, m: Message):
                 [
                     [
                         InlineKeyboardButton('📥 Full link', url=stream_link),
-                        InlineKeyboardButton('📦 Short link', url=short_link)
+                        InlineKeyboardButton('📦 Short link', url=f'https://t.me/{temp.U_NAME}?start={outstr}')
                     ]
                 ]
             )
