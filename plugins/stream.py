@@ -61,11 +61,6 @@ def get_file_id(message):
         filters.document
         | filters.video
         | filters.audio
-        | filters.animation
-        | filters.voice
-        | filters.video_note
-        | filters.photo
-        | filters.sticker
     ),
     group=4,
 )
