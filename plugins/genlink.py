@@ -2,7 +2,7 @@ import re
 import asyncio
 import urllib.parse
 import logging
-from pyrogram.types import Message
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from typing import Any, Optional
 from urllib.parse import quote_plus
 from Vars import Var
