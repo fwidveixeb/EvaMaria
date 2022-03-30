@@ -67,7 +67,7 @@ def media(message):
 async def media_receive_handler(b, m: Message):
     file_type = media
     if file_type not in ["video", 'audio', 'document']:
-        return await message.reply("Reply to a supported media")
+        return await m.reply("Send a document")
     log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
