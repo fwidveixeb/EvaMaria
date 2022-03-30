@@ -72,7 +72,7 @@ async def media_receive_handler(b, m: Message):
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
     file_id = get_file_id(log_msg)
-    string = file_id
+    string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     
     await log_msg.reply_text(
