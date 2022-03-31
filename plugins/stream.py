@@ -57,7 +57,7 @@ async def banned_users(_, client, m: Message):
         m.from_user is not None or not m.sender_chat
     ) and m.from_user.id in temp.BANNED_USERS
 
-banned_user = filters.create(banned_users)
+BANNED_USERS = filters.create(banned_users)
 
      
 def get_file_id(message):
