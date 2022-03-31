@@ -56,6 +56,11 @@ def get_file_id(message):
     media=message.document or message.audio or message.video
     return media.file_id
 
+async def banned_users(_, client, message: Message):
+    return (
+        message.from_user is not None or not message.sender_chat
+    ) and message.from_user.id in temp.BANNED_USERS
+
 banned_user = filters.create(banned_users)
 
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
