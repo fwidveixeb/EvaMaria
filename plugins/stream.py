@@ -93,7 +93,8 @@ async def media_receive_handler(b, m: Message):
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Stream link', url=short_link)
+                        InlineKeyboardButton('📥 Stream link', url=short_link),
+                        InlineKeyboardButton('📡 Share URL', url=f'https://t.me/share/url?url={short_link}')
                     ]
                 ]
             )
