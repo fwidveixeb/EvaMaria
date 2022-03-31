@@ -7,6 +7,7 @@ from typing import Any, Optional
 from pyrogram import filters
 from Vars import Var
 from utils import temp
+from banned import BANNED_USERS
 from pyrogram.file_id import FileId
 from urllib.parse import quote_plus
 from database.ia_filterdb import unpack_new_file_id
@@ -64,7 +65,7 @@ def get_file_id(message):
     media=message.document or message.audio or message.video
     return media.file_id
 
-@Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & banned_users(_, m), group=4,)
+@Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & filters.user(BANNED_USERS), group=4,)
 async def media_receive_handler(b, m: Message):
     log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
