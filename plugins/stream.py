@@ -51,21 +51,20 @@ def get_media_from_message(message: "Message") -> Any:
         media = getattr(message, attr, None)
         if media:
             return media
+        
+async def banned_users(_, client, message: Message):
+    return (
+        message.from_user is not None or not message.sender_chat
+    ) and message.from_user.id in temp.BANNED_USERS
+
+banned_user = filters.create(banned_users)
+
      
 def get_file_id(message):
     media=message.document or message.audio or message.video
     return media.file_id
 
-@Client.on_message(
-    filters.private
-    & (
-        filters.document
-        | filters.video
-        | filters.audio
-    ),
-    group=4,
-)
-
+@Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & banned_users, group=4,)
 async def media_receive_handler(b, m: Message):
     log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
