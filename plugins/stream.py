@@ -56,6 +56,8 @@ def get_file_id(message):
     media=message.document or message.audio or message.video
     return media.file_id
 
+banned_user = filters.create(banned_users)
+
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
     log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
