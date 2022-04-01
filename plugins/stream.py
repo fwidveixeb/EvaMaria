@@ -63,8 +63,15 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
+BANNED=int(Config.BANNED_ID)
+
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
+    
+    if message.from_user.id = BANNED:
+        await message.reply_text("Who the hell are you!!")
+        return
+    
     banned_user = filters.create(banned_users)
     log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
