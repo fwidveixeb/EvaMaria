@@ -68,7 +68,7 @@ BANNED=int(Config.BANNED_ID)
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
     
-    if message.from_user.id = BANNED:
+    if message.from_user.id != BANNED:
         await message.reply_text("Who the hell are you!!")
         return
     
