@@ -3,7 +3,6 @@ import base64
 import urllib.parse
 from pyrogram import Client
 import logging
-from Var import Config
 from typing import Any, Optional
 from pyrogram import filters
 from Vars import Var
@@ -64,7 +63,7 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
-BANNED=int(Config.BANNED_ID)
+BANNED=int(Var.BANNED_ID)
 
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
