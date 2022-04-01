@@ -3,7 +3,7 @@ import base64
 import urllib.parse
 from pyrogram import Client
 import logging
-from config import Config
+from Vars import Config
 from typing import Any, Optional
 from pyrogram import filters
 from Vars import Var
