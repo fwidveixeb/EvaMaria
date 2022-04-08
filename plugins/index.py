@@ -207,6 +207,13 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=NEW_HELP_HOME_BUTTONS
         )
+    elif query.data == "close":
+        await query.message.delete()
+        try:
+            await query.message.reply_to_message.delete()
+        except:
+            pass
+        )
     elif update.data == "file_stream":
         await update.message.edit_text(
             text=FILE_STREAM_TEXT,
@@ -292,5 +299,5 @@ async def start(client, message):
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
             InlineKeyboardButton('⚠️ Warning', callback_data='warning'),
-            InlineKeyboardButton('🔐 Close', callback_data='close_data'),
+            InlineKeyboardButton('🔐 Close', callback_data='close'),
          ]]))
