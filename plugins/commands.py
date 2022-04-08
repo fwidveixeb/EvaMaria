@@ -511,7 +511,7 @@ async def save_template(client, message):
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
   
-NEW_HELP_TEXT = """Hello"""
+NEW_HELP_TXT = """Hello"""
 
 @Client.on_callback_query()
 async def cb_data(bot, update):
