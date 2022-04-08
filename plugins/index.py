@@ -283,7 +283,7 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
 async def start(client, message):
         await message.reply_photo(
         photo=random.choice(PICS),
-        caption=(NEW_HELP_TEXT.format(update.from_user.mention)),
+        caption=(NEW_HELP_TEXT).format(update.from_user.mention),
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
