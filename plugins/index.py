@@ -291,5 +291,6 @@ async def start(client, message):
             InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
-            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
-        ]]))
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning'),
+            InlineKeyboardButton('🔐 Close', callback_data='close_data'),
+         ]]))
