@@ -294,16 +294,3 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
-
-@Client.on_message(filters.command("about"))
-async def start(client, message):
-        await message.reply_photo(
-        photo=random.choice(PICS),
-        caption=(NEW_ABOUT_TEXT.format(message.from_user.mention)),
-        reply_markup=InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
-            InlineKeyboardButton('❤️ Source', callback_data='source'),
-            ],[
-            InlineKeyboardButton('💰 Donate', callback_data='donate')
-        ]]))
