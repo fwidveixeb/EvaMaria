@@ -185,9 +185,9 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
         else:
             await msg.edit(f'Succesfully saved <code>{total_files}</code> to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>')
             
-NEW_HELP_TEXT = """<b>👋 Hello {}, I am a simple File Store and File Stream Bot. Send /help to know my commands.</b>"""
+NEW_HELP_TEXT = """<b>🧩 Here is the help of my commands. Send /about to know my commands.</b>"""
 
-NEW_HELP_HOME = """<b>👋 Hello {}, I am a simple File Store and File Stream Bot. Send /help to know my commands.</b>"""
+NEW_HELP_HOME = """<b>🧩 Here is the help of my commands. Send /about to know my commands.</b>"""
 
 FILE_STREAM_TEXT = """This is file stream text."""
 
@@ -203,7 +203,7 @@ WARNING_TEXT = """This is warning text."""
 async def cb_data(bot, update):
     if update.data == "new_help_home":
         await update.message.edit_text(
-            text=NEW_HELP_HOME.format(update.from_user.mention),
+            text=NEW_HELP_HOME=,
             disable_web_page_preview=True,
             reply_markup=NEW_HELP_HOME_BUTTONS
         )
@@ -283,7 +283,7 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
 async def start(client, message):
         await message.reply_photo(
         photo=random.choice(PICS),
-        caption=(NEW_HELP_TEXT).format(update.from_user.mention),
+        caption=(NEW_HELP_TEXT),
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
