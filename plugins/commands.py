@@ -609,9 +609,8 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
     )
 @Client.on_message(filters.command("help"))
 async def start(client, message):
-        await message.reply_photo(
-        caption=(NEW_HELP_TEXT),
-        photo=random.choice(PICS),
+        await message.reply(
+        text=(NEW_HELP_TEXT),
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
