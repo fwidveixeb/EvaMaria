@@ -142,7 +142,14 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=DONATE_BUTTONS
         )
-        
+NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
+            InlineKeyboardButton('❤️ Source', callback_data='source'),
+            ],[
+            InlineKeyboardButton('💰 Donate', callback_data='donate')
+        ]]
+   )     
 RATING_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='about')
