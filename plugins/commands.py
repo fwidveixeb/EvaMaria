@@ -539,7 +539,7 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=HOWTOUSEME_BUTTONS
         )
-     elif update.data == "file_store":
+    elif update.data == "file_store":
         await update.message.edit_text(
             text=FILE_STORE,
             disable_web_page_preview=True,
