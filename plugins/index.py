@@ -207,7 +207,7 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=NEW_HELP_HOME_BUTTONS
         )
-    elif query.data == "close":
+    elif update.data == "close":
         await query.message.delete()
         try:
             await query.message.reply_to_message.delete()
