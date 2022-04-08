@@ -534,5 +534,4 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('🔙 Back', callback_data='home'),
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
-        ]]
-    )
+        ]])
