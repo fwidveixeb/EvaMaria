@@ -512,6 +512,14 @@ async def save_template(client, message):
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
   
 NEW_HELP_TEXT = """Hello"""
+
+@Client.on_callback_query()
+async def cb_data(bot, update):
+    if update.data == "new_help_text":
+        await update.message.edit_text(
+            text=NEW_HELP_TEXT,
+            disable_web_page_preview=True,
+        )
     
 @Client.on_message(filters.command("help") & filters.incoming & ~filters.edited)
 async def start(client, message):
