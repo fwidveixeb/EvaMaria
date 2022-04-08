@@ -513,10 +513,17 @@ async def save_template(client, message):
   
 NEW_HELP_TEXT = """Hello This command is under testing."""
 
-NEW_HELP_HOME = """Hello This command is under testing. P"""
+NEW_HELP_HOME = """Hello This command is under testing."""
 
-TUTORIALS_TEXT = """<b>ℹ️ Help</b> > Tutorials
-All tutorials related to Bots, Website, Movies and etc, will be updated here. Till then you can visit my movie website <b>www.hagadmansa.com</b> to watch movies. Don't forget to subscribe my updates channel <b>@hagadmansa</b>."""
+HOWTOUSEME_TEXT = """<b>ℹ️ Help</b> > How To Use Me
+
+<b>💬 In Private Message</b>
+
+I can provide you direct download link of any telegram file/media. If you send me any file/media I will give an external download link, you can use that link to download any file outside telegram. My link is supported in any browser.
+• Send me any file/media from Telegram.
+• I Will provide an external download link for you.
+• All links will be permanent and have the fastest speed."""
+
 
 @Client.on_callback_query()
 async def cb_data(bot, update):
@@ -526,23 +533,37 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=NEW_HELP_HOME_BUTTONS
         )
-    elif update.data == "tutorials":
+    elif update.data == "howtouseme":
         await update.message.edit_text(
-            text=TUTORIALS_TEXT,
+            text=HOWTOUSEME_TEXT,
             disable_web_page_preview=True,
-            reply_markup=TUTORIALS_BUTTONS
+            reply_markup=HOWTOUSEME_BUTTONS
+        )
+     elif update.data == "file_store":
+        await update.message.edit_text(
+            text=FILE_STORE,
+            disable_web_page_preview=True,
+            reply_markup=FILE_STORE_BUTTONS
         )
 
 NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('❓ How to use me', callback_data='howtouseme')
             ],[
+            InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
+            InlineKeyboardButton('📦 File Store', callback_data='file_store'),
+            ],[
             InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home'),
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
         ]])
+
+HOWTOUSEME_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
+            ]]
+    )
 
 @Client.on_message(filters.command("help") & filters.incoming & ~filters.edited)
 async def start(client, message):
@@ -552,9 +573,11 @@ async def start(client, message):
         [[
             InlineKeyboardButton('❓ How to use me', callback_data='howtouseme')
             ],[
+            InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
+            InlineKeyboardButton('📦 File Store', callback_data='file_store'),
+            ],[
             InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home'),
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
         ]]))
