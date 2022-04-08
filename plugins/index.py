@@ -199,14 +199,6 @@ TUTORIALS_TEXT = """This is tutorials text."""
 
 WARNING_TEXT = """This is warning text."""
 
-NEW_ABOUT_TEXT = """Hello This command is under testing."""
-
-RATING_TEXT = """This is rating text."""
-
-SOURCE_TEXT = """This is source text."""
-
-DONATE_TEXT = """This is donate text."""
-
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_help_home":
@@ -244,24 +236,6 @@ async def cb_data(bot, update):
             text=WARNING_TEXT,
             disable_web_page_preview=True,
             reply_markup=WARNING_BUTTONS
-        )
-    elif update.data == "rating":
-        await update.message.edit_text(
-            text=RATING_TEXT,
-            disable_web_page_preview=True,
-            reply_markup=RATING_BUTTONS
-        )
-    elif update.data == "source":
-        await update.message.edit_text(
-            text=SOURCE_TEXT,
-            disable_web_page_preview=True,
-            reply_markup=SOURCE_BUTTONS
-        )
-    elif update.data == "donate":
-        await update.message.edit_text(
-            text=DONATE_TEXT,
-            disable_web_page_preview=True,
-            reply_markup=DONATE_BUTTONS
         )
         
 NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
@@ -302,21 +276,6 @@ TUTORIALS_BUTTONS = InlineKeyboardMarkup(
 WARNING_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
-            ]]
-    )
-RATING_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='about')
-            ]]
-    )
-SOURCE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='about')
-            ]]
-    )
-DONATE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='about')
             ]]
     )
 
