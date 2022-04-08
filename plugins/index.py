@@ -200,7 +200,7 @@ TUTORIALS_TEXT = """This is tutorials text."""
 WARNING_TEXT = """This is warning text."""
 
 @Client.on_callback_query()
-async def cb_handler(client: Bot, query: CallbackQuery):
+async def cb_handler(bot, update):
     if update.data == "close":
         await update.message.delete()
         try:
