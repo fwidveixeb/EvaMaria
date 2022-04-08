@@ -604,7 +604,7 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
             ]]
     )
-@Client.on_message(filters.command("help") & filters.incoming & ~filters.edited)
+@Client.on_message(filters.command("help"))
 async def start(client, message):
         await message.reply_photo(
         caption=(NEW_HELP_TEXT),
