@@ -1,7 +1,5 @@
 class script(object):
-    START_TXT = """👋 Hello {},
-
-🐥 Send /help to know my commands."""
+    START_TXT = """<b>👋 Hello {}, I am a simple File Store and File Stream Bot. Send /help to know my commands.</b>"""
     
     HELP_TXT = """👋 Hey {}
 Here is the help for my commands"""
