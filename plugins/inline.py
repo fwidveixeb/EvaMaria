@@ -152,17 +152,17 @@ NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
    )     
 RATING_BUTTONS = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('🔙 Back', callback_data='about')
+            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
             ]]
     )
 SOURCE_BUTTONS = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('🔙 Back', callback_data='about')
+            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
             ]]
     )
 DONATE_BUTTONS = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('🔙 Back', callback_data='about')
+            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
             ]]
     )
 
