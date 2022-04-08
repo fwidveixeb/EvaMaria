@@ -141,7 +141,7 @@ async def advantage_spoll_choker(bot, query):
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
-    elif data == "close_data":
+    if data == "close_data":
         await query.message.delete()
         try:
             await query.message.reply_to_message.delete()
