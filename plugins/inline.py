@@ -163,7 +163,7 @@ DONATE_BUTTONS = InlineKeyboardMarkup(
 async def start(client, message):
         await message.reply_photo(
         photo=random.choice(PICS),
-        caption=(NEW_ABOUT_TEXT.format(message.from_user.mention)),
+        caption=(NEW_ABOUT_TEXT),
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
