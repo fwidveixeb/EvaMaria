@@ -44,7 +44,10 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
             InlineKeyboardButton('📣 Updates', url='https://t.me/hagadmansa')
-            ]]
+            ],[
+            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
+            InlineKeyboardButton('😊 About', callback_data='about')
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
