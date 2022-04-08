@@ -201,7 +201,7 @@ WARNING_TEXT = """This is warning text."""
 
 @Client.on_callback_query()
 async def cb_handler(client, query):
-    elif data == "close":
+    if data == "close":
         await query.message.delete()
         try:
             await query.message.reply_to_message.delete()
