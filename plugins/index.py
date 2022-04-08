@@ -253,31 +253,31 @@ FILE_STREAM_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
             ]]
-    )
+        )
 
 FILE_STORE_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
             ]]
-    )
+        )
 
 INSTRUCTIONS_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
             ]]
-    )
+        )
 
 TUTORIALS_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
             ]]
-    )
+        )
 
 WARNING_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
             ]]
-    )
+        )
 
 @Client.on_message(filters.command("help"))
 async def start(client, message):
