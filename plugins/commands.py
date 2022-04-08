@@ -510,4 +510,20 @@ async def save_template(client, message):
     template = message.text.split(" ", 1)[1]
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
-
+  
+NEW_HELP_TEXT = """Hello"""
+    
+@Client.on_message(filters.command("help") & filters.incoming & ~filters.edited)
+async def start(client, message):
+        await message.reply(script.NEW_HELP_TXT),
+        reply_markup=InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('❓ How to use me', callback_data='howtouseme')
+            ],[
+            InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
+            InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
+            ],[
+            InlineKeyboardButton('🔙 Back', callback_data='home'),
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+        ]]
+    )
