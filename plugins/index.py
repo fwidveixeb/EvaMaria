@@ -185,9 +185,9 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
         else:
             await msg.edit(f'Succesfully saved <code>{total_files}</code> to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>')
             
-NEW_HELP_TEXT = """Hello This command is under testing."""
+NEW_HELP_TEXT = """<b>👋 Hello {}, I am a simple File Store and File Stream Bot. Send /help to know my commands.</b>"""
 
-NEW_HELP_HOME = """Hello This command is under testing."""
+NEW_HELP_HOME = """<b>👋 Hello {}, I am a simple File Store and File Stream Bot. Send /help to know my commands.</b>"""
 
 FILE_STREAM_TEXT = """This is file stream text."""
 
@@ -199,11 +199,19 @@ TUTORIALS_TEXT = """This is tutorials text."""
 
 WARNING_TEXT = """This is warning text."""
 
+NEW_ABOUT_TEXT = """Hello This command is under testing."""
+
+RATING_TEXT = """This is rating text."""
+
+SOURCE_TEXT = """This is source text."""
+
+DONATE_TEXT = """This is donate text."""
+
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_help_home":
         await update.message.edit_text(
-            text=NEW_HELP_HOME,
+            text=NEW_HELP_HOME.format(message.from_user.mention),
             disable_web_page_preview=True,
             reply_markup=NEW_HELP_HOME_BUTTONS
         )
@@ -236,6 +244,24 @@ async def cb_data(bot, update):
             text=WARNING_TEXT,
             disable_web_page_preview=True,
             reply_markup=WARNING_BUTTONS
+        )
+    elif update.data == "rating":
+        await update.message.edit_text(
+            text=RATING_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=RATING_BUTTONS
+        )
+    elif update.data == "source":
+        await update.message.edit_text(
+            text=SOURCE_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=SOURCE_BUTTONS
+        )
+    elif update.data == "donate":
+        await update.message.edit_text(
+            text=DONATE_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=DONATE_BUTTONS
         )
         
 NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
@@ -278,6 +304,22 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
             ]]
     )
+RATING_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='about')
+            ]]
+    )
+SOURCE_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='about')
+            ]]
+    )
+DONATE_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='about')
+            ]]
+    )
+
 @Client.on_message(filters.command("help"))
 async def start(client, message):
         await message.reply_photo(
@@ -293,3 +335,16 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
+
+@Client.on_message(filters.command("about"))
+async def start(client, message):
+        await message.reply_photo(
+        photo=random.choice(PICS),
+        caption=(NEW_ABOUT_TEXT.format(message.from_user.mention)),
+        reply_markup=InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
+            InlineKeyboardButton('❤️ Source', callback_data='source'),
+            ],[
+            InlineKeyboardButton('💰 Donate', callback_data='donate')
+        ]]))
