@@ -119,7 +119,7 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("okDa", show_alert=True)
+        return await query.answer("Okie", show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
@@ -141,8 +141,12 @@ async def advantage_spoll_choker(bot, query):
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
-    if query.data == "close_data":
+    elif data == "close_data":
         await query.message.delete()
+        try:
+            await query.message.reply_to_message.delete()
+        except:
+            pass
     elif query.data == "delallconfirm":
         userid = query.from_user.id
         chat_type = query.message.chat.type
