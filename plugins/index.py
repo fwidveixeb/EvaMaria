@@ -213,7 +213,6 @@ async def cb_data(bot, update):
             await query.message.reply_to_message.delete()
         except:
             pass
-        )
     elif update.data == "file_stream":
         await update.message.edit_text(
             text=FILE_STREAM_TEXT,
