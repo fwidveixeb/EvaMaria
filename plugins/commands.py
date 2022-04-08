@@ -513,4 +513,18 @@ async def save_template(client, message):
     template = message.text.split(" ", 1)[1]
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
-  
+    
+@Client.on_message(filters.command("help"))
+async def start(client, message):
+        await message.reply(
+        text="""hellhuygyhttyuvtkuytuytuut""",
+        reply_markup=InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
+            InlineKeyboardButton('📦 File Store', callback_data='file_store'),
+            ],[
+            InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
+            InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
+            ],[
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+        ]]))
