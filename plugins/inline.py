@@ -149,22 +149,22 @@ NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
             ],[
             InlineKeyboardButton('💰 Donate', callback_data='donate')
         ]]
-   )     
+       )     
 RATING_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
             ]]
-    )
+        )
 SOURCE_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
             ]]
-    )
+        )
 DONATE_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
             ]]
-    )
+        )
 
 @Client.on_message(filters.command("about"))
 async def start(client, message):
