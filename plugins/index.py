@@ -200,6 +200,15 @@ TUTORIALS_TEXT = """This is tutorials text."""
 WARNING_TEXT = """This is warning text."""
 
 @Client.on_callback_query()
+async def cb_handler(client: Bot, query: CallbackQuery):
+    if update.data == "close":
+        await update.message.delete()
+        try:
+            await update.message.reply_to_message.delete()
+        except:
+            pass
+
+@Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_help_home":
         await update.message.edit_text(
@@ -207,12 +216,6 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=NEW_HELP_HOME_BUTTONS
         )
-    elif update.data == "close":
-        await query.message.delete()
-        try:
-            await query.message.reply_to_message.delete()
-        except:
-            pass
     elif update.data == "file_stream":
         await update.message.edit_text(
             text=FILE_STREAM_TEXT,
