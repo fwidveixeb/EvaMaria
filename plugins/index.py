@@ -203,7 +203,7 @@ WARNING_TEXT = """This is warning text."""
 async def cb_data(bot, update):
     if update.data == "new_help_home":
         await update.message.edit_text(
-            text=NEW_HELP_HOME.format(message.from_user.mention),
+            text=NEW_HELP_HOME.format(update.from_user.mention),
             disable_web_page_preview=True,
             reply_markup=NEW_HELP_HOME_BUTTONS
         )
@@ -283,7 +283,7 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
 async def start(client, message):
         await message.reply_photo(
         photo=random.choice(PICS),
-        caption=(NEW_HELP_TEXT),
+        caption=(NEW_HELP_TEXT.format(update.from_user.mention)),
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
