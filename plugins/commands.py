@@ -515,7 +515,7 @@ NEW_HELP_TEXT = """Hello"""
     
 @Client.on_message(filters.command("help") & filters.incoming & ~filters.edited)
 async def start(client, message):
-        await message.reply(script.NEW_HELP_TXT),
+        await message.reply(NEW_HELP_TXT),
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('❓ How to use me', callback_data='howtouseme')
