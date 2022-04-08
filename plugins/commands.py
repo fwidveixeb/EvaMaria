@@ -523,7 +523,8 @@ async def cb_data(bot, update):
     
 @Client.on_message(filters.command("help") & filters.incoming & ~filters.edited)
 async def start(client, message):
-        await message.reply(NEW_HELP_TXT),
+        await message.reply(
+        text="""Hello thank you""",
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('❓ How to use me', callback_data='howtouseme')
