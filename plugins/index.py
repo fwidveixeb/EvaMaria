@@ -183,3 +183,18 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
             await msg.edit(f'Error: {e}')
         else:
             await msg.edit(f'Succesfully saved <code>{total_files}</code> to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>')
+
+@Client.on_message(filters.command("help"))
+async def start(client, message):
+        await message.reply(
+        text=(NEW_HELP_TEXT),
+        reply_markup=InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
+            InlineKeyboardButton('📦 File Store', callback_data='file_store'),
+            ],[
+            InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
+            InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
+            ],[
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+        ]]))
