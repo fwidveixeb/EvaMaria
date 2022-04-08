@@ -511,18 +511,20 @@ async def save_template(client, message):
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
   
-NEW_HELP_TXT = """Hello"""
+NEW_HELP_TEXT = """Hello This command is under testing."""
+
+NEW_HELP_HOME = """Hello This command is under testing. P"""
 
 TUTORIALS_TEXT = """<b>ℹ️ Help</b> > Tutorials
 All tutorials related to Bots, Website, Movies and etc, will be updated here. Till then you can visit my movie website <b>www.hagadmansa.com</b> to watch movies. Don't forget to subscribe my updates channel <b>@hagadmansa</b>."""
 
 @Client.on_callback_query()
 async def cb_data(bot, update):
-    if update.data == "new_help_text":
+    if update.data == "new_help_home":
         await update.message.edit_text(
-            text=NEW_HELP_TEXT,
+            text=NEW_HELP_HOME,
             disable_web_page_preview=True,
-            reply_markup=NEW_HELP_TEXT_BUTTONS
+            reply_markup=NEW_HELP_HOME_BUTTONS
         )
     elif update.data == "tutorials":
         await update.message.edit_text(
@@ -530,11 +532,22 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=TUTORIALS_BUTTONS
         )
-    
+
+NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('❓ How to use me', callback_data='howtouseme')
+            ],[
+            InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
+            InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
+            ],[
+            InlineKeyboardButton('🔙 Back', callback_data='new_help_home'),
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+        ]])
+
 @Client.on_message(filters.command("help") & filters.incoming & ~filters.edited)
 async def start(client, message):
         await message.reply(
-        text=(TUTORIALS_TEXT),
+        text=(NEW_HELP_TEXT),
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('❓ How to use me', callback_data='howtouseme')
@@ -542,6 +555,6 @@ async def start(client, message):
             InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
-            InlineKeyboardButton('🔙 Back', callback_data='home'),
+            InlineKeyboardButton('🔙 Back', callback_data='new_help_home'),
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
         ]]))
