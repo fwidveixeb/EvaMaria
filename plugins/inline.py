@@ -1,10 +1,11 @@
 import logging
+import random
 from pyrogram import Client, emoji, filters
 from pyrogram.errors.exceptions.bad_request_400 import QueryIdInvalid
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument, InlineQuery
 from database.ia_filterdb import get_search_results
 from utils import is_subscribed, get_size, temp
-from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
+from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, PICS
 
 logger = logging.getLogger(__name__)
 cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
@@ -105,6 +106,68 @@ def get_reply_markup(query):
         ]
     return InlineKeyboardMarkup(buttons)
 
+NEW_ABOUT_TEXT = """Hello This command is under testing."""
 
+NEW_ABOUT_HOME = """Hello This command is under testing."""
 
+RATING_TEXT = """This is rating text."""
 
+SOURCE_TEXT = """This is source text."""
+
+DONATE_TEXT = """This is donate text."""
+
+@Client.on_callback_query()
+async def cb_data(bot, update):
+    if update.data == "new_about_home":
+        await update.message.edit_text(
+            text=NEW_ABOUT_HOME,
+            disable_web_page_preview=True,
+            reply_markup=NEW_ABOUT_HOME_BUTTONS
+        )
+    elif update.data == "rating":
+        await update.message.edit_text(
+            text=RATING_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=RATING_BUTTONS
+        )
+    elif update.data == "source":
+        await update.message.edit_text(
+            text=SOURCE_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=SOURCE_BUTTONS
+        )
+    elif update.data == "donate":
+        await update.message.edit_text(
+            text=DONATE_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=DONATE_BUTTONS
+        )
+        
+RATING_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='about')
+            ]]
+    )
+SOURCE_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='about')
+            ]]
+    )
+DONATE_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='about')
+            ]]
+    )
+
+@Client.on_message(filters.command("about"))
+async def start(client, message):
+        await message.reply_photo(
+        photo=random.choice(PICS),
+        caption=(NEW_ABOUT_TEXT.format(message.from_user.mention)),
+        reply_markup=InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
+            InlineKeyboardButton('❤️ Source', callback_data='source'),
+            ],[
+            InlineKeyboardButton('💰 Donate', callback_data='donate')
+        ]]))
