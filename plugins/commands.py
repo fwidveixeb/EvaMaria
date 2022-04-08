@@ -513,18 +513,28 @@ async def save_template(client, message):
   
 NEW_HELP_TXT = """Hello"""
 
+TUTORIALS_TEXT = """<b>ℹ️ Help</b> > Tutorials
+All tutorials related to Bots, Website, Movies and etc, will be updated here. Till then you can visit my movie website <b>www.hagadmansa.com</b> to watch movies. Don't forget to subscribe my updates channel <b>@hagadmansa</b>."""
+
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_help_text":
         await update.message.edit_text(
             text=NEW_HELP_TEXT,
             disable_web_page_preview=True,
+            reply_markup=NEW_HELP_TEXT_BUTTONS
+        )
+    elif update.data == "tutorials":
+        await update.message.edit_text(
+            text=TUTORIALS_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=TUTORIALS_BUTTONS
         )
     
 @Client.on_message(filters.command("help") & filters.incoming & ~filters.edited)
 async def start(client, message):
         await message.reply(
-        text="""Hello thank you""",
+        text=(TUTORIALS_TEXT),
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('❓ How to use me', callback_data='howtouseme')
