@@ -111,12 +111,6 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=DONATE_BUTTONS
         )
-     elif update.data == "new_help_home":
-        await update.message.edit_text(
-            text=NEW_HELP_HOME,
-            disable_web_page_preview=True,
-            reply_markup=NEW_HELP_HOME_BUTTONS
-        )
     elif update.data == "file_stream":
         await update.message.edit_text(
             text=FILE_STREAM_TEXT,
