@@ -80,7 +80,7 @@ async def media_receive_handler(b, m: Message):
                 [
                     [
                         InlineKeyboardButton('📥 Stream link', url=short_link),
-                        InlineKeyboardButton('📦 Full link', url=stream_link)
+                        InlineKeyboardButton('📦 Full link', callback_data='close')
                     ]
                 ]
             )
