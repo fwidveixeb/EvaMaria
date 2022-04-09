@@ -94,7 +94,7 @@ async def media_receive_handler(b, m: Message):
                 [
                     [
                         InlineKeyboardButton('📥 Stream link', url=short_link),
-                        InlineKeyboardButton('📡 Share URL', callback_data='close')
+                        InlineKeyboardButton('📡 Share URL', url=f'https://t.me/share/url?url={short_link}')
                     ]
                 ]
             )
