@@ -1,8 +1,7 @@
 import os
-import random
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
-from info import IMDB_TEMPLATE, PICS
+from info import IMDB_TEMPLATE
 from utils import extract_user, get_file_id, get_poster, last_online
 import time
 from datetime import datetime
@@ -128,10 +127,10 @@ async def who_is(client, message):
         )
     await status_message.delete()
 
-@Client.on_message(filters.command(["imdb"]))
+@Client.on_message(filters.command(["imdb", 'search']))
 async def imdb_search(client, message):
     if ' ' in message.text:
-        k = await message.reply('Searching on IMDb...')
+        k = await message.reply('Searching ImDB')
         r, title = message.text.split(None, 1)
         movies = await get_poster(title, bulk=True)
         if not movies:
@@ -147,7 +146,7 @@ async def imdb_search(client, message):
         ]
         await k.edit('Here is what i found on IMDb', reply_markup=InlineKeyboardMarkup(btn))
     else:
-        await message.reply('🙅‍♂️ Pass me a value like <code>/imdb Squid Game</code>.')
+        await message.reply('Give me a movie / series Name')
 
 @Client.on_callback_query(filters.regex('^imdb'))
 async def imdb_callback(bot: Client, quer_y: CallbackQuery):
@@ -156,8 +155,8 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     btn = [
             [
                 InlineKeyboardButton(
-                        text=f"📥 {imdb.get ('title')}",
-                        url=f"https://hagadmansa.com/movies/{imdb.get('title')}".replace(' ', '-')
+                    text=f"{imdb.get('title')}",
+                    url=imdb['url'],
                 )
             ]
         ]
@@ -210,4 +209,6 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     else:
         await quer_y.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
     await quer_y.answer()
-     
+        
+
+        
