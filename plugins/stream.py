@@ -75,7 +75,7 @@ async def media_receive_handler(b, m: Message):
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
     
     await log_msg.reply_text(
-            text=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Date Time: **{datetime.datetime.now().strftime("%X")}**",
+            text=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Date Time: **{time.strftime("%I" "%M" "%S")}**",
             quote=True,
             parse_mode="markdown",
             reply_markup=InlineKeyboardMarkup(
