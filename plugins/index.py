@@ -185,9 +185,9 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
         else:
             await msg.edit(f'Succesfully saved <code>{total_files}</code> to dataBase!\nDuplicate Files Skipped: <code>{duplicate}</code>\nDeleted Messages Skipped: <code>{deleted}</code>\nNon-Media messages skipped: <code>{no_media + unsupported}</code>(Unsupported Media - `{unsupported}` )\nErrors Occurred: <code>{errors}</code>')
             
-NEW_HELP_TEXT = """<b>🧩 Here is the help of my commands. Send /about to know my commands.</b>"""
+NEW_HELP_TEXT = """<b>🧩 Here is the help of my commands. Send /about to know about me.</b>"""
 
-NEW_HELP_HOME = """<b>🧩 Here is the help of my commands. Send /about to know my commands.</b>"""
+NEW_HELP_HOME = """<b>🧩 Here is the help of my commands. Send /about to know about me.</b>"""
 
 FILE_STREAM_TEXT = """This is file stream text."""
 
@@ -297,6 +297,5 @@ async def start(client, message):
             InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
-            InlineKeyboardButton('⚠️ Warning', callback_data='warning'),
-            InlineKeyboardButton('🔐 Close', callback_data='close')
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
