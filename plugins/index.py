@@ -237,10 +237,7 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=WARNING_BUTTONS
         )
-    
-@Client.on_callback_query()
-async def cb_handler(bot, update):
-    if data == "close":
+    elif update.data == "close":
         await update.message.delete()
         try:
             await update.message.reply_to_message.delete()
