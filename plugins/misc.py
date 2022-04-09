@@ -227,7 +227,7 @@ NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton('❤️ Source', callback_data='source'),
             ],[
             InlineKeyboardButton('💰 Donate', callback_data='donate')
-        ]]
+            ]]
        )     
 RATING_BUTTONS = InlineKeyboardMarkup(
         [[
