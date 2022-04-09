@@ -133,6 +133,7 @@ async def imdb_search(client, message):
         k = await message.reply('Searching ImDB')
         r, title = message.text.split(None, 1)
         movies = await get_poster(title, bulk=True)
+        imdb = await get_poster(query=movie, id=True)
         spelling = [[
                 InlineKeyboardButton(
                     text="🔡 Check Spelling",
