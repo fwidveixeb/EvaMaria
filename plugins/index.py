@@ -237,6 +237,15 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=WARNING_BUTTONS
         )
+    
+@Client.on_callback_query()
+async def cb_handler(bot, update):
+    if data == "close":
+        await update.message.delete()
+        try:
+            await update.message.reply_to_message.delete()
+        except:
+            pass
         
 NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -292,5 +301,6 @@ async def start(client, message):
             InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
-            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning'),
+            InlineKeyboardButton('🔐 Close', callback_data='close')
          ]]))
