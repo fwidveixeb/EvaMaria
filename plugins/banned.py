@@ -106,7 +106,6 @@ async def cb_data(bot, update):
 
 @Client.on_message(filters.command("about"))
 async def start(client, message):
-    await query.answer('www.hagadmansa.com')
         await message.reply_photo(
         photo=random.choice(PICS),
         caption=(NEW_ABOUT_TEXT),
