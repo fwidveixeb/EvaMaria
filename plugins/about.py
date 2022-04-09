@@ -15,7 +15,7 @@ DONATE_TEXT = """This is donate text."""
 
 NEW_HELP_TEXT = """<b>🧩 Here is the help of my commands. Send /about to know about me.</b>"""
 
-NEW_HELP_HOME = """<b>🧩 Here is the help of my commands. Send /about to know about me.</b>"""
+NEW_HELP_HOME_TEXT = """<b>🧩 Here is the help of my commands. Send /about to know about me.</b>"""
 
 FILE_STREAM_TEXT = """This is file stream text."""
 
@@ -50,6 +50,17 @@ DONATE_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
             ]]
         )
+NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
+            InlineKeyboardButton('📦 File Store', callback_data='file_store'),
+            ],[
+            InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
+            InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
+            ],[
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+            ]]
+         )
 
 FILE_STREAM_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -110,6 +121,13 @@ async def cb_data(bot, update):
             text=DONATE_TEXT,
             disable_web_page_preview=True,
             reply_markup=DONATE_BUTTONS
+        )
+    elif update.data == "new_help_home":
+        await update.answer('www.hagadmansa.com')
+        await update.message.edit_text(
+            text=NEW_HELP_HOME_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=NEW_HELP_HOME_BUTTONS
         )
     elif update.data == "file_stream":
         await update.message.edit_text(
