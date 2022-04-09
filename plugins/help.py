@@ -63,42 +63,36 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_help_home":
-        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=NEW_HELP_HOME,
             disable_web_page_preview=True,
             reply_markup=NEW_HELP_HOME_BUTTONS
         )
     elif update.data == "file_stream":
-        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=FILE_STREAM_TEXT,
             disable_web_page_preview=True,
             reply_markup=FILE_STREAM_BUTTONS
         )
     elif update.data == "file_store":
-        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=FILE_STORE_TEXT,
             disable_web_page_preview=True,
             reply_markup=FILE_STORE_BUTTONS
         )
     elif update.data == "instructions":
-        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=INSTRUCTONS_TEXT,
             disable_web_page_preview=True,
             reply_markup=INSTRUCTIONS_BUTTONS
         )
     elif update.data == "tutorials":
-        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=TUTORIALS_TEXT,
             disable_web_page_preview=True,
             reply_markup=TUTORIALS_BUTTONS
         )
     elif update.data == "warning":
-        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=WARNING_TEXT,
             disable_web_page_preview=True,
