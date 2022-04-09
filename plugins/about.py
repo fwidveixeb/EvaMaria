@@ -1,6 +1,6 @@
 import random
 from info import PICS
-from purogram import filters
+from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 NEW_ABOUT_TEXT = """Hello This command is under testing."""
