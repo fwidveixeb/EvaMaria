@@ -133,13 +133,19 @@ async def imdb_search(client, message):
         k = await message.reply('Searching ImDB')
         r, title = message.text.split(None, 1)
         movies = await get_poster(title, bulk=True)
+        spelling = [
+            [
+                InlineKeyboardButton(
+                    text="🔡 Check Spelling",
+                    url=f"https://google.com/search?q={imdb.get('title')}").replace(' ', '+')
+                )
+            ]
+        ]
         if not movies:
             return await message.reply(
                 text="""🙄 No results found, check spelling on google.""",
-                reply_markup=Inlinekeyboardmarkup(
-                                   [[
-                                    InlineKeyboardButton('🔡 Check Spelling', url='https://google.com/search?q={imdb.get('title')}").replace(' ', '-'))
-                                             ]])
+                reply_markup=Inlinekeyboardmarkup(spelling))
+                  
         btn = [[
                 InlineKeyboardButton(
                     text=f"{movie.get('title')} - {movie.get('year')}",
