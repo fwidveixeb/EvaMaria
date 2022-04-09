@@ -221,6 +221,30 @@ SOURCE_TEXT = """This is source text."""
 
 DONATE_TEXT = """This is donate text."""
 
+NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
+            InlineKeyboardButton('❤️ Source', callback_data='source'),
+            ],[
+            InlineKeyboardButton('💰 Donate', callback_data='donate')
+        ]]
+       )     
+RATING_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
+            ]]
+        )
+SOURCE_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
+            ]]
+        )
+DONATE_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
+            ]]
+        )
+
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_about_home":
@@ -246,29 +270,6 @@ async def cb_data(bot, update):
             text=DONATE_TEXT,
             disable_web_page_preview=True,
             reply_markup=DONATE_BUTTONS
-        )
-NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
-            InlineKeyboardButton('❤️ Source', callback_data='source'),
-            ],[
-            InlineKeyboardButton('💰 Donate', callback_data='donate')
-        ]]
-       )     
-RATING_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
-            ]]
-        )
-SOURCE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
-            ]]
-        )
-DONATE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
-            ]]
         )
 
 @Client.on_message(filters.command("about"))
