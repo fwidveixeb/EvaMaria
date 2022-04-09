@@ -288,8 +288,9 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
 
 @Client.on_message(filters.command("help"))
 async def start(client, message):
-        await message.reply_text(
-        text=(NEW_HELP_TEXT),
+        await message.reply_photo(
+        photo=random.choice(PICS)
+        caption=(NEW_HELP_TEXT),
         quote=True,
         reply_markup=InlineKeyboardMarkup(
         [[
