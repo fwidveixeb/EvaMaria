@@ -17,6 +17,49 @@ TUTORIALS_TEXT = """This is tutorials text."""
 
 WARNING_TEXT = """This is warning text."""
 
+NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
+            InlineKeyboardButton('📦 File Store', callback_data='file_store'),
+            ],[
+            InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
+            InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
+            ],[
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+            ]]
+        )
+
+FILE_STREAM_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
+            ]]
+        )
+
+FILE_STORE_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
+            ]]
+        )
+
+INSTRUCTIONS_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
+            ]]
+        )
+
+TUTORIALS_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
+            ]]
+        )
+
+WARNING_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
+            ]]
+        )
+
+
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_help_home":
@@ -68,48 +111,6 @@ async def cb_data(bot, update):
             await update.message.reply_to_message.delete()
         except:
             pass
-        
-NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
-            InlineKeyboardButton('📦 File Store', callback_data='file_store'),
-            ],[
-            InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
-            InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
-            ],[
-            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
-            ]]
-        )
-
-FILE_STREAM_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
-            ]]
-        )
-
-FILE_STORE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
-            ]]
-        )
-
-INSTRUCTIONS_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
-            ]]
-        )
-
-TUTORIALS_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
-            ]]
-        )
-
-WARNING_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
-            ]]
-        )
 
 @Client.on_message(filters.command("help"))
 async def start(client, message):
