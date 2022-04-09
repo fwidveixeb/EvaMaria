@@ -136,7 +136,7 @@ async def imdb_search(client, message):
         spelling = [[
                 InlineKeyboardButton(
                     text="🔡 Check Spelling",
-                    url=f"https://google.com/search?q={imdb.get('title')}").replace(' ', '+'),)
+                    url=f"https://google.com/search?q={imdb.get('title')}").replace(' ', '+'),]
                    ]]
          
         if not movies:
