@@ -253,6 +253,7 @@ NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+            ]]
         )
 
 FILE_STREAM_BUTTONS = InlineKeyboardMarkup(
