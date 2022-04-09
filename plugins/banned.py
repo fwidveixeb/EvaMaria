@@ -76,28 +76,28 @@ DONATE_BUTTONS = InlineKeyboardMarkup(
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_about_home":
-        await query.answer('www.hagadmansa.com')
+        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=NEW_ABOUT_HOME,
             disable_web_page_preview=True,
             reply_markup=NEW_ABOUT_HOME_BUTTONS
         )
     elif update.data == "rating":
-        await query.answer('www.hagadmansa.com')
+        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=RATING_TEXT,
             disable_web_page_preview=True,
             reply_markup=RATING_BUTTONS
         )
     elif update.data == "source":
-        await query.answer('www.hagadmansa.com')
+        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=SOURCE_TEXT,
             disable_web_page_preview=True,
             reply_markup=SOURCE_BUTTONS
         )
     elif update.data == "donate":
-        await query.answer('www.hagadmansa.com')
+        await update.answer('www.hagadmansa.com')
         await update.message.edit_text(
             text=DONATE_TEXT,
             disable_web_page_preview=True,
