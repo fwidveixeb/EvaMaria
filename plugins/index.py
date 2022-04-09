@@ -252,7 +252,8 @@ NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
-            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning'),
+            InlineKeyboardButton('🔐 Close', callback_data='close')
         ]])
 
 FILE_STREAM_BUTTONS = InlineKeyboardMarkup(
@@ -289,6 +290,7 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
 async def start(client, message):
         await message.reply_text(
         text=(NEW_HELP_TEXT),
+        quote=True,
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
@@ -297,5 +299,6 @@ async def start(client, message):
             InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
-            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning'),
+            InlineKeyboardButton('🔐 Close', callback_data='close')
          ]]))
