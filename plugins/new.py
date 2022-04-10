@@ -66,80 +66,90 @@ async def cb_data(bot, update):
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=NEW_ABOUT_HOME),
-            reply_markup=NEW_ABOUT_HOME_BUTTONS
+        media=InputMediaPhoto(media=image, caption=NEW_ABOUT_HOME),
+        reply_markup=NEW_ABOUT_HOME_BUTTONS
         )
     elif update.data == "rating":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=RATING_TEXT),
-            reply_markup=ABOUT_BACK_BUTTONS
+        media=InputMediaPhoto(media=image, caption=RATING_TEXT),
+        reply_markup=ABOUT_BACK_BUTTONS
         )
     elif update.data == "source":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=SOURCE_TEXT),
-            reply_markup=ABOUT_BACK_BUTTONS
+        media=InputMediaPhoto(media=image, caption=SOURCE_TEXT),
+        reply_markup=ABOUT_BACK_BUTTONS
         )
     elif update.data == "donate":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=DONATE_TEXT),
-            reply_markup=ABOUT_BACK_BUTTONS
+        media=InputMediaPhoto(media=image, caption=DONATE_TEXT),
+        reply_markup=ABOUT_BACK_BUTTONS
         )
     elif update.data == "new_help_home":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            text=NEW_HELP_HOME_TEXT,
-            disable_web_page_preview=True,
-            reply_markup=NEW_HELP_HOME_BUTTONS
+        text=NEW_HELP_HOME_TEXT,
+        disable_web_page_preview=True,
+        reply_markup=NEW_HELP_HOME_BUTTONS
         )
     elif update.data == "file_stream":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=FILE_STREAM_TEXT),
-            reply_markup=FILE_STREAM_BUTTONS
+        media=InputMediaPhoto(media=image, caption=FILE_STREAM_TEXT),
+        reply_markup=HELP_BACK_BUTTONS
         )
     elif update.data == "file_store":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=FILE_STORE_TEXT),
-            reply_markup=FILE_STORE_BUTTONS
+        media=InputMediaPhoto(media=image, caption=FILE_STORE_TEXT),
+        reply_markup=HELP_BACK_BUTTONS
         )
     elif update.data == "instructions":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=INSTRUCTIONS_TEXT),
-            reply_markup=INSTRUCTIONS_BUTTONS
+        media=InputMediaPhoto(media=image, caption=INSTRUCTIONS_TEXT),
+        reply_markup=HELP_BACK_BUTTONS
         )
     elif update.data == "tutorials":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=TUTORIALS_TEXT),
-            reply_markup=TUTORIALS_BUTTONS
+        media=InputMediaPhoto(media=image, caption=TUTORIALS_TEXT),
+        reply_markup=HELP_BACK_BUTTONS
         )
     elif update.data == "warning":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
-            reply_markup=WARNING_BUTTONS
+        media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
+        reply_markup=HELP_BACK_BUTTONS
         )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
         await update.message.delete()
         try:
-            await update.message.reply_to_message.delete()
+        await update.message.reply_to_message.delete()
         except:
-            pass
+        pass
+        await update.reply_text(
+        text="""Hello my name is himanshu rastogi"""
+        reply_markup=InlineKeyboardmarkup(
+                [[
+                        InlineKeyboardButton(text='Click me', url='https://t.me/telegram'),
+                        InlineKeyboardButton(text='Me not here', url='https://t.me/username')
+                ],[
+                        InlineKeyboardButton(text='Hello there', url='https://t.me/telegramtips') 
+                ]]
+        ))
      
 @Client.on_message(filters.command("about"))
 async def about(client, message):
