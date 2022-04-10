@@ -94,8 +94,7 @@ async def cb_data(bot, update):
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-        text=NEW_HELP_HOME_TEXT,
-        disable_web_page_preview=True,
+        media=InputMediaPhoto(media=image, caption=NEW_HELP_HOME_TEXT),
         reply_markup=NEW_HELP_HOME_BUTTONS
         )
     elif update.data == "file_stream":
