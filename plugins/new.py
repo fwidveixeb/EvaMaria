@@ -214,16 +214,10 @@ async def docs(client, message):
         text="""Please wait 10 seconds..""",
         )
         await new_message.edit(
-        text="""Please wait 10 seconds...""",
-        )
-        await new_message.edit(
         text=""""Please wait 9 seconds...""",
         )
         await new_message.edit(
         text="""Please wait 9 seconds..""",
-        )
-        await new_message.edit(
-        text="""Please wait 9 seconds...""",
         )
         await new_message.edit(
         text="""Please wait 8 seconds.""",
@@ -232,16 +226,10 @@ async def docs(client, message):
         text="""Please wait 8 seconds..""",
         )
         await new_message.edit(
-        text="""Please wait 8 seconds...""",
-        )
-        await new_message.edit(
         text="""Please wait 7 seconds.""",
         )
         await new_message.edit(
         text="""Please wait 7 seconds..""",
-        )
-        await new_message.edit(
-        text="""Please wait 7 seconds...""",
         )
         await new_message.edit(
         text="""Please wait 6 seconds.""",
@@ -250,16 +238,10 @@ async def docs(client, message):
         text="""Please wait 6 seconds..""",
         )
         await new_message.edit(
-        text="""Please wait 6 seconds...""",
-        )
-        await new_message.edit(
         text="""Please wait 5 seconds.""",
         )
         await new_message.edit(
         text="""Please wait 5 seconds..""",
-        )
-        await new_message.edit(
-        text="""Please wait 5 seconds...""",
         )
         await new_message.edit(
         text="""Please wait 4 seconds.""",
@@ -268,16 +250,10 @@ async def docs(client, message):
         text="""Please wait 4 seconds..""",
         )
         await new_message.edit(
-        text="""Please wait 4 seconds...""",
-        )
-        await new_message.edit(
         text="""Please wait 3 seconds.""",
         )
         await new_message.edit(
         text="""Please wait 3 seconds.""",
-        )
-        await new_message.edit(
-        text="""Please wait 3 seconds...""",
         )
         await new_message.edit(
         text="""Please wait 2 seconds.""",
@@ -286,16 +262,10 @@ async def docs(client, message):
         text="""Please wait 2 seconds..""",
         )
         await new_message.edit(
-        text="""Please wait 2 seconds...""",
-        )
-        await new_message.edit(
         text="""Please wait 1 seconds.""",
         )
         await new_message.edit(
         text="""Please wait 1 seconds..""",
-        )
-        await new_message.edit(
-        text="""Please wait 1 seconds...""",
         )
         await new_message.edit(
         text=(NEW_HELP_TEXT),
