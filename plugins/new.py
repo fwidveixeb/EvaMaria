@@ -105,7 +105,7 @@ async def cb_data(bot, update):
         await update.answer('www.hagadmansa.com')
         await update.message.delete()
         await update.reply_photo(
-            photo=random.choice(PICS)
+            photo=random.choice(PICS),
             caption=RATING_TEXT,
             disable_web_page_preview=True,
             reply_markup=RATING_BUTTONS
