@@ -113,11 +113,7 @@ async def cb_data(bot, update):
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            chat_id=update.callback_query.message.chat_id,
-            message_id=bot.update.message.message_id,
-            media=InputMediaPhoto(media=image)
-            text=SOURCE_TEXT,
-            disable_web_page_preview=True,
+            media=InputMediaPhoto(media=image, caption=SOURCE_TEXT),
             reply_markup=SOURCE_BUTTONS
         )
     elif update.data == "donate":
