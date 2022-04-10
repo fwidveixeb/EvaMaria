@@ -28,8 +28,10 @@ async def ban_reply(bot, message):
     reply_markup=InlineKeyboardMarkup(newbuttons)
     username = message.from_user.mention
     await message.reply_text(
-        text=f'🚫 Sorry {username}, You are Banned to use Me. \n🤔 Ban Reason: {ban["ban_reason"]}',
+        text=f'🚫 **Sorry** {username}, You are Banned to use Me. \n🤔 **Ban Reason:** {ban["ban_reason"]}',
         reply_markup=reply_markup,
+        parse_mode=markdown,
+        disable_web_page_preview=True,
         quote=True)
     
 @Client.on_message(filters.group & disabled_group & filters.incoming)
@@ -41,7 +43,9 @@ async def grp_bd(bot, message):
     reply_markup=InlineKeyboardMarkup(buttons)
     vazha = await db.get_chat(message.chat.id)
     k = await message.reply(
-        text=f"CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..\nReason : <code>{vazha['reason']}</code>.",
+        text=f"🚫 <b>Chat not allowed</b> \nMy admins has restricted me from working here! \n<b>Reason:</b> {vazha['reason']}.",
+        quote=True,
+        disable_web_page_preview=True,
         reply_markup=reply_markup)
     try:
         await k.pin()
