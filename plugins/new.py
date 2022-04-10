@@ -208,13 +208,23 @@ async def docs(client, message):
         
         new_message = await message.reply_photo(
         photo=random.choice(PHOTO),
-        caption="""This is a test photo""",
+        caption="""🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏""",
         )
-        
         await new_message.edit(
-        text="""This is a new photo""",
+        text="""🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎""",
         )
-
+        await new_message.edit(
+        text="""🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌""",
+        )
+        await new_message.edit(
+        text="""🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊""",
+        )
+        await new_message.edit(
+        text="""🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥""",
+        )
+        await new_message.edit(
+        text="""🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽""",
+        )
         await message.reply_photo(
         photo=random.choice(PHOTO),
         caption="""This is a another photo""",
