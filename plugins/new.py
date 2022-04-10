@@ -3,9 +3,9 @@ from info import PICS
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-NEW_ABOUT_TEXT = """Hello This command is under testing."""
+NEW_ABOUT_TEXT = """😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
-NEW_ABOUT_HOME = """Hello This command is under testing."""
+NEW_ABOUT_HOME = """😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
 RATING_TEXT = """This is rating text."""
 
@@ -166,6 +166,14 @@ async def cb_data(bot, update):
         )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
+        await update.message.delete()
+        try:
+            await update.message.reply_to_message.delete()
+        except:
+            pass
+        )
+     elif update.data == "delete":
+        await update.answer('File Deleted Successfully')
         await update.message.delete()
         try:
             await update.message.reply_to_message.delete()
