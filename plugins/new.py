@@ -96,7 +96,7 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
 async def cb_data(bot, update):
     if update.data == "new_about_home":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=NEW_ABOUT_HOME,
             disable_web_page_preview=True,
@@ -104,7 +104,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "rating":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=RATING_TEXT,
             disable_web_page_preview=True,
@@ -112,7 +112,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "source":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=SOURCE_TEXT,
             disable_web_page_preview=True,
@@ -120,7 +120,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "donate":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=DONATE_TEXT,
             disable_web_page_preview=True,
@@ -128,7 +128,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "new_help_home":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=NEW_HELP_HOME_TEXT,
             disable_web_page_preview=True,
@@ -136,7 +136,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "file_stream":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=FILE_STREAM_TEXT,
             disable_web_page_preview=True,
@@ -144,7 +144,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "file_store":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=FILE_STORE_TEXT,
             disable_web_page_preview=True,
@@ -152,7 +152,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "instructions":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=INSTRUCTONS_TEXT,
             disable_web_page_preview=True,
@@ -160,7 +160,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "tutorials":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=TUTORIALS_TEXT,
             disable_web_page_preview=True,
@@ -168,7 +168,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "warning":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit_media(
+        await update.message.edit_message_media()(
             media=random.choice(PICS),
             caption=WARNING_TEXT,
             disable_web_page_preview=True,
