@@ -169,7 +169,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "newnew":
         await update.answer('www.hagadmansa.com')
-        await update.message.reply_photo(
+        await update.message.edit_photo(
             photo=random.choice(PICS),
             caption=WARNING_TEXT,
             reply_markup=WARNING_BUTTONS
