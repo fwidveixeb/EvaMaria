@@ -214,7 +214,7 @@ async def docs(client, message):
         text="""Please wait 10 seconds..""",
         )
         await new_message.edit(
-        text=""""Please wait 9 seconds...""",
+        text="""Please wait 9 seconds...""",
         )
         await new_message.edit(
         text="""Please wait 9 seconds..""",
