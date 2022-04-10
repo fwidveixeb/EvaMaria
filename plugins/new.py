@@ -140,7 +140,7 @@ async def cb_data(bot, update):
         )
         await update.message.delete()
         try:
-        await update.message.reply_to_message.delete()
+            await update.message.reply_to_message.delete()
         except:
             pass
      
