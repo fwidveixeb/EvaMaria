@@ -73,14 +73,13 @@ async def media_receive_handler(b, m: Message):
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
     
     await log_msg.reply_text(
-            text=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}**",
+            text=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})",
             quote=True,
             parse_mode="markdown",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Stream link', url=short_link),
-                        InlineKeyboardButton('📦 Full link', url=stream_link)
+                        InlineKeyboardButton('🗑 Delete File', callback_data='close')
                     ]
                 ]
             )
@@ -93,8 +92,7 @@ async def media_receive_handler(b, m: Message):
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Stream link', url=short_link),
-                        InlineKeyboardButton('📡 Share URL', url=f'https://t.me/share/url?url={short_link}')
+                        InlineKeyboardButton('📥 Stream Link', url=f'https://t.me/share/url?url={short_link}')
                     ]
                 ]
             )
