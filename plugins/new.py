@@ -104,7 +104,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "rating":
         await update.answer('www.hagadmansa.com')
-        await update.edit_message_media()(
+        await update.media.edit_message_media()(
             media=random.choice(PICS),
             caption=RATING_TEXT,
             disable_web_page_preview=True,
