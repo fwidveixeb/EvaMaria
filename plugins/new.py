@@ -3,9 +3,9 @@ from info import PICS, ADMINS
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
-NEW_ABOUT_TEXT = """😊 Use these buttons to know about me. Send /start to reload me.</b>"""
+NEW_ABOUT_TEXT = """<b>😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
-NEW_ABOUT_HOME = """😊 Use these buttons to know about me. Send /start to reload me.</b>"""
+NEW_ABOUT_HOME = """<b>😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
 RATING_TEXT = """This is rating text."""
 
