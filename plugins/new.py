@@ -1,7 +1,7 @@
 import random
 from info import PICS, ADMINS
 from pyrogram import filters, Client
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
 NEW_ABOUT_TEXT = """😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
