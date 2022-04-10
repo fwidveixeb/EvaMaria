@@ -208,293 +208,304 @@ async def docs(client, message):
         
         new_message = await message.reply_photo(
         photo=random.choice(PHOTO),
-        caption="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं.""",
+        caption="""⏱ Please wait 100 seconds.""",
         )
         await new_message.edit(
-        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं..""",
+        text="""⏱ Please wait 99 seconds.""",
         )
         await new_message.edit(
-        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं...""",
+        text="""⏱ Please wait 98 seconds.""",
         )
         await new_message.edit(
-        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं....""",
+        text="""⏱ Please wait 97 seconds.""",
         )
         await new_message.edit(
-        text="""🔝 Starting Engine again, This may take some time.""",
+        text="""⏱ Please wait 96 seconds.""",
         )
         await new_message.edit(
-        text="""🔝 Starting Engine again, This may take some time..""",
+        text="""⏱ Please wait 95 seconds.""",
         )
         await new_message.edit(
-        text="""🔝 Starting Engine again, This may take some time...""",
+        text="""⏱ Please wait 94 seconds.""",
         )
         await new_message.edit(
-        text="""🔝 Starting Engine again, This may take some time....""",
+        text="""⏱ Please wait 93 seconds.""",
         )
         await new_message.edit(
-        text="""🔝 Starting Engine again, This may take some time.....""",
+        text="""⏱ Please wait 92 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken.""",
+        text="""⏱ Please wait 91 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken..""",
+        text="""⏱ Please wait 90 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken...""",
+        text="""⏱ Please wait 89 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken....""",
+        text="""⏱ Please wait 88 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken.....""",
+        text="""⏱ Please wait 87 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken......""",
+        text="""⏱ Please wait 86 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken.
-        
-        ⏳ Read Source Code""",
+        text="""⏱ Please wait 85 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken..
-        
-        ⏳ Read Source Code""",
+        text="""⏱ Please wait 84 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken...
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size""",
+        text="""⏱ Please wait 83 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken....
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size""",
+        text="""⏱ Please wait 82 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken.....
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size""",
+        text="""⏱ Please wait 81 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken.
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes""",
+        text="""⏱ Please wait 80 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken..
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes""",
+        text="""⏱ Please wait 79 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken...
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes""",
+        text="""⏱ Please wait 78 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken.
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes
-        ⏳ Reduce Database Size""",
+        text="""⏱ Please wait 77 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken..
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes
-        ⏳ Reduce Database Size""",
+        text="""⏱ Please wait 76 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken...
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes
-        ⏳ Reduce Database Size""",
+        text="""⏱ Please wait 75 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken.
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes
-        ⏳ Reduce Database Size
-        ⏳ Get Dynos Information""",
+        text="""⏱ Please wait 74 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken..
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes
-        ⏳ Reduce Database Size
-        ⏳ Get Dynos Information""",
+        text="""⏱ Please wait 73 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken...
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes
-        ⏳ Reduce Database Size
-        ⏳ Get Dynos Information""",
+        text="""⏱ Please wait 72 seconds.""",
         )
         await new_message.edit(
-        text="""➕ Calculating steps to be taken....
-        
-        ⏳ Read Source Code
-        ⏳ Check Database Size
-        ⏳ Remove Unnecessary Codes
-        ⏳ Reduce Database Size
-        ⏳ Get Dynos Information""",
+        text="""⏱ Please wait 71 seconds.""",
         )
         await new_message.edit(
-        text="""🕛 Loading..""",
+        text="""⏱ Please wait 70 seconds.""",
         )
         await new_message.edit(
-        text="""🕧 Loading..""",
+        text="""⏱ Please wait 69 seconds.""",
         )
         await new_message.edit(
-        text="""🕐 Loading...""",
+        text="""⏱ Please wait 68 seconds.""",
         )
         await new_message.edit(
-        text="""🕜 Loading.""",
+        text="""⏱ Please wait 67 seconds.""",
         )
         await new_message.edit(
-        text="""🕑 Loading..""",
+        text="""⏱ Please wait 66 seconds.""",
         )
         await new_message.edit(
-        text="""🕝 Loading...""",
+        text="""⏱ Please wait 65 seconds.""",
         )
         await new_message.edit(
-        text="""🕒 Loading.""",
+        text="""⏱ Please wait 64 seconds.""",
         )
         await new_message.edit(
-        text="""🕞 Loading..""",
+        text="""⏱ Please wait 63 seconds.""",
         )
         await new_message.edit(
-        text="""🕓 Loading...""",
+        text="""⏱ Please wait 62 seconds.""",
         )
         await new_message.edit(
-        text="""🕟 Loading.""",
+        text="""⏱ Please wait 61 seconds.""",
         )
         await new_message.edit(
-        text="""🕔 Loading..""",
+        text="""⏱ Please wait 60 seconds.""",
         )
         await new_message.edit(
-        text="""🕠 Loading...""",
+        text="""⏱ Please wait 59 seconds.""",
         )
         await new_message.edit(
-        text="""🕕 Loading.""",
+        text="""⏱ Please wait 58 seconds.""",
         )
         await new_message.edit(
-        text="""🕡 Loading..""",
+        text="""⏱ Please wait 57 seconds.""",
         )
         await new_message.edit(
-        text="""🕖 Loading...""",
+        text="""⏱ Please wait 56 seconds.""",
         )
         await new_message.edit(
-        text="""🕢 Loading.""",
+        text="""⏱ Please wait 55 seconds.""",
         )
         await new_message.edit(
-        text="""🕗 Loading..""",
+        text="""⏱ Please wait 54 seconds.""",
         )
         await new_message.edit(
-        text="""🕣 Loading...""",
+        text="""⏱ Please wait 53 seconds.""",
         )
         await new_message.edit(
-        text="""🕘 Loading.""",
+        text="""⏱ Please wait 52 seconds.""",
         )
         await new_message.edit(
-        text="""🕤 Loading..""",
+        text="""⏱ Please wait 51 seconds.""",
         )
         await new_message.edit(
-        text="""🕙 Loading...""",
+        text="""⏱ Please wait 50 seconds.""",
         )
         await new_message.edit(
-        text="""🕥 Loading.""",
+        text="""⏱ Please wait 49 seconds.""",
         )
         await new_message.edit(
-        text="""🕚 Loading..""",
+        text="""⏱ Please wait 48 seconds.""",
         )
         await new_message.edit(
-        text="""🕥 Loading...""",
+        text="""⏱ Please wait 47 seconds.""",
         )
         await new_message.edit(
-        text="""🕛 Loading.""",
+        text="""⏱ Please wait 46 seconds.""",
         )
         await new_message.edit(
-        text="""✅ Error Fixed.""",
+        text="""⏱ Please wait 45 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 10 seconds..""",
+        text="""⏱ Please wait 44 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 9 seconds...""",
+        text="""⏱ Please wait 43 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 9 seconds..""",
+        text="""⏱ Please wait 42 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 8 seconds.""",
+        text="""⏱ Please wait 41 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 8 seconds..""",
+        text="""⏱ Please wait 40 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 7 seconds.""",
+        text="""⏱ Please wait 39 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 7 seconds..""",
+        text="""⏱ Please wait 38 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 6 seconds.""",
+        text="""⏱ Please wait 37 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 6 seconds..""",
+        text="""⏱ Please wait 36 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 5 seconds.""",
+        text="""⏱ Please wait 35 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 5 seconds..""",
+        text="""⏱ Please wait 34 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 4 seconds.""",
+        text="""⏱ Please wait 33 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 4 seconds..""",
+        text="""⏱ Please wait 32 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 3 seconds.""",
+        text="""⏱ Please wait 31 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 3 seconds..""",
+        text="""⏱ Please wait 30 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 2 seconds.""",
+        text="""⏱ Please wait 29 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 2 seconds..""",
+        text="""⏱ Please wait 28 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 1 seconds.""",
+        text="""⏱ Please wait 27 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 1 seconds..""",
+        text="""⏱ Please wait 26 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 25 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 24 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 23 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 22 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 21 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 20 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 19 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 18 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 17 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 16 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 15 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 14 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 13 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 12 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 11 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 10 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 09 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 08 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 07 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 06 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 05 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 04 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 03 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 02 seconds.""",
+        )
+        await new_message.edit(
+        text="""⏱ Please wait 01 seconds.""",
         )
         await new_message.edit(
         text=(NEW_HELP_TEXT),
