@@ -201,11 +201,11 @@ async def help(client, message):
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
         
-DOCUMENT = ["https://telegra.ph/file/f542659be3afe195f8a99.jpg"]
+PHOTO = ["https://telegra.ph/file/f542659be3afe195f8a99.jpg"]
 
 @Client.on_message(filters.command("docs")) 
 async def docs(client, message):
-        await message.reply_document(
-        document=(DOCUMENT),
+        await message.reply_photo(
+        photo=(PHOTO),
         caption="""This is a test document""",
         )
