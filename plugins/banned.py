@@ -30,7 +30,6 @@ async def ban_reply(bot, message):
     await message.reply_text(
         text=f'🚫 **Sorry** {username}, You are Banned to use Me. \n🤔 **Ban Reason:** {ban["ban_reason"]}',
         reply_markup=reply_markup,
-        parse_mode=markdown,
         disable_web_page_preview=True,
         quote=True)
     
