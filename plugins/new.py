@@ -211,9 +211,8 @@ async def docs(client, message):
         caption="""This is a test photo""",
         )
         
-        await new_message.edit_photo(
-        photo=random.choice(PHOTO),
-        caption="""This is a new photo""",
+        await new_message.edit(
+        text="""This is a new photo""",
         )
 
         await message.reply_photo(
