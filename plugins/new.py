@@ -206,41 +206,42 @@ PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg", "https://telegra.p
 @Client.on_message(filters.command("docs") & filters.user(ADMINS)) 
 async def docs(client, message):
         
-        new_message = await message.reply(
-        text="""💻🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏""",
+        new_message = await message.reply_photo(
+        photo=random.choice(PHOTO),
+        caption="""Please wait 10 seconds.""",
         )
         await new_message.edit(
-        text="""🍎💻🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎""",
+        text="""Please wait 10 seconds..""",
         )
         await new_message.edit(
-        text="""🍐🍐💻🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐""",
+        text="""Please wait 10 seconds...""",
         )
         await new_message.edit(
-        text="""🍊🍊🍊💻🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊""",
+        text=""""Please wait 9 seconds...,
         )
         await new_message.edit(
-        text="""🍋🍋🍋🍋💻🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋""",
+        text="""Please wait 9 sconds..""",
         )
         await new_message.edit(
-        text="""🍌🍌🍌🍌🍌💻🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌""",
+        text="""Please wait 9 sconds...""",
         )
         await new_message.edit(
-        text="""🍉🍉🍉🍉🍉🍉💻🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉""",
+        text="""Please wait 8 econds.""",
         )
         await new_message.edit(
-        text="""🍇🍇🍇🍇🍇🍇🍇💻🍇🍇🍇🍇🍇🍇🍇🍇🍇🍇🍇""",
+        text="""Please wait 8 econds.""",
         )
         await new_message.edit(
-        text="""🍓🍓🍓🍓🍓🍓🍓🍓💻🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓""",
+        text="""Please wait 8econds...""",
         )
         await new_message.edit(
-        text="""🍈🍈🍈🍈🍈🍈🍈🍈🍈💻🍈🍈🍈🍈🍈🍈🍈🍈🍈""",
+        text="""Please wait 7 econds.""",
         )
         await new_message.edit(
-        text="""🍒🍒🍒🍒🍒🍒🍒🍒🍒🍒💻🍒🍒🍒🍒🍒🍒🍒🍒""",
+        text="""Please wait 7 econds.""",
         )
         await new_message.edit(
-        text="""🍑🍑🍑🍑🍑🍑🍑🍑🍑🍑🍑💻🍑🍑🍑🍑🍑🍑🍑""",
+        text="""Please wait 7 econds.""",
         )
         await new_message.edit(
         text="""🥭🥭🥭🥭🥭🥭🥭🥭🥭🥭🥭🥭💻🥭🥭🥭🥭🥭🥭""",
