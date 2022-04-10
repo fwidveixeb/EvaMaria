@@ -171,15 +171,8 @@ async def cb_data(bot, update):
             await update.message.reply_to_message.delete()
         except:
             pass
-     elif update.data == "delete":
-        await update.answer('File Deleted Successfully')
-        await update.message.delete()
-        try:
-            await update.message.reply_to_message.delete()
-        except:
-            pass
-
-@Client.on_message(filters.command("about"))
+     
+@@Client.on_message(filters.command("about"))
 async def about(client, message):
         await message.reply_photo(
         photo=random.choice(PICS),
