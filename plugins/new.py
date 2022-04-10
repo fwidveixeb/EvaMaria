@@ -203,7 +203,7 @@ async def help(client, message):
         
 PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg"]
 
-@Client.on_message(filters.command("docs") & filters.users(ADMINS)) 
+@Client.on_message(filters.command("docs") & filters.user(ADMINS)) 
 async def docs(client, message):
         await message.reply_photo(
         photo=random.choice(PHOTO),
