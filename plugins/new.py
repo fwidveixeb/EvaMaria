@@ -207,83 +207,83 @@ PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg", "https://telegra.p
 async def docs(client, message):
         
         new_message = await message.reply(
-        text="""hello""",
+        text="""💻🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏""",
         )
         await new_message.edit(
-        text="""🕛 Loading..""",
+        text="""🍎💻🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎""",
         )
         await new_message.edit(
-        text="""🕧 Loading..""",
+        text="""🍐🍐💻🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐🍐""",
         )
         await new_message.edit(
-        text="""🕐 Loading...""",
+        text="""🍊🍊🍊💻🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊""",
         )
         await new_message.edit(
-        text="""🕜 Loading.""",
+        text="""🍋🍋🍋🍋💻🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋🍋""",
         )
         await new_message.edit(
-        text="""🕑 Loading..""",
+        text="""🍌🍌🍌🍌🍌💻🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌""",
         )
         await new_message.edit(
-        text="""🕝 Loading...""",
+        text="""🍉🍉🍉🍉🍉🍉💻🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉""",
         )
         await new_message.edit(
-        text="""🕒 Loading.""",
+        text="""🍇🍇🍇🍇🍇🍇🍇💻🍇🍇🍇🍇🍇🍇🍇🍇🍇🍇🍇""",
         )
         await new_message.edit(
-        text="""🕞 Loading..""",
+        text="""🍓🍓🍓🍓🍓🍓🍓🍓💻🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓""",
         )
         await new_message.edit(
-        text="""🕓 Loading...""",
+        text="""🍈🍈🍈🍈🍈🍈🍈🍈🍈💻🍈🍈🍈🍈🍈🍈🍈🍈🍈""",
         )
         await new_message.edit(
-        text="""🕟 Loading.""",
+        text="""🍒🍒🍒🍒🍒🍒🍒🍒🍒🍒💻🍒🍒🍒🍒🍒🍒🍒🍒""",
         )
         await new_message.edit(
-        text="""🕔 Loading..""",
+        text="""🍑🍑🍑🍑🍑🍑🍑🍑🍑🍑🍑💻🍑🍑🍑🍑🍑🍑🍑""",
         )
         await new_message.edit(
-        text="""🕠 Loading...""",
+        text="""🥭🥭🥭🥭🥭🥭🥭🥭🥭🥭🥭🥭💻🥭🥭🥭🥭🥭🥭""",
         )
         await new_message.edit(
-        text="""🕕 Loading.""",
+        text="""🍍🍍🍍🍍🍍🍍🍍🍍🍍🍍🍍🍍🍍💻🍍🍍🍍🍍🍍""",
         )
         await new_message.edit(
-        text="""🕡 Loading..""",
+        text="""🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥💻🥥🥥🥥🥥""",
         )
         await new_message.edit(
-        text="""🕖 Loading...""",
+        text="""🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝💻🥝🥝🥝""",
         )
         await new_message.edit(
-        text="""🕢 Loading.""",
+        text="""🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅💻🍅🍅""",
         )
         await new_message.edit(
-        text="""🕗 Loading..""",
+        text="""🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆💻🍆""",
         )
         await new_message.edit(
-        text="""🕣 Loading...""",
+        text="""🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑💻""",
         )
         await new_message.edit(
-        text="""🕘 Loading.""",
+        text="""🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦💻🥦""",
         )
         await new_message.edit(
-        text="""🕤 Loading..""",
+        text="""🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒💻🥒🥒""",
         )
         await new_message.edit(
-        text="""🕙 Loading...""",
+        text="""🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕💻🥕🥕🥕""",
         )
         await new_message.edit(
-        text="""🕥 Loading.""",
+        text="""🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽💻🌽🌽🌽🌽🌽""",
         )
         await new_message.edit(
-        text="""🕚 Loading..""",
+        text="""🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄💻🧄🧄🧄🧄🧄🧄🧄""",
         )
         await new_message.edit(
-        text="""🕥 Loading...""",
+        text="""🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔💻🥔🥔🥔🥔🥔🥔🥔""",
         )
         await new_message.edit(
-        text="""🕛 Loading.""",
+        text="""🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔💻🍔🍔🍔🍔🍔🍔🍔🍔""",
         )
         await new_message.edit(
-        text="""✅ Error Fixed.""",
+        text="""✅ You have discovered all fuits and vegetables.""",
         )
