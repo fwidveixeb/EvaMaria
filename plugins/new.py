@@ -21,7 +21,7 @@ FILE_STREAM_TEXT = """This is file stream text."""
 
 FILE_STORE_TEXT = """This is file store text."""
 
-INSTRUCTONS_TEXT = """This is instructions text."""
+INSTRUCTIONS_TEXT = """This is instructions text."""
 
 TUTORIALS_TEXT = """This is tutorials text."""
 
