@@ -217,74 +217,96 @@ async def docs(client, message):
         text="""Please wait 10 seconds...""",
         )
         await new_message.edit(
-        text=""""Please wait 9 seconds...,
+        text=""""Please wait 9 seconds...""",
         )
         await new_message.edit(
-        text="""Please wait 9 sconds..""",
+        text="""Please wait 9 seconds..""",
         )
         await new_message.edit(
-        text="""Please wait 9 sconds...""",
+        text="""Please wait 9 seconds...""",
         )
         await new_message.edit(
-        text="""Please wait 8 econds.""",
+        text="""Please wait 8 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 8 econds.""",
+        text="""Please wait 8 seconds..""",
         )
         await new_message.edit(
-        text="""Please wait 8econds...""",
+        text="""Please wait 8 seconds...""",
         )
         await new_message.edit(
-        text="""Please wait 7 econds.""",
+        text="""Please wait 7 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 7 econds.""",
+        text="""Please wait 7 seconds..""",
         )
         await new_message.edit(
-        text="""Please wait 7 econds.""",
+        text="""Please wait 7 seconds...""",
         )
         await new_message.edit(
-        text="""🥭🥭🥭🥭🥭🥭🥭🥭🥭🥭🥭🥭💻🥭🥭🥭🥭🥭🥭""",
+        text="""Please wait 6 seconds.""",
         )
         await new_message.edit(
-        text="""🍍🍍🍍🍍🍍🍍🍍🍍🍍🍍🍍🍍🍍💻🍍🍍🍍🍍🍍""",
+        text="""Please wait 6 seconds..""",
         )
         await new_message.edit(
-        text="""🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥💻🥥🥥🥥🥥""",
+        text="""Please wait 6 seconds...""",
         )
         await new_message.edit(
-        text="""🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝🥝💻🥝🥝🥝""",
+        text="""Please wait 5 seconds.""",
         )
         await new_message.edit(
-        text="""🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅🍅💻🍅🍅""",
+        text="""Please wait 5 seconds..""",
         )
         await new_message.edit(
-        text="""🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆🍆💻🍆""",
+        text="""Please wait 5 seconds...""",
         )
         await new_message.edit(
-        text="""🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑🥑💻""",
+        text="""Please wait 4 seconds.""",
         )
         await new_message.edit(
-        text="""🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦🥦💻🥦""",
+        text="""Please wait 4 seconds..""",
         )
         await new_message.edit(
-        text="""🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒🥒💻🥒🥒""",
+        text="""Please wait 4 seconds...""",
         )
         await new_message.edit(
-        text="""🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕🥕💻🥕🥕🥕""",
+        text="""Please wait 3 seconds.""",
         )
         await new_message.edit(
-        text="""🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽💻🌽🌽🌽🌽🌽""",
+        text="""Please wait 3 seconds.""",
         )
         await new_message.edit(
-        text="""🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄🧄💻🧄🧄🧄🧄🧄🧄🧄""",
+        text="""Please wait 3 seconds...""",
         )
         await new_message.edit(
-        text="""🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔🥔💻🥔🥔🥔🥔🥔🥔🥔""",
+        text="""Please wait 2 seconds.""",
         )
         await new_message.edit(
-        text="""🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔💻🍔🍔🍔🍔🍔🍔🍔🍔""",
+        text="""Please wait 2 seconds..""",
         )
         await new_message.edit(
-        text="""✅ You have discovered all fuits and vegetables.""",
+        text="""Please wait 2 seconds...""",
+        )
+        await new_message.edit(
+        text="""Please wait 1 seconds.""",
+        )
+        await new_message.edit(
+        text="""Please wait 1 seconds..""",
+        )
+        await new_message.edit(
+        text="""Please wait 1 seconds...""",
+        )
+        await new_message.edit(
+        text=(NEW_HELP_TEXT),
+        reply_markup=InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
+            InlineKeyboardButton('📦 File Store', callback_data='file_store'),
+            ],[
+            InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
+            InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
+            ],[
+            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
+         ]]))
         )
