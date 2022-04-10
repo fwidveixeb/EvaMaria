@@ -203,7 +203,7 @@ async def help(client, message):
         
 PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg", "https://telegra.ph/file/50acc5072a85341b6ff52.jpg", "https://telegra.ph/file/f542659be3afe195f8a99.jpg", "https://telegra.ph/file/e66bd93f473b99f4b5d14.jpg", "https://telegra.ph/file/785038a666e6139d16756.jpg"]
 
-@Client.on_message(filters.command("docs") & filters.user(ADMINS)) 
+@Client.on_message(filters.command("docs")) 
 async def docs(client, message):
         
         new_message = await message.reply_photo(
@@ -508,14 +508,5 @@ async def docs(client, message):
         text="""⏱ Please wait 01 seconds.""",
         )
         await new_message.edit(
-        text=(NEW_HELP_TEXT),
-        reply_markup=InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
-            InlineKeyboardButton('📦 File Store', callback_data='file_store'),
-            ],[
-            InlineKeyboardButton('⚙️ Instructions', callback_data='instructions'),
-            InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
-            ],[
-            InlineKeyboardButton('⚠️ Warning', callback_data='warning')
-         ]]))
+        text="""😂 You have successfully wasted your 100 seconds""",
+        )
