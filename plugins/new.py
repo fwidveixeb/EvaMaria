@@ -206,6 +206,6 @@ PHOTO = ["https://telegra.ph/file/f542659be3afe195f8a99.jpg"]
 @Client.on_message(filters.command("docs")) 
 async def docs(client, message):
         await message.reply_photo(
-        photo=(PHOTO),
+        photo=random.choice(PHOTO),
         caption="""This is a test document""",
         )
