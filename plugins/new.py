@@ -172,7 +172,7 @@ async def cb_data(bot, update):
         except:
             pass
      
-@@Client.on_message(filters.command("about"))
+@Client.on_message(filters.command("about"))
 async def about(client, message):
         await message.reply_photo(
         photo=random.choice(PICS),
