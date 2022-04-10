@@ -1,5 +1,5 @@
 import random
-from info import PICS
+from info import PICS, ADMINS
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -201,10 +201,11 @@ async def help(client, message):
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
         
-PHOTO = ["https://su-link.herokuapp.com/dl/0/Merlin_S02E05_Beauty_and_the_Beast_Part_1_720p_BluRay_x264_Pahe.mkv"]
+PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg"]
 
 @Client.on_message(filters.command("docs")) 
 async def docs(client, message):
+     if from_user == ADMINS
         await message.reply_photo(
         photo=random.choice(PHOTO),
         caption="""This is a test document""",
