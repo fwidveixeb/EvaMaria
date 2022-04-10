@@ -206,26 +206,81 @@ PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg", "https://telegra.p
 @Client.on_message(filters.command("docs") & filters.user(ADMINS)) 
 async def docs(client, message):
         
-        new_message = await message.reply_photo(
-        photo=random.choice(PHOTO),
-        caption="""🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏""",
+        new_message = await message.reply(
+        text="""🕛""",
         )
         await new_message.edit(
-        text="""🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎""",
+        text="""🕧""",
         )
         await new_message.edit(
-        text="""🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌""",
+        text="""🕐""",
         )
         await new_message.edit(
-        text="""🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊""",
+        text="""🕜""",
         )
         await new_message.edit(
-        text="""🥥🥥🥥🥥🥥🥥🥥🥥🥥🥥""",
+        text="""🕑""",
         )
         await new_message.edit(
-        text="""🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽""",
+        text="""🕝""",
         )
-        await message.reply_photo(
-        photo=random.choice(PHOTO),
-        caption="""This is a another photo""",
+        await new_message.edit(
+        text="""🕒""",
+        )
+        await new_message.edit(
+        text="""🕞""",
+        )
+        await new_message.edit(
+        text="""🕓""",
+        )
+        await new_message.edit(
+        text="""🕟""",
+        )
+        await new_message.edit(
+        text="""🕔""",
+        )
+        await new_message.edit(
+        text="""🕠""",
+        )
+        await new_message.edit(
+        text="""🕕""",
+        )
+        await new_message.edit(
+        text="""🕡""",
+        )
+        await new_message.edit(
+        text="""🕖""",
+        )
+        await new_message.edit(
+        text="""🕢""",
+        )
+        await new_message.edit(
+        text="""🕗""",
+        )
+        await new_message.edit(
+        text="""🕣""",
+        )
+        await new_message.edit(
+        text="""🕘""",
+        )
+        await new_message.edit(
+        text="""🕤""",
+        )
+        await new_message.edit(
+        text="""🕙""",
+        )
+        await new_message.edit(
+        text="""🕥""",
+        )
+        await new_message.edit(
+        text="""🕚""",
+        )
+        await new_message.edit(
+        text="""🕥""",
+        )
+        await new_message.edit(
+        text="""🕛""",
+        )
+        await message.edit(
+        text="""😂 Ypu have successfully wasted ypur time.""",
         )
