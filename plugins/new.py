@@ -86,50 +86,51 @@ async def cb_data(bot, update):
     elif update.data == "donate":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
-        await update.message.edit_message_media(
+        await update.edit_message_media(
             media=InputMediaPhoto(media=image, caption=DONATE_TEXT),
             reply_markup=ABOUT_BACK_BUTTONS
         )
     elif update.data == "new_help_home":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit(
+        image=random.choice(PICS)
+        await update.edit_message_media(
             text=NEW_HELP_HOME_TEXT,
             disable_web_page_preview=True,
             reply_markup=NEW_HELP_HOME_BUTTONS
         )
     elif update.data == "file_stream":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit(
-            text=FILE_STREAM_TEXT,
-            disable_web_page_preview=True,
+        image=random.choice(PICS)
+        await update.edit_message_media(
+            media=InputMediaPhoto(media=image, caption=FILE_STREAM_TEXT),
             reply_markup=FILE_STREAM_BUTTONS
         )
     elif update.data == "file_store":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit(
-            text=FILE_STORE_TEXT,
-            disable_web_page_preview=True,
+        image=random.choice(PICS)
+        await update.edit_message_media(
+            media=InputMediaPhoto(media=image, caption=FILE_STORE_TEXT),
             reply_markup=FILE_STORE_BUTTONS
         )
     elif update.data == "instructions":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit(
-            text=INSTRUCTONS_TEXT,
-            disable_web_page_preview=True,
+        image=random.choice(PICS)
+        await update.edit_message_media(
+            media=InputMediaPhoto(media=image, caption=INSTRUCTIONS_TEXT),
             reply_markup=INSTRUCTIONS_BUTTONS
         )
     elif update.data == "tutorials":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit(
-            text=TUTORIALS_TEXT,
-            disable_web_page_preview=True,
+        image=random.choice(PICS)
+        await update.edit_message_media(
+            media=InputMediaPhoto(media=image, caption=TUTORIALS_TEXT),
             reply_markup=TUTORIALS_BUTTONS
         )
     elif update.data == "warning":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit(
-            text=WARNING_TEXT,
-            disable_web_page_preview=True,
+        image=random.choice(PICS)
+        await update.edit_message_media(
+            media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
             reply_markup=WARNING_BUTTONS
         )
     elif update.data == "close":
