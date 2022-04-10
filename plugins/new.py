@@ -98,6 +98,7 @@ async def cb_data(bot, update):
         await update.answer('www.hagadmansa.com')
         await update.message.edit(
             text=NEW_ABOUT_HOME,
+            disable_web_page_preview=True,
             reply_markup=NEW_ABOUT_HOME_BUTTONS
         )
     elif update.data == "rating":
@@ -106,7 +107,6 @@ async def cb_data(bot, update):
         await update.message.reply_photo(
             photo=random.choice(PICS),
             caption=RATING_TEXT,
-            disable_web_page_preview=True,
             reply_markup=RATING_BUTTONS
         )
     elif update.data == "source":
