@@ -253,7 +253,7 @@ async def docs(client, message):
         text="""Please wait 3 seconds.""",
         )
         await new_message.edit(
-        text="""Please wait 3 seconds.""",
+        text="""Please wait 3 seconds..""",
         )
         await new_message.edit(
         text="""Please wait 2 seconds.""",
