@@ -207,16 +207,7 @@ PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg", "https://telegra.p
 async def docs(client, message):
         
         new_message = await message.reply(
-        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं.""",
-        )
-        await new_message.edit(
-        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं..""",
-        )
-        await new_message.edit(
-        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं....""",
-        )
-        await new_message.edit(
-        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं....""",
+        text="""hello""",
         )
         await new_message.edit(
         text="""🔝 Starting Engine again, This may take some time.""",
