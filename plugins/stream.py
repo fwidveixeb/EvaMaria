@@ -1,8 +1,5 @@
 import asyncio
 import base64
-import time
-from datetime import datetime
-import datetime
 import urllib.parse
 from pyrogram import Client
 import logging
@@ -74,10 +71,9 @@ async def media_receive_handler(b, m: Message):
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
-    samay = time.time().strftime("%Y.%m.%d %H:%M:%S")
     
     await log_msg.reply_text(
-            text=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** {samay}",
+            text=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}**",
             quote=True,
             parse_mode="markdown",
             reply_markup=InlineKeyboardMarkup(
