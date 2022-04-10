@@ -172,7 +172,6 @@ async def cb_data(bot, update):
         await update.message.reply_photo(
             photo=random.choice(PICS),
             caption=WARNING_TEXT,
-            disable_web_page_preview=True,
             reply_markup=WARNING_BUTTONS
         )
     elif update.data == "close":
