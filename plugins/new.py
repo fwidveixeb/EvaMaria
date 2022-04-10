@@ -164,16 +164,6 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=WARNING_BUTTONS
         )
-    elif update.data == "new":
-        await update.answer('www.hagadmansa.com', show_alert=True
-        )
-    elif update.data == "newnew":
-        await update.answer('www.hagadmansa.com')
-        await update.message.edit_photo(
-            photo=random.choice(PICS),
-            caption=WARNING_TEXT,
-            reply_markup=WARNING_BUTTONS
-        )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
         await update.message.delete()
@@ -189,14 +179,14 @@ async def about(client, message):
         caption=(NEW_ABOUT_TEXT),
         reply_markup=InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('⭐️ Rating', callback_data='new'),
-            InlineKeyboardButton('❤️ Source', callback_data='newnew'),
+            InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
+            InlineKeyboardButton('❤️ Source', callback_data='source'),
             ],[
             InlineKeyboardButton('💰 Donate', callback_data='donate')
         ]]))
 
 @Client.on_message(filters.command("help")) 
-async def start(client, message):
+async def help(client, message):
         await message.reply_photo(
         photo=random.choice(PICS),
         caption=(NEW_HELP_TEXT),
@@ -210,3 +200,12 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
+        
+DOCUMENT = ["http://download.hagadmansa.com/AgAD-g550"]
+
+@Client.on_message(filters.command("docs")) 
+async def docs(client, message):
+        await message.reply_document(
+        document=(DOCUMENT),
+        caption="""This is a test document""",
+        )
