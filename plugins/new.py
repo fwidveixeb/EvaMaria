@@ -207,80 +207,80 @@ PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg", "https://telegra.p
 async def docs(client, message):
         
         new_message = await message.reply(
-        text="""🕛 Loading""",
+        text="""🕛 Loading.""",
         )
         await new_message.edit(
-        text="""🕧 Loading""",
+        text="""🕧 Loading..""",
         )
         await new_message.edit(
-        text="""🕐 Loading""",
+        text="""🕐 Loading...""",
         )
         await new_message.edit(
-        text="""🕜 Loading""",
+        text="""🕜 Loading.""",
         )
         await new_message.edit(
-        text="""🕑 Loading""",
+        text="""🕑 Loading..""",
         )
         await new_message.edit(
-        text="""🕝 Loading""",
+        text="""🕝 Loading...""",
         )
         await new_message.edit(
-        text="""🕒 Loading""",
+        text="""🕒 Loading.""",
         )
         await new_message.edit(
-        text="""🕞 Loading""",
+        text="""🕞 Loading..""",
         )
         await new_message.edit(
-        text="""🕓 Loading""",
+        text="""🕓 Loading...""",
         )
         await new_message.edit(
-        text="""🕟 Loading""",
+        text="""🕟 Loading.""",
         )
         await new_message.edit(
-        text="""🕔 Loading""",
+        text="""🕔 Loading..""",
         )
         await new_message.edit(
-        text="""🕠 Loading""",
+        text="""🕠 Loading...""",
         )
         await new_message.edit(
-        text="""🕕 Loading""",
+        text="""🕕 Loading.""",
         )
         await new_message.edit(
-        text="""🕡 Loading""",
+        text="""🕡 Loading..""",
         )
         await new_message.edit(
-        text="""🕖 Loading""",
+        text="""🕖 Loading...""",
         )
         await new_message.edit(
-        text="""🕢 Loading""",
+        text="""🕢 Loading.""",
         )
         await new_message.edit(
-        text="""🕗 Loading""",
+        text="""🕗 Loading..""",
         )
         await new_message.edit(
-        text="""🕣 Loading""",
+        text="""🕣 Loading...""",
         )
         await new_message.edit(
-        text="""🕘 Loading""",
+        text="""🕘 Loading.""",
         )
         await new_message.edit(
-        text="""🕤 Loading""",
+        text="""🕤 Loading..""",
         )
         await new_message.edit(
-        text="""🕙 Loading""",
+        text="""🕙 Loading...""",
         )
         await new_message.edit(
-        text="""🕥 Loading""",
+        text="""🕥 Loading.""",
         )
         await new_message.edit(
-        text="""🕚 Loading""",
+        text="""🕚 Loading..""",
         )
         await new_message.edit(
-        text="""🕥 Loading""",
+        text="""🕥 Loading...""",
         )
         await new_message.edit(
-        text="""🕛 Loading""",
+        text="""🕛 Loading.""",
         )
         await new_message.edit(
-        text="""😂 Ypu have successfully wasted ypur time.""",
+        text="""✅ Error Fixed.""",
         )
