@@ -96,9 +96,8 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
 async def cb_data(bot, update):
     if update.data == "new_about_home":
         await update.answer('www.hagadmansa.com')
-        await update.edit_message_media(
-            media=random.choice(PICS),
-            caption=NEW_ABOUT_HOME,
+        await update.edit_text(
+            text=NEW_ABOUT_HOME,
             disable_web_page_preview=True,
             reply_markup=NEW_ABOUT_HOME_BUTTONS
         )
@@ -113,6 +112,8 @@ async def cb_data(bot, update):
     elif update.data == "source":
         await update.answer('www.hagadmansa.com')
         await update.message.edit_message_media(
+            chat_id=message.chat.id,
+            message_id=message.message_id,
             media=random.choice(PICS),
             caption=SOURCE_TEXT,
             disable_web_page_preview=True,
