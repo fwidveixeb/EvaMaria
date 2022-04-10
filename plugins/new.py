@@ -309,4 +309,3 @@ async def docs(client, message):
             ],[
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
-        )
