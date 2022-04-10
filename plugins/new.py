@@ -105,8 +105,8 @@ async def cb_data(bot, update):
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
-            chat_id=update.callback_query.update.chat_id,
-            message_id=update.callback_query.message.message_id,
+            chat_id=update.chat_id,
+            message_id=update.message.message_id,
             media=InputMediaPhoto(media=image),
             caption=RATING_TEXT,
             disable_web_page_preview=True,
