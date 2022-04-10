@@ -138,7 +138,6 @@ async def cb_data(bot, update):
         await update.message.delete()
         try:
         await update.message.reply_to_message.delete()
-        return
         await update.reply_text(
         text="""Hello my name is himanshu rastogi"""
         reply_markup=InlineKeyboardmarkup(
