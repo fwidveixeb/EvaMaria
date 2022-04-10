@@ -35,21 +35,7 @@ NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton('💰 Donate', callback_data='donate')
             ]]
        )     
-RATING_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
-            ]]
-        )
-SOURCE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
-            ]]
-        )
-DONATE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
-            ]]
-        )
+
 NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('📥 File Stream', callback_data='file_stream'),
@@ -62,31 +48,13 @@ NEW_HELP_HOME_BUTTONS = InlineKeyboardMarkup(
             ]]
          )
 
-FILE_STREAM_BUTTONS = InlineKeyboardMarkup(
+ABOUT_BACK_BUTTONS = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
+            InlineKeyboardButton('🔙 Back', callback_data='new_about_home')
             ]]
         )
 
-FILE_STORE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
-            ]]
-        )
-
-INSTRUCTIONS_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
-            ]]
-        )
-
-TUTORIALS_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
-            ]]
-        )
-
-WARNING_BUTTONS = InlineKeyboardMarkup(
+HELP_BACK_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
             ]]
@@ -96,32 +64,31 @@ WARNING_BUTTONS = InlineKeyboardMarkup(
 async def cb_data(bot, update):
     if update.data == "new_about_home":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit(
-            text=NEW_ABOUT_HOME,
-            disable_web_page_preview=True,
+        image=random.choice(PICS)
+        await update.edit_message_media(
+            media=InputMediaPhoto(media=image, caption=NEW_ABOUT_HOME),
             reply_markup=NEW_ABOUT_HOME_BUTTONS
         )
     elif update.data == "rating":
         await update.answer('www.hagadmansa.com')
-        await update.message.delete()
-        await update.message.reply_photo(
-            photo=random.choice(PICS),
-            caption=RATING_TEXT,
-            reply_markup=RATING_BUTTONS
+        image=random.choice(PICS)
+        await update.edit_message_media(
+            media=InputMediaPhoto(media=image, caption=RATING_TEXT),
+            reply_markup=ABOUT_BACK_BUTTONS
         )
     elif update.data == "source":
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
             media=InputMediaPhoto(media=image, caption=SOURCE_TEXT),
-            reply_markup=SOURCE_BUTTONS
+            reply_markup=ABOUT_BACK_BUTTONS
         )
     elif update.data == "donate":
         await update.answer('www.hagadmansa.com')
-        await update.message.edit(
-            text=DONATE_TEXT,
-            disable_web_page_preview=True,
-            reply_markup=DONATE_BUTTONS
+        image=random.choice(PICS)
+        await update.message.edit_message_media(
+            media=InputMediaPhoto(media=image, caption=DONATE_TEXT),,
+            reply_markup=ABOUT_BACK_BUTTONS
         )
     elif update.data == "new_help_home":
         await update.answer('www.hagadmansa.com')
