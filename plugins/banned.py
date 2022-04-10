@@ -31,7 +31,6 @@ async def ban_reply(bot, message):
             quote=True,
             disable_web_page_preview=True
                        )
-
 @Client.on_message(filters.group & disabled_group & filters.incoming)
 async def grp_bd(bot, message):
     buttons = [[
@@ -40,7 +39,7 @@ async def grp_bd(bot, message):
     reply_markup=InlineKeyboardMarkup(buttons)
     vazha = await db.get_chat(message.chat.id)
     k = await message.reply(
-        text=f"CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support @hagadmansachat\nReason : <code>{vazha['reason']}</code>.",
+        text=f"CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..\nReason : <code>{vazha['reason']}</code>.",
         reply_markup=reply_markup)
     try:
         await k.pin()
