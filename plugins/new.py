@@ -107,8 +107,8 @@ async def cb_data(bot, update):
         await update.edit_message_media(
             chat_id=update.callback_query.update.chat_id,
             message_id=update.callback_query.message.message_id,
-            media=InputMediaPhoto(media=image))
-            text=RATING_TEXT,
+            media=InputMediaPhoto(media=image),
+            caption=RATING_TEXT,
             disable_web_page_preview=True,
             reply_markup=RATING_BUTTONS
         )
