@@ -171,7 +171,6 @@ async def cb_data(bot, update):
             await update.message.reply_to_message.delete()
         except:
             pass
-        )
      elif update.data == "delete":
         await update.answer('File Deleted Successfully')
         await update.message.delete()
