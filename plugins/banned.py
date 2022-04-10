@@ -25,7 +25,7 @@ async def ban_reply(bot, message):
         InlineKeyboardButton('💬 Support', url=f'https://t.me/{SUPPORT_CHAT}'),
         InlineKeyboardButton('🔐 Close', callback_data='close')
     ]]
-    reply_markup=InlineKeyboardMarkup(buttons)
+    reply_markup=InlineKeyboardMarkup(newbuttons)
     await message.reply(
         text=f'Sorry Dude, You are Banned to use Me. \nBan Reason: {ban["ban_reason"]}',
         reply_markup=reply_markup)
