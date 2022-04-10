@@ -126,7 +126,7 @@ async def cb_data(bot, update):
         reply_markup=HELP_BACK_BUTTONS
         )
     elif update.data == "warning":
-        await update.answer('www.hagadmansa.com', show_alert=True)
+        await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.edit_message_media(
         media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
