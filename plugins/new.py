@@ -201,11 +201,22 @@ async def help(client, message):
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
         
-PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg"]
+PHOTO = ["https://telegra.ph/file/ae051812efba8ab8bc0b7.jpg", "https://telegra.ph/file/50acc5072a85341b6ff52.jpg", "https://telegra.ph/file/f542659be3afe195f8a99.jpg", "https://telegra.ph/file/e66bd93f473b99f4b5d14.jpg", "https://telegra.ph/file/785038a666e6139d16756.jpg"]
 
 @Client.on_message(filters.command("docs") & filters.user(ADMINS)) 
 async def docs(client, message):
-        await message.reply_photo(
+        
+        new_message = await message.reply_photo(
         photo=random.choice(PHOTO),
         caption="""This is a test photo""",
+        )
+        
+        await new_message.edit_photo(
+        photo=random.choice(PHOTO),
+        caption="""This is a new photo""",
+        )
+
+        await message.reply_photo(
+        photo=random.choice(PHOTO),
+        caption="""This is a another photo""",
         )
