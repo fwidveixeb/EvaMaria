@@ -135,19 +135,14 @@ async def cb_data(bot, update):
         )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
+        await update.reply_text(
+        text="""Hello my name is himanshu rastogi"""
+        )
         await update.message.delete()
         try:
         await update.message.reply_to_message.delete()
-        await update.reply_text(
-        text="""Hello my name is himanshu rastogi"""
-        reply_markup=InlineKeyboardmarkup(
-                [[
-                        InlineKeyboardButton(text='Click me', url='https://t.me/telegram'),
-                        InlineKeyboardButton(text='Me not here', url='https://t.me/username')
-                ],[
-                        InlineKeyboardButton(text='Hello there', url='https://t.me/telegramtips') 
-                ]]
-        ))
+        except:
+            pass
      
 @Client.on_message(filters.command("about"))
 async def about(client, message):
