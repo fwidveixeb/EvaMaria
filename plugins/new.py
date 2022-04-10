@@ -87,7 +87,7 @@ async def cb_data(bot, update):
         await update.answer('www.hagadmansa.com')
         image=random.choice(PICS)
         await update.message.edit_message_media(
-            media=InputMediaPhoto(media=image, caption=DONATE_TEXT),,
+            media=InputMediaPhoto(media=image, caption=DONATE_TEXT),
             reply_markup=ABOUT_BACK_BUTTONS
         )
     elif update.data == "new_help_home":
