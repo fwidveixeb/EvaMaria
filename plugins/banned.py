@@ -26,9 +26,11 @@ async def ban_reply(bot, message):
         InlineKeyboardButton('🔐 Close', callback_data='close')
     ]]
     reply_markup=InlineKeyboardMarkup(newbuttons)
-    await message.reply(
-        text=f'Sorry Dude, You are Banned to use Me. \nBan Reason: {ban["ban_reason"]}',
-        reply_markup=reply_markup)
+    username = message.from_user.mention
+    await message.reply_text(
+        text=f'🚫 Sorry {username}, You are Banned to use Me. \n🤔 Ban Reason: {ban["ban_reason"]}',
+        reply_markup=reply_markup,
+        quote=True)
     
 @Client.on_message(filters.group & disabled_group & filters.incoming)
 async def grp_bd(bot, message):
