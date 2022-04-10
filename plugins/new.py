@@ -165,7 +165,7 @@ async def cb_data(bot, update):
             reply_markup=WARNING_BUTTONS
         )
     elif update.data == "new":
-        await update.answer('www.hagadmansa.com', show_alert=True)
+        await update.answer('www.hagadmansa.com', show_alert=True
         )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
