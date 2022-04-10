@@ -208,7 +208,236 @@ async def docs(client, message):
         
         new_message = await message.reply_photo(
         photo=random.choice(PHOTO),
-        caption="""Please wait 10 seconds.""",
+        caption="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं.""",
+        )
+        await new_message.edit(
+        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं..""",
+        )
+        await new_message.edit(
+        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं...""",
+        )
+        await new_message.edit(
+        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं....""",
+        )
+        await new_message.edit(
+        text="""🔝 Starting Engine again, This may take some time.""",
+        )
+        await new_message.edit(
+        text="""🔝 Starting Engine again, This may take some time..""",
+        )
+        await new_message.edit(
+        text="""🔝 Starting Engine again, This may take some time...""",
+        )
+        await new_message.edit(
+        text="""🔝 Starting Engine again, This may take some time....""",
+        )
+        await new_message.edit(
+        text="""🔝 Starting Engine again, This may take some time.....""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken.""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken..""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken...""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken....""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken.....""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken......""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken.
+        
+        ⏳ Read Source Code""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken..
+        
+        ⏳ Read Source Code""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken...
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken....
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken.....
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken.
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken..
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken...
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken.
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes
+        ⏳ Reduce Database Size""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken..
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes
+        ⏳ Reduce Database Size""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken...
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes
+        ⏳ Reduce Database Size""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken.
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes
+        ⏳ Reduce Database Size
+        ⏳ Get Dynos Information""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken..
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes
+        ⏳ Reduce Database Size
+        ⏳ Get Dynos Information""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken...
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes
+        ⏳ Reduce Database Size
+        ⏳ Get Dynos Information""",
+        )
+        await new_message.edit(
+        text="""➕ Calculating steps to be taken....
+        
+        ⏳ Read Source Code
+        ⏳ Check Database Size
+        ⏳ Remove Unnecessary Codes
+        ⏳ Reduce Database Size
+        ⏳ Get Dynos Information""",
+        )
+        await new_message.edit(
+        text="""🕛 Loading..""",
+        )
+        await new_message.edit(
+        text="""🕧 Loading..""",
+        )
+        await new_message.edit(
+        text="""🕐 Loading...""",
+        )
+        await new_message.edit(
+        text="""🕜 Loading.""",
+        )
+        await new_message.edit(
+        text="""🕑 Loading..""",
+        )
+        await new_message.edit(
+        text="""🕝 Loading...""",
+        )
+        await new_message.edit(
+        text="""🕒 Loading.""",
+        )
+        await new_message.edit(
+        text="""🕞 Loading..""",
+        )
+        await new_message.edit(
+        text="""🕓 Loading...""",
+        )
+        await new_message.edit(
+        text="""🕟 Loading.""",
+        )
+        await new_message.edit(
+        text="""🕔 Loading..""",
+        )
+        await new_message.edit(
+        text="""🕠 Loading...""",
+        )
+        await new_message.edit(
+        text="""🕕 Loading.""",
+        )
+        await new_message.edit(
+        text="""🕡 Loading..""",
+        )
+        await new_message.edit(
+        text="""🕖 Loading...""",
+        )
+        await new_message.edit(
+        text="""🕢 Loading.""",
+        )
+        await new_message.edit(
+        text="""🕗 Loading..""",
+        )
+        await new_message.edit(
+        text="""🕣 Loading...""",
+        )
+        await new_message.edit(
+        text="""🕘 Loading.""",
+        )
+        await new_message.edit(
+        text="""🕤 Loading..""",
+        )
+        await new_message.edit(
+        text="""🕙 Loading...""",
+        )
+        await new_message.edit(
+        text="""🕥 Loading.""",
+        )
+        await new_message.edit(
+        text="""🕚 Loading..""",
+        )
+        await new_message.edit(
+        text="""🕥 Loading...""",
+        )
+        await new_message.edit(
+        text="""🕛 Loading.""",
+        )
+        await new_message.edit(
+        text="""✅ Error Fixed.""",
         )
         await new_message.edit(
         text="""Please wait 10 seconds..""",
