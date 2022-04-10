@@ -219,9 +219,6 @@ async def docs(client, message):
         text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं....""",
         )
         await new_message.edit(
-        text="""😊 Thanks for activating me, बिना किसी देरी के चलिए शुरू करते हैं.....""",
-        )
-        await new_message.edit(
         text="""🔄 Rebooting Engine.""",
         )
         await new_message.edit(
