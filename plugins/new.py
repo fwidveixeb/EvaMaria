@@ -167,6 +167,14 @@ async def cb_data(bot, update):
     elif update.data == "new":
         await update.answer('www.hagadmansa.com', show_alert=True
         )
+    elif update.data == "newnew":
+        await update.answer('www.hagadmansa.com')
+        await update.message.edit_photo(
+            photo=random.choice(PICS)
+            caption=WARNING_TEXT,
+            disable_web_page_preview=True,
+            reply_markup=WARNING_BUTTONS
+        )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
         await update.message.delete()
@@ -183,7 +191,7 @@ async def about(client, message):
         reply_markup=InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('⭐️ Rating', callback_data='new'),
-            InlineKeyboardButton('❤️ Source', callback_data='source'),
+            InlineKeyboardButton('❤️ Source', callback_data='newnew'),
             ],[
             InlineKeyboardButton('💰 Donate', callback_data='donate')
         ]]))
