@@ -201,7 +201,7 @@ async def help(client, message):
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
         
-PHOTO = ["https://hagadmansa.herokuapp.com/477/Retribution.2015.720p.BRRip.900MB.MkvCage.mkv?hash=AgADPw"]
+PHOTO = ["https://su-link.herokuapp.com/dl/0/Merlin_S02E05_Beauty_and_the_Beast_Part_1_720p_BluRay_x264_Pahe.mkv"]
 
 @Client.on_message(filters.command("docs")) 
 async def docs(client, message):
