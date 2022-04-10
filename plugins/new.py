@@ -201,7 +201,7 @@ async def help(client, message):
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
         
-DOCUMENT = ["http://download.hagadmansa.com/AgAD-g550"]
+DOCUMENT = ["https://hagadmansa.herokuapp.com/AgAD-g550"]
 
 @Client.on_message(filters.command("docs")) 
 async def docs(client, message):
