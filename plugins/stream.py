@@ -96,19 +96,6 @@ async def media_receive_handler(b, m):
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
     newtext=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-    await log_msg.reply_text(
-            text=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**",
-            quote=True,
-            parse_mode="markdown",
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
-                    ]
-                ]
-            )
-    )
     
     await m.reply_text(
         text="""<b>🤓 I generated link for you, just reply the file with /link to generate an extra link.</b>""",
@@ -122,15 +109,14 @@ async def media_receive_handler(b, m):
                 ]
             )
         )
+    
     await log_msg.edit_text(
         text=f"{newtext}",
-        reply_markup=DELETE
+        reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
+                    ]
+                ]
+            )
         )
-EMOJI = ["🎲", "🎯", "🏀", "⚽", "🎳", "🎰", "🎲"]
-
-@Client.on_message(filters.command("emoji"))
-async def emoji(bot, message):
-    await reply_text(
-    chat_id=message.chat_id,
-    text=random.choice(EMOJI)
-    )
