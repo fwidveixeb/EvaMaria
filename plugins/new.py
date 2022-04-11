@@ -173,20 +173,19 @@ async def help(client, message):
          ]]))
         
 @Client.on_message(filters.command("new")) 
-async def new(client, message):
-     if message.from_user and message.from_user.id in ADMINS:
-        return await message.reply_photo(
+async def new(client, bot):
+     if bot.from_user and bot.from_user.id in ADMINS:
+        return await bot.reply_photo(
         photo=random.choice(PICS),
         caption="""Hello dear owner, what can i do for you?""",
         )
-     if message.from_user and message.from_user.id not in ADMINS:
-        await message.reply_photo(
-        photo=random.choice(PICS),
-        caption="""You are not allowed to use this command.""",
+     if bot.from_user and bot.from_user.id not in ADMINS:
+        await bot.reply(
+        text="""You are not allowed to use this command.""",
         quote=True
         )   
-        await message.message.delete()
+        await bot.message.delete()
         try:
-            await message.message.reply_to_message.delete()
+            await bot.message.reply_to_message.delete()
         except:
             pass
