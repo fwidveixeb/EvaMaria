@@ -179,13 +179,8 @@ async def new(client, bot):
      if bot.from_user and bot.from_user.id not in ADMINS:
         await bot.reply(
         text="""You are not allowed to use this command.""",
-        quote=True,
-        reply_markup=InlineKeyboardMarkup(
-                        [[
-            InlineKeyboardButton('🔐 Close', callback_data='close')
-        ]]))
+        quote=True
+        )
         await bot.delete()
-        try:
-            await bot.reply_to_message.delete()
-        except:
-            pass
+        await bot.reply_to_message.delete()
+        
