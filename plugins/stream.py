@@ -108,8 +108,19 @@ async def cb_data(bot, update):
         text="""hello choose any option to delete the file""",
         reply_markup=DELETE
         )
-    elif update.data == "test":
-        await update.answer('www.hagadmansa.com')
+    elif update.data == "test
+        await update.message.edit_text(
+            text="""fyguhyggtdrf gygyhu""",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🔞', callback_data='delete'),
+                        InlineKeyboardButton('©', callback_data='delete'),
+                        InlineKeyboardButton('💭', callback_data='delete')
+                    ]
+                ]
+            )
+        )
         
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
