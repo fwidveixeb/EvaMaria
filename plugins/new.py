@@ -193,7 +193,7 @@ async def cb_data(bot, update):
     elif update.data == "delete":
         await update.answer('Do you really want to delete this file?')
         await update.message.edit(
-                text=""""""
+        text="""""",
         reply_markup=DELETE_BUTTONS
         )
     elif update.data == "close":
