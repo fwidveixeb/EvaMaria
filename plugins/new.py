@@ -6,30 +6,7 @@ from pyrogram import filters, Client
 from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
-YES_PHOTO = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
-
-DELETE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('✅ Yes', callback_data='yes'),
-            InlineKeyboardButton('❌ No', callback_data='no'),
-        ]]
-      )
-
-DELETE = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
-                    ]
-                ]
-            )
-
-NO_BUTTONS = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
-                    ]
-                ]
-            )
+DELETED_PHOTO = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
 
 NEW_ABOUT_TEXT = """<b>😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
@@ -100,12 +77,14 @@ HELP_BACK_BUTTONS = InlineKeyboardMarkup(
             ]]
         )
 
-DELETE = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('📁', callback_data='file'),
-            InlineKeyboardButton('🎥', callback_data='video'),
-            InlineKeyboardButton('🎧', callback_data='audio')
-        ]])
+RECOVER = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('♻️ Recover File', callback_data='recover')
+                    ]
+                ]
+            )
+
 
 @Client.on_callback_query()
 async def cb_data(bot, update):
@@ -179,22 +158,20 @@ async def cb_data(bot, update):
         media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
         reply_markup=HELP_BACK_BUTTONS
         )
-    elif update.data == "yes":
-        await update.answer('File Deleted Successfully')
-        media=random.choice(YES_PHOTO)
-        await update.edit_message_media(
-        media=InputMediaPhoto(media=media),
-        )
-    elif update.data == "no":
-        await update.answer('Canceled file deleting process.')
-        await update.message.edit(
-        reply_markup=NO_BUTTONS
-        )
     elif update.data == "delete":
-        await update.answer('Do you really want to delete this file?')
-        await update.message.edit(
-        text="""""",
-        reply_markup=DELETE_BUTTONS
+        await update.answer('File has been deleted successfully.')
+        media=random.choice(DELETED_PHOTO)
+        await update.edit_message_media(
+        text="""**This file has deleted, Use given button to recover the file.**""",
+        reply_markup=RECOVER
+        )
+    elif update.data == "recover":
+        await update.answer('File has been deleted successfully.')
+        msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, file_id=update.file_id)
+        media=str.(msg.file_id)
+        await update.edit_message_media(
+        text="""**This file has deleted, Use given button to recover the file.**""",
+        reply_markup=RECOVER
         )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
