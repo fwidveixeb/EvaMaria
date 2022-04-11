@@ -77,7 +77,7 @@ AUDIO_TEXT = """ This file has been deleted due to Other reasons."""
 
 DELETE = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('📁', callback_data='file'),
+            InlineKeyboardButton('📁', callback_data='test'),
             InlineKeyboardButton('🎥', callback_data='video'),
             InlineKeyboardButton('🎧', callback_data='audio')
         ]])
@@ -107,6 +107,12 @@ async def cb_data(bot, update):
         await update.message.edit(
         text="""hello choose any option to delete the file""",
         reply_markup=DELETE
+        )
+    elif update.data == "test":
+        await update.answer('www.hagadmansa.com')
+        await update.edit_text(
+        text="""helli iyhis jie huehhu""",
+        reply_markup=HELP_BACK_BUTTONS
         )
         
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
