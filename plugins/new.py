@@ -198,10 +198,11 @@ async def new(client, bot):
         photo=random.choice(PICS),
         caption="""Hello dear owner, what can i do for you?""",
         )
-     else notforyou = await bot.reply(
-                    text="""You are not allowed to use this command.""",
-                    quote=True
-        )
+     else bot.from_user and bot.from_user.id not in ADMINS:
+         notforyou = await bot.reply(
+                 text="""You are not allowed to use this command.""",
+                 quote=True
+                 )
         await asyncio.sleep(2)
         await notforyou.delete()
         await bot.delete()
