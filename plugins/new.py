@@ -6,6 +6,37 @@ from pyrogram import filters, Client
 from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
+YES_PHOTO = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
+
+YES_TEXT = """File has beendeleted successfully."""
+
+NO_TEXT = """THANKS YOU CLICKING ON NO"""
+
+DELETE_TEXT = """Do you really want to delete this file?"""
+
+DELETE_BUTTONS = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('✅ Yes', callback_data='yes'),
+            InlineKeyboardButton('❌ No', callback_data='no'),
+        ]]
+      )
+
+DELETE = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
+                    ]
+                ]
+            )
+
+NO_BUTTON = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
+                    ]
+                ]
+            )
+
 NEW_ABOUT_TEXT = """<b>😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
 NEW_ABOUT_HOME = """<b>😊 Use these buttons to know about me. Send /start to reload me.</b>"""
@@ -153,6 +184,24 @@ async def cb_data(bot, update):
         await update.edit_message_media(
         media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
         reply_markup=HELP_BACK_BUTTONS
+        )
+    lif update.data == "yes":
+        await update.answer('File Deleted Successfully')
+        media=random.choice(YES_PHOTO)
+        await update.edit_message_media(
+        media=InputMediaPhoto(media=media),
+        )
+    elif update.data == "no":
+        await update.answer('Cancel file deleting process.')
+        await update.edit_text(
+        text=NO_TEXT,
+        reply_markup=NO_BUTTONS,
+        )
+    elif update.data == "delete":
+        await update.answer('Do you really want to delete this file?')
+        await update.edit_text(
+        text=DELETE_TEXT,
+        reply_markup=DELETE_BUTTONS
         )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
