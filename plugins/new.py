@@ -184,4 +184,5 @@ async def new(client, bot):
         await bot.delete()
         try:
             await bot.reply_to_message.delete()
-        
+        except:
+            pass
