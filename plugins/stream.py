@@ -63,6 +63,14 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
+DELETE = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('🔞', callback_data='delete'),
+            InlineKeyboardButton('©', callback_data='delete'),
+            InlineKeyboardButton('💭', callback_data='delete')
+        ]]
+      )
+
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
     
@@ -107,13 +115,6 @@ async def test(client, bot):
         text="""Hello dear owner, what can i do for you?""",
         reply_markup=DELETE
      )
-
- DELETE = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('🔞', callback_data='delete'),
-            InlineKeyboardButton('©', callback_data='delete'),
-            InlineKeyboardButton('💭', callback_data='delete')
-        ]])
 
 @StreamBot.on_message(filters.channel & (filters.document | filters.video) & ~filters.edited, group=-1)
 async def channel_receive_handler(bot, broadcast):
