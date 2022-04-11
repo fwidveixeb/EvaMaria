@@ -167,7 +167,7 @@ async def cb_data(bot, update):
         reply_markup=RECOVER
         )
     elif update.data == "recover":
-        await update.answer('File can't be recovered.')
+        await update.answer('File can not be recovered.')
         await update.message.edit(
         text="""**❌ Once a file is deleted, it can't be recoverd.**""",
         show_alert=True,
