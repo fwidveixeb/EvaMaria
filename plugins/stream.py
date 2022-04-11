@@ -90,30 +90,40 @@ async def cb_data(bot, update):
         await update.reply_to_message.edit_message_media(
         media=InputMediaPhoto(media=file, caption=FILE_TEXT),
         )
+        try: Exception as error
+           print(error)
     elif update.data == "video":
-        await update.answer('File Deleted Successfully')
+        await update.answer('File Deleted Successfully') 
         video=random.choice(VIDEO)
         await update.reply_to_message.edit_message_media(
         media=InputMediaPhoto(media=video, caption=MOVIE_TEXT),
         )
+        try: Exception as error
+           print(error)
     elif update.data == "audio":
         await update.answer('File Deleted Successfully')
         audio=random.choice(AUDIO)
         await update.reply_to_message.edit_message_media(
         media=InputMediaPhoto(media=audio, caption=OTHER_TEXT),
         )
+        try: Exception as error
+           print(error)
     elif update.data == "delete":
         await update.answer('Choose a option to delete')
         await update.message.edit(
         text="""hello choose any option to delete the file""",
         reply_markup=DELETE
         )
+        try: Exception as error
+           print(error)
     elif update.data == "test":
         await update.answer('www.hagadmansa.com')
         await update.edit_text(
         text="""helli iyhis jie huehhu""",
         reply_markup=HELP_BACK_BUTTONS
         )
+        try: Exception as error
+           print(error)
         
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
