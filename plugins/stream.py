@@ -115,7 +115,7 @@ async def media_receive_handler(b, m):
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
+                        InlineKeyboardButton('🗑 Delete File', callback_data='close')
                     ]
                 ]
             )
