@@ -187,8 +187,7 @@ async def new(client, bot):
                         [[
             InlineKeyboardButton('🔐 Close', callback_data='close')
         ]]))
-        await bot.delete(
-        chat_id=bot.chat.id)
+        await bot.delete()
         try:
             await bot.reply_to_message.delete()
         except:
