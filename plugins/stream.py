@@ -146,17 +146,10 @@ async def media_receive_handler(b, m: Message):
                 ]
             )
         )
-
-TEST = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('📁', callback_data='file'),
-            InlineKeyboardButton('🎥', callback_data='video'),
-            InlineKeyboardButton('🎧', callback_data='audio')
-        ]])
     
 @Client.on_message(filters.command("test")) 
 async def test(client, bot):
      await bot.reply(
         text="""Hello dear owner, what can i do for you?""",
-        reply_markup=TEST
+        reply_markup=DELETE
         )
