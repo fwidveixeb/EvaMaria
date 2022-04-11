@@ -65,9 +65,9 @@ banned_user = filters.create(banned_users)
 
 YES_PHOTO = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
 
-YES_TEXT = f"{} \n\nFile has beendeleted successfully."
+YES_TEXT = """{} \n\nFile has beendeleted successfully."""
 
-DELETE_TEXT = f"{} \n\nDo you really want to delete this file?"
+DELETE_TEXT = """{} \n\nDo you really want to delete this file?"""
 
 DELETE_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -76,7 +76,7 @@ DELETE_BUTTONS = InlineKeyboardMarkup(
         ]]
       )
 
-NO_TEXT = f"{}"
+NO_TEXT = """{}"""
 
 NO_BUTTON = InlineKeyboardMarkup(
                 [
