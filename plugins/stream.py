@@ -63,19 +63,6 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
-FILE = ["https://telegra.ph/file/b2b658b749bb6b976ea8d.jpg"]
-
-VIDEO = ["https://telegra.ph/file/bafed7e9c21f326193963.jpg"]
-
-AUDIO = ["https://telegra.ph/file/a1900232d1715b8b9adbb.jpg"]
-
-FILE_TEXT = """ This file has been deleted due to Pornographic reasons."""
-
-VIDEO_TEXT = """ This file has been deleted due to Copyrighted material."""
-
-AUDIO_TEXT = """ This file has been deleted due to Other reasons."""
-
-
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
     
