@@ -61,6 +61,13 @@ HELP_BACK_BUTTONS = InlineKeyboardMarkup(
             ]]
         )
 
+DELETE = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('📁', callback_data='file'),
+            InlineKeyboardButton('🎥', callback_data='video'),
+            InlineKeyboardButton('🎧', callback_data='audio')
+        ]])
+
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_about_home":
