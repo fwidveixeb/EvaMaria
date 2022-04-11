@@ -63,14 +63,51 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
-DELETE = InlineKeyboardMarkup(
+YES_PHOTO = [""]
+
+YES_TEXT = f"{newtext} \n\nFile has beendeleted successfully."
+
+DELETE_TEXT = f"{newtext} \n\nDo you really want to delete this file?"
+
+DELETE_BUTTONS = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('🔞', callback_data='delete'),
-            InlineKeyboardButton('©', callback_data='delete'),
-            InlineKeyboardButton('💭', callback_data='delete')
+            InlineKeyboardButton('✅ Yes', callback_data='yes'),
+            InlineKeyboardButton('❌ No', callback_data='no'),
         ]]
       )
 
+NO_TEXT = f"{newtext}"
+
+NO_BUTTON = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
+                    ]
+                ]
+            )
+
+@Client.on_callback_query()
+async def cb_data(bot, update):
+    if update.data == "yes":
+        await update.answer('File Deleted Successfully')
+        media=random.choice(YES_PHOTO)
+        await update.edit_message_media(
+        media=InputMediaPhoto(media=media, caption=YES_TEXT),
+        )
+    elif update.data == "no":
+        await update.answer('Cancel file deleting process.')
+        await update.edit_text(
+        text=NO_TEXT,
+        reply_markup=NO_BUTTONS,
+        )
+    elif update.data == "delete":
+        await update.answer('Do you really want to delete this file?')
+        newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
+        await update.edit_text(
+        text=DELETE_TEXT,
+        reply_markup=DELETE_BUTTONS
+        )
+        
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m):
     
@@ -88,9 +125,7 @@ async def media_receive_handler(b, m):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('🔞', callback_data='delete'),
-                        InlineKeyboardButton('©', callback_data='delete'),
-                        InlineKeyboardButton('💭', callback_data='delete')
+                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
                     ]
                 ]
             )
@@ -116,7 +151,7 @@ EMOJI = ["🎲", "🎯", "🏀", "⚽", "🎳", "🎰", "🎲"]
 
 @Client.on_message(filters.command("emoji"))
 async def emoji(bot, message):
-    await send_dice(
+    await reply_text(
     chat_id=message.chat_id,
-    emoji=random.choice(EMOJI)
+    text=random.choice(EMOJI)
     )
