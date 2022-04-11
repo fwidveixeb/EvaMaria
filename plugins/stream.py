@@ -109,7 +109,7 @@ async def media_receive_handler(b, m: Message):
             )
         )
     await m.edit_text(
-        text=f"User: **{b.from_user.mention(style='md')}** Track: **#u{b.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**",
+        text="""Hello this message has forwarded from """,
         chat_id=b.chat.id,
         message_id=b.message_id,
         reply_markup=DELETE
