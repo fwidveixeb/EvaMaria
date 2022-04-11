@@ -182,5 +182,6 @@ async def new(client, bot):
         quote=True
         )
         await bot.delete()
-        await bot.reply_to_message.delete()
+        try:
+            await bot.reply_to_message.delete()
         
