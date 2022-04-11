@@ -85,8 +85,6 @@ RECOVER = InlineKeyboardMarkup(
                 ]
             )
 
-msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, file_id=update.file_id)
-
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "new_about_home":
