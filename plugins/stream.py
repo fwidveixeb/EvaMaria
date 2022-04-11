@@ -82,34 +82,6 @@ DELETE = InlineKeyboardMarkup(
             InlineKeyboardButton('🎧', callback_data='audio')
         ]])
 
-@Client.on_callback_query()
-async def cb_data(bot, update):
-    if update.data == "file":
-        await update.answer('File Deleted Successfully')
-        file=random.choice(FILE)
-        await update.reply_to_message.edit_message_media(
-        media=InputMediaPhoto(media=file, caption=FILE_TEXT),
-        )
-    elif update.data == "video":
-        await update.answer('File Deleted Successfully') 
-        video=random.choice(VIDEO)
-        await update.reply_to_message.edit_message_media(
-        media=InputMediaPhoto(media=video, caption=MOVIE_TEXT),
-        )
-    elif update.data == "audio":
-        await update.answer('File Deleted Successfully')
-        audio=random.choice(AUDIO)
-        await update.reply_to_message.edit_message_media(
-        media=InputMediaPhoto(media=audio, caption=OTHER_TEXT),
-        )
-    elif update.data == "delete":
-        await update.answer('Choose a option to delete')
-        await update.message.edit(
-        text="""hello choose any option to delete the file""",
-        reply_markup=DELETE
-        )
-    
-        
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
     
