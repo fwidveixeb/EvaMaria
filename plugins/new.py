@@ -152,30 +152,6 @@ async def cb_data(bot, update):
         media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
         reply_markup=HELP_BACK_BUTTONS
         )
-    elif update.data == "file":
-        await update.answer('File Deleted Successfully')
-        file=random.choice(FILE)
-        await update.edit_message_media(
-        media=InputMediaPhoto(media=file, caption=FILE_TEXT),
-        )
-    elif update.data == "video":
-        await update.answer('File Deleted Successfully') 
-        video=random.choice(VIDEO)
-        await update.edit_message_media(
-        media=InputMediaPhoto(media=video, caption=VIDEO_TEXT),
-        )
-    elif update.data == "audio":
-        await update.answer('File Deleted Successfully')
-        audio=random.choice(AUDIO)
-        await update.edit_message_media(
-        media=InputMediaPhoto(media=audio, caption=OTHER_TEXT),
-        )
-    elif update.data == "delete":
-        await update.answer('Choose a option to delete')
-        await update.message.edit_text(
-        text="""hello choose any option to delete the file""",
-        reply_markup=DELETE
-        )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
         await update.message.delete()
@@ -222,8 +198,7 @@ async def new(client, bot):
         photo=random.choice(PICS),
         caption="""Hello dear owner, what can i do for you?""",
         )
-     if bot.from_user and bot.from_user.id not in ADMINS:
-        notforyou = await bot.reply(
+     else notforyou = await bot.reply(
                     text="""You are not allowed to use this command.""",
                     quote=True
         )
