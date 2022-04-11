@@ -183,7 +183,7 @@ async def new(client, bot):
         await bot.reply(
         text="""You are not allowed to use this command.""",
         quote=True,
-        reply_markup=Inlinekeyboardmarkup(
+        reply_markup=InlineKeyboardMarkup(
                         [[
             InlineKeyboardButton('🔐 Close', callback_data='close')
         ]]))
