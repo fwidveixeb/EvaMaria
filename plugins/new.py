@@ -184,3 +184,8 @@ async def new(client, message):
         photo=random.choice(PICS),
         caption="""You are not allowed to use this command.""",
         )   
+        await update.message.delete()
+        try:
+            await update.message.reply_to_message.delete()
+        except:
+            pass
