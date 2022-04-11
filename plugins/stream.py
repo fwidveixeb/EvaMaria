@@ -63,7 +63,9 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
-YES_PHOTO = [""]
+newtext=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
+
+YES_PHOTO = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
 
 YES_TEXT = f"{newtext} \n\nFile has beendeleted successfully."
 
