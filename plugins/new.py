@@ -6,8 +6,6 @@ from pyrogram import filters, Client
 from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
-DELETED_PHOTO = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
-
 NEW_ABOUT_TEXT = """<b>😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
 NEW_ABOUT_HOME = """<b>😊 Use these buttons to know about me. Send /start to reload me.</b>"""
@@ -76,14 +74,6 @@ HELP_BACK_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton('🔙 Back', callback_data='new_help_home')
             ]]
         )
-
-RECOVER = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('♻️ Recover File', callback_data='recover')
-                    ]
-                ]
-            )
 
 @Client.on_callback_query()
 async def cb_data(bot, update):
@@ -156,20 +146,6 @@ async def cb_data(bot, update):
         await update.edit_message_media(
         media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
         reply_markup=HELP_BACK_BUTTONS
-        )
-    elif update.data == "delete":
-        await update.answer('File has been deleted successfully.')
-        image=random.choice(DELETED_PHOTO)
-        await update.edit_message_media(
-        media=InputMediaPhoto(media=image),
-        reply_markup=RECOVER
-        )
-    elif update.data == "recover":
-        await update.answer('File can not be recovered.')
-        await update.message.edit(
-        text="""**❌ Once a file is deleted, it can't be recoverd.**""",
-        show_alert=True,
-        reply_markup=RECOVER
         )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
