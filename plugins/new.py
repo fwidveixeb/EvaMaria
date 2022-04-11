@@ -168,7 +168,9 @@ async def help(client, message):
             ],[
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
-        
+       
+YOUARENOT = ["https://telegra.ph/file/56e080b4b9ce57e014726.jpg"]
+
 @Client.on_message(filters.command("new")) 
 async def new(client, bot):
      if bot.from_user and bot.from_user.id in ADMINS:
@@ -177,9 +179,22 @@ async def new(client, bot):
         caption="""Hello dear owner, what can i do for you?""",
         )
      if bot.from_user and bot.from_user.id not in ADMINS:
-        notforyou = await bot.reply(
-                    text="""You are not allowed to use this command""",
+        notforyou = await bot.reply_photo(
+                    photo=random.choice(YOUARENOT),
+                    text="""Deleting message in 5 second.""",
                     quote=True
+        )
+        await notforyou.edit_text(
+                text="""Deleting message in 4 second."""
+        )
+        await notforyou.edit_text(
+                text="""Deleting message in 3 second."""
+        )
+        await notforyou.edit_text(
+                text="""Deleting message in 2 second."""
+        )
+        await notforyou.edit_text(
+                text="""Deleting message in 1 second."""
         )
         await notforyou.delete()
         await bot.delete()
