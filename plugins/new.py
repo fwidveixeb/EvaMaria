@@ -28,6 +28,18 @@ TUTORIALS_TEXT = """This is tutorials text."""
 
 WARNING_TEXT = """This is warning text."""
 
+FILE_TEXT = """ This file has been deleted due to Pornographic reasons."""
+
+VIDEO_TEXT = """ This file has been deleted due to Copyrighted material."""
+
+AUDIO_TEXT = """ This file has been deleted due to Other reasons."""
+
+FILE = ["https://telegra.ph/file/b2b658b749bb6b976ea8d.jpg"]
+
+VIDEO = ["https://telegra.ph/file/bafed7e9c21f326193963.jpg"]
+
+AUDIO = ["https://telegra.ph/file/a1900232d1715b8b9adbb.jpg"]
+
 NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
