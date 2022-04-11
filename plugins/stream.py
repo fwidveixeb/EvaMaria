@@ -63,6 +63,51 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
+FILE = ["https://telegra.ph/file/b2b658b749bb6b976ea8d.jpg"]
+
+VIDEO = ["https://telegra.ph/file/bafed7e9c21f326193963.jpg"]
+
+AUDIO = ["https://telegra.ph/file/a1900232d1715b8b9adbb.jpg"]
+
+FILE_TEXT = """ This file has been deleted due to Pornographic reasons."""
+
+VIDEO_TEXT = """ This file has been deleted due to Copyrighted material."""
+
+AUDIO_TEXT = """ This file has been deleted due to Other reasons."""
+
+DELETE = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('📁', callback_data='file'),
+            InlineKeyboardButton('🎥', callback_data='video'),
+            InlineKeyboardButton('🎧', callback_data='audio')
+        ]])
+
+@Client.on_callback_query()
+async def cb_data(bot, update):
+    if update.data == "file":
+        await update.answer('File Deleted Successfully')
+        file=random.choice(FILE)
+        await update.reply_to_message.edit_message_media(
+        media=InputMediaPhoto(media=file, caption=FILE_TEXT),
+        )
+    elif update.data == "video":
+        await update.answer('File Deleted Successfully')
+        video=random.choice(VIDEO)
+        await update.reply_to_message.edit_message_media(
+        media=InputMediaPhoto(media=video, caption=MOVIE_TEXT),
+        )
+    elif update.data == "audio":
+        await update.answer('File Deleted Successfully')
+        audio=random.choice(AUDIO)
+        await update.reply_to_message.edit_message_media(
+        media=InputMediaPhoto(media=audio, caption=OTHER_TEXT),
+        )
+    elif update.data == "delete":
+        await update.answer('Choose a option to delete')
+        await update.message.edit(
+        reply_markup=DELETE
+        )
+        
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
     
@@ -80,7 +125,9 @@ async def media_receive_handler(b, m: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('🗑 Delete File', callback_data='close')
+                        InlineKeyboardButton('🔞', callback_data='delete'),
+                        InlineKeyboardButton('©', callback_data='delete'),
+                        InlineKeyboardButton('💭', callback_data='delete')
                     ]
                 ]
             )
