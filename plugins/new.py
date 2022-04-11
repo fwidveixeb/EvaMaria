@@ -161,13 +161,13 @@ async def cb_data(bot, update):
     elif update.data == "video":
         await update.answer('File Deleted Successfully') 
         video=random.choice(VIDEO)
-        await update.reply_to_message.edit_message_media(
+        await update.edit_message_media(
         media=InputMediaPhoto(media=video, caption=MOVIE_TEXT),
         )
     elif update.data == "audio":
         await update.answer('File Deleted Successfully')
         audio=random.choice(AUDIO)
-        await update.reply_to_message.edit_message_media(
+        await update.edit_message_media(
         media=InputMediaPhoto(media=audio, caption=OTHER_TEXT),
         )
     elif update.data == "delete":
