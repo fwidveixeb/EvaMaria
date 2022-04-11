@@ -90,8 +90,8 @@ async def cb_data(bot, update):
         await update.reply_to_message.edit_message_media(
         media=InputMediaPhoto(media=file, caption=FILE_TEXT),
         )
-        try: Exception
-           print(Exception)
+        except Exception as err:
+            print(err)
     elif update.data == "video":
         await update.answer('File Deleted Successfully') 
         video=random.choice(VIDEO)
