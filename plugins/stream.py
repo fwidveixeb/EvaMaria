@@ -114,7 +114,7 @@ async def media_receive_handler(b, m):
         )
 EMOJI = ["🎲", "🎯", "🏀", "⚽", "🎳", "🎰", "🎲"]
 
-@Client.on_message(filters.commands("emoji"))
+@Client.on_message(filters.command("emoji"))
 async def emoji(bot, message):
     await send_dice(
     chat_id=message.chat_id,
