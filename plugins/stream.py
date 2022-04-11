@@ -127,7 +127,7 @@ async def media_receive_handler(b, m: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('🔞', callback_data='delete'),
+                        InlineKeyboardButton('🔞', callback_data='close'),
                         InlineKeyboardButton('©', callback_data='delete'),
                         InlineKeyboardButton('💭', callback_data='delete')
                     ]
