@@ -108,7 +108,7 @@ async def cb_data(bot, update):
         text="""hello choose any option to delete the file""",
         reply_markup=DELETE
         )
-    elif update.data == "test
+    elif update.data == "test":
         await update.message.edit_text(
             text="""fyguhyggtdrf gygyhu""",
             reply_markup=InlineKeyboardMarkup(
