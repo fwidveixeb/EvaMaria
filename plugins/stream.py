@@ -63,13 +63,11 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
-newtext=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-
 YES_PHOTO = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
 
-YES_TEXT = f"{newtext} \n\nFile has beendeleted successfully."
+YES_TEXT = f"{} \n\nFile has beendeleted successfully."
 
-DELETE_TEXT = f"{newtext} \n\nDo you really want to delete this file?"
+DELETE_TEXT = f"{} \n\nDo you really want to delete this file?"
 
 DELETE_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -78,7 +76,7 @@ DELETE_BUTTONS = InlineKeyboardMarkup(
         ]]
       )
 
-NO_TEXT = f"{newtext}"
+NO_TEXT = f"{}"
 
 NO_BUTTON = InlineKeyboardMarkup(
                 [
@@ -93,20 +91,22 @@ async def cb_data(bot, update):
     if update.data == "yes":
         await update.answer('File Deleted Successfully')
         media=random.choice(YES_PHOTO)
+        newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
         await update.edit_message_media(
-        media=InputMediaPhoto(media=media, caption=YES_TEXT),
+        media=InputMediaPhoto(media=media, caption=YES_TEXT).format(newtext),
         )
     elif update.data == "no":
         await update.answer('Cancel file deleting process.')
+        newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
         await update.edit_text(
-        text=NO_TEXT,
+        text=NO_TEXT.format(newtext),
         reply_markup=NO_BUTTONS,
         )
     elif update.data == "delete":
         await update.answer('Do you really want to delete this file?')
         newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
         await update.edit_text(
-        text=DELETE_TEXT,
+        text=DELETE_TEXT.format(newtext),
         reply_markup=DELETE_BUTTONS
         )
         
