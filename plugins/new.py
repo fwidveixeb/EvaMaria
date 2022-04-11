@@ -133,6 +133,19 @@ async def cb_data(bot, update):
         media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
         reply_markup=HELP_BACK_BUTTONS
         )
+    elif update.data == "test":
+        await update.message.edit_text(
+            text="""fyguhyggtdrf gygyhu""",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🔞', callback_data='delete'),
+                        InlineKeyboardButton('©', callback_data='delete'),
+                        InlineKeyboardButton('💭', callback_data='delete')
+                    ]
+                ]
+            )
+        )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
         await update.message.delete()
