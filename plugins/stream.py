@@ -20,31 +20,6 @@ def get_name(media_msg: Message) -> str:
     media = get_media_from_message(media_msg)
     return getattr(media, "file_name", "")
 
-async""))
-    setattr(file_id, "file_name", getattr(media, "file_name", ""))
-    setattr(file_id, "unique_id", file_unique_id)
-    return file_id
-
-def get_media_from_message(message: "Message") -> Any:
-    media_types = (
-        "audio",
-        "document",
-        "photo",
-        "sticker",
-        "animation",
-        "video",
-        "voice",
-        "video_note",
-    )
-    for attr in media_types:
-        media = getattr(message, attr, None)
-        if media:
-            return media
-        
-def get_file_id(message):
-    media=message.document or message.audio or message.video
-    return media.file_id
-
 async def banned_users(_, client, message: Message):
     return (
         message.from_user is not None or not message.sender_chat
