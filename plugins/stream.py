@@ -63,29 +63,6 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
-YES_PHOTO = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
-
-YES_TEXT = f"{} \n\nFile has beendeleted successfully."
-
-DELETE_TEXT = f"{} \n\nDo you really want to delete this file?"
-
-DELETE_BUTTONS = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('✅ Yes', callback_data='yes'),
-            InlineKeyboardButton('❌ No', callback_data='no'),
-        ]]
-      )
-
-NO_TEXT = f"{}"
-
-NO_BUTTON = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
-                    ]
-                ]
-            )
-
 @Client.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "yes":
