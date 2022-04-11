@@ -78,6 +78,14 @@ DELETE_BUTTONS = InlineKeyboardMarkup(
 
 NO_TEXT = """{}"""
 
+DELETE = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🗑 Delete File', callback_data='delete')
+                    ]
+                ]
+            )
+
 NO_BUTTON = InlineKeyboardMarkup(
                 [
                     [
@@ -149,6 +157,7 @@ async def media_receive_handler(b, m):
         text=f"{newtext}",
         reply_markup=DELETE
         )
+    
 EMOJI = ["🎲", "🎯", "🏀", "⚽", "🎳", "🎰", "🎲"]
 
 @Client.on_message(filters.command("emoji"))
