@@ -184,6 +184,6 @@ async def new(client, bot):
                     text="""You are not allowed to use this command.""",
                     quote=True
         )
-        asyncio.sleep(5)
+        await asyncio.sleep(5)
         await notforyou.delete()
         await bot.delete()
