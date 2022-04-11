@@ -178,7 +178,8 @@ async def new(client, bot):
         )
      if bot.from_user and bot.from_user.id not in ADMINS:
         notforyou = await bot.reply(
-                    text="""You are not allowed to use this command"""
+                    text="""You are not allowed to use this command""",
+                    quote=True
         )
         await notforyou.delete()
         try:
