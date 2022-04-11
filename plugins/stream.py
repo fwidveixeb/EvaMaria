@@ -79,7 +79,7 @@ async def media_receive_handler(b, m):
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
-    
+    newtext=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
     await log_msg.reply_text(
             text=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**",
             quote=True,
@@ -109,7 +109,7 @@ async def media_receive_handler(b, m):
             )
         )
     await log_msg.edit_text(
-        text="""Hello this message has forwarded from """,
+        text=f"{newtext}",
         reply_markup=DELETE
         )
     
