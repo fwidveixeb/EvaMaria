@@ -161,7 +161,7 @@ async def cb_data(bot, update):
         await update.answer('File has been deleted successfully.')
         image=random.choice(DELETED_PHOTO)
         await update.edit_message_media(
-        media=InpitMediaPhoto(media=image),
+        media=InputMediaPhoto(media=image),
         reply_markup=RECOVER
         )
     elif update.data == "recover":
