@@ -180,7 +180,7 @@ async def new(client, message):
         caption="""Hello dear owner, what can i do for you?""",
         )
      if message.from_user and message.from_user.id not in ADMINS:
-        return await message.reply_photo(
+        await message.reply_photo(
         photo=random.choice(PICS),
         caption="""You are not allowed to use this command.""",
         quote=True
