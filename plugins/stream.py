@@ -108,9 +108,8 @@ async def media_receive_handler(b, m):
                 ]
             )
         )
-    await m.edit_message_reply_markup(
+    await log_msg.edit_text(
         text="""Hello this message has forwarded from """,
-        chat_id=b.chat.id,
         reply_markup=DELETE
         )
     
