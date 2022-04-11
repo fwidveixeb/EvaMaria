@@ -109,14 +109,12 @@ async def test(client, bot):
      )
 
  INLINEBUTTON = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('🔞', callback_data='delete'),
-                        InlineKeyboardButton('©', callback_data='delete'),
-                        InlineKeyboardButton('💭', callback_data='delete')
-                    ]
-                ]
-            )
+                [[
+                     InlineKeyboardButton('🔞', callback_data='delete'),
+                     InlineKeyboardButton('©', callback_data='delete'),
+                     InlineKeyboardButton('💭', callback_data='delete')
+                ]]
+                                    )
 
 @StreamBot.on_message(filters.channel & (filters.document | filters.video) & ~filters.edited, group=-1)
 async def channel_receive_handler(bot, broadcast):
