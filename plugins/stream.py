@@ -137,7 +137,7 @@ EMOJI = ["🎲", "🎯", "🏀", "⚽", "🎳", "🎰", "🎲"]
 
 @Client.on_message(filters.command("emoji"))
 async def emoji(bot, message):
-    await reply_text(
+    await bot.reply_text(
     chat_id=message.chat_id,
     text=random.choice(EMOJI)
     )
