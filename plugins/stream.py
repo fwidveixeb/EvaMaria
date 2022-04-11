@@ -65,9 +65,11 @@ banned_user = filters.create(banned_users)
 
 YES_PHOTO = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
 
-YES_TEXT = """{} \n\nFile has beendeleted successfully."""
+YES_TEXT = """File has beendeleted successfully."""
 
-DELETE_TEXT = """{} \n\nDo you really want to delete this file?"""
+NO_TEXT = """THANKS YOU CLICKING ON NO"""
+
+DELETE_TEXT = """Do you really want to delete this file?"""
 
 DELETE_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -75,8 +77,6 @@ DELETE_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton('❌ No', callback_data='no'),
         ]]
       )
-
-NO_TEXT = """{}"""
 
 DELETE = InlineKeyboardMarkup(
                 [
@@ -93,34 +93,9 @@ NO_BUTTON = InlineKeyboardMarkup(
                     ]
                 ]
             )
-
-@Client.on_callback_query()
-async def cb_data(bot, update):
-    if update.data == "yes":
-        await update.answer('File Deleted Successfully')
-        media=random.choice(YES_PHOTO)
-        newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-        await update.edit_message_media(
-        media=InputMediaPhoto(media=media, caption=YES_TEXT).format(newtext),
-        )
-    elif update.data == "no":
-        await update.answer('Cancel file deleting process.')
-        newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-        await update.edit_text(
-        text=NO_TEXT.format(newtext),
-        reply_markup=NO_BUTTONS,
-        )
-    elif update.data == "delete":
-        await update.answer('Do you really want to delete this file?')
-        newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-        await update.edit_text(
-        text=DELETE_TEXT.format(newtext),
-        reply_markup=DELETE_BUTTONS
-        )
         
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m):
-    
     banned_user = filters.create(banned_users)
     log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
