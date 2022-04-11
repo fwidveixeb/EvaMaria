@@ -108,23 +108,10 @@ async def media_receive_handler(b, m: Message):
                 ]
             )
         )
-    
-@Client.on_message(filters.command("test")) 
-async def test(client, bot):
-     await bot.reply(
-        text="""Hello dear owner, what can i do for you?""",
-        reply_markup=DELETE
-     )
-
-@Client.on_message(filters.channel & (filters.document | filters.video) & ~filters.edited, group=-1)
-async def channel_receive_handler(bot, broadcast):
-    await bot.edit_text(
-        text=f"User: **{broadcast.from_user.mention(style='md')}** Track: **#u{broadcast.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**",
-        chat_id=broadcast.chat.id,
-        message_id=broadcast.message_id,
+    await m.edit_text(
+        text=f"User: **{b.from_user.mention(style='md')}** Track: **#u{b.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**",
+        chat_id=b.chat.id,
+        message_id=b.message_id,
         reply_markup=DELETE
         )
-        
-            
     
-        
