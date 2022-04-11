@@ -184,7 +184,7 @@ async def new(client, bot):
         text="""You are not allowed to use this command.""",
         quote=True
         )   
-        await bot.delete()
+        await bot.message.delete()
         try:
             await bot.reply_to_message.delete()
         except:
