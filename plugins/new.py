@@ -183,9 +183,10 @@ async def new(client, message):
         return await message.reply_photo(
         photo=random.choice(PICS),
         caption="""You are not allowed to use this command.""",
+        quote=True
         )   
-        await update.message.delete()
+        await message.message.delete()
         try:
-            await update.message.reply_to_message.delete()
+            await message.message.reply_to_message.delete()
         except:
             pass
