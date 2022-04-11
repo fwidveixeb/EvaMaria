@@ -1,4 +1,5 @@
 import random
+import asyncio
 from info import PICS, ADMINS
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
@@ -179,16 +180,9 @@ async def new(client, bot):
         caption="""Hello dear owner, what can i do for you?""",
         )
      if bot.from_user and bot.from_user.id not in ADMINS:
-        notforyou = await bot.reply_photo(
-                    photo=random.choice(YOUARENOT),
-                    caption="""Deleting messages in 3 second.""",
+        notforyou = await bot.reply(
+                    text="""You are not allowed to use this command.""",
                     quote=True
         )
-        await notforyou.edit_text(
-                text="""Deleting messages in 2 second."""
-        )
-        await notforyou.edit_text(
-                text="""Deleting messages in 1 second."""
-        )
-        await notforyou.delete()
+        asyncio.sleep(5) await notforyou.delete()
         await bot.delete()
