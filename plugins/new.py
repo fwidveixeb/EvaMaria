@@ -153,7 +153,7 @@ async def cb_data(bot, update):
         )
     elif update.data == "delete":
         await update.answer('Choose a option to delete')
-        await update.message.edit(
+        await update.message.edit_text(
         text="""hello choose any option to delete the file""",
         reply_markup=DELETE
         )
