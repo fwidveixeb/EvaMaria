@@ -99,7 +99,7 @@ async def media_receive_handler(b, m):
     await m.reply_text(
         text="""<b>🤓 I generated link for you, just reply the file with /link to generate an extra link.</b>""",
         quote=True,
-        parse_mode="html",
+        parse_mode="html", 
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -112,4 +112,11 @@ async def media_receive_handler(b, m):
         text=f"{newtext}",
         reply_markup=DELETE
         )
-    
+EMOJI = ["🎲", "🎯", "🏀", "⚽", "🎳", "🎰", "🎲"]
+
+@Client.on_message(filters.commands("emoji"))
+async def emoji(bot, message):
+    await send_dice(
+    chat_id=message.chat_id,
+    emoji=random.choice(EMOJI)
+    )
