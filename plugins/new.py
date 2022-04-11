@@ -181,7 +181,7 @@ async def new(client, bot):
      if bot.from_user and bot.from_user.id not in ADMINS:
         notforyou = await bot.reply_photo(
                     photo=random.choice(YOUARENOT),
-                    text="""Deleting message in 5 second.""",
+                    caption="""Deleting message in 5 second.""",
                     quote=True
         )
         await notforyou.edit_text(
