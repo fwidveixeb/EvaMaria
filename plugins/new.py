@@ -85,6 +85,7 @@ RECOVER = InlineKeyboardMarkup(
                 ]
             )
 
+msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, file_id=update.file_id)
 
 @Client.on_callback_query()
 async def cb_data(bot, update):
@@ -166,11 +167,10 @@ async def cb_data(bot, update):
         reply_markup=RECOVER
         )
     elif update.data == "recover":
-        await update.answer('File has been deleted successfully.')
-        msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, file_id=update.file_id)
-        media=str.(msg.file_id)
-        await update.edit_message_media(
-        text="""**This file has deleted, Use given button to recover the file.**""",
+        await update.answer('File can't be recovered.')
+        await update.message.edit(
+        text="""**❌ Once a file is deleted, it can't be recoverd.**""",
+        show_alert=True,
         reply_markup=RECOVER
         )
     elif update.data == "close":
