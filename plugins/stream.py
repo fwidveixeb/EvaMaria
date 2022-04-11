@@ -106,4 +106,22 @@ async def test(client, bot):
      await bot.reply(
         text="""Hello dear owner, what can i do for you?""",
         reply_markup=DELETE
+     )
+
+@StreamBot.on_message(filters.channel & (filters.document | filters.video) & ~filters.edited, group=-1)
+async def channel_receive_handler(bot, broadcast):
+    short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
+        await bot.edit_message_reply_markup(
+            text=f"User: **{broadcast.from_user.mention(style='md')}** Track: **#u{broadcast.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**",
+            chat_id=broadcast.chat.id,
+            message_id=broadcast.message_id,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🔞', callback_data='delete'),
+                        InlineKeyboardButton('©', callback_data='delete'),
+                        InlineKeyboardButton('💭', callback_data='delete')
+                    ]
+                ]
+            )
         )
