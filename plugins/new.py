@@ -193,13 +193,13 @@ async def cb_data(bot, update):
         )
     elif update.data == "no":
         await update.answer('Cancel file deleting process.')
-        await update.edit_text(
+        await update.edit(
         text=NO_TEXT,
         reply_markup=NO_BUTTONS,
         )
     elif update.data == "delete":
         await update.answer('Do you really want to delete this file?')
-        await update.edit_text(
+        await update.edit(
         text=DELETE_TEXT,
         reply_markup=DELETE_BUTTONS
         )
