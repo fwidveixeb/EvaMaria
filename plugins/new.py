@@ -182,7 +182,4 @@ async def new(client, bot):
         quote=True
         )
         await bot.delete()
-        try:
-            await bot.reply_to_message.delete()
-        except:
-            pass
+        
