@@ -185,7 +185,7 @@ async def cb_data(bot, update):
         media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
         reply_markup=HELP_BACK_BUTTONS
         )
-    lif update.data == "yes":
+    elif update.data == "yes":
         await update.answer('File Deleted Successfully')
         media=random.choice(YES_PHOTO)
         await update.edit_message_media(
