@@ -75,12 +75,6 @@ VIDEO_TEXT = """ This file has been deleted due to Copyrighted material."""
 
 AUDIO_TEXT = """ This file has been deleted due to Other reasons."""
 
-DELETE = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('📁', callback_data='test'),
-            InlineKeyboardButton('🎥', callback_data='video'),
-            InlineKeyboardButton('🎧', callback_data='audio')
-        ]])
 
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(b, m: Message):
@@ -99,7 +93,7 @@ async def media_receive_handler(b, m: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('🔞', callback_data='close'),
+                        InlineKeyboardButton('🔞', callback_data='delete'),
                         InlineKeyboardButton('©', callback_data='delete'),
                         InlineKeyboardButton('💭', callback_data='delete')
                     ]
