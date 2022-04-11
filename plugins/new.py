@@ -134,9 +134,6 @@ async def cb_data(bot, update):
         )
     elif update.data == "close":
         await update.answer('www.hagadmansa.com')
-        await update.reply_text(
-        text="""Hello my name is himanshu rastogi"""
-        )
         await update.message.delete()
         try:
             await update.message.reply_to_message.delete()
