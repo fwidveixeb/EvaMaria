@@ -49,8 +49,7 @@ async def gen_link_s(bot, message):
              reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📦 File link', url=file_link),
-                        InlineKeyboardButton('🎁 Share URL', url=f'https://t.me/share/url?url={file_link}')
+                        InlineKeyboardButton('📦 File Link', url=f'https://t.me/share/url?url={file_link}')
                     ]
                 ]
             )
@@ -76,7 +75,7 @@ async def gen_link_batch(bot, message):
 
     match = regex.match(last)
     if not match:
-        return await message.reply('Invalid link')
+        return await message.reply('Please give a valid link for batch.')
     l_chat_id = match.group(4)
     l_msg_id = int(match.group(5))
     if l_chat_id.isnumeric():
