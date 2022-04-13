@@ -1,6 +1,7 @@
 import asyncio
 import base64
 import urllib.parse
+from info import ADMINS
 from pyrogram import Client
 import logging
 from typing import Any, Optional
@@ -91,7 +92,7 @@ async def cb_data(bot, update):
 async def media_receive_handler(b, m):
     
     banned_user = filters.create(banned_users)
-    log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
+    log_msg = await b.copy_message(chat_id=ADMINS, from_chat_id=m.chat.id, message_id=m.message_id)
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
