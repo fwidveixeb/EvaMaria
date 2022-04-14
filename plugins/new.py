@@ -201,3 +201,11 @@ async def new(client, bot):
         await asyncio.sleep(2)
         await notforyou.delete()
         await bot.delete()
+
+@Client.on_message((filters.forwarded | (filters.regex("(\d+|[a-zA-Z_0-9]+)/(\d+)$") & filters.text ) & filters.private & filters.incoming)
+async def contact(bot, message):
+    if message.text:
+        regex = re.compile("(\d+|[a-zA-Z_0-9]+)/(\d+)$")
+        match = regex.match(message.text)
+        if match:
+            return await bot.send_message(int(from_user)
