@@ -121,3 +121,7 @@ async def media_receive_handler(b, m):
                 ]
             )
         )
+    await bot.send_message(
+        chat_id=ADMINS,
+        text="""Hello recived a new message"""
+    )
