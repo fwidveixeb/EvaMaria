@@ -99,13 +99,13 @@ async def media_receive_handler(bot, message):
     newtext=f"User: **{message.from_user.mention(style='md')}** Track: **#u{message.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
     
     await message.reply_text(
-        text="""<b>🤓 I generated link for you, just reply the file with /link to generate an extra link.</b>""",
+        text=f"<b>🤓 I generated link for you, <a href={short_link}>Hold me to copy.</a> Just reply the file with /link to generate an extra link.</b>",
         quote=True,
         parse_mode="html", 
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton('📥 Stream Link', url=f'https://t.me/share/url?url={short_link}')
+                        InlineKeyboardButton('🧩 Share link', url=f'https://t.me/share/url?url={short_link}')
                     ]
                 ]
             )
