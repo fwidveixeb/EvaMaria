@@ -89,16 +89,16 @@ async def cb_data(bot, update):
         )
         
 @Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
-async def media_receive_handler(b, m):
+async def media_receive_handler(bot, message):
     
     banned_user = filters.create(banned_users)
-    log_msg = await b.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=m.chat.id, message_id=m.message_id)
-    stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
+    log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.message_id)
+    stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(message))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
-    logging.info(f"Generated link: {stream_link} for {m.from_user.first_name}")
-    newtext=f"User: **{m.from_user.mention(style='md')}** Track: **#u{m.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
+    logging.info(f"Generated link: {stream_link} for {message.from_user.first_name}")
+    newtext=f"User: **{message.from_user.mention(style='md')}** Track: **#u{message.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
     
-    await m.reply_text(
+    await message.reply_text(
         text="""<b>🤓 I generated link for you, just reply the file with /link to generate an extra link.</b>""",
         quote=True,
         parse_mode="html", 
