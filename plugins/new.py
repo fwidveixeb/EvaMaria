@@ -208,4 +208,5 @@ async def newmessage(bot, message):
         regex = re.compile("(\d+|[a-zA-Z_0-9]+)/(\d+)$")
         match = regex.match(message.text)
         if match:
-            return await bot.send_message(int(from_user)
+            return await bot.send_message(int(from_user),
+                                          """Hello thank you""",)
