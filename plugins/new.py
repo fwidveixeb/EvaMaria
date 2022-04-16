@@ -4,7 +4,7 @@ from Vars import Var
 from info import PICS, ADMINS
 from pyrogram import filters, Client
 from utils import temp
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaDocument
 
 NEW_ABOUT_TEXT = """<b>😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
@@ -142,9 +142,8 @@ async def cb_data(bot, update):
         )
     elif update.data == "warning":
         await update.answer('www.hagadmansa.com')
-        image=random.choice(PICS)
         await update.edit_message_media(
-        media=InputMediaPhoto(media=image, caption=WARNING_TEXT),
+        media=InputMediaDocument(Document="BQACAgQAAx0CXHCEYQACBO9iIvV53xNm7o_BeDoz9qpnCT1p8gACxgkAAnftCVMKbVOxdWz2mB4E", caption=WARNING_TEXT),
         reply_markup=HELP_BACK_BUTTONS
         )
     elif update.data == "close":
