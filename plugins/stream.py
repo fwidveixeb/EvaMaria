@@ -88,7 +88,7 @@ async def cb_data(bot, update):
         reply_markup=DELETE_BUTTONS
         )
         
-@Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
+Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
 async def media_receive_handler(bot, message):
     
     banned_user = filters.create(banned_users)
