@@ -143,7 +143,7 @@ async def cb_data(bot, update):
     elif update.data == "warning":
         await update.answer('www.hagadmansa.com')
         await update.edit_message_media(
-        media=InputMediaDocument(Document="BQACAgQAAx0CXHCEYQACBO9iIvV53xNm7o_BeDoz9qpnCT1p8gACxgkAAnftCVMKbVOxdWz2mB4E", caption=WARNING_TEXT),
+        media=InputMediaDocument(media="BQACAgQAAx0CXHCEYQACBO9iIvV53xNm7o_BeDoz9qpnCT1p8gACxgkAAnftCVMKbVOxdWz2mB4E", caption=WARNING_TEXT),
         reply_markup=HELP_BACK_BUTTONS
         )
     elif update.data == "close":
