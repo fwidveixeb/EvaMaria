@@ -55,7 +55,6 @@ async def gen_link_s(bot, message):
             )
         )
     
-    
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
