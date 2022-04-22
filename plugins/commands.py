@@ -3,6 +3,7 @@ import logging
 import random
 import asyncio
 from Script import script
+from Vars import Var
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -128,7 +129,7 @@ async def start(client, message):
                 f_caption = f"{title}"
             try:
                 await client.send_cached_media(
-                    chat_id=message.from_user.id,
+                    chat_id=Var.TARGET_CHANNEL,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
@@ -137,7 +138,7 @@ async def start(client, message):
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
                 await client.send_cached_media(
-                    chat_id=message.from_user.id,
+                    chat_id=Var.TARGET_CHANNEL,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
@@ -145,8 +146,9 @@ async def start(client, message):
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
-            await asyncio.sleep(1) 
-        await sts.delete()
+        await sts.edit(
+            text=f"all files has been successfully sent to Target Channel"
+            )
         return
     elif data.split("-", 1)[0] == "DSTORE":
         sts = await message.reply("Please wait")
