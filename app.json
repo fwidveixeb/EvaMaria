@@ -1,6 +1,6 @@
 {
-    "name": "EvaMariaBot",
-    "description": "When you going to send file on telegram channel this bot will save that in database, So you can search that easily in inline mode",
+    "name": "Auto Forward Bot",
+    "description": "I am a Auto Forward Bot, I can forward files from a Public/Private Channel to a Public/Private Group/Channel without SESSION STRING.",
     "stack": "container",
     "keywords": [
       "telegram",
@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/EvamariaTG/EvaMaria",
-    "repository": "https://github.com/EvamariaTG/EvaMaria",
+    "website": "https://hagadmansa.com",
+    "repository": "https://github.com/bakrapalan/AutoForwardBot",
     "env": {
         "ADMINS": {
             "description": "Id of Admins who have access to Bot, Get this value from @HagadmansaBot command /info.",
