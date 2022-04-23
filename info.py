@@ -22,7 +22,7 @@ LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 TARGET_CHANNEL = int(environ.get("TARGET_CHANNEL", None))
 BOT_USERNAME = environ.get("BOT_USERNAME")
 FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).split()]
-BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION")
+FILE_CAPTION = environ.get("FILE_CAPTION")
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "")
