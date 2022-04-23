@@ -79,7 +79,7 @@ async def start(bot, message):
         file_id = data
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply("I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
+        sts = await message.reply("🙂 I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -123,8 +123,10 @@ async def start(bot, message):
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
+            await asyncio.sleep(3)
+        await sts.edit("😏 If files were not sent in your TARGET CHANNEL then check your logs.")
         await bot.send_message(
             chat_id=message.chat.id,
-            text=f"All files have been successfully sent to TARGET CHANNEL. If not then check your logs."
+            text=f"😎 All files have been successfully sent to TARGET CHANNEL."
             )
         return
