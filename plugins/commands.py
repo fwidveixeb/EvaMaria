@@ -20,7 +20,7 @@ BATCH_FILES = {}
 IMAGE = ["https://telegra.ph/file/cd0ef3ccc5727f037cc96.jpg"]
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
-async def start(client, message):
+async def start(bot, message):
     if message.chat.type in ['group', 'supergroup']:
         await message.reply("""I don't work in Gorups or Channels.""")
         await asyncio.sleep(2)
