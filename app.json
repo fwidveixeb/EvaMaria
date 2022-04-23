@@ -20,6 +20,7 @@
     "env": {
         "ADMINS": {
             "description": "Id of Admins who have access to Bot, Get this value from @HagadmansaBot command /info.",
+            "value": "5183761448 1250003833 1896980230",
             "required": true
         },
         "API_ID": {
@@ -44,6 +45,7 @@
         },
         "DATABASE_NAME": {
             "description": "Name of the database in mongoDB. For more help watch this video - https://youtu.be/dsuTn4qV2GA",
+            "value": "Cluster0",
             "required": true
         },
         "COLLECTION_NAME": {
@@ -53,14 +55,17 @@
         },
         "FILE_CAPTION": {
             "description": "A Custom File Caption for your files leave empty if you don't need check readme.md to onow more about this.",
+            "value": "<code>{file_name}</code>",
             "required": false
         },
         "LOG_CHANNEL": {
             "description": "Bot Logs (notifications) Give a channel id with -100xxxxxxx, Get this value from @TGIDsBot.",
+            "value": "-1001657833865",
             "required": true
         },
         "TARGET_CHANNEL": {
             "description": "A channel where bot will send files. channel id with -100xxxxxxx, Get this value from @TGIDsBot",
+            "value": "-1001625503066",
             "required": true
         },
         "UPSTREAM_REPO": {
