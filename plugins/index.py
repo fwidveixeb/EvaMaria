@@ -8,7 +8,7 @@ from urllib.parse import quote_plus
 from pyrogram import filters, Client
 from pyrogram.file_id import FileId
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
-from info import ADMINS, LOG_CHANNEL, TARGET_CHANNEL, FILE_STORE_CHANNEL, BOT_USERNAME
+from info import ADMINS, LOG_CHANNEL, TARGET_CHANNEL, BOT_USERNAME
 from database.ia_filterdb import unpack_new_file_id
 import re
 import os
