@@ -123,7 +123,6 @@ async def start(bot, message):
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
-        await sts.delete()
         await bot.send_message(
             chat_id=message.chat.id,
             text=f"All files have been successfully sent to TARGET CHANNEL. If not then check your logs."
