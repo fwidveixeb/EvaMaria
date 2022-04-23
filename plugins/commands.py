@@ -28,8 +28,7 @@ async def start(client, message):
         return 
 
     if not await db.is_user_exist(message.from_user.id):
-        await client.send_message(LOG_CHANNEL, "#NewUser#") 
-               
+        await client.send_message(LOG_CHANNEL, "#NewUser")
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
