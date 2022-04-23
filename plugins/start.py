@@ -23,13 +23,13 @@ async def start(bot, message):
     if message.chat.type in ['group', 'supergroup']:
         await message.reply("""I don't work in Gorups or Channels.""")
         if not await db.get_chat(message.chat.id):
-            total=await client.get_chat_members_count(message.chat.id)
-            await client.send_message(LOG_CHANNEL, "#NewChat")       
+            total=await bot.get_chat_members_count(message.chat.id)
+            await bot.send_message(LOG_CHANNEL, "#NewChat")       
             await db.add_chat(message.chat.id, message.chat.title)
         return 
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
-        await client.send_message(LOG_CHANNEL, "#NewUser")
+        await bot.send_message(LOG_CHANNEL, "#NewUser")
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
