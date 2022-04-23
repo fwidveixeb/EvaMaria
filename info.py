@@ -30,7 +30,7 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "HagadmansaRobot")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
-LOG_STR = "Current Cusomized Configurations are:-\n"
+LOG_STR = "🤖 Bot Started Successfully.\n"
 
 def get_size(size):
     """Get size in readable format"""
