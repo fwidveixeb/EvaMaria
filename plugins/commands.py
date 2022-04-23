@@ -32,6 +32,14 @@ async def start(bot, message):
             parse_mode='html'
         )
         return
+    
+    if message.command[1] != "hello":
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text="**Please Join My Updates Channel to use this Bot!**",
+            )
+        return
+    
     data = message.command[1]
     try:
         pre, file_id = data.split('_', 1)
