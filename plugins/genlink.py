@@ -11,7 +11,6 @@ from pyrogram.file_id import FileId
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
 from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, PUBLIC_FILE_STORE
 from database.ia_filterdb import unpack_new_file_id
-from utils import temp
 import re
 import os
 import json
@@ -28,33 +27,6 @@ async def allowed(_, __, message):
         return True
     return False
 
-
-@Client.on_message(filters.command(['link', 'plink']) & filters.create(allowed))
-async def gen_link_s(bot, message):
-    replied = message.reply_to_message
-    if not replied:
-        return await message.reply('Reply to a message to get a shareable link.')
-    file_type = replied.media
-    if file_type not in ["video", 'audio', 'document']:
-        return await message.reply("Reply to a supported media")
-    file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
-    string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
-    string += file_id
-    outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-    file_link = f'https://t.me/{temp.U_NAME}?start={outstr}'
-    await message.reply(
-             text="""<b>😎 I generated one more link for you, <a href={short_link}>Hold me to copy.</a> No need to say thank you.</b>""",
-             quote=True,
-             parse_mode="html",
-             reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('📦 Share Link', url=f'https://t.me/share/url?url={file_link}')
-                    ]
-                ]
-            )
-        )
-    
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed) & filters.user(ADMINS))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
@@ -95,7 +67,7 @@ async def gen_link_batch(bot, message):
     if chat_id in FILE_STORE_CHANNEL:
         string = f"{f_msg_id}_{l_msg_id}_{chat_id}_{cmd.lower().strip()}"
         b_64 = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-        return await sts.edit(f"Here is your link https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}")
+        return await sts.edit(f"Here is your link https://t.me/iamaautoforwardbot?start=DSTORE-{b_64}")
 
     FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`\nStatus: `{sts}`"
 
@@ -140,4 +112,4 @@ async def gen_link_batch(bot, message):
     post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Batch.json", caption="⚠️Generated for filestore.")
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
-    await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{temp.U_NAME}?start=BATCH-{file_id}")
+    await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/iamaautoforwardbot?start=BATCH-{file_id}")
