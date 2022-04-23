@@ -55,7 +55,7 @@ async def gen_link_s(bot, message):
             )
         )
     
-@Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed) & filters.users(ADMINS))
+@Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed) & filters.user(ADMINS))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
         return await message.reply("Use correct format.\nExample <code>/batch https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
