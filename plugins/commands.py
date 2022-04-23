@@ -17,6 +17,8 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
+IMAGE = ["https://telegra.ph/file/cd0ef3ccc5727f037cc96.jpg"]
+
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
@@ -36,8 +38,9 @@ async def start(client, message):
             InlineKeyboardButton('📣 Updates', url='https://t.me/hagadmansa')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply(
-            text="""Hello I am a Auto Forward Bot devoloped by @hagadmansa, I can forward files from a Public/Private Channel to a Public/Private Group/Channel.""",
+        await message.reply_photo(
+            photo=random.choice(IMAGE),
+            caption="""Hello I am a Auto Forward Bot devoloped by @hagadmansa, I can forward files from a Public/Private Channel to a Public/Private Group/Channel.""",
             reply_markup=reply_markup,
             parse_mode='html'
         )
@@ -63,8 +66,8 @@ async def start(client, message):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            photo=random.choice(IMAGE),
+            caption="""Hello I am a Auto Forward Bot devoloped by @hagadmansa, I can forward files from a Public/Private Channel to a Public/Private Group/Channel.""",
             reply_markup=reply_markup,
             parse_mode='html'
         )
@@ -76,17 +79,17 @@ async def start(client, message):
         file_id = data
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply("Please wait")
+        sts = await message.reply("I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
-            file = await client.download_media(file_id)
+            file = await bot.download_media(file_id)
             try: 
                 with open(file) as file_data:
                     msgs=json.loads(file_data.read())
             except:
                 await sts.edit("FAILED")
-                return await client.send_message(LOG_CHANNEL, "UNABLE TO OPEN FILE.")
+                return await bot.send_message(LOG_CHANNEL, "UNABLE TO OPEN FILE.")
             os.remove(file)
             BATCH_FILES[file_id] = msgs
         for msg in msgs:
@@ -120,7 +123,9 @@ async def start(client, message):
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
-        await sts.edit(
-            text=f"all files has been successfully sent to Target Channel"
+        await sts.delete()
+        await bot.send_message(
+            chat_id=message.chat.id,
+            text=f"All files have been successfully sent to TARGET CHANNEL. If not then check your logs."
             )
         return
