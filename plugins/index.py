@@ -23,10 +23,10 @@ logger.setLevel(logging.INFO)
 @Client.on_message(filters.command(['index']) & filters.user(ADMINS))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
-        return await message.reply("Use correct format.\nExample <code>/batch https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
+        return await message.reply("Use correct format.\nExample <code>/index https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
     links = message.text.strip().split(" ")
     if len(links) != 3:
-        return await message.reply("Use correct format.\nExample <code>/batch https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
+        return await message.reply("Use correct format.\nExample <code>/index https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
     cmd, first, last = links
     regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
     match = regex.match(first)
@@ -102,7 +102,7 @@ async def gen_link_batch(bot, message):
                 pass
     with open(f"batchmode_{message.from_user.id}.json", "w+") as out:
         json.dump(outlist, out)
-    post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Batch.json", caption="⚠️ Generated for Indexing.")
+    post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Index.json", caption="⚠️ Generated for Indexing.")
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
-    await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=BATCH-{file_id}")
+    await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=INDEX-{file_id}")
