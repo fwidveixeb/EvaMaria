@@ -9,7 +9,7 @@ from Vars import Var
 from pyrogram import filters, Client
 from pyrogram.file_id import FileId
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
-from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL
+from info import ADMINS, LOG_CHANNEL, TARGET_CHANNEL, FILE_STORE_CHANNEL
 from database.ia_filterdb import unpack_new_file_id
 import re
 import os
