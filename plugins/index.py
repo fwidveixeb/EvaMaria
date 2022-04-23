@@ -5,7 +5,6 @@ import logging
 from pyrogram.types import Message
 from typing import Any, Optional
 from urllib.parse import quote_plus
-from Vars import Var
 from pyrogram import filters, Client
 from pyrogram.file_id import FileId
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
