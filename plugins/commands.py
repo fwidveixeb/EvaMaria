@@ -63,13 +63,13 @@ async def start(bot, message):
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
-            file = await client.download_media(file_id)
+            file = await bot.download_media(file_id)
             try: 
                 with open(file) as file_data:
                     msgs=json.loads(file_data.read())
             except:
                 await sts.edit("FAILED")
-                return await client.send_message(LOG_CHANNEL, "UNABLE TO OPEN FILE.")
+                return await bot.send_message(LOG_CHANNEL, "UNABLE TO OPEN FILE.")
             os.remove(file)
             BATCH_FILES[file_id] = msgs
         for msg in msgs:
@@ -85,7 +85,7 @@ async def start(bot, message):
             if f_caption is None:
                 f_caption = f"{title}"
             try:
-                await client.send_cached_media(
+                await bot.send_cached_media(
                     chat_id=Var.TARGET_CHANNEL,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
