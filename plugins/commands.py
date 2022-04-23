@@ -20,8 +20,8 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
         if message.chat.type in ['group', 'supergroup']:
-        await message.reply("Hello i don't work in Groups or Channels.")
-        await asyncio.sleep(2)
+                await message.reply("Hello i don't work in Groups or Channels.")
+                await asyncio.sleep(2)
         
     if len(message.command) != 2:
         buttons = [[
