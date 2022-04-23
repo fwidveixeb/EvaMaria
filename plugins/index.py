@@ -57,11 +57,7 @@ async def gen_link_batch(bot, message):
         return await message.reply(f'Errors - {e}')
 
     sts = await message.reply("Generating link for your message.\nThis may take time depending upon number of messages")
-    if chat_id in FILE_STORE_CHANNEL:
-        string = f"{f_msg_id}_{l_msg_id}_{chat_id}_{cmd.lower().strip()}"
-        b_64 = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-        return await sts.edit(f"Here is your link https://t.me/{BOT_USERNAME}?start=DSTORE-{b_64}")
-
+    
     FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`\nStatus: `{sts}`"
 
     outlist = []
@@ -105,4 +101,5 @@ async def gen_link_batch(bot, message):
     post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Index.json", caption="⚠️ Generated for Indexing.")
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
-    await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=BATCH-{file_id}")
+    await sts.delete()
+    await message.reply(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=BATCH-{file_id}")
