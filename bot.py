@@ -11,7 +11,7 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
-from info import SESSION, API_ID, API_HASH, BOT_TOKEN
+from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 
 class Bot(Client):
 
@@ -25,6 +25,15 @@ class Bot(Client):
             plugins={"root": "plugins"},
             sleep_threshold=5,
         )
+        
+    async def start(self):
+         b_users, b_chats = await db.get_banned()
+         await super().start()
+         await Media.ensure_indexes()
+         me = await self.get_me()
+         self.username = '@' + me.username
+         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
+         logging.info(LOG_STR)
 
     async def stop(self, *args):
         await super().stop()
