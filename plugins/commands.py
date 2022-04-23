@@ -46,8 +46,7 @@ async def start(bot, message):
             text="**This is message command 2 and 1.**",
             )
         return
-        return
-    
+     
     data = message.command[1]
     try:
         pre, file_id = data.split('_', 1)
