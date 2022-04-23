@@ -18,41 +18,25 @@
     "website": "https://github.com/EvamariaTG/EvaMaria",
     "repository": "https://github.com/EvamariaTG/EvaMaria",
     "env": {
-        "BOT_TOKEN": {
-            "description": "Your bot token.",
+        "ADMINS": {
+            "description": "Id of Admins who have access to Bot, Get this value from @HagadmansaBot command /info.",
             "required": true
         },
         "API_ID": {
-            "description": "Get this value from https://my.telegram.org",
+            "description": "API ID to configure Bot ownership, Get this value from https://my.telegram.org",
             "required": true
         },
         "API_HASH": {
-            "description": "Get this value from https://my.telegram.org",
+            "description": "API HASH to configure Bot ownership, Get this value from https://my.telegram.org",
             "required": true
         },
-        "CHANNELS": {
-            "description": "Username or ID of channel or group. Separate multiple IDs by space.",
-            "required": false
-        },
-        "ADMINS": {
-            "description": "Username or ID of Admin. Separate multiple Admins by space.",
+        "BOT_TOKEN": {
+            "description": "Your bot token to define on which bot app will work, Get this value from @BotFather.",
             "required": true
         },
-        "PICS": {
-            "description": "Add some telegraph link of pictures .",
-            "required": false
-        },
-        "LOG_CHANNEL": {
-            "description": "Bot Logs,Give a channel id with -100xxxxxxx",
+        "BOT_USERNAME": {
+            "description": "Your bot username without @ Example:- hagadmansabot. Do not add any <space>.",
             "required": true
-        },
-        "AUTH_USERS": {
-            "description": "Username or ID of users to give access of inline search. Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
-            "required": false
-        },
-        "AUTH_CHANNEL": {
-            "description": "ID of channel.Make sure bot is admin in this channel. Without subscribing this channel users cannot use bot.",
-            "required": false
         },
         "DATABASE_URI": {
             "description": "mongoDB URI. Get this value from https://www.mongodb.com. For more help watch this video - https://youtu.be/dsuTn4qV2GA",
@@ -65,7 +49,24 @@
         "COLLECTION_NAME": {
             "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use different collection name for each bot",
             "value": "Telegram_files",
+            "required": true
+        },
+        "FILE_CAPTION": {
+            "description": "A Custom File Caption for your files leave empty if you don't need check readme.md to onow more about this.",
             "required": false
+        },
+        "LOG_CHANNEL": {
+            "description": "Bot Logs (notifications) Give a channel id with -100xxxxxxx, Get this value from @TGIDsBot.",
+            "required": true
+        },
+        "TARGET_CHANNEL": {
+            "description": "A channel where bot will send files. channel id with -100xxxxxxx, Get this value from @TGIDsBot",
+            "required": false
+        },
+        "UPSTREAM_REPO": {
+            "description": "Note:- Do not change this in any case.",
+            "required": true,
+            "value": "https://github.com/bakrapalan/AutiForwardBot"
         }
     },
     "addons": [],
