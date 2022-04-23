@@ -122,9 +122,9 @@ async def start(bot, message):
                 logger.warning(e, exc_info=True)
                 continue
             await asyncio.sleep(3)
-        await sts.edit("😏 If files were not sent in your TARGET CHANNEL then check your logs.")
+        await sts.delete()
         await bot.send_message(
             chat_id=message.chat.id,
-            text=f"😎 All files have been successfully sent to TARGET CHANNEL."
+            text=f"😎 All files have been successfully sent to TARGET CHANNEL, If not sent check your logs."
             )
         return
