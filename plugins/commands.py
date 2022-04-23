@@ -105,7 +105,7 @@ async def start(bot, message):
             if f_caption is None:
                 f_caption = f"{title}"
             try:
-                await client.send_cached_media(
+                await bot.send_cached_media(
                     chat_id=Var.TARGET_CHANNEL,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
