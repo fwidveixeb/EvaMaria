@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-@Client.on_message(filters.command(['batch']) & filters.user(ADMINS))
+@Client.on_message(filters.command(['index']) & filters.user(ADMINS))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
         return await message.reply("Use correct format.\nExample <code>/batch https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
