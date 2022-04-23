@@ -19,21 +19,11 @@ logger = logging.getLogger(__name__)
 BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
-async def start(client, message):
+async def start(bot, message):
     
         await asyncio.sleep(2)
-        
-        buttons = [[
-            InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
-            InlineKeyboardButton('📣 Updates', url='https://t.me/hagadmansa')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=("nice"),
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
+        await message.answer('www.hagadmansa.com')
+        await message.reply("""Hello Dear""")
         return
     
     data = message.command[1]
@@ -43,7 +33,7 @@ async def start(client, message):
         file_id = data
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply("Please wait")
+        sts = await message.reply("I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -88,7 +78,6 @@ async def start(client, message):
                 logger.warning(e, exc_info=True)
                 continue
             await asyncio.sleep(3)
-        await sts.edit(
-            text=f"all files has been successfully sent to Target Channel"
-            )
+        await sts.delete()
+        await bot.send_message("""All files have been successfully sent to TARGET CHANNEL. If not then check your logs.""")
         return
