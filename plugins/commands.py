@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT
+from info import ADMINS, LOG_CHANNEL, BATCH_FILE_CAPTION, TARGET_CHANNEL, get_file
 from database.connections_mdb import active_connection
 import re
 import json
@@ -106,7 +106,7 @@ async def start(bot, message):
                 f_caption = f"{title}"
             try:
                 await bot.send_cached_media(
-                    chat_id=Var.TARGET_CHANNEL,
+                    chat_id=TARGET_CHANNEL,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
@@ -115,7 +115,7 @@ async def start(bot, message):
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
                 await client.send_cached_media(
-                    chat_id=Var.TARGET_CHANNEL,
+                    chat_id=TARGET_CHANNEL,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
