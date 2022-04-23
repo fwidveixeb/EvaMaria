@@ -67,11 +67,6 @@
             "description": "A channel where bot will send files. channel id with -100xxxxxxx, Get this value from @TGIDsBot",
             "value": "-1001625503066",
             "required": true
-        },
-        "UPSTREAM_REPO": {
-            "description": "Note:- Do not change this in any case.",
-            "required": true,
-            "value": "https://github.com/bakrapalan/AutiForwardBot"
         }
     },
     "addons": [],
