@@ -22,7 +22,14 @@ async def start(client, message):
         if message.chat.type in ['group', 'supergroup']:
                 await message.reply("Hello i don't work in Groups or Channels.")
                 await asyncio.sleep(2)
-        
+                
+        if not await db.get_chat(message.chat.id):
+            await client.send_message(LOG_CHANNEL, "#NewChat"))       
+        return 
+
+    if not await db.is_user_exist(message.from_user.id):
+        await client.send_message(LOG_CHANNEL, "#NewUser#") 
+               
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
