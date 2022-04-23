@@ -19,7 +19,7 @@ BOT_TOKEN = environ['BOT_TOKEN']
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 TARGET_CHANNEL = int(environ.get("TARGET_CHANNEL", None))
-BOT_USERNAME = environ.get("BOT_USERNAME"))
+BOT_USERNAME = environ.get("BOT_USERNAME")
 FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).split()]
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION")
 
