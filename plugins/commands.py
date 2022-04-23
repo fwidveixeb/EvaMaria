@@ -36,8 +36,16 @@ async def start(bot, message):
     if message.command[1] != "hello":
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            text="**This is message command 1.**",
             )
+        return
+    
+    if len(message.command) == 2 and message.command[1] 
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text="**This is message command 2 and 1.**",
+            )
+        return
         return
     
     data = message.command[1]
