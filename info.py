@@ -21,7 +21,6 @@ ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
 TARGET_CHANNEL = int(environ.get("TARGET_CHANNEL", None))
 BOT_USERNAME = environ.get("BOT_USERNAME")
-FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).split()]
 FILE_CAPTION = environ.get("FILE_CAPTION")
 
 # MongoDB information
