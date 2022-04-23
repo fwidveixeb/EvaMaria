@@ -2,13 +2,12 @@ import os
 import logging
 import random
 import asyncio
-from Vars import Var, get_size
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import ADMINS, LOG_CHANNEL, BATCH_FILE_CAPTION, TARGET_CHANNEL, get_file
+from info import ADMINS, LOG_CHANNEL, BATCH_FILE_CAPTION, TARGET_CHANNEL, get_size
 from database.connections_mdb import active_connection
 import re
 import json
