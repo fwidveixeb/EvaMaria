@@ -24,7 +24,7 @@ async def start(client, message):
                 await asyncio.sleep(2)
                 
         if not await db.get_chat(message.chat.id):
-            await client.send_message(LOG_CHANNEL, "#NewChat"))       
+            await client.send_message(LOG_CHANNEL, "#NewChat")    
         return 
 
     if not await db.is_user_exist(message.from_user.id):
