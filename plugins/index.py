@@ -2,14 +2,14 @@ import re
 import asyncio
 import urllib.parse
 import logging
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import Message
 from typing import Any, Optional
 from urllib.parse import quote_plus
 from Vars import Var
 from pyrogram import filters, Client
 from pyrogram.file_id import FileId
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
-from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, PUBLIC_FILE_STORE
+from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL
 from database.ia_filterdb import unpack_new_file_id
 import re
 import os
@@ -20,20 +20,14 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-async def allowed(_, __, message):
-    if PUBLIC_FILE_STORE:
-        return True
-    if message.from_user and message.from_user.id in ADMINS:
-        return True
-    return False
 
-@Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed) & filters.user(ADMINS))
+@Client.on_message(filters.command(['index']) & filters.user(ADMINS))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
-        return await message.reply("Use correct format.\nExample <code>/batch https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
+        return await message.reply("Use correct format.\nExample <code>/index https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
     links = message.text.strip().split(" ")
     if len(links) != 3:
-        return await message.reply("Use correct format.\nExample <code>/batch https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
+        return await message.reply("Use correct format.\nExample <code>/index https://t.me/hagadmansa/10 https://t.me/hagadmansa/20</code>.")
     cmd, first, last = links
     regex = re.compile("(https://)?(t\.me/|telegram\.me/|telegram\.dog/)(c/)?(\d+|[a-zA-Z_0-9]+)/(\d+)$")
     match = regex.match(first)
@@ -46,7 +40,7 @@ async def gen_link_batch(bot, message):
 
     match = regex.match(last)
     if not match:
-        return await message.reply('Please give a valid link for batch.')
+        return await message.reply('Please give a valid link for index.')
     l_chat_id = match.group(4)
     l_msg_id = int(match.group(5))
     if l_chat_id.isnumeric():
