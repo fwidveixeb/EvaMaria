@@ -40,7 +40,7 @@ async def start(bot, message):
             )
         return
     
-    if len(message.command) == 2 and message.command[1] 
+    if len(message.command) == 2 and message.command[1] in ["hello"]
         await client.send_message(
             chat_id=message.from_user.id,
             text="**This is message command 2 and 1.**",
