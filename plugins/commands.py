@@ -18,12 +18,8 @@ logger = logging.getLogger(__name__)
 BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
-async def start(bot, message):
-    if not await db.get_chat(message.chat.id):
-            total=await client.get_chat_members_count(message.chat.id)
-            await client.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, "Unknown"))       
-            await db.add_chat(message.chat.id, message.chat.title)
-if message.chat.type in ['group', 'supergroup']:
+async def start(client, message):
+    if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
                 InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
@@ -104,17 +100,17 @@ if message.chat.type in ['group', 'supergroup']:
         file_id = data
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply("I am sending files in your TARGET CHANNEL, when it will complete i will notify you via a message. If i am not sending files in your TARGET CHANNEL then check your logs.")
+        sts = await message.reply("Please wait")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
-            file = await bot.download_media(file_id)
+            file = await client.download_media(file_id)
             try: 
                 with open(file) as file_data:
                     msgs=json.loads(file_data.read())
             except:
                 await sts.edit("FAILED")
-                return await bot.send_message(LOG_CHANNEL, "UNABLE TO OPEN FILE.")
+                return await client.send_message(LOG_CHANNEL, "UNABLE TO OPEN FILE.")
             os.remove(file)
             BATCH_FILES[file_id] = msgs
         for msg in msgs:
@@ -130,7 +126,7 @@ if message.chat.type in ['group', 'supergroup']:
             if f_caption is None:
                 f_caption = f"{title}"
             try:
-                await bot.send_cached_media(
+                await client.send_cached_media(
                     chat_id=Var.TARGET_CHANNEL,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
@@ -148,14 +144,7 @@ if message.chat.type in ['group', 'supergroup']:
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
-            await asyncio.sleep(3)
-        await sts.delete()
-        await bot.send_message(
-            chat_id=message.chat.id,
-            text="""All files have been successfully sent to TARGET CHANNEL. If not then check your logs."""
-        )
+        await sts.edit(
+            text=f"all files has been successfully sent to Target Channel"
+            )
         return
-
-@Client.on_message(filters.command("forward") & filters.incoming & ~filters.edited)
-async def start(bot, message):
-    await bot.forward_messages("message.chat.id", "himanshurastogiofficial", [3, 20, 27])
