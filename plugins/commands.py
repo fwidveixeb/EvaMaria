@@ -105,5 +105,7 @@ async def start(bot, message):
                 continue
             await asyncio.sleep(3)
         await sts.delete()
-        await bot.send_message("""All files have been successfully sent to TARGET CHANNEL. If not then check your logs.""")
+        await bot.send_message(
+            text="""All files have been successfully sent to TARGET CHANNEL. If not then check your logs."""
+        )
         return
