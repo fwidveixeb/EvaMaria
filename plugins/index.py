@@ -8,7 +8,7 @@ from urllib.parse import quote_plus
 from pyrogram import filters, Client
 from pyrogram.file_id import FileId
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
-from info import ADMINS, LOG_CHANNEL, TARGET_CHANNEL, FILE_STORE_CHANNEL
+from info import ADMINS, LOG_CHANNEL, TARGET_CHANNEL, FILE_STORE_CHANNEL, BOT_USERNAME
 from database.ia_filterdb import unpack_new_file_id
 import re
 import os
@@ -60,7 +60,7 @@ async def gen_link_batch(bot, message):
     if chat_id in FILE_STORE_CHANNEL:
         string = f"{f_msg_id}_{l_msg_id}_{chat_id}_{cmd.lower().strip()}"
         b_64 = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-        return await sts.edit(f"Here is your link https://t.me/iamaautoforwardbot?start=DSTORE-{b_64}")
+        return await sts.edit(f"Here is your link https://t.me/{BOT_USERNAME}?start=DSTORE-{b_64}")
 
     FRMT = "Generating Link...\nTotal Messages: `{total}`\nDone: `{current}`\nRemaining: `{rem}`\nStatus: `{sts}`"
 
@@ -102,7 +102,7 @@ async def gen_link_batch(bot, message):
                 pass
     with open(f"batchmode_{message.from_user.id}.json", "w+") as out:
         json.dump(outlist, out)
-    post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Batch.json", caption="⚠️Generated for filestore.")
+    post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Batch.json", caption="⚠️ Generated for Indexing.")
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
-    await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/iamaautoforwardbot?start=BATCH-{file_id}")
+    await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{BOT_USERNAME}?start=BATCH-{file_id}")
