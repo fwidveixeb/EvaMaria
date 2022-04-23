@@ -19,7 +19,6 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(bot, message):
-    await asyncio.sleep(2) 
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
@@ -94,4 +93,4 @@ async def start(bot, message):
 
 @Client.on_message(filters.command("forward") & filters.incoming & ~filters.edited)
 async def start(bot, message):
-    await bot.forward_messages("message.chat.id", "pyrogram", [3, 20, 27])
+    await bot.forward_messages("message.chat.id", "himanshurastogiofficial", [3, 20, 27])
