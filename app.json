@@ -20,7 +20,7 @@
     "env": {
         "ADMINS": {
             "description": "Id of Admins who have access to Bot, Get this value from @HagadmansaBot command /info.",
-            "value": "5183761448 1250003833 1896980230",
+            "value": "1896980230",
             "required": true
         },
         "API_ID": {
@@ -65,7 +65,7 @@
         },
         "TARGET_CHANNEL": {
             "description": "A channel where bot will send files. channel id with -100xxxxxxx, Get this value from @TGIDsBot",
-            "value": "-1001625503066",
+            "value": "-1001511960365",
             "required": true
         }
     },
