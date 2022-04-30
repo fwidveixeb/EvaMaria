@@ -111,7 +111,7 @@ async def start(client, message):
         file_id = data
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply("Please wait")
+        sts = await message.reply("All files will be deleted in 2 minutes so make sure you forward all messages in your saved messages.")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -137,7 +137,7 @@ async def start(client, message):
             if f_caption is None:
                 f_caption = f"{title}"
             try:
-                await client.send_cached_media(
+               autodelete = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
@@ -157,6 +157,8 @@ async def start(client, message):
                 continue
             await asyncio.sleep(1) 
         await sts.delete()
+        await asyncio.sleep(120)
+        await autofilter.delete()
         return
     elif data.split("-", 1)[0] == "DSTORE":
         sts = await message.reply("Please wait")
