@@ -104,7 +104,7 @@ async def media_receive_handler(bot, message):
     newtext=f"User: **{message.from_user.mention(style='md')}** Track: **#u{message.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
     
     await message.reply_text(
-        text=f<code>{short_link}</code>",
+        text=f"<code>{short_link}</code>",
         quote=True,
         parse_mode="html"
         )
