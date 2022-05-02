@@ -88,9 +88,14 @@ async def cb_data(bot, update):
         reply_markup=DELETE_BUTTONS
         )
         
-@Client.on_message( filters.private & ( filters.document | filters.video | filters.audio ) & ~banned_user, group=4,)
+@Client.on_message( filters.command("download") & ~banned_user, group=4,)
 async def media_receive_handler(bot, message):
-    
+    replied = message.reply_to_message
+    if not replied:
+        return await message.reply('Reply to a message to get a shareable link.')
+    file_type = replied.media
+    if file_type not in ["video", 'audio', 'document']:
+        return await message.reply("Reply to a supported media")
     banned_user = filters.create(banned_users)
     log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.message_id)
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(message))}?hash={get_hash(log_msg)}"
@@ -99,16 +104,9 @@ async def media_receive_handler(bot, message):
     newtext=f"User: **{message.from_user.mention(style='md')}** Track: **#u{message.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
     
     await message.reply_text(
-        text=f"<b>🤓 I generated link for you, <a href={short_link}>Hold me to copy.</a> Just reply the file with /link to generate an extra link.</b>",
+        text=f<code>{short_link}</code>",
         quote=True,
-        parse_mode="html", 
-        reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('🧩 Share link', url=f'https://t.me/share/url?url={short_link}')
-                    ]
-                ]
-            )
+        parse_mode="html"
         )
     
     await log_msg.edit_text(
