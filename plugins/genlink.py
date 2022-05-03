@@ -42,14 +42,25 @@ async def gen_link_s(bot, message):
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     file_link = f'https://t.me/{temp.U_NAME}?start={outstr}'
+    log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.replied)
     await message.reply(
-             text="""<b>😎 I generated one more link for you, <a href={short_link}>Hold me to copy.</a> No need to say thank you.</b>""",
+             text=f"<code>{short_link}</code>",
              quote=True,
              parse_mode="html",
              reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton('📦 Share Link', url=f'https://t.me/share/url?url={file_link}')
+                    ]
+                ]
+            )
+        )
+    await log_msg.edit_text(
+        text=f"{newtext}",
+        reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🗑 Delete File', callback_data='close')
                     ]
                 ]
             )
