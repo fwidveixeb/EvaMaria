@@ -18,54 +18,61 @@
     "website": "https://github.com/EvamariaTG/EvaMaria",
     "repository": "https://github.com/EvamariaTG/EvaMaria",
     "env": {
-        "BOT_TOKEN": {
-            "description": "Your bot token.",
-            "required": true
-        },
-        "API_ID": {
-            "description": "Get this value from https://my.telegram.org",
+        "ADMINS": {
+            "description": "Your Admin ID.",
+            "value": "1250003833",
             "required": true
         },
         "API_HASH": {
             "description": "Get this value from https://my.telegram.org",
             "required": true
         },
-        "CHANNELS": {
-            "description": "Username or ID of channel or group. Separate multiple IDs by space.",
-            "required": false
-        },
-        "ADMINS": {
-            "description": "Username or ID of Admin. Separate multiple Admins by space.",
+        "API_ID": {
+            "description": "Get this value from https://my.telegram.org",
             "required": true
         },
-        "PICS": {
-            "description": "Add some telegraph link of pictures .",
-            "required": false
-        },
-        "LOG_CHANNEL": {
-            "description": "Bot Logs,Give a channel id with -100xxxxxxx",
+        "BIN_CHANNEL": {
+            "description": "Bin Channel",
+            "value": "-1001772604217",
             "required": true
         },
-        "AUTH_USERS": {
-            "description": "Username or ID of users to give access of inline search. Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
-            "required": false
+        "BOT_TOKEN": {
+            "description": "Your Bot Token",
+            "required": true
         },
-        "AUTH_CHANNEL": {
-            "description": "ID of channel.Make sure bot is admin in this channel. Without subscribing this channel users cannot use bot.",
-            "required": false
-        },
-        "DATABASE_URI": {
-            "description": "mongoDB URI. Get this value from https://www.mongodb.com. For more help watch this video - https://youtu.be/dsuTn4qV2GA",
+        "CUSTOM_FILE_CAPTION": {
+            "description": "Custom File Caption",
+            "value": "<b>📂 File name - </b> <code>{file_name}</code> <b>📦 File size - </b>{file_size} <b> 📣  Channel - </b> <a href=‘https://t.me/hagadmansa/2’>@hagadmansa<a/> <b>🌐 Website - </b> www.hagadmansa.com",
             "required": true
         },
         "DATABASE_NAME": {
-            "description": "Name of the database in mongoDB. For more help watch this video - https://youtu.be/dsuTn4qV2GA",
-            "required": false
+            "description": "Name of the database in mongoDB.",
+            "value": "HagadmansaRobot",
+            "required": true
         },
-        "COLLECTION_NAME": {
+        "DATABASE_URI": {
+            "description": "mongoDB URI. Get this value from https://www.mongodb.com.",
+            "required": true
+        },
+        "IMDB_TEMPLATE": {
+            "description": "Add some telegraph link of pictures .",
+            "value": "🎬 <b> Title</b> - {title}\n🎭 <b> Genre</b> - {genres}\n🗓 <b> Release Date</b> - {release_date}\n🌟 <b> Rating </b> - {rating}/10\n⏳ <b>Run Time </b> - {runtime} Minutes",
+            "required": true
+        },
+        "LOG_CHANNEL": {
+            "description": "Add some telegraph link of pictures .",
+            "value": "-1001504830917",
+            "required": true
+        },
+        "PICS": {
+            "description": "Bot Logs,Give a channel id with -100xxxxxxx",
+            "value": "https://telegra.ph/file/ef90acf72f0c939b5cd6d.jpg https://telegra.ph/file/17fb742fc8601e170e5d4.jpg https://telegra.ph/file/e1b23046a9360940f3845.jpg https://telegra.ph/file/15724c58730a4d3c909f5.jpg https://telegra.ph/file/e57df4dfb3193a8e32ff0.jpg https://telegra.ph/file/03b55ca78bf997992303c.jpg https://telegra.ph/file/e6bc962e5e7fdc55f1295.jpg https://telegra.ph/file/8e991b91bea3c1440eabf.jpg https://telegra.ph/file/df6546d36cb73fe6c313c.jpg https://telegra.ph/file/c9843662973ac83f9e431.jpg https://telegra.ph/file/bf9bb6aef8b23ff3ae857.jpg https://telegra.ph/file/36f4763a116e485fbd094.jpg https://telegra.ph/file/6684b8ac07899f75e7ce5.jpg https://telegra.ph/file/ed68137dcb236e131bd79.jpg https://telegra.ph/file/e31a308779fa7fbe33935.jpg https://telegra.ph/file/97c4d443ec16e3ced26c5.jpg https://telegra.ph/file/525af05173042092c4fac.jpg https://telegra.ph/file/b7abe22dabf7d73afabf7.jpg https://telegra.ph/file/11bb5e118b1140deef045.jpg https://telegra.ph/file/663b9db59836d5b5adfdc.jpg https://telegra.ph/file/2205ed244e94c7a4aa5b3.jpg https://telegra.ph/file/7610b948267a165a28a2e.jpg https://telegra.ph/file/9fc8cb97b9f3cb325d98f.jpg https://telegra.ph/file/b314a46dfa8ad061db20d.jpg https://telegra.ph/file/89e654ef14b8c08685322.jpg https://telegra.ph/file/0f057a9ca22ebf041e0ba.jpg https://telegra.ph/file/336d317329a684c8a37f7.jpg https://telegra.ph/file/cd0ef3ccc5727f037cc96.jpg https://telegra.ph/file/9cf489b08a73d7f502f08.jpg https://telegra.ph/file/56c15fd72d0dc67627bb6.jpg https://telegra.ph/file/1f51d3c14e7a37420194a.jpg https://telegra.ph/file/e1f47bff82b6777b10c27.jpg https://telegra.ph/file/3f3ff360bbad3d6ad706d.jpg https://telegra.ph/file/9f3af8987e74185fdb49c.jpg https://telegra.ph/file/ab57269c55d2747655b8e.jpg https://telegra.ph/file/6e437cb394f9b60df29a0.jpg https://telegra.ph/file/51ea5eb6f43866e4c1546.jpg https://telegra.ph/file/a57d20abb0a1c92b0d2a3.jpg https://telegra.ph/file/3dd808edbfbec32d9076e.jpg https://telegra.ph/file/817fd846491598e2cd498.jpg https://telegra.ph/file/ce0e30fca8bbc49149abc.jpg https://telegra.ph/file/1b53aff27037d5562238f.jpg https://telegra.ph/file/a951a1bff35fbb44b1e0e.jpg https://telegra.ph/file/fdadae9789db219fcbe5c.jpg https://telegra.ph/file/6ac73a4ce73f76002ae2f.jpg https://telegra.ph/file/4e03e27f26dace7aa15cb.jpg https://telegra.ph/file/2158ee8446444a4d13468.jpg https://telegra.ph/file/067ad4a5cb3b76e471dae.jpg https://telegra.ph/file/58c8912886fc1722e103a.jpg https://telegra.ph/file/1bdcd8b7bfa65492a614f.jpg https://telegra.ph/file/829077c708e9b28546463.png https://telegra.ph/file/ade875ed2a5376e26e77a.png https://telegra.ph/file/5f68517a3697d37dfe275.png https://telegra.ph/file/05c1b0a6c8d4fc8929b28.png https://telegra.ph/file/bb3b46c735265da38c6e9.png https://telegra.ph/file/c47cfa4b9f57b04f9b75c.png https://telegra.ph/file/1ee7db435ed294a731f72.png https://telegra.ph/file/cd502a5958b3c4dd33f49.jpg https://telegra.ph/file/eb1035701564ff4e7980c.jpg https://telegra.ph/file/a2245f0a1843bc550f9d8.jpg https://telegra.ph/file/9b5f158517aa7f971cb0d.jpg ",
+            "required": true
+        },
+        "UPSTREAM_REPO": {
             "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use different collection name for each bot",
-            "value": "Telegram_files",
-            "required": false
+            "value": "https://github.com/hagadmansa/EvaMaria",
+            "required": true
         }
     },
     "addons": [],
