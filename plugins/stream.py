@@ -101,7 +101,7 @@ async def media_receive_handler(bot, message):
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(message))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {message.from_user.first_name}")
-    newtext=f"User: **{message.from_user.mention(style='md')}** Track: **#u{message.from_user.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
+    newtext=f"User: **{message.from_user.mention(style='md')}** Track: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
     
     await message.reply_text(
         text=f"<code>{short_link}</code>",
