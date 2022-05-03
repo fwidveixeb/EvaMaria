@@ -43,7 +43,7 @@ async def gen_link_s(bot, message):
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     file_link = f'https://t.me/{temp.U_NAME}?start={outstr}'
     await message.reply(
-             text=f"<code>{short_link}</code>",
+             text=f"<code>{file_link}</code>",
              quote=True,
              parse_mode="html",
              reply_markup=InlineKeyboardMarkup(
