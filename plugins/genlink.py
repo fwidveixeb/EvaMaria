@@ -45,15 +45,8 @@ async def gen_link_s(bot, message):
     await message.reply(
              text=f"<code>{file_link}</code>",
              quote=True,
-             parse_mode="html",
-             reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('📦 Share Link', url=f'https://t.me/share/url?url={file_link}')
-                    ]
-                ]
-            )
-        )
+             parse_mode="html"
+             )
     
     
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
