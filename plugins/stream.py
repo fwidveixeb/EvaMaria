@@ -97,7 +97,7 @@ async def media_receive_handler(bot, message):
     if file_type not in ["video", 'audio', 'document']:
         return await message.reply("Reply to a supported media")
     banned_user = filters.create(banned_users)
-    log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.replied_media)
+    log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.reply_to_message_id)
     stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(message))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated link: {stream_link} for {message.from_user.first_name}")
