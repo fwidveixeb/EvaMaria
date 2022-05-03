@@ -88,7 +88,7 @@ async def cb_data(bot, update):
         reply_markup=DELETE_BUTTONS
         )
         
-@Client.on_message( filters.command("download") & ~banned_user, group=4,)
+@Client.on_message( filters.command("dd") & ~banned_user, group=4,)
 async def media_receive_handler(bot, message):
     replied = message.reply_to_message
     if not replied:
