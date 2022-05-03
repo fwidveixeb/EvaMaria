@@ -42,10 +42,11 @@ async def gen_link_s(bot, message):
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     file_link = f'https://t.me/{temp.U_NAME}?start={outstr}'
-    await message.reply(
+    await message.reply_text(
              text=f"<code>{file_link}</code>",
              quote=True,
-             parse_mode="html"
+             parse_mode="html",
+             disable_web_page_preview=True
              )
     
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
