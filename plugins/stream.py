@@ -106,7 +106,8 @@ async def media_receive_handler(bot, message):
     await message.reply_text(
         text=f"<code>{short_link}</code>",
         quote=True,
-        parse_mode="html"
+        parse_mode="html",
+        disable_web_page_preview=True
         )
     
     await log_msg.edit_text(
