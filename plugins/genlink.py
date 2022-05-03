@@ -29,7 +29,7 @@ async def allowed(_, __, message):
     return False
 
 
-@Client.on_message(filters.command(['link', 'plink']) & filters.create(allowed))
+@Client.on_message(filters.command(['fs']) & filters.create(allowed))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
@@ -47,6 +47,7 @@ async def gen_link_s(bot, message):
              quote=True,
              parse_mode="html"
              )
+    log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.message_id)
     
     
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
