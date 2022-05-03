@@ -42,6 +42,7 @@ async def gen_link_s(bot, message):
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     file_link = f'https://t.me/{temp.U_NAME}?start={outstr}'
+    await asyncio.sleep(1)
     await message.reply_text(
              text=f"<code>{file_link}</code>",
              quote=True,
