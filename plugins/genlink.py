@@ -47,8 +47,6 @@ async def gen_link_s(bot, message):
              quote=True,
              parse_mode="html"
              )
-    log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.message_id)
-    
     
 @Client.on_message(filters.command(['batch', 'pbatch']) & filters.create(allowed))
 async def gen_link_batch(bot, message):
