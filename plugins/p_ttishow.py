@@ -1095,7 +1095,7 @@ async def ban_a_user(bot, message):
             chat_id=chat,
             text=default
         )
-        await bot.reply(f'Message sent to {chat} successfully')
+        await message.reply(f'Message sent to {chat} successfully')
     except Exception as e:
         await message.reply(f'Error - {e}')
         
