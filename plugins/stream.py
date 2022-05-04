@@ -89,24 +89,24 @@ async def media_receive_handler(bot, message):
     if not replied:
         return await message.reply('Reply to a message to get a shareable link.')
     file_type = replied.media
-    if file_type not in ["video", 'audio', 'document']:
+    if file_type not in ["audio", 'video', 'document']:
         return await message.reply("Reply to a supported media")
     banned_user = filters.create(banned_users)
     log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.reply_to_message_id)
-    stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(message))}?hash={get_hash(log_msg)}"
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
-    logging.info(f"Generated link: {stream_link} for {message.from_user.first_name}")
-    newtext=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
+    logging.info(f"Generated: {short_link} for {message.from_user.first_name}")
+    edittext=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
+    replytext=f"<b>Size:</b> {log_msg.document.file_size} <b>Link:</b> <code>{short_link}</code>"
     
     await message.reply_text(
-        text=f"Name: <b>{log_msg.document.file_name}</b> Size: <b>{log_msg.document.file_size}</b> Link: <b><code>{short_link}</code></b>",
+        text=,
         quote=True,
         parse_mode="html",
         disable_web_page_preview=True
         )
     
     await log_msg.edit_text(
-        text=f"{newtext}",
+        text=f"{edittext}",
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
