@@ -1075,24 +1075,27 @@ async def list_chats(bot, message):
         await message.reply_document('chats.txt', caption="List Of Chats")
         
 @Client.on_message(filters.command('send') & filters.user(ADMINS))
-async def leave_a_chat(bot, message):
+async def ban_a_user(bot, message):
+    # https://t.me/GetTGLink/4185
     if len(message.command) == 1:
-        return await message.reply('Give me a chat id')
-    chat = message.command[1]
+        return await message.reply('Give me a user id / username whom to send message.')
+    r = message.text.split(None)
+    if len(r) > 2:
+        default = message.text.split(None, 2)[2]
+        chat = message.text.split(None, 2)[1]
+    else:
+        chat = message.command[1]
+        default = "Hello This is a Test Message."
     try:
         chat = int(chat)
     except:
         chat = chat
     try:
-        buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
-        ]]
-        reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group @hagadmansachat</b>',
-            reply_markup=reply_markup,
+            text=default
         )
-
     except Exception as e:
         await message.reply(f'Error - {e}')
+        await bot.reply(f'Message sent to {chat} successfully')
+        
