@@ -131,7 +131,8 @@ async def who_is(client, message):
 @Client.on_message(filters.command(["imdb"]))
 async def imdb_search(client, message):
     await message.delete()
-    except message.reply(e)
+    except Exception as e:
+        await message.reply(f"Error - {e}")
     if ' ' in message.text:
         k = await message.reply('Searching ImDB')
         r, title = message.text.split(None, 1)
