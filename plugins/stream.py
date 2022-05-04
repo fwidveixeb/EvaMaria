@@ -99,7 +99,7 @@ async def media_receive_handler(bot, message):
     newtext=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
     
     await message.reply_text(
-        text=f"Name: <b>{log_msg.file_name}</b> Size: <b>{log_msg.file_size}</b> Link: <b><code>{short_link}</code></b>",
+        text=f"Name: <b>{log_msg.document.file_name}</b> Size: <b>{log_msg.document.file_size}</b> Link: <b><code>{short_link}</code></b>",
         quote=True,
         parse_mode="html",
         disable_web_page_preview=True
