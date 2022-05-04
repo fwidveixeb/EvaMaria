@@ -95,18 +95,18 @@ async def media_receive_handler(bot, message):
     log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.reply_to_message_id)
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     logging.info(f"Generated: {short_link} for {message.from_user.first_name}")
-    edittext=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-    replytext=f"<b>Size:</b> {log_msg.document.file_size} <b>Link:</b> <code>{short_link}</code>"
+    edit=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
+    reply=f"<b>Size:</b> {log_msg.document.file_size} <b>Link:</b> <code>{short_link}</code>"
     
-    await message.reply_text(
-        text=,
+    await message.reply(
+        text=f"{reply}",
         quote=True,
         parse_mode="html",
         disable_web_page_preview=True
         )
     
-    await log_msg.edit_text(
-        text=f"{edittext}",
+    await log_msg.edit(
+        text=f"{edit}",
         reply_markup=InlineKeyboardMarkup(
                 [
                     [
