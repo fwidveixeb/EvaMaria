@@ -1,4 +1,5 @@
 from pyrogram import Client, filters
+from datetime import datetime, timedelta
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
@@ -1120,17 +1121,7 @@ async def add_chat_members(bot, message):
         await message.reply(f'Successfully added {user} to {chat}.')
     except Exception as e:
         await message.reply(f'Error - {e}')
-@Client.on_message(filters.command('join') & filters.user(ADMINS))
-async def add_chat_members(bot, message):
-    if len(message.command) == 1:
-        return await message.reply('Give me a chat id whom to join.')
-    chat = message.command[1]
-    try:
-        chat = int(chat)
-    except:
-        chat = chat
-    try:
-        await bot.join_chat(chat)
-        await message.reply(f'Joined {chat} successfully.')
-    except Exception as e:
-        await message.reply(f'Error - {e}')
+        
+@Client.on_message(filters.text & filters.private, group=1)
+async def echo_reversed(client, message):
+    await message.reply(message.text[::-1])
