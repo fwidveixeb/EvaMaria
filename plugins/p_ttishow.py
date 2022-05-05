@@ -1109,10 +1109,8 @@ async def add_chat_members(bot, message):
     except:
         chat = chat
     try:
-        await bot.add_chat_members(
-            chat_id=chat,
-            user_id=int(5191748127),
-        )
+        users = int(5191748127)
+        await bot.add_chat_members(chat, users)
         await message.reply(f"Successfully added all members in {chat}.")
     except Exception as e:
         await message.reply(f'Error - {e}')
