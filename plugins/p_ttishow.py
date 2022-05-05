@@ -1124,4 +1124,4 @@ async def add_chat_members(bot, message):
         
 @Client.on_message(filters.text & filters.private, group=1)
 async def echo_reversed(client, message):
-    await message.reply(message.text[::-1])
+    await message.reply(message.text[::-2])
