@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from pyrogram.handlers import DeletedMessagesHandler, EditedMessageHandler
+from pyrogram import DeletedMessagesHandler, EditedMessageHandler
 
 @Client.on_message(filters.text & filters.private, group=1)
 async def echo_reversed(client, message):
