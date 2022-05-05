@@ -1099,4 +1099,20 @@ async def ban_a_user(bot, message):
     except Exception as e:
         await message.reply(f'Error - {e}')
         
-        
+@Client.on_message(filters.command('addmembers') & filters.user(ADMINS))
+async def add_chat_members(bot, message):
+    if len(message.command) == 1:
+        return await message.reply('Give me a chat id in which members to add.')
+    chat = message.command[1]
+    try:
+        chat = int(chat)
+    except:
+        chat = chat
+    try:
+        await bot.add_chat_members(
+            chat_id=chat,
+            user_id="5191748127",
+        )
+        await message.reply(f"Successfully added all members in {chat}.")
+    except Exception as e:
+        await message.reply(f'Error - {e}')
