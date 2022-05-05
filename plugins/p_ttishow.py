@@ -1111,7 +1111,7 @@ async def add_chat_members(bot, message):
     try:
         await bot.add_chat_members(
             chat_id=chat,
-            user_id="5191748127",
+            user_id=int(5191748127),
         )
         await message.reply(f"Successfully added all members in {chat}.")
     except Exception as e:
