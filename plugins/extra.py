@@ -7,6 +7,6 @@ async def autoddfs(bot, message):
   await asyncio.sleep(0.5)
   await dd.delete()
   await asyncio.sleep(0.5)
-  fs = await message.reply(text='/fs'), quote=True)
+  fs = await message.reply(text='/fs', quote=True)
   await asyncio.sleep(0.5)
   await fs.delete()
