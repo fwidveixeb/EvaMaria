@@ -70,7 +70,6 @@ async def media_receive_handler(bot, message):
     banned_user = filters.create(banned_users)
     log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.reply_to_message_id)
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
-    stream_link = f"{Var.URL}{log_msg.message_id}/{log_msg.document.file_name}?hash={get_hash(log_msg)}"
     logging.info(f"Generated: {short_link} for {message.from_user.first_name}")
     edit=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
     reply=f"<code>{short_link}</code>"
@@ -82,14 +81,14 @@ async def media_receive_handler(bot, message):
         disable_web_page_preview=True
         )
     
-    #await log_msg.edit(
-       # text=f"{edit}",
-       # reply_markup=InlineKeyboardMarkup(
-             #   [
-                #    [
-                  #      InlineKeyboardButton('🗑 Delete File', callback_data='close')
-                #    ]
-             #   ]
-    #        )
-   #     )
+    await log_msg.edit(
+        text=f"{edit}",
+        reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton('🗑 Delete File', callback_data='close')
+                    ]
+                ]
+            )
+        )
     
