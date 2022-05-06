@@ -72,8 +72,8 @@ async def media_receive_handler(bot, message):
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
     stream_link = f"{Var.URL}{log_msg.message_id}/{log_msg.document.file_name}?hash={get_hash(log_msg)}"
     logging.info(f"Generated: {short_link} for {message.from_user.first_name}")
-    edit=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({stream_link})**"
-    reply=f"<code>{stream_link}</code>"
+    edit=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
+    reply=f"<code>{short_link}</code>"
     
     await message.reply(
         text=f"{reply}",
