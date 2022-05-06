@@ -59,30 +59,6 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
-@Client.on_callback_query()
-async def cb_data(bot, update):
-    if update.data == "yes":
-        await update.answer('File Deleted Successfully')
-        media=random.choice(YES_PHOTO)
-        newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-        await update.edit_message_media(
-        media=InputMediaPhoto(media=media, caption=YES_TEXT).format(newtext),
-        )
-    elif update.data == "no":
-        await update.answer('Cancel file deleting process.')
-        newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-        await update.edit_text(
-        text=NO_TEXT.format(newtext),
-        reply_markup=NO_BUTTONS,
-        )
-    elif update.data == "delete":
-        await update.answer('Do you really want to delete this file?')
-        newtext=f"User: **{update.from_user.mention(style='md')}** Track: **#u{update.chat.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-        await update.edit_text(
-        text=DELETE_TEXT.format(newtext),
-        reply_markup=DELETE_BUTTONS
-        )
-        
 @Client.on_message( filters.command("dd") & ~banned_user, group=4,)
 async def media_receive_handler(bot, message):
     replied = message.reply_to_message
@@ -94,9 +70,10 @@ async def media_receive_handler(bot, message):
     banned_user = filters.create(banned_users)
     log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.reply_to_message_id)
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
+    stream_link = f"{Var.URL}{log_msg.message_id}/{quote_plus(get_name(m))}?hash={get_hash(log_msg)}"
     logging.info(f"Generated: {short_link} for {message.from_user.first_name}")
-    edit=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
-    reply=f"<code>{short_link}</code>"
+    edit=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({stream_link})**"
+    reply=f"<code>{stream_link}</code>"
     
     await message.reply(
         text=f"{reply}",
