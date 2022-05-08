@@ -45,7 +45,6 @@ class Bot(Client):
         await super().stop()
         logging.info("Bot stopped. Bye.")
 
-class app(newapp):
-    app = Bot()
-    app.run()
+app = Bot()
+app.run()
 
