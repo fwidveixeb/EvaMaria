@@ -1,9 +1,10 @@
-from pyrogram import Client, filters
-from Bot import app
+import os
+import sys
+from pyrogram import filters
 
-@Client.on_message(filters.command("restart"))
-async def restart(bot, message):
-  a = await message.reply("Restarting Bot, this may take some time...")
-  await app.restart()
-  await a.delete()
-  await message.reply("Restarted successfully.")
+...
+
+@app.on_message(filters.command("restart"))
+async def restart_handler(_, m):
+    await m.reply_text("Restarted!", True)
+    os.execl(sys.executable, sys.executable, *sys.argv)
