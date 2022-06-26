@@ -7,11 +7,11 @@ from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent, I
 @Client.on_message(filters.photo & filters.private & filters.command('telegraph'))
 async def uploadphoto(client, message):
   replied = message.reply_to_message
-    if not replied:
-        return await message.reply('Reply to a photo to upload it on Telegra.ph.')
-    file_type = replied.media
-    if file_type not in ['image']:
-        return await message.reply("Reply to a photo to upload it on Telegra.ph.")
+  if not replied:
+   return await message.reply('Reply to a photo to upload it on Telegra.ph.')
+  file_type = replied.media
+  if file_type not in ['image']:
+   return await message.reply("Reply to a photo to upload it on Telegra.ph.")
   msg = await message.reply_text("Trying to download the photo...")
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid + "hagadmansa"}.jpg")
