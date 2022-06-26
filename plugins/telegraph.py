@@ -4,7 +4,7 @@ import pyrogram
 from pyrogram import filters, Client
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InlineQuery)
 
-@Client.on_message(filters.photo & filters.private & filters.command('telegraph'))
+@Client.on_message(filters.photo & filters.private & filters.command("telegraph"))
 async def uploadphoto(client, message):
   replied = message.reply_to_message
   if not replied:
