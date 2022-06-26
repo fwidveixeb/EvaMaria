@@ -14,8 +14,8 @@ async def uploadphoto(client, message):
         return await message.reply("Reply to a photo to upload it on Telegra.ph.")
   msg = await message.reply_text("Trying to download the photo...")
   userid = str(message.chat.id)
-  img_path = (f"./DOWNLOADS/{userid}.jpg")
-  img_path = await client.download_media(message=message, file_name=img_path)
+  img_path = (f"./DOWNLOADS/{userid + "hagadmansa"}.jpg")
+  img_path = await client.download_media(message=message.reply_to_message, file_name=img_path)
   await msg.edit_text("Now trying to Upload it on Telegra.ph.")
   try:
     tlink = upload_file(img_path)
