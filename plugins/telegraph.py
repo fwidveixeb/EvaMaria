@@ -5,9 +5,9 @@ from pyrogram import filters, Client
 from sample_config import Config
 from pyrogram.types import (InlineQueryResultArticle, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InlineQuery)
 
-@Client.on_message(filters.photo)
+@Client.on_message(filters.photo & filters.private)
 async def uploadphoto(client, message):
-  msg = await message.reply_text("Trying to download the photo...")
+  msg = await message.reply_tex("Trying to download the photo...")
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
   img_path = await client.download_media(message=message, file_name=img_path)
