@@ -1,11 +1,12 @@
 import io
 import sys
 import traceback
+from info import ADMINS
 from pyrogram import Client, filters
 
 MAX_MESSAGE_LENGTH = 4096
 
-@Client.on_message(filters.command("eval"))
+@Client.on_message(filters.command("eval") & filters.users(ADMINS))
 async def eval(client, message):
     status_message = await message.reply_text("Processing ...")
     cmd = message.text.split(" ", maxsplit=1)[1]
