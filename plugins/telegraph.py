@@ -49,8 +49,9 @@ async def telegraph(client, message):
     except Exception as document:
         await message.reply_text(message, text=document)
     else:
-        await message.reply(
-            f"https://telegra.ph{response[0]}", disable_web_page_preview=True
+        await message.reply_text(
+            text=f"https://telegra.ph{response[0]}",
+            disable_web_page_preview=True
         )
     finally:
         shutil.rmtree(_t, ignore_errors=True)
