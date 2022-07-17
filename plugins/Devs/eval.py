@@ -6,7 +6,7 @@ from pyrogram import Client, filters
 
 MAX_MESSAGE_LENGTH = 4096
 
-@Client.on_message(filters.command("eval") & filters.users(ADMINS))
+@Client.on_message(filters.command("eval") & filters.user(ADMINS))
 async def eval(client, message):
     status_message = await message.reply_text("Processing ...")
     cmd = message.text.split(" ", maxsplit=1)[1]
