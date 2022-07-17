@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 
 MAX_MESSAGE_LENGTH = 4096
 
-@Client.on_message(filters.command("exec") & filters.user(ADMINS))
+@Client.on_message(filters.command("bash") & filters.user(ADMINS))
 async def execution(_, message):
     status_message = await message.reply_text("Processing ...")
     # DELAY_BETWEEN_EDITS = 0.3
