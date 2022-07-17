@@ -1,10 +1,11 @@
 import asyncio
 from io import BytesIO
+from info import ADMINS
 from pyrogram import Client, filters
 
 MAX_MESSAGE_LENGTH = 4096
 
-@Client.on_message(filters.command("exec"))
+@Client.on_message(filters.command("exec") & filters.users(ADMINS))
 async def execution(_, message):
     status_message = await message.reply_text("Processing ...")
     # DELAY_BETWEEN_EDITS = 0.3
