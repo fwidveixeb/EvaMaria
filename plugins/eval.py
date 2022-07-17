@@ -52,6 +52,7 @@ async def eval(client, message):
                 document=out_file,
                 caption=cmd[: MAX_MESSAGE_LENGTH // 4 - 1],
                 disable_notification=True,
+                thumb="https://telegra.ph/file/a528f3121285bba7a6250.jpg",
                 quote=True,
             )
     else:
