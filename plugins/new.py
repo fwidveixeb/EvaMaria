@@ -184,28 +184,3 @@ async def help(client, message):
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
          ]]))
        
-YOUARENOT = ["https://telegra.ph/file/2e8725f268df2e9e693f1.jpg"]
-
-@Client.on_message(filters.command("new")) 
-async def new(client, bot):
-     if bot.from_user and bot.from_user.id in ADMINS:
-        return await bot.reply_photo(
-        photo=random.choice(PICS),
-        caption="""Hello dear owner, what can i do for you?""",
-        )
-     if bot.from_user and bot.from_user.id not in ADMINS:
-        notforyou = await bot.reply(
-        text="""You are not allowed to use this command.""",
-        quote=True
-        )
-        await asyncio.sleep(2)
-        await notforyou.delete()
-        await bot.delete()
-
-@Client.on_message(filters.forwarded & filters.regex("(\d+|[a-zA-Z_0-9]+)/(\d+)$") & filters.text & filters.private & filters.incoming)
-async def newmessage(bot, message):
-    if message.text:
-        regex = re.compile("(\d+|[a-zA-Z_0-9]+)/(\d+)$")
-        match = regex.match(message.text)
-        if match:
-            return await match.forward(int(ADMINS))
