@@ -46,15 +46,10 @@ async def save_group(bot, message):
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support @hagadmansachat</b>",
             reply_markup=reply_markup)
     else:
-        settings = await get_settings(message.chat.id)
-        if settings["welcome"]:
-            for u in message.new_chat_members:
-                if (temp.MELCOW).get('welcome') is not None:
-                    try:
-                        await (temp.MELCOW['welcome']).delete()
-                    except:
-                        pass
-                temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>")
+            chat_member = await bot.get_chat_members(message.chat.id)
+            if ADMINS not in chat_member:
+                await bot.leave_chat(message.chat.id)
+      
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
