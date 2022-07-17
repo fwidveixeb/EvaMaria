@@ -82,14 +82,5 @@ async def media_receive_handler(bot, message):
         disable_web_page_preview=True
         )
     
-    await log_msg.edit(
-        text=f"{edit}",
-        reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton('🗑 Delete File', callback_data='close')
-                    ]
-                ]
-            )
-        )
+    await log_msg.edit(f"{edit}")
     
