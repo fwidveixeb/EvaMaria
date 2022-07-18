@@ -7,10 +7,17 @@ TG_MAX_SELECT_LEN = 100
 
 @Client.on_message(filters.command("purge") & filters.user(ADMINS))
 async def purge(client, message):
-    """ purge upto the replied message """
-    if message.chat.type not in (("supergroup", "channel")):
-        return
-
+    
+    chat_type = message.chat.type
+    chat = message.chat.id
+    
+    if chat_type =="private":
+        await message.delete
+        k = await bot.reply(chat, "Use this command only in Group and Channels.")
+        asyncio.sleep(5)
+        await k.delete()
+    
+    if chat_type in (("supergroup", "channel")):
     await message.delete()
     message_ids = []
     count_del_etion_s = 0
