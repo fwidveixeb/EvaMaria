@@ -9,9 +9,8 @@ TG_MAX_SELECT_LEN = 100
 async def purge(client, message):
     """ purge upto the replied message """
     if message.chat.type not in (("supergroup", "channel")):
-       return
+        await message.reply(message.chat.id, "Use it only in Group and Channel")
 
-    status_message = await message.reply_text("...", quote=True)
     await message.delete()
     message_ids = []
     count_del_etion_s = 0
@@ -33,6 +32,6 @@ async def purge(client, message):
             )
             count_del_etion_s += len(message_ids)
 
-    await status_message.edit_text(f"Successfully deleted {count_del_etion_s} messages")
+    status_message = await message.reply(f"Successfully deleted {count_del_etion_s} messages")
     await asyncio.sleep(5)
     await status_message.delete()
