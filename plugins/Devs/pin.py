@@ -1,3 +1,4 @@
+import asyncio
 from info import ADMINS
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -6,7 +7,6 @@ from pyrogram.types import Message
 async def pin(_, message: Message):
     
     replied = message.reply_to_message
-    chat = message.chat.id
     
     try:
         await message.delete()
@@ -17,7 +17,9 @@ async def pin(_, message: Message):
     
     if not replied:
         await message.delete()
-        k = await message.reply(chat, "Reply to a message to Pin it.")
+        k = await message.reply_text(
+            chat_id=message.chat.id,
+            text="Reply to a message to Pin it.")
         await asyncio.sleep(5)
         await k.delete()
         
