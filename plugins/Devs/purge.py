@@ -13,7 +13,7 @@ async def purge(client, message):
     
     if chat_type =="private":
         await message.delete()
-        k = await bot.reply(chat, "Use this command only in Group and Channels.")
+        k = await message.reply(chat, "Use this command only in Group and Channels.")
         asyncio.sleep(5)
         await k.delete()
     
