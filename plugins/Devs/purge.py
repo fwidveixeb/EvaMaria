@@ -9,7 +9,7 @@ TG_MAX_SELECT_LEN = 100
 async def purge(client, message):
     """ purge upto the replied message """
     if message.chat.type not in (("supergroup", "channel")):
-        await message.reply(message.chat.id, "Use it only in Group and Channel")
+        return
 
     await message.delete()
     message_ids = []
