@@ -36,7 +36,7 @@ async def execution(_, message):
 
     if len(OUTPUT) > MAX_MESSAGE_LENGTH:
         with BytesIO(str.encode(OUTPUT)) as out_file:
-            out_file.name = "exec.text"
+            out_file.name = "bash.text"
             await reply_to_.reply_document(
                 document=out_file,
                 caption=cmd[: MAX_MESSAGE_LENGTH // 4 - 1],
