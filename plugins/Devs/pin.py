@@ -10,13 +10,13 @@ async def pin(_, message: Message):
     
     try:
         await message.delete()
-        await replied.pin(disable_notification=true)
+        await replied.pin(disable_notification=True)
     
     except Exception as e:
-        await message.reply(f"#Error/n{e}")
+        await message.reply(f"#Error {e}")
     
     if not replied:
-        await message.delete
+        await message.delete()
         k = await message.reply(chat, "Reply to a message to Pin it.")
         await asyncio.sleep(5)
         await k.delete()
