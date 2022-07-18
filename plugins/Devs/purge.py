@@ -17,10 +17,10 @@ async def purge(client, message):
         asyncio.sleep(5)
         await k.delete()
     
-    if chat_type in (("supergroup", "channel")):
-    await message.delete()
-    message_ids = []
-    count_del_etion_s = 0
+    if chat_type in (("supergroup", "channel")): 
+        await message.delete()
+        message_ids = []
+        count_del_etion_s = 0
 
     if message.reply_to_message:
         for a_s_message_id in range(
