@@ -8,12 +8,13 @@ async def pin(_, message: Message):
     
     replied = message.reply_to_message
     
-    try:
-        await message.delete()
-        await replied.pin(disable_notification=True)
+    if replied:
+        try:
+            await message.delete()
+            await replied.pin(disable_notification=True)
     
-    except Exception as e:
-        await message.reply(f"#Error {e}")
+        except Exception as e:
+            await message.reply(f"#Error {e}")
     
     if not replied:
         await message.delete()
