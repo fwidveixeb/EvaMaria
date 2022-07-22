@@ -1,7 +1,6 @@
 import asyncio
 from info import ADMINS
 from pyrogram import Client, filters
-from pyrogram.types import Message
 
 @Client.on_message(filters.command("pin") & filters.regex(".pin") & filters.user(ADMINS))
 async def pin(bot, message):
