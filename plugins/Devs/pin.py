@@ -11,10 +11,9 @@ async def pin(_, message: Message):
     if replied:
         try:
             chat = message.chat.id
-            delm = message.message_id + 2
+            delm = message.message_id + 1
             await message.delete()
             await replied.pin(disable_notification=True)
-            await asyncio.sleep(1)
             await Client.delete_messages(chat_id=chat, message_ids=delm)
     
         except Exception as e:
