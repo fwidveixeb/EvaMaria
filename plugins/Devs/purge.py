@@ -11,9 +11,9 @@ async def purge(client, message):
     if message.chat.type not in (("supergroup", "channel")):
         return
     
-        await message.delete()
-        message_ids = []
-        count_del_etion_s = 0
+    await message.delete()
+    message_ids = []
+    count_del_etion_s = 0
 
     if message.reply_to_message:
         for a_s_message_id in range(
