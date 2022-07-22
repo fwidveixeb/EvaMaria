@@ -6,5 +6,5 @@ from pyrogram import Client, filters
 async def ping(_, message):
     start_time = time.time()
     end_time = time.time()
-    time_taken = (end_time - start_time) * 1000
+    time_taken = (end_time - start_time)
     await message.reply_text(f"Pong!\n{time_taken:.3f} ms")
