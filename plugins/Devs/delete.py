@@ -11,7 +11,7 @@ async def pin(bot, message):
             await message.delete()
             await replied.delete()
         except Exception as e:
-            await k = message.reply(f"#Error {e}")
+            k = await message.reply(f"#Error {e}")
             await asyncio.sleep(5)
             await k.delete()
             
@@ -19,6 +19,6 @@ async def pin(bot, message):
         try:
             await message.delete()
         except Exception as e:
-            await k = message.reply(f"#Error {e}")
+            k = await message.reply(f"#Error {e}")
             await asyncio.sleep(5)
             await k.delete()
