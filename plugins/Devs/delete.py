@@ -1,7 +1,7 @@
 from info import ADMINS
 from pyrogram import Client, filters
 
-@Client.on_message(filrers.command("d") & filters.user(ADMINS))
+@Client.on_message(filters.command("d") & filters.user(ADMINS))
 async def del(bot, message):
   
   replied = message.reply_to_message
