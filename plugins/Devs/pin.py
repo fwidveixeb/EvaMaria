@@ -2,7 +2,7 @@ import asyncio
 from info import ADMINS
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command("pin") & filters.regex(".pin") & filters.user(ADMINS))
+@Client.on_message(filters.command("pin") & filters.user(ADMINS))
 async def pin(bot, message):
     
     replied = message.reply_to_message
@@ -21,7 +21,7 @@ async def pin(bot, message):
         await asyncio.sleep(5)
         await k.delete()
         
-@Client.on_message(filters.command("unpin") & filters.regex(".unpin") & filters.user(ADMINS))
+@Client.on_message(filters.command("unpin") & filters.user(ADMINS))
 async def pin(bot, message):
     
     replied = message.reply_to_message
