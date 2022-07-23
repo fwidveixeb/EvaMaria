@@ -32,7 +32,8 @@ async def telegraph(bot, message):
                 await a.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_vid[0]}", disable_web_page_preview=True)     
                 os.remove(vid_download) 
             except Exception as e:
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                await a.delete()
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
             
@@ -48,7 +49,8 @@ async def telegraph(bot, message):
                 await g.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_gif[0]}", disable_web_page_preview=True)     
                 os.remove(gif_download) 
             except Exception as e:
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                await g.delete()
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
     elif replied.sticker:
@@ -63,7 +65,8 @@ async def telegraph(bot, message):
                 await s.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_sti[0]}", disable_web_page_preview=True)     
                 os.remove(sti_download) 
             except Exception as e:
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                await s.delete()
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         elif replied.sticker.is_animated==True:
             n = await message.reply("Downloading...")
             user_id = str(message.chat.id)
@@ -75,7 +78,8 @@ async def telegraph(bot, message):
                 await n.edit(f"Here is your link:\n\nhttps://telegra.ph{_tgraph_sti[0]}", disable_web_page_preview=True)     
                 os.remove(_sti_download) 
             except Exception as e:
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                await n.delete()
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         else:
             m = await message.reply("Downloading...")
             user_id = str(message.chat.id)
@@ -87,6 +91,26 @@ async def telegraph(bot, message):
                 await m.edit(f"Here is your link:\n\nhttps://telegra.ph{_tgraph_sti_[0]}", disable_web_page_preview=True)     
                 os.remove(_sti_download_) 
             except Exception as e:
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                await m.delete()
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
+    elif replied.document:
+        if replied.document.file_size < 5242880:
+            b = await message.reply("Downloading...")
+            user_id = str(message.chat.id)
+            doc_path = (f"./DOWNLOADS/{user_id}.jpg")
+            doc_download = await bot.download_media(message=replied, file_name=doc_path)
+            await b.edit("Uploading...")
+            ab = open(doc_download)
+            cd = ab.read()
+            ab.close()
+            input_ = "Hagadmansa"
+            try:
+                makeit = telegraph.create_page(title=input_, content=[f"{cd}"])
+                war = makeit["url"]
+                await b.edit(f"Here is your link:\n\nhttps://telegra.ph{war}", disable_web_page_preview=True)
+                os.remove(doc_download)
+            except Exception as e:
+                await b.delete()
+                await messagebot.reply(f"#Error {e}\n\n Forward this to @HagadmansaBot.")
             
-   
+            
