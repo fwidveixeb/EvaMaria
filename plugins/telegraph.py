@@ -15,7 +15,7 @@ async def telegraph(bot, message):
         telegraph.create_account(short_name="Hagadmansa")
         title = message.command[1]
         if not message.command:
-            title = "Hagadmansa"
+            title += "Hagadmansa"
         br = replied.text.html.replace("\n", "<br>")
         try:
             response = telegraph.create_page(f'{title}',html_content=br)
