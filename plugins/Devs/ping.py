@@ -6,9 +6,9 @@ from pyrogram import Client, filters
 @Client.on_message(filters.command("ping") & filters.user(ADMINS))
 async def ping(bot, message):
     try:
-        start_time = int(round(time() * 1000))
+        start_time = int(round(time.time() * 1000))
         k = await message.reply("Processing...")
-        end_time = int(round(time() * 1000))
+        end_time = int(round(time.time() * 1000))
         ping = end_time - start_time
         await k.edit(f"Pong/n {ping}ms")
         
