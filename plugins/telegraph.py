@@ -13,8 +13,10 @@ async def telegraph(bot, message):
         from telegraph import Telegraph
         telegraph = Telegraph()
         telegraph.create_account(short_name="Hagadmansa")
-        title = message.command[1]
-        if not message.command:
+        title = " "
+        if message.command:
+            title += message.command[1]
+        else:
             title += "Hagadmansa"
         br = replied.text.html.replace("\n", "<br>")
         try:
