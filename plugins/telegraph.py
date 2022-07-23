@@ -1,10 +1,7 @@
 import os
 import requests
 from pyrogram import Client, filters
-from telegraph import Telegraph, upload_file
-
-telegraph = Telegraph()
-telegraph.create_account(short_name="Hagadmansa")
+from telegraph import upload_file
 
 @Client.on_message(filters.command("telegraph"))
 async def telegraph(bot, message):
@@ -99,6 +96,10 @@ async def telegraph(bot, message):
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
     elif replied:
         b = await message.reply("Uploading...")
+        from telegrph import Telegraph
+        telegraph = Telegraph()
+        telegraph.create_account(short_name="Hagadmansa")
+
         try:
             response = telegraph.create_page(title="hello",content=replied.text)
             hello = response['url']
