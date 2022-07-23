@@ -8,7 +8,24 @@ async def telegraph(bot, message):
     
     replied = message.reply_to_message
     
-    if replied.photo:
+    if replied:
+        b = await message.reply("Uploading...")
+        from telegraph import Telegraph
+        telegraph = Telegraph()
+        telegraph.create_account(short_name="Hagadmansa")
+        if title:
+            title = message.command
+        else title = "Hagadmansa"
+        
+        try:
+            response = telegraph.create_page(f'{title}',html_content=replied.text.html)
+            hello = response['url']
+            await b.edit(f"{hello}")
+        except Exception as e:
+            await b.delete()
+            await message.reply(f"#Error {e}")
+            
+    elif replied.photo:
         p = await message.reply("Downloading...")
         user_id = str(message.chat.id)
         img_path = (f"./DOWNLOADS/{user_id}.jpg")
@@ -54,59 +71,8 @@ async def telegraph(bot, message):
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
-    elif replied.sticker:
-        if replied.sticker.is_video==True:
-            s = await message.reply("Downloading...")
-            user_id = str(message.chat.id)
-            sti_path = (f"./DOWNLOADS/{user_id}.webm")
-            sti_download = await bot.download_media(message=replied, file_name=sti_path)
-            await s.edit("Uploading...")
-            try:
-                tgraph_sti = upload_file(sti_download)
-                await s.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_sti[0]}", disable_web_page_preview=True)     
-                os.remove(sti_download) 
-            except Exception as e:
-                await s.delete()
-                await bot.send_video(chat_id=message.chat.id, video=f"./DOWNLOADS/{user_id}.webm")
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
-        elif replied.sticker.is_animated==True:
-            n = await message.reply("Downloading...")
-            user_id = str(message.chat.id)
-            _sti_path = (f"./DOWNLOADS/{user_id}.mp4")
-            _sti_download = await bot.download_media(message=replied, file_name=_sti_path)
-            await n.edit("Uploading...")
-            try:
-                _tgraph_sti = upload_file(_sti_download)
-                await n.edit(f"Here is your link:\n\nhttps://telegra.ph{_tgraph_sti[0]}", disable_web_page_preview=True)     
-                os.remove(_sti_download) 
-            except Exception as e:
-                await n.delete()
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
-        elif replied.sticker.is_animated!=True and replied.sticker.is_video!=True:
-            m = await message.reply("Downloading...")
-            user_id = str(message.chat.id)
-            _sti_path_ = (f"./DOWNLOADS/{user_id}.png")
-            _sti_download_ = await bot.download_media(message=replied, file_name=_sti_path_)
-            await m.edit("Uploading...")
-            try:
-                _tgraph_sti_ = upload_file(_sti_download_)
-                await m.edit(f"Here is your link:\n\nhttps://telegra.ph{_tgraph_sti_[0]}", disable_web_page_preview=True)     
-                os.remove(_sti_download_) 
-            except Exception as e:
-                await m.delete()
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
-    elif replied:
-        b = await message.reply("Uploading...")
-        from telegraph import Telegraph
-        telegraph = Telegraph()
-        telegraph.create_account(short_name="Hagadmansa")
-        con = f"<p>{replied.text}</p>"
-        
-        try:
-            response = telegraph.create_page('hello',html_content=replied.text.markdown)
-            hello = response['url']
-            await b.edit(f"{hello}")
-        except Exception as e:
-            await b.delete()
-            await message.reply(f"#Error {e}")
-           
+    else:     
+        await bot.reply("Reply to a Photo, Video, Gif or Text only.")
+    
+    
+                
