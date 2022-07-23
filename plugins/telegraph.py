@@ -111,6 +111,6 @@ async def telegraph(bot, message):
                 os.remove(doc_download)
             except Exception as e:
                 await b.delete()
-                await messagebot.reply(f"#Error {e}\n\n Forward this to @HagadmansaBot.")
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaBot.")
             
             
