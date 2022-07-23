@@ -8,4 +8,4 @@ requests
 bs4
 IMDbPY==2022.7.9
 python-dotenv
-telegraph
+telegraph==2.1.0
