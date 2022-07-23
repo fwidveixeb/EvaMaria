@@ -79,7 +79,7 @@ async def telegraph(bot, message):
         else:
             m = await message.reply("Downloading...")
             user_id = str(message.chat.id)
-            _sti_path_ = (f"./DOWNLOADS/{user_id}.mp4")
+            _sti_path_ = (f"./DOWNLOADS/{user_id}.jpg")
             _sti_download_ = await bot.download_media(message=replied, file_name=_sti_path_)
             await m.edit("Uploading...")
             try:
