@@ -103,7 +103,7 @@ async def telegraph(bot, message):
             response = telegraph.create_page(title="hello",content=replied.text)
             hello = response['url']
             await b.edit(f"{hello}")
-        except Exception as e?
+        except Exception as e:
             await b.delete()
             await message.reply(f"#Error {e}")
             
