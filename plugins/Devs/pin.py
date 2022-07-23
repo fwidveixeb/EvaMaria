@@ -19,6 +19,6 @@ async def pin(bot, message):
     
     if not replied:
         await message.delete()
-            k = await message.reply("Reply to a message to Pin it.")
-            await asyncio.sleep(5)
-            await k.delete()
+        k = await message.reply("Reply to a message to Pin it.")
+        await asyncio.sleep(5)
+        await k.delete()
