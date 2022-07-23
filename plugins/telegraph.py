@@ -52,7 +52,7 @@ async def telegraph(bot, message):
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
     elif replied.sticker:
-        if replied.sticker.is_video=True:
+        if replied.sticker.is_video==True:
             s = await message.reply("Downloading...")
             user_id = str(message.chat.id)
             sti_path = (f"./DOWNLOADS/{user_id}.mp4")
@@ -64,7 +64,7 @@ async def telegraph(bot, message):
                 os.remove(sti_download) 
             except Exception as e:
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
-        elif replied.sticker.is_animated=True:
+        elif replied.sticker.is_animated==True:
             n = await message.reply("Downloading...")
             user_id = str(message.chat.id)
             _sti_path = (f"./DOWNLOADS/{user_id}.mp4")
