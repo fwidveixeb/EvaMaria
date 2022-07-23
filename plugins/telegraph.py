@@ -96,7 +96,7 @@ async def telegraph(bot, message):
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
     elif replied:
         b = await message.reply("Uploading...")
-        from telegrph import Telegraph
+        from telegraph import Telegraph
         telegraph = Telegraph()
         telegraph.create_account(short_name="Hagadmansa")
 
