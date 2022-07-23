@@ -44,8 +44,8 @@ async def telegraph(bot, message):
             gif_download = await bot.download_media(message=replied, file_name=gif_path)
             await g.edit("Uploading...")
             try:
-                tgraph_vid = upload_file(vid_download)
-                await g.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_vid[0]}", disable_web_page_preview=True)     
+                tgraph_gif = upload_file(vid_download)
+                await g.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_gif[0]}", disable_web_page_preview=True)     
                 os.remove(gif_download) 
             except Exception as e:
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
