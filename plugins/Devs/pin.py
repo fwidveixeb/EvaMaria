@@ -9,8 +9,9 @@ async def pin(bot, message):
     
     if replied:
         try:
-            await message.delete()
             await replied.pin()
+            await message.delete()
+            await bot.delete_messages(chat_id=message.chat.id, message_ids=message.message.id+1)
     
         except Exception as e:
             k = await message.reply(f"#Error {e}")
