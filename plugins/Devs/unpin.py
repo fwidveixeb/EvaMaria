@@ -2,7 +2,7 @@ from info import ADMINS
 from pyrogram import Client, filters
 
 Client.on_message(filters.command("unpin") & filters.user(ADMINS))
-async def pin(bot, message):
+async def unpin(bot, message):
     
     replied = message.reply_to_message
     
