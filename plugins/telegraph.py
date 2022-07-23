@@ -99,9 +99,10 @@ async def telegraph(bot, message):
         from telegraph import Telegraph
         telegraph = Telegraph()
         telegraph.create_account(short_name="Hagadmansa")
-
+        con = f"<p>{replied.text}</p>"
+        
         try:
-            response = telegraph.create_page(title="hello",content=replied.text)
+            response = telegraph.create_page(title="hello",content=con)
             hello = response['url']
             await b.edit(f"{hello}")
         except Exception as e:
