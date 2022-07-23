@@ -1,6 +1,6 @@
 import os
 from pyrogram import Client, filters
-from telegraph import upload_file
+from telegraph import Telegraph, upload_file
 
 @Client.on_message(filters.command("telegraph"))
 async def telegraph(bot, message):
