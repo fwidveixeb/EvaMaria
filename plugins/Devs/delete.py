@@ -2,7 +2,7 @@ import asyncio
 from info import ADMINS
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command("pin") & filters.user(ADMINS))
+@Client.on_message(filters.command("d") & filters.user(ADMINS))
 async def pin(bot, message):
     
     replied = message.reply_to_message
