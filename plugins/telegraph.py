@@ -15,7 +15,8 @@ async def telegraph(bot, message):
         telegraph.create_account(short_name="Hagadmansa")
         if title:
             title = message.command
-        else title = "Hagadmansa"
+        else:
+            title = "Hagadmansa"
         try:
             response = telegraph.create_page(f'{title}',html_content=replied.text.html)
             await b.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
