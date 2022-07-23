@@ -9,7 +9,7 @@ async def ping(bot, message):
         start_time = int(round(time() * 1000))
         k = await message.reply("Processing...")
         end_time = int(round(time() * 1000))
-        ping = start_time - end_tim
+        ping = start_time - end_time
         await k.edit(f"Pong/n {ping}ms")
         
     except Exception as e:
