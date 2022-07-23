@@ -103,21 +103,10 @@ async def telegraph(bot, message):
         con = f"<p>{replied.text}</p>"
         
         try:
-            response = telegraph.create_page('hello',html_content=con)
+            response = telegraph.create_page('hello',html_content=replied.text.html)
             hello = response['url']
             await b.edit(f"{hello}")
         except Exception as e:
             await b.delete()
             await message.reply(f"#Error {e}")
-            
-@Client.on_message(filters.command('abcd'))
-async def huehuen(bot, message):
-    from telegraph import Telegraph
-    telegraph = Telegraph()
-    telegraph.create_account(short_name='1337')
-
-    response = telegraph.create_page(
-    'Hey',
-    html_content='<p>Hello, world!</p>'
-    )
-    print(response['url'])
+           
