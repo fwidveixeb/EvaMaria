@@ -111,7 +111,7 @@ async def telegraph(bot, message):
                 author_name = "Hagadmansa"
                 url = "https://hagadmansa.com"
                 makeit = requests.get(f"{API}?access_token={access_token}&title={title}&author_name={author_name}&url={url}&content={ab}").json()
-                war = makeit["url"]
+                war = makeit["result"]["url"]
                 await b.edit(f"Here is your link:\n\nhttps://telegra.ph{war}", disable_web_page_preview=True)
                 os.remove(doc_download)
             except Exception as e:
