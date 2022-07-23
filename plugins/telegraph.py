@@ -103,7 +103,7 @@ async def telegraph(bot, message):
         con = f"<p>{replied.text}</p>"
         
         try:
-            response = telegraph.create_page('hello',html_content=replied.text.html)
+            response = telegraph.create_page('hello',html_content=replied.text.markdown)
             hello = response['url']
             await b.edit(f"{hello}")
         except Exception as e:
