@@ -104,10 +104,13 @@ async def telegraph(bot, message):
             ab = open(doc_download)
             cd = ab.read()
             ab.close()
-            input_ = "Hagadmansa"
             try:
-                access_tenok
-                makeit = requests.get(f"https://api.telegra.ph/createPage?access_token=137c591d35dcb4075767daeb4a2c48520657074b769a5aa1bdbe6fb848dd&title={input_}&author_name=Hagadmansa&author_url=https://hagadmansa.com&content=
+                API = "https://api.telegra.ph/createPage"
+                access_token = "137c591d35dcb4075767daeb4a2c48520657074b769a5aa1bdbe6fb848dd"
+                title = "Hagadmansa"
+                author_name = "Hagadmansa"
+                url = "https://hagadmansa.com"
+                makeit = requests.get(f"{API}?access_token={access_token}&title={title}&author_name={author_name}&url={url}&content={ab}").json()
                 war = makeit["url"]
                 await b.edit(f"Here is your link:\n\nhttps://telegra.ph{war}", disable_web_page_preview=True)
                 os.remove(doc_download)
