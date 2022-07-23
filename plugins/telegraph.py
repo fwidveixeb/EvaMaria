@@ -16,14 +16,12 @@ async def telegraph(bot, message):
         if title:
             title = message.command
         else title = "Hagadmansa"
-        
         try:
             response = telegraph.create_page(f'{title}',html_content=replied.text.html)
-            hello = response['url']
-            await b.edit(f"{hello}")
+            await b.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
         except Exception as e:
             await b.delete()
-            await message.reply(f"#Error {e}")
+            await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             
     elif replied.photo:
         p = await message.reply("Downloading...")
