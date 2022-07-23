@@ -58,7 +58,7 @@ async def telegraph(bot, message):
         if replied.sticker.is_video==True:
             s = await message.reply("Downloading...")
             user_id = str(message.chat.id)
-            sti_path = (f"./DOWNLOADS/{user_id}.mp4")
+            sti_path = (f"./DOWNLOADS/{user_id}.webm")
             sti_download = await bot.download_media(message=replied, file_name=sti_path)
             await s.edit("Uploading...")
             try:
@@ -81,10 +81,10 @@ async def telegraph(bot, message):
             except Exception as e:
                 await n.delete()
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
-        else:
+        elif replied.sticker.is_animated!=True and replied.sticker.is_vidoe!=True:
             m = await message.reply("Downloading...")
             user_id = str(message.chat.id)
-            _sti_path_ = (f"./DOWNLOADS/{user_id}.jpg")
+            _sti_path_ = (f"./DOWNLOADS/{user_id}.png")
             _sti_download_ = await bot.download_media(message=replied, file_name=_sti_path_)
             await m.edit("Uploading...")
             try:
