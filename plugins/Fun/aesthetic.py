@@ -13,10 +13,8 @@ def aesthetify(string):
 
 @Client.on_message(filters.command("ae"))
 async def aesthetic(client, message):
-    status_message = await message.reply_text("...")
     for e in message.command[1:]:
       text = "".join(str(e))
       text = "".join(aesthetify(text))
-      await status_message.edit(text)
-    if not message.command:
-      await bot.reply("Weong Syntax Used")
+      await message.reply(text)
+   
