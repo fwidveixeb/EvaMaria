@@ -4,7 +4,7 @@ from info import ADMINS
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("ping") & filters.user(ADMINS))
-asunc def ping(bot, message):
+async def ping(bot, message):
     try:
         start_time = int(round(time() * 1000))
         k = await message.reply("Processing...")
