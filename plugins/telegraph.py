@@ -13,6 +13,7 @@ async def telegraph(bot, message):
         from telegraph import Telegraph
         telegraph = Telegraph()
         telegraph.create_account(short_name="Hagadmansa")
+        title = " "
         if title:
             title = message.command
         else:
