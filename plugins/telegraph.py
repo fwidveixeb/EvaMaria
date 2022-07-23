@@ -51,6 +51,42 @@ async def telegraph(bot, message):
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
-        
+    elif replied.sticker:
+        if replied.sticker.is_video = True:
+            s = await message.reply("Downloading...")
+            user_id = str(message.chat.id)
+            sti_path = (f"./DOWNLOADS/{user_id}.mp4")
+            sti_download = await bot.download_media(message=replied, file_name=sti_path)
+            await s.edit("Uploading...")
+            try:
+                tgraph_sti = upload_file(sti_download)
+                await s.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_sti[0]}", disable_web_page_preview=True)     
+                os.remove(sti_download) 
+            except Exception as e:
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+        elif replied.sticker.is_animated = True:
+            n = await message.reply("Downloading...")
+            user_id = str(message.chat.id)
+            _sti_path = (f"./DOWNLOADS/{user_id}.mp4")
+            _sti_download = await bot.download_media(message=replied, file_name=_sti_path)
+            await n.edit("Uploading...")
+            try:
+                _tgraph_sti = upload_file(_sti_download)
+                await n.edit(f"Here is your link:\n\nhttps://telegra.ph{_tgraph_sti[0]}", disable_web_page_preview=True)     
+                os.remove(_sti_download) 
+            except Exception as e:
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+        else:
+            m = await message.reply("Downloading...")
+            user_id = str(message.chat.id)
+            _sti_path_ = (f"./DOWNLOADS/{user_id}.mp4")
+            _sti_download_ = await bot.download_media(message=replied, file_name=_sti_path_)
+            await m.edit("Uploading...")
+            try:
+                _tgraph_sti_ = upload_file(_sti_download_)
+                await m.edit(f"Here is your link:\n\nhttps://telegra.ph{_tgraph_sti_[0]}", disable_web_page_preview=True)     
+                os.remove(_sti_download_) 
+            except Exception as e:
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             
    
