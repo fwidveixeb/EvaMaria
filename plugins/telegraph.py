@@ -1,7 +1,10 @@
 import os
 import requests
 from pyrogram import Client, filters
-from telegraph import upload_file
+from telegraph import Telegraph, upload_file
+
+telegraph = Telegraph()
+telegraph.create_account(short_name="Hagadmansa")
 
 @Client.on_message(filters.command("telegraph"))
 async def telegraph(bot, message):
@@ -97,14 +100,9 @@ async def telegraph(bot, message):
     elif replied:
         b = await message.reply("Uploading...")
         try:
-            API = "https://api.telegra.ph/createPage"
-            access_token = "137c591d35dcb4075767daeb4a2c48520657074b769a5aa1bdbe6fb848dd"
-            title = "Hagadmansa"
-            author_name = "Hagadmansa"
-            author_url = "https://hagadmansa.com"
-            makeit = requests.get(f"{API}?access_token={access_token}&title={title}&author_name={author_name}&author_url={author_url}&content=%5B%7B%22tag%22:%22p%22,%22children%22:%5B%22{replied.text}%22%5D%7D%5D&return_content=true").json()
-            war = makeit["result"]["path"]
-            await b.edit(f"Here is your link:\n\nhttps://telegra.ph/{war}", disable_web_page_preview=True)
+            response = telegraph.create_page(title="hello",content=replied.text)
+            hello = response['url']
+            await b.edit(f"{hello}")
         except Exception:
             await b.delete()
             await message.reply(f"#Error {makeit}")
