@@ -2,7 +2,9 @@ import os
 from pyrogram import Client, filters
 from telegraph import Telegraph, upload_file
 
-tg = Telegraph()
+#Imported Telegraph and Created Account
+telegraph = Telegraph()
+telegraph.create_account(short_name="Hagadmansa")
 
 @Client.on_message(filters.command("telegraph"))
 async def telegraph(bot, message):
@@ -107,7 +109,7 @@ async def telegraph(bot, message):
             ab.close()
             input_ = "Hagadmansa"
             try:
-                makeit = tg.create_page(title=input_, content=[f"{cd}"])
+                makeit = telegraph.create_page(title=input_, content=[f"{cd}"])
                 war = makeit["url"]
                 await b.edit(f"Here is your link:\n\nhttps://telegra.ph{war}", disable_web_page_preview=True)
                 os.remove(doc_download)
