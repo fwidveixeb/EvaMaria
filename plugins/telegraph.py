@@ -109,12 +109,12 @@ async def telegraph(bot, message):
             
 @Client.on_message(filters.command('abcd'))
 async def huehuen(bot, message):
-from telegraph import Telegraph
-telegraph = Telegraph()
-telegraph.create_account(short_name='1337')
+    from telegraph import Telegraph
+    telegraph = Telegraph()
+    telegraph.create_account(short_name='1337')
 
-response = telegraph.create_page(
+    response = telegraph.create_page(
     'Hey',
     html_content='<p>Hello, world!</p>'
-)
-print(response['url'])
+    )
+    print(response['url'])
