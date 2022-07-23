@@ -95,7 +95,7 @@ async def telegraph(bot, message):
                 await m.delete()
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
     elif replied:
-        await message.reply("Uploading...")
+        b = await message.reply("Uploading...")
         try:
             API = "https://api.telegra.ph/createPage"
             access_token = "137c591d35dcb4075767daeb4a2c48520657074b769a5aa1bdbe6fb848dd"
