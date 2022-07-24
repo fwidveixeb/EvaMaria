@@ -7,22 +7,8 @@ from telegraph import upload_file
 async def telegraph(bot, message):
     
     replied = message.reply_to_message
-    
-    if replied:
-        b = await message.reply("Uploading...")
-        from telegraph import Telegraph
-        telegraph = Telegraph()
-        telegraph.create_account(short_name="Hagadmansa")
-        title = "Hagadmansa"
-        br = replied.text.html.replace("\n", "<br>")
-        try:
-            response = telegraph.create_page(f'{title}',html_content=br)
-            await b.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
-        except Exception as e:
-            await b.delete()
-            await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             
-    elif replied.photo:
+    if replied.photo:
         p = await message.reply("Downloading...")
         user_id = str(message.chat.id)
         img_path = (f"./DOWNLOADS/{user_id}.jpg")
@@ -68,6 +54,20 @@ async def telegraph(bot, message):
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
+            
+    elif replied:
+        b = await message.reply("Uploading...")
+        from telegraph import Telegraph
+        telegraph = Telegraph()
+        telegraph.create_account(short_name="Hagadmansa")
+        title = "Hagadmansa"
+        br = replied.text.html.replace("\n", "<br>")
+        try:
+            response = telegraph.create_page(f'{title}',html_content=br)
+            await b.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
+        except Exception as e:
+            await b.delete()
+            await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             
     elif not replied:
         message.reply("Command Incomplete, read Help menu first.")
