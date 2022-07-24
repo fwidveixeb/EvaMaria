@@ -7,6 +7,5 @@ async def bully(bot, message):
   API = "https://api.safone.tech/bully"
   m = requests.get(f"{API}").json()
   n = m['bully']
-  o = f"{n}"
-  await k.edit(f"{o}")
+  await k.edit(f"{n}")
   
