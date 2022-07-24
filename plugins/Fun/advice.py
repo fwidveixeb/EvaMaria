@@ -1,8 +1,8 @@
 import requests
-from pyrogram import Clienr, filters
+from pyrogram import Client, filters
 
 @Client.on_message(filters.command("advice"))
-async def advuce(bot, message):
+async def advice(bot, message):
   k = await message.reply("processing...")
   API = "https://api.safone.tech/advice"
   m = requests.get(f"{API}").json()
