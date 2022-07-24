@@ -97,7 +97,7 @@ async def telegraph(bot, message):
         if dj == "Hagadmansa":
             somu = "Hagadmansa"
         else:
-            somu = listToString(pk)
+            somu = listToString(dj)
         try:
             response = tg.create_page(title=f'{somu}', content=[f"{replied.text}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
             await b.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
