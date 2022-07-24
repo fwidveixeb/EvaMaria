@@ -1,14 +1,17 @@
 import os
-import requests
-from pyrogram import Client, filters
+import aiofiles
+from aiofiles import os
 from telegraph import upload_file
+from pyrogram import Client, filters
 
 @Client.on_message(filters.command("telegraph"))
 async def telegraph(bot, message):
     
-    await message.reply("Command Incomplete, read Help menu first.")
-    
     replied = message.reply_to_message
+    
+    if not replied:
+        await message.reply("Command Incomplete, read Help Menu first.")
+        return
             
     if replied.photo:
         p = await message.reply("Downloading...")
@@ -56,6 +59,10 @@ async def telegraph(bot, message):
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
+            
+    elif replied.document:
+        if replied.document.file_size < 5242880 and replied.document.file_name.endswith('.html', '.txt', '.py'):
+            l = await message.reply("Uploading...")
             
     elif replied:
         b = await message.reply("Uploading...")
