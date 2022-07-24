@@ -81,6 +81,39 @@ async def telegraph(bot, message):
                     os.remove(img_downloadq) 
                 except Exception as e:
                     await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+            elif replied.document.file_name.lower().endswith('.jpg'):
+                i = await message.reply("Downloading...")
+                img_pathi = (f"./DOWNLOADS/{message.chat.id}.jpg")
+                img_downloadi = await bot.download_media(message=replied, file_name=img_pathi)
+                await i.edit("Uploading...")
+                try:   
+                    tgraph_imgi = upload_file(img_downloadi)
+                    await i.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_imgi[0]}", disable_web_page_preview=True)     
+                    os.remove(img_downloadi) 
+                except Exception as e:
+                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+            elif replied.document.file_name.lower().endswith('.jpeg'):
+                y = await message.reply("Downloading...")
+                img_pathy = (f"./DOWNLOADS/{message.chat.id}.jpeg")
+                img_downloady = await bot.download_media(message=replied, file_name=img_pathy)
+                await y.edit("Uploading...")
+                try:   
+                    tgraph_imgy = upload_file(img_downloady)
+                    await y.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_imgy[0]}", disable_web_page_preview=True)     
+                    os.remove(img_downloadi) 
+                except Exception as e:
+                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+            elif replied.document.file_name.lower().endswith('.mp4'):
+                z = await message.reply("Downloading...")
+                img_pathz = (f"./DOWNLOADS/{message.chat.id}.mp4")
+                img_downloadz = await bot.download_media(message=replied, file_name=img_pathz)
+                await z.edit("Uploading...")
+                try:   
+                    tgraph_imgz = upload_file(img_downloadz)
+                    await z.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_imgz[0]}", disable_web_page_preview=True)     
+                    os.remove(img_downloadz)
+                except Exception as e:
+                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             else:
                 x = await message.reply("Downloading...")
                 path = (f"./DOWNLOADS/{message.chat.id}.txt")
