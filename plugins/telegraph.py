@@ -14,8 +14,6 @@ async def telegraph(bot, message):
         telegraph = Telegraph()
         telegraph.create_account(short_name="Hagadmansa")
         title = "Hagadmansa"
-        if message.command:
-            title += message.command[1]
         br = replied.text.html.replace("\n", "<br>")
         try:
             response = telegraph.create_page(f'{title}',html_content=br)
@@ -70,6 +68,9 @@ async def telegraph(bot, message):
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
+            
+    elif not replied:
+        message.reply("Command Incomplete, read Help menu first.")
     else:     
         await bot.reply("Reply to a Photo, Video, Gif or Text only.")
     
