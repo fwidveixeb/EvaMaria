@@ -22,7 +22,7 @@ async def carbon(bot, message):
   else:
       code = replied.text.split(" ", maxsplit=1)[1]
   carbon = Carbon(code=code)
-  ab = await carbon.save("hagadmansa_carbon.jpg")
+  ab = await carbon.save("hagadmansa")
   await abcd.delete()
   await bot.send_document(message.chat.id, ab, caption=f"Carbonised by {message.from_user.mention}")
   os.remove(ab)
