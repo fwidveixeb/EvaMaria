@@ -61,16 +61,6 @@ async def ban_a_user(bot, message):
         await db.ban_user(k.id, reason)
         temp.BANNED_USERS.append(k.id)
         await message.reply(f"Successfully banned {k.mention}")
-        newbuttons = [InlineKeyboardButton('💬 Support', url=f'https://t.me/{SUPPORT_CHAT}')]
-        reply_markup=InlineKeyboardMarkup(newbuttons)
-        username = message.from_user.mention
-        m = await bot.send_message(
-            chat_id=chat, 
-            text=f'🚫 **Sorry** {username}, You are now Banned to use Me.',
-            reply_markup=reply_markup
-        )
-        await asyncio.sleep(10)
-        await m.delete()
                                
 @Client.on_message(filters.command('pmunban') & filters.user(ADMINS))
 async def unban_a_user(bot, message):
