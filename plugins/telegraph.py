@@ -88,7 +88,7 @@ async def telegraph(bot, message):
         if (message.command):
             title = message.command[1:]
             if title == " ":
-                titke = "Hagadmansa"
+                title = "Hagadmansa"
         br = replied.text.html.replace("\n", "<br>")
         try:
             response = telegraph.create_page(f'{title}',html_content=br)
