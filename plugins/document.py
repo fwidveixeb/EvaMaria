@@ -15,8 +15,8 @@ async def kdneidhd(bot, message):
     k = open(path)
     p = k.read()
     n = p.replace("\n", "<br>")
-    if message.command:
-      pk = message.command
+    if (message.command):
+      pk = message.command[1:]
       if not pk:
         pk = "Hagadmansa"
     try:
