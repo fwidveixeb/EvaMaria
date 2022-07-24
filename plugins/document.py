@@ -16,11 +16,11 @@ async def kdneidhd(bot, message):
     p = k.read()
     n = p.replace("\n", "<br>")
     if message.command:
-      title = message.command[1:]
-      if not title:
-        title = "Hagadmansa"
+      pk = message.command[1:]
+      if not pk:
+        pk = "Hagadmansa"
     try:
-      response = telegraph.create_page(title='Hagadmansa',html_content=n, author_name="Hagadmansa", author_url="https://hagadmansa.com")
+      response = telegraph.create_page(title=pk,html_content=n, author_name="Hagadmansa", author_url="https://hagadmansa.com")
       await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
       k.close()
     except Exception as e:
