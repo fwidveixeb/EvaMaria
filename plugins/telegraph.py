@@ -85,7 +85,7 @@ async def telegraph(bot, message):
             else:
                 monu = listToString(pk)
             try:
-                response = telegraph.create_page(title=f'{monu}', content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
+                response = tg.create_page(title=f'{monu}', content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
                 await x.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
                 k.close()
             except Exception as e:
