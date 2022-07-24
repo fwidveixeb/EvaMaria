@@ -1,3 +1,4 @@
+import asyncio
 from utils import temp
 from pyrogram.types import Message
 from pyrogram import Client, filters
@@ -60,7 +61,21 @@ async def ban_a_user(bot, message):
         await db.ban_user(k.id, reason)
         temp.BANNED_USERS.append(k.id)
         await message.reply(f"Successfully banned {k.mention}")
-        
+        newbuttons = [[
+        InlineKeyboardButton('💬 Support', url=f'https://t.me/{SUPPORT_CHAT}'),
+        InlineKeyboardButton('🔐 Close', callback_data='close')
+        ]]
+        reply_markup=InlineKeyboardMarkup(newbuttons)
+        username = message.from_user.mention
+        m = await bot.send_message(
+            chat_id=chat, 
+            text=f'🚫 **Sorry** {username}, You are Banned to use Me. \n🤔 **Ban Reason:** {ban["ban_reason"]}',
+            reply_markup=reply_markup,
+            disable_web_page_preview=True,
+            quote=True)
+        await asyncio.sleep(10)
+        await m.delete()
+                               
 @Client.on_message(filters.command('pmunban') & filters.user(ADMINS))
 async def unban_a_user(bot, message):
     if len(message.command) == 1:
