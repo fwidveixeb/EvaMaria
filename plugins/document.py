@@ -17,5 +17,5 @@ async def kdneidhd(bot, message):
     try:
       response = telegraph.create_page('Hagadmansa',html_content=p)
       await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
-    k.close()
+      k.close()
     
