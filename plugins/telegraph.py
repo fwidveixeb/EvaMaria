@@ -68,7 +68,7 @@ async def telegraph(bot, message):
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
             
-    elif replied.document and not replied.document.file_name.endswith('.jpg', '.jpeg', '.png'):
+    elif replied.document and not replied.document.file_name.endswith('.png'):
         x = await message.reply("Downloading...")
         path = (f"./DOWNLOADS/{message.chat.id}.txt")
         await bot.download_media(message=replied, file_name=path)
