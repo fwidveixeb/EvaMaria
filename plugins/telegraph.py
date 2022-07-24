@@ -61,7 +61,7 @@ async def telegraph(bot, message):
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
             
     elif replied.document:
-        if replied.document.file_size < 5242880 and replied.document.file_name.endswith('.html', '.txt', '.py', '.log'):
+        if replied.document.file_size < 5242880 and replied.document.file_name.endswith('.html', '.txt', '.py'):
             l = await message.reply("Downloading...")
             down = await bot.download_media(message=replied)
             await l.edit("Uploading...")
