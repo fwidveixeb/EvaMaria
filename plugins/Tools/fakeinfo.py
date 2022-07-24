@@ -1,3 +1,4 @@
+import random
 import requests
 from pyrogram import Client, message
 
@@ -25,17 +26,20 @@ async def fakeinfo(bot, message):
     browser = k['browser']
     ip = k['ipAddress']
     mac = k['macAddress']
-    password = k['password']
     android = k['androiduserAgent']
     ios = k['iosuserAgent']
+    mob = [android, ios]
+    mobile = random.choice(mob)
     linux = k['linuxuserAgent']
     windows = k['windowsuserAgent']
-    
+    com = [linux, windows]
+    computer = random.choice(com)
+   
     #Work Details
     profession = k['profession']
     company = k['company']
     
-    output = f"""**PERSONAL DETAILS**
+    output = f"""**PERSONAL DETAIL**
     **Name:** `{name}`
     **Date Of Birth:** `{dob}`
     **Phone Number:** `{number}`
@@ -46,6 +50,20 @@ async def fakeinfo(bot, message):
     **Address:** `{address}, {country}`
     
     **DEVICE DETAIL**
+    **Broser:** `{browser}`
+    **IP Address:** `{ip}`
+    **Mac Address:** `{mac}`
+    **Mobile:** `{mobile}`
+    **Computer:** `{computer}`
     
+    **WORK DETAIL**
+    **Profession:** `{profession}`
+    **Company:** `{company}`"""
+    
+    await message.reply_photo(
+      photo=photo,
+      caption=output
+    )
+   
    
     
