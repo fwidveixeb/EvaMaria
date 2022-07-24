@@ -71,33 +71,41 @@ async def telegraph(bot, message):
     elif replied.document:
         if replied.document.file_size < 5242880:
             if replied.document.file_name.lower().endswith('.png'):
-                await message.reply('hello')
-            x = await message.reply("Downloading...")
-            path = (f"./DOWNLOADS/{message.chat.id}.txt")
-            await bot.download_media(message=replied, file_name=path)
-            await x.edit("Uploading...")
-            k = open(path)
-            p = k.read()
-            if (message.command):
-                pk = message.command[1:]
-                if not pk:  
-                    pk = "Hagadmansa"
-            if pk == "Hagadmansa":
-                monu = "Hagadmansa"
+                q = await message.reply("Downloading...")
+                img_pathq = (f"./DOWNLOADS/{message.chat.id}.png")
+                img_downloadq = await bot.download_media(message=replied, file_name=img_pathq)
+                await q.edit("Uploading...")
+                try:   
+                    tgraph_imgq = upload_file(img_downloadq)
+                    await q.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_imgq[0]}", disable_web_page_preview=True)     
+                    os.remove(img_downloadq) 
+                except Exception as e:
+                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             else:
-                monu = listToString(pk)
-            try:
-                response = tg.create_page(title=f'{monu}', content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")  
-                await x.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
-                k.close()
-            except Exception as e:
-                await x.delete()
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                x = await message.reply("Downloading...")
+                path = (f"./DOWNLOADS/{message.chat.id}.txt")
+                await bot.download_media(message=replied, file_name=path)
+                await x.edit("Uploading...")
+                k = open(path)
+                p = k.read()
+                if (message.command):
+                    pk = message.command[1:]
+                    if not pk:  
+                        pk = "Hagadmansa" 
+                if pk == "Hagadmansa":
+                    monu = "Hagadmansa"
+                else:
+                    monu = listToString(pk)
+                try:
+                    response = tg.create_page(title=f'{monu}', content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")  
+                    await x.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
+                    k.close()
+                except Exception as e:
+                    await x.delete()
+                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
         
-        if replied.document.file_name.endswith('.jpg', '.jpeg', '.png'):
-            await message.reply("Hello")
         
     elif replied.text:
         b = await message.reply("Uploading...")
