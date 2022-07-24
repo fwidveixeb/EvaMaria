@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("abcd"))
-async def kdneidhd(bot, medsage):
+async def kdneidhd(bot, message):
   
   replied = message.reply_to_message
   
