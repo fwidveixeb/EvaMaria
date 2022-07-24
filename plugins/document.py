@@ -10,7 +10,12 @@ async def kdneidhd(bot, message):
     await bot.download_media(message=replied, file_name=path)
     k = open(path)
     p = k.read()
-    s = p.html
-    await message.reply(f"{s}")
+    await message.reply(f"{p}")
+    from telegraph import Telegraph
+    telegraph = Telegraph()
+    telegraph.create_account(short_name="Hagadmansa")
+    try:
+      response = telegraph.create_page('Hagadmansa',html_content=p)
+      await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
     k.close()
     
