@@ -87,7 +87,7 @@ async def telegraph(bot, message):
         telegraph.create_account(short_name="Hagadmansa")
         if (message.command):
             title = message.command[1:]
-            if title == None:
+            if not title:
                 title = "Hagadmansa"
         br = replied.text.html.replace("\n", "<br>")
         await message.reply(f"{br}")
