@@ -1,4 +1,4 @@
-import os
+"""import os
 import cv2
 import asyncio
 import numpy as np
@@ -27,4 +27,4 @@ async def color(bot, message):
   os.remove(image)
   r_json = r.json()["output_url"]
   await bot.send_photo(chat_id=message.chat.id, photo=r_json, caption="Successfully filled colour in Image 🎨🖌")
-  await xx.delete()
+  await xx.delete()"""
