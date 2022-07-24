@@ -14,7 +14,7 @@ async def kdneidhd(bot, message):
   replied = message.reply_to_message
   
   if replied.document:
-    input_str = message.command(1)
+    input_str = message.command.group(1)
     path = (f"./DOWNLOADS/{message.chat.id}.txt")
     await bot.download_media(message=replied, file_name=path)
     k = open(path)
