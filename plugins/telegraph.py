@@ -86,7 +86,7 @@ async def telegraph(bot, message):
         telegraph = Telegraph()
         telegraph.create_account(short_name="Hagadmansa")
         if (message.command):
-            title = message.command[0:]
+            title = message.command[1:]
             try:
                 title = title
             except: 
