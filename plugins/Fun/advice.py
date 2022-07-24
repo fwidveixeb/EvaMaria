@@ -7,6 +7,6 @@ async def advice(bot, message):
   API = "https://api.safone.tech/advice"
   m = requests.get(f"{API}").json()
   n = m['advice']
-  o = f"{m} **-{message.from_user.mention}**"
+  o = f"{n}   **--{message.from_user.mention}**"
   await k.edit(f"{o}")
   
