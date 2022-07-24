@@ -1,9 +1,33 @@
 from utils import temp
-from info import ADMINS 
 from pyrogram import Client, filters
+from info import ADMINS, SUPPORT_CHAT
 from database.users_chats_db import db
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
+
+async def banned_users(_, client, message: Message):
+    return (
+        message.from_user is not None or not message.sender_chat
+    ) and message.from_user.id in temp.BANNED_USERS
+
+banned_user = filters.create(banned_users)
+
+
+@Client.on_message(filters.private & banned_user & filters.incoming)
+async def ban_reply(bot, message):
+    ban = await db.get_ban_status(message.from_user.id)
+    newbuttons = [[
+        InlineKeyboardButton('💬 Support', url=f'https://t.me/{SUPPORT_CHAT}'),
+        InlineKeyboardButton('🔐 Close', callback_data='close')
+    ]]
+    reply_markup=InlineKeyboardMarkup(newbuttons)
+    username = message.from_user.mention
+    await message.reply_text(
+        text=f'🚫 **Sorry** {username}, You are Banned to use Me. \n🤔 **Ban Reason:** {ban["ban_reason"]}',
+        reply_markup=reply_markup,
+        disable_web_page_preview=True,
+        quote=True)
+    
 
 @Client.on_message(filters.command('pmban') & filters.user(ADMINS))
 async def ban_a_user(bot, message):
