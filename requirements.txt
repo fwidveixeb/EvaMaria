@@ -1,4 +1,8 @@
 pyrogram==1.4.10
+validators
+numpy
+opencv-python
+Pillow
 tgcrypto
 aiofiles
 pymongo[srv]==3.12.3
