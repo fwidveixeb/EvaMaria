@@ -70,8 +70,10 @@ async def telegraph(bot, message):
             
     elif replied.document:
         if replied.document.file_size < 5242880:
+            x = await message.reply("Downloading...")
             path = (f"./DOWNLOADS/{message.chat.id}.txt")
             await bot.download_media(message=replied, file_name=path)
+            await x.edit("Uploading...")
             k = open(path)
             p = k.read()
             if (message.command):
@@ -84,10 +86,11 @@ async def telegraph(bot, message):
                 monu = listToString(pk)
             try:
                 response = telegraph.create_page(title=f'{monu}', content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
-                await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
+                await x.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
                 k.close()
             except Exception as e:
-                message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                await x.delete()
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
         else:
             await await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
         
