@@ -85,7 +85,13 @@ async def telegraph(bot, message):
         from telegraph import Telegraph
         telegraph = Telegraph()
         telegraph.create_account(short_name="Hagadmansa")
-        title = message.command[1] else title = "Hagadmansa"
+        if len(message.command) == 1:
+            return 
+        title = message.command[1]
+        try:
+            title = title
+        except: 
+            title = "Hagadmansa"
         br = replied.text.html.replace("\n", "<br>")
         try:
             response = telegraph.create_page(f'{title}',html_content=br)
