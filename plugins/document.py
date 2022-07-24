@@ -20,7 +20,7 @@ async def kdneidhd(bot, message):
       if not title:
         title = "Hagadmansa"
     try:
-      response = telegraph.create_page(title='Hagadmansa',content=n, author_name="Hagadmansa", author_url="https://hagadmansa.com")
+      response = telegraph.create_page(title='Hagadmansa',html_content=n, author_name="Hagadmansa", author_url="https://hagadmansa.com")
       await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
       k.close()
     except Exception as e:
