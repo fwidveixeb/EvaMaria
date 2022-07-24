@@ -69,25 +69,28 @@ async def telegraph(bot, message):
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
             
     elif replied.document:
-        if replied.document.file_size < 5242880 and replied.document.file_name.endswith('.html', '.txt', '.py'):
-            l = await message.reply("Downloading...")
-            down = await bot.download_media(message=replied)
-            await l.edit("Uploading...")
-            async with aiofiles.open(down, "r") as jv:
-                text = await jv.read()
-            header = message.input_str
-            if not header:
-                header = "Hagadmansa"
-            from telegraph import Telegraph
-            telegraph = Telegraph()
-            telegraph.create_account(short_name="Hagadmansa")
+        if replied.document.file_size < 5242880:
+            path = (f"./DOWNLOADS/{message.chat.id}.txt")
+            await bot.download_media(message=replied, file_name=path)
+            k = open(path)
+            p = k.read()
+            if (message.command):
+                pk = message.command[1:]
+            if not pk:  
+                pk = "Hagadmansa"
+            if pk == "Hagadmansa":
+                monu = "Hagadmansa"
+            else:
+                monu = listToString(pk)
             try:
-                resp = telegraph.create_page(f'{header}',html_content=text)
-                await b.edit(f"Here is your link:\n\n{resp['url']}", disable_web_page_preview=True)
+                response = telegraph.create_page(title=f'{monu}', content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
+                await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
+                k.close()
             except Exception as e:
-                await b.delete()
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
-            
+                message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+        else:
+            await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
+        
     elif replied.text:
         b = await message.reply("Uploading...")
         if (message.command):
