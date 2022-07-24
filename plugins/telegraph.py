@@ -90,7 +90,6 @@ async def telegraph(bot, message):
             if not title:
                 title = "Hagadmansa"
         br = replied.text.html.replace("\n", "<br>")
-        await message.reply(f"{br}")
         try:
             response = telegraph.create_page(f'{title}',html_content=br)
             await b.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
