@@ -78,8 +78,8 @@ async def telegraph(bot, message):
             p = k.read()
             if (message.command):
                 pk = message.command[1:]
-            if not pk:  
-                pk = "Hagadmansa"
+                if not pk:  
+                    pk = "Hagadmansa"
             if pk == "Hagadmansa":
                 monu = "Hagadmansa"
             else:
