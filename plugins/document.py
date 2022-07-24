@@ -1,4 +1,8 @@
 from pyrogram import Client, filters
+from telegraph import Telegraph
+
+telegraph = Telegraph()
+telegraph.create_account(short_name="Hagadmansa")
 
 @Client.on_message(filters.command("abcd"))
 async def kdneidhd(bot, message):
@@ -11,9 +15,7 @@ async def kdneidhd(bot, message):
     k = open(path)
     p = k.read()
     n = p.replace("\n", "<br>")
-    from telegraph import Telegraph
-    telegraph = Telegraph()
-    telegraph.create_account(short_name="Hagadmansa")
+  
     try:
       response = telegraph.create_page('Hagadmansa',html_content=n)
       await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
