@@ -1,6 +1,6 @@
 import random
 import requests
-from pyrogram import Client, message
+from pyrogram import Client, filters
 
 @Client.on_message(filters.command("fakeinfo"))
 async def fakeinfo(bot, message):
