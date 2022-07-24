@@ -92,7 +92,7 @@ async def telegraph(bot, message):
                 await x.delete()
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
         else:
-            await await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
+            await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
         
     elif replied.text:
         b = await message.reply("Uploading...")
