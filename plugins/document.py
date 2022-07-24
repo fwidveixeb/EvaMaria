@@ -7,9 +7,10 @@ async def kdneidhd(bot, message):
   
   if replied.document:
     path = (f"./DOWNLOADS/{message.chat.id}.txt")
-    s = await bot.download_media(message=replied, file_name=path)
+    await bot.download_media(message=replied, file_name=path)
     k = open(path)
     p = k.read()
-    await message.reply(f"{p}")
+    s = p.html
+    await message.reply(f"{s}")
     k.close()
     
