@@ -18,4 +18,6 @@ async def kdneidhd(bot, message):
       response = telegraph.create_page('Hagadmansa',html_content=p)
       await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
       k.close()
+    except Excaeption as e:
+      await message.reply(f"{e}")
     
