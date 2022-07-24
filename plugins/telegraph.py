@@ -6,6 +6,8 @@ from telegraph import upload_file
 @Client.on_message(filters.command("telegraph"))
 async def telegraph(bot, message):
     
+    await message.reply("Command Incomplete, read Help menu first.")
+    
     replied = message.reply_to_message
             
     if replied.photo:
@@ -69,8 +71,6 @@ async def telegraph(bot, message):
             await b.delete()
             await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             
-    elif not replied:
-        message.reply("Command Incomplete, read Help menu first.")
     else:     
         await bot.reply("Reply to a Photo, Video, Gif or Text only.")
     
