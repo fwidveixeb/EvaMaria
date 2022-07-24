@@ -93,8 +93,8 @@ async def telegraph(bot, message):
             except Exception as e:
                 await x.delete()
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
-       else:
-           await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
+        else:
+            await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
         
         if replied.document.file_name.endswith('.jpg', '.jpeg', '.png'):
             await message.reply("Hello")
