@@ -1,17 +1,12 @@
+from utils import temp
+from info import ADMINS 
 from pyrogram import Client, filters
-from datetime import datetime, timedelta
+from database.users_chats_db import db
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
-from database.users_chats_db import db
-from database.ia_filterdb import Media
-from utils import get_size, temp, get_settings
-from Script import script
-from pyrogram.errors import ChatAdminRequired
 
 @Client.on_message(filters.command('pmban') & filters.user(ADMINS))
 async def ban_a_user(bot, message):
-    # https://t.me/GetTGLink/4185
     if len(message.command) == 1:
         return await message.reply('Give me a user id / username')
     r = message.text.split(None)
