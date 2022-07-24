@@ -18,7 +18,6 @@ async def kdneidhd(bot, message):
     await bot.download_media(message=replied, file_name=path)
     k = open(path)
     p = k.read()
-    n = p.replace("\n", "<br>")
     if (message.command):
       pk = message.command[1:]
     else:
@@ -28,10 +27,10 @@ async def kdneidhd(bot, message):
     else:
         monu = listToString(pk)
     try:
-      response = telegraph.create_page(title=f"{monu}", content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
+      response = telegraph.create_page(title=f'{monu}', content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
       await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
       k.close()
     except Exception as e:
       await message.reply(f"{e}")
-      await message.reply(f"{n}")
+      await message.reply(f"{p}")
     
