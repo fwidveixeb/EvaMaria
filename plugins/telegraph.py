@@ -91,8 +91,8 @@ async def telegraph(bot, message):
             await x.delete()
             await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
                 
-      if replied.document.file_name.endswith('.jpg', '.jpeg', '.png'):
-        await message.reply("Hello")
+        if replied.document.file_name.endswith('.jpg', '.jpeg', '.png'):
+            await message.reply("Hello")
         
     elif replied.text:
         b = await message.reply("Uploading...")
