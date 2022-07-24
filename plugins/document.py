@@ -10,7 +10,7 @@ async def kdneidhd(bot, message):
     await bot.download_media(message=replied, file_name=path)
     k = open(path)
     p = k.read()
-    n = p.replace("\n", "<b>")
+    n = p.replace("\n", "<br>")
     from telegraph import Telegraph
     telegraph = Telegraph()
     telegraph.create_account(short_name="Hagadmansa")
