@@ -6,7 +6,7 @@ async def kdneidhd(bot, message):
   replied = message.reply_to_message
   
   if replied.document:
-    s = await bot.download_media(media=replied)
+    s = await bot.download_media(replied)
     k = open('s')
     p = k.read()
     await message.reply(f"{p}")
