@@ -11,7 +11,7 @@ async def kdneidhd(bot, message):
     k = open(path)
     p = k.read()
     n = p.replace("\n", "<b>")
-    d = n + "</b>
+    d = n + "</b>"
     from telegraph import Telegraph
     telegraph = Telegraph()
     telegraph.create_account(short_name="Hagadmansa")
