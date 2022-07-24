@@ -11,15 +11,14 @@ async def kdneidhd(bot, message):
     k = open(path)
     p = k.read()
     n = p.replace("\n", "<b>")
-    d = n + "</b>"
     from telegraph import Telegraph
     telegraph = Telegraph()
     telegraph.create_account(short_name="Hagadmansa")
     try:
-      response = telegraph.create_page('Hagadmansa',html_content=d)
+      response = telegraph.create_page('Hagadmansa',html_content=n)
       await message.reply(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
       k.close()
     except Exception as e:
       await message.reply(f"{e}")
-      await message.reply(f"{d}")
+      await message.reply(f"{n}")
     
