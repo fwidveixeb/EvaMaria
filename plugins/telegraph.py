@@ -7,6 +7,10 @@ from pyrogram import Client, filters
 tg = Telegraph()
 tg.create_account(short_name="Hagadmansa")
 
+def listToString(s):
+    str1 = " "
+    return (str1.join(s))
+
 @Client.on_message(filters.command("telegraph"))
 async def telegraph(bot, message):
     
@@ -28,7 +32,7 @@ async def telegraph(bot, message):
         try:         
             tgraph_img = upload_file(img_download)
             await p.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_img[0]}", disable_web_page_preview=True)     
-            await os.remove(img_download) 
+            os.remove(img_download) 
         except Exception as e:
             await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             
@@ -41,7 +45,7 @@ async def telegraph(bot, message):
             try:
                 tgraph_vid = upload_file(vid_download)
                 await a.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_vid[0]}", disable_web_page_preview=True)     
-                await os.remove(vid_download) 
+                os.remove(vid_download) 
             except Exception as e:
                 await a.delete()
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
@@ -57,7 +61,7 @@ async def telegraph(bot, message):
             try:
                 tgraph_gif = upload_file(gif_download)
                 await g.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_gif[0]}", disable_web_page_preview=True)     
-                await os.remove(gif_download) 
+                os.remove(gif_download) 
             except Exception as e:
                 await g.delete()
                 await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
