@@ -24,5 +24,5 @@ async def carbon(bot, message):
   carbon = Carbon(code=code)
   ab = await carbon.save("hagadmansa_carbon")
   await abcd.delete()
-  await bot.send_photo(message.chat.id, ab, caption=f"Carbonised by {message,from_user.mention}")
+  await bot.send_photo(message.chat.id, ab, caption=f"Carbonised by {message.from_user.mention}")
   os.remove(xx)
