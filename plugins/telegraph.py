@@ -4,8 +4,8 @@ from telegraph import upload_file
 from pyrogram import Client, filters
 
 #Create Telegra.ph Account
-telegraph = Telegraph()
-telegraph.create_account(short_name="Hagadmansa")
+tg = Telegraph()
+tg.create_account(short_name="Hagadmansa")
 
 @Client.on_message(filters.command("telegraph"))
 async def telegraph(bot, message):
@@ -95,7 +95,7 @@ async def telegraph(bot, message):
         else:
             somu = listToString(pk)
         try:
-            response = telegraph.create_page(title=f'{somu}', content=[f"{replied.text}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
+            response = tg.create_page(title=f'{somu}', content=[f"{replied.text}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
             await b.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
         except Exception as e:
             await b.delete()
