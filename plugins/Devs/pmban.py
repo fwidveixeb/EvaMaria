@@ -1,4 +1,5 @@
 from utils import temp
+from pyrogram.types import Message
 from pyrogram import Client, filters
 from info import ADMINS, SUPPORT_CHAT
 from database.users_chats_db import db
