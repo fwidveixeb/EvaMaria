@@ -68,29 +68,34 @@ async def telegraph(bot, message):
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
             
-    elif replied.document and not replied.document.file_name.endswith('.png'):
-        x = await message.reply("Downloading...")
-        path = (f"./DOWNLOADS/{message.chat.id}.txt")
-        await bot.download_media(message=replied, file_name=path)
-        await x.edit("Uploading...")
-        k = open(path)
-        p = k.read()
-        if (message.command):
-            pk = message.command[1:]
-            if not pk:  
-                pk = "Hagadmansa"
-        if pk == "Hagadmansa":
-            monu = "Hagadmansa"
-        else:
-            monu = listToString(pk)
-        try:
-            response = tg.create_page(title=f'{monu}', content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
-            await x.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
-            k.close()
-        except Exception as e:
-            await x.delete()
-            await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
-                
+    elif replied.document:
+        if replied.document.file_size < 5242880:
+            if replied.document.file_name.lower().endswith('.png'):
+                await message.reply('hello')
+            x = await message.reply("Downloading...")
+            path = (f"./DOWNLOADS/{message.chat.id}.txt")
+            await bot.download_media(message=replied, file_name=path)
+            await x.edit("Uploading...")
+            k = open(path)
+            p = k.read()
+            if (message.command):
+                pk = message.command[1:]
+                if not pk:  
+                    pk = "Hagadmansa"
+            if pk == "Hagadmansa":
+                monu = "Hagadmansa"
+            else:
+                monu = listToString(pk)
+            try:
+                response = tg.create_page(title=f'{monu}', content=[f"{p}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")  
+                await x.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
+                k.close()
+            except Exception as e:
+                await x.delete()
+                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+       else:
+           await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
+        
         if replied.document.file_name.endswith('.jpg', '.jpeg', '.png'):
             await message.reply("Hello")
         
