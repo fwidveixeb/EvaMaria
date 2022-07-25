@@ -65,7 +65,9 @@ async def fakeinfo(bot, message):
     
 @Client.on_message(filters.command("this"))
 async def thisperson(bot, message):
-  b = requests.get("https://thispersondoesnotexist.com/image").save("random.jpg")
-  await message.reply_photo(b)
-  os.remove("random.jpg")
+  URL = "https://thispersondoesnotexist.com/image"
+  response = requests.get(URL)
+  open("image.jpg", "wb").write(response.content)
+  await message.reply_photo("image.jpg")
+  os.remove("image.jpg")
   
