@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 
 @Client.on_message(filters.command("fakeinfo"))
 async def fakeinfo(bot, message):
-  if len(message.command) == 1:
+  if (message.command):
     query = message.command[1]
     await message.reply("Generating Fake Information...")
     API = "https://api.safone.tech/fakeinfo?gender="
