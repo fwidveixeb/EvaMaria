@@ -67,7 +67,7 @@ async def picsum(bot, message):
         
 @Client.on_message(filters.command("demo"))
 async def hiweubdhi(bot, message):
-    suar = ["1", "2", "3", "4", "5", "6", "7", "8", "9". "10"]
+    suar = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     namak = message.text.split(None)
     if len(namak) == 2:
         demo = message.text.split(None, 1)[1]
