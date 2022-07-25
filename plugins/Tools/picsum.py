@@ -12,9 +12,15 @@ async def picsum(bot, message):
     await message.reply("Who will provide width?")
     
   elif len(message.command) == 3:
+    nd = message.command
     picsum = await message.reply("processing")
+    js = message.command[1]
     height = message.command[2]
     width = message.command[3]
+    print(nd)
+    print(js)
+    print(height)
+    print(width)
     API = "https://picsum.photos"
     response = requests.get(f"{API}/{width}/{height}")
     open("picsum.jpg", "wb").write(response.content)
