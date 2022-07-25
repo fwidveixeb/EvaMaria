@@ -14,12 +14,13 @@ async def picsum(bot, message):
         await message.reply("Who will provide width?")
     
     elif len(r) == 3:
+        if r != int(r):
+            return await message.reply("message must be bumber")
         API = "https://picsum.photos"
         picsum = await message.reply("`Processing...`")
         height = int(message.text.split(None, 2)[1])
         width = message.text.split(None, 2)[2]
-        if r != int(r):
-            await message.reply("message must be bumber")
+       
         try:
             if height > 5000:
                 await message.reply("Height_error")
