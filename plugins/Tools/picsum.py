@@ -29,7 +29,7 @@ async def picsum(bot, message):
             os.remove("picsum.jpg")
     
     elif len(r) == 4:
-        blur = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        blur = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
         API = "https://picsum.photos"
         picsum = await message.reply("`Processing...`")
         height = message.text.split(None, 3)[1]
@@ -47,7 +47,7 @@ async def picsum(bot, message):
                 await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass 'True' in thirt argument to get a Black & White Image.\n4. Forward this to @HagadmansaChat.__")
                 os.remove("picsum.jpg")
                 
-        elif third == "1" or third == "2" or third == "3" or third == "4" or third == "5" or third == "6" or third == "7" or third == "8" or third == "9" or third == "10":
+        elif third in blur:
             try:     
                 response = requests.get(f"{API}/{height}/{width}?blur={third}")
                 open("picsum.jpg", "wb").write(response.content)
