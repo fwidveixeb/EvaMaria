@@ -16,7 +16,7 @@ async def picsum(bot, message):
     elif len(r) == 3:
         API = "https://picsum.photos"
         picsum = await message.reply("`Processing...`")
-        height = int(message.text.split(None, 2)[1])
+        height = message.text.split(None, 2)[1]
         width = message.text.split(None, 2)[2]
         try:
             response = requests.get(f"{API}/{height}/{width}")
@@ -64,3 +64,16 @@ async def picsum(bot, message):
         
     else:
         await message.reply("Something went wrong")
+        
+@Client.on_message(filters.command("demo"))
+async def hiweubdhi(bot, message):
+    namak = message.text.split(None)
+     if len(namak) == 2:
+        demo = message.text.split(None, 1)[1]
+        print(type(demo))
+    
+    
+    
+    
+    
+    
