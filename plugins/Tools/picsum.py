@@ -25,8 +25,25 @@ async def picsum(bot, message):
             await picsum.delete()
             os.remove("picsum.jpg")
         except Exception as e:
-            await picsum.edit(f"**COMMAND:** \n `{message.text}` \n\n **OUTPUT:** \n `{e}` \n\n **TIPS:** \n __1. Size mist be in numbers.\n 2. Size must be less than or equal to 5000. \n 3. Forward this to @HagadmansaChat.__")
+            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**OUTPUT:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Forward this to @HagadmansaChat.__")
             os.remove("picsum.jpg")
     
+    elif len(r) > 3:
+        picsum = await message.reply("processing")
+        height = message.text.split(None, 3)[1]
+        width = message.text.split(None, 3)[2]
+        grayscale = message.text.split(None, 3)[3]
+        if grayscale != "True":
+         retu   await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**OUTPUT:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Third argument must be 'blur', except ''.\n4. Forward this to @HagadmansaChat.__") 
+        API = "https://picsum.photos"
+        try:
+            response = requests.get(f"{API}/{height}/{width}?{blur}")
+            open("picsum.jpg", "wb").write(response.content)
+            await message.reply_photo("picsum.jpg")
+            await picsum.delete()
+            os.remove("picsum.jpg")
+        except Exception as e:
+            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**OUTPUT:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Forward this to @HagadmansaChat.__")
+            os.remove("picsum.jpg")
     else:
         await message.reply("Something went wrong")
