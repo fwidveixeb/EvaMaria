@@ -24,9 +24,13 @@ async def picsum(bot, message):
             await message.reply_photo("picsum.jpg")
             await picsum.delete()
             os.remove("picsum.jpg")
-        except Exception as e:
-            await picsum.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
-            os.remove("picsum.jpg")
+        except Exception:
+            if height > 5000 or width > 5000:
+                await picsum.edit("Size must be less than or eqaul 5000.")
+                os.remove("picsum.jpg")
+            else:
+                await picsum.edit("Size must be in numbers.")
+                os.remove("picsum.jpg")
     
     else:
         await message.reply("Something went wrong")
