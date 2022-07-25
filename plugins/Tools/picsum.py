@@ -11,7 +11,7 @@ async def picsum(bot, message):
   if (message.command) == 1:
     await message.reply("Required 2 arguments, you provided only 1.")
     
-  if int(message.command) == 2:
+  if (message.command) == 2:
     picsum = await message.reply("processing")
     height = message.command[1]
     width = message.command[2]
