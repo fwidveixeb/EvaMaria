@@ -13,7 +13,7 @@ async def picsum(bot, message):
     elif len(message.command) == 2:
         await message.reply("Who will provide width?")
     
-    elif len(r) > 2:
+    elif len(r) == 3:
         picsum = await message.reply("processing")
         height = message.text.split(None, 2)[1]
         width = message.text.split(None, 2)[2]
@@ -28,7 +28,7 @@ async def picsum(bot, message):
             await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**OUTPUT:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Forward this to @HagadmansaChat.__")
             os.remove("picsum.jpg")
     
-    elif len(r) > 3:
+    elif len(r) == 4:
         picsum = await message.reply("processing")
         height = message.text.split(None, 3)[1]
         width = message.text.split(None, 3)[2]
