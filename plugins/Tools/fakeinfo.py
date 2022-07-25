@@ -18,7 +18,7 @@ async def fakeinfo(bot, message):
     email = k['emailAddress']
     cc = k['creditCard']
     postalcode = k['postalCode']
-    timezone = ['timeZone']
+    timezone = k['timeZone']
     address = k['address']
     country = k['country']
     
@@ -40,30 +40,33 @@ async def fakeinfo(bot, message):
     company = k['company']
     
     output = f"""**PERSONAL DETAIL**
-    **Name:** `{name}`
-    **Date Of Birth:** `{dob}`
-    **Phone Number:** `{number}`
-    **Email Address:** `{email}`
-    **Credit Card:** `{cc}`
-    **Postal Code:** `{postalcode}`
-    **Time Zone:** `{timezone}`
-    **Address:** `{address}, {country}`
+**Name:** `{name}`
+**Date Of Birth:** `{dob}`
+**Phone Number:** `{number}`
+**Email Address:** `{email}`
+**Credit Card:** `{cc}`
+**Postal Code:** `{postalcode}`
+**Time Zone:** `{timezone}`
+**Address:** `{address}, {country}`
     
-    **DEVICE DETAIL**
-    **Broser:** `{browser}`
-    **IP Address:** `{ip}`
-    **Mac Address:** `{mac}`
-    **Mobile:** `{mobile}`
-    **Computer:** `{computer}`
+**DEVICE DETAIL**
+**Browser:** `{browser}`
+**IP Address:** `{ip}`
+**Mac Address:** `{mac}`
+**Mobile:** `{mobile}`
+**Computer:** `{computer}`
     
-    **WORK DETAIL**
-    **Profession:** `{profession}`
-    **Company:** `{company}`"""
+**WORK DETAIL**
+**Profession:** `{profession}`
+**Company:** `{company}`"""
     
     await message.reply_photo(
       photo=photo,
       caption=output
     )
-   
-   
     
+@Client.on_message(filters.command("this"))
+async def thisperson(bot, message):
+  b = "https://thispersondoesnotexist.com/image"
+  await message.reply_photo(b)
+  
