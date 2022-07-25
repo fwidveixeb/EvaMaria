@@ -21,11 +21,12 @@ async def picsum(bot, message):
         try:
             response = requests.get(f"{API}/{height}/{width}")
             open("picsum.jpg", "wb").write(response.content)
+            await message.reply_photo("picsum.jpg")
+            await picsum.delete()
+            os.remove("picsum.jpg")
         except Exception as e:
             await picsum.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
-        await message.reply_photo("picsum.jpg")
-        await picsum.delete()
-        os.remove("picsum.jpg")
+            os.remove("picsum.jpg")
     
     else:
         await message.reply("Something went wrong")
