@@ -59,9 +59,9 @@ async def fakeinfo(bot, message):
   
   URL = "https://thispersondoesnotexist.com/image"
   response = requests.get(URL)
-  open("image.jpg", "wb").write(response.content)
+  open("tpdne.jpg", "wb").write(response.content)
   
+  await message.reply_photo(photo="tpdne.jpg", caption=output)
   await m.delete()
-  await message.reply_photo(photo="image.jpg", caption=output)
-  os.remove("image.jpg")
+  os.remove("tpdne.jpg")
   
