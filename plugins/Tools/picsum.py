@@ -47,7 +47,7 @@ async def picsum(bot, message):
                 await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass 'True' in thirt argument to get a Black & White Image.\n4. Forward this to @HagadmansaChat.__")
                 os.remove(f"{id}.jpg")
                 
-        if third == "Blur":
+        elif third == "Blur":
             try:     
                 response = requests.get(f"{API}/{height}/{width}/?blur")
                 open(f"{id}.jpg", "wb").write(response.content)
