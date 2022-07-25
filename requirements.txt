@@ -1,7 +1,6 @@
 pyrogram==1.4.10
 carbonnow
 validators
-opencv-python
 Pillow
 tgcrypto
 aiofiles
