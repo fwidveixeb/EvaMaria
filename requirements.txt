@@ -2,6 +2,8 @@ pyrogram==1.4.10
 carbonnow
 validators
 Pillow
+opencv-python
+numpy
 tgcrypto
 aiofiles
 pymongo[srv]==3.12.3
