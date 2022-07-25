@@ -1,6 +1,6 @@
 import os
-import cv2
 import asyncio
+from . import cv2
 import numpy as np
 from PIL import Image
 from validators.url import url
