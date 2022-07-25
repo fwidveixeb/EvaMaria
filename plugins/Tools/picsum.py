@@ -17,11 +17,12 @@ async def picsum(bot, message):
         picsum = await message.reply("processing")
         height = message.text.split(None, 2)[1]
         width = message.text.split(None, 2)[2]
-        print(height)
-        print(width)
         API = "https://picsum.photos"
-        response = requests.get(f"{API}/{width}/{height}")
-        open("picsum.jpg", "wb").write(response.content)
+        try:
+            response = requests.get(f"{API}/{height}/{width}")
+            open("picsum.jpg", "wb").write(response.content)
+        except Exception as e:
+            await picsum.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         await message.reply_photo("picsum.jpg")
         await picsum.delete()
         os.remove("picsum.jpg")
