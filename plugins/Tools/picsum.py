@@ -59,26 +59,12 @@ async def picsum(bot, message):
                 os.remove("picsum.jpg")
                     
         else:
-            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [105 THIRD_ARGUMENT_INVALID] - Third argument must be 'True' or must be an integer value from 1 to 10`\n\n**TIPS:**\n__1. Pass 'True' in third argument to get a Black & White Image.\n__2. Pass a integer value between 1 to 10 to get blur Image.__")
+            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [105 THIRD_ARGUMENT_INVALID] - Third argument must be 'True' or must be an integer value from 1 to 10`\n\n**TIPS:**\n__1. Pass 'True' in third argument to get a Black & White Image.\n2. Pass a integer value between 1 to 10 to get blur Image.__")
         
         
     else:
         await message.reply("Something went wrong")
         
-@Client.on_message(filters.command("demo"))
-async def hiweubdhi(bot, message):
-    suar = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-    namak = message.text.split(None)
-    if len(namak) == 2:
-        demo = message.text.split(None, 1)[1]
-        print(type(demo))
-        if demo in suar:
-            print("True")
-        else:
-            print("False")
-   
-    
-    
     
     
     
