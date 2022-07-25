@@ -49,7 +49,7 @@ async def picsum(bot, message):
                 
         elif third in blur:
             try:     
-                response = requests.get(f"{API}/{height}/{width}?blur={blur}")
+                response = requests.get(f"{API}/{height}/{width}?blur={third}")
                 open("picsum.jpg", "wb").write(response.content)
                 await message.reply_photo("picsum.jpg")
                 await picsum.delete()
@@ -59,7 +59,7 @@ async def picsum(bot, message):
                 os.remove("picsum.jpg")
                     
         else:
-            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**OUTPUT:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass a integer value between 1 to 10 to get blur Image.\n4. Pass 'True' in thirt argument to get a Black & White Image.\n5. Forward this to @HagadmansaChat.__")
+            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**OUTPUT:**\n`Third argument must be 'True' if need a Black & White Image or must be 1 to 10 if need a blur Image`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass a integer value between 1 to 10 to get blur Image.\n4. Pass 'True' in thirt argument to get a Black & White Image.\n5. Forward this to @HagadmansaChat.__")
         
         
     else:
