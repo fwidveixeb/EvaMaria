@@ -18,8 +18,11 @@ async def picsum(bot, message):
         picsum = await message.reply("`Processing...`")
         height = int(message.text.split(None, 2)[1])
         width = message.text.split(None, 2)[2]
-        if height > 5000:
-            await picsum.edit("Hello")
+        try:
+            if height > 5000:
+                await message.reply("Height_error")
+        except Exception:
+            await message.reply("Heightmust be number")
         try:
             response = requests.get(f"{API}/{height}/{width}")
             open("picsum.jpg", "wb").write(response.content)
