@@ -5,40 +5,40 @@ from pyrogram import Client, filters
 
 @Client.on_message(filters.command("fakeinfo"))
 async def fakeinfo(bot, message):
-  if (message.command):
-    query = message.command[1]
-    m = await message.reply("Generating Fake Information...")
-    API = "https://api.safone.tech/fakeinfo?gender="
-    k = requests.get(f"{API}{query}").json()
+  
+  m = await message.reply("Generating Fake Information...")
+  API = "https://api.safone.tech/fakeinfo?gender=anything"
+  k = requests.get(f"{API}").json()
     
-    #Personal Details
-    name = k['name']
-    photo = k['picture']
-    dob = k['dateofBirth']
-    number = k['phoneNumber']
-    email = k['emailAddress']
-    cc = k['creditCard']
-    address = k['address']
-    country = k['country']
+  #Personal Details
+  name = k['name']
+  dob = k['dateofBirth']
+  number = k['phoneNumber']
+  email = k['emailAddress']
+  cc = k['creditCard']
+  address = k['address']
+  country = k['country']
     
-    #Device Details
-    browser = k['browser']
-    ip = k['ipAddress']
-    mac = k['macAddress']
-    android = k['androiduserAgent']
-    ios = k['iosuserAgent']
-    mob = [android, ios]
-    mobile = random.choice(mob)
-    linux = k['linuxuserAgent']
-    windows = k['windowsuserAgent']
-    com = [linux, windows]
-    computer = random.choice(com)
+  #Device Details
+  browser = k['browser']
+  ip = k['ipAddress']
+  mac = k['macAddress']
+  android = k['androiduserAgent']
+  #Mobile
+  ios = k['iosuserAgent']
+  mob = [android, ios]
+  mobile = random.choice(mob)
+  #Computer
+  linux = k['linuxuserAgent']
+  windows = k['windowsuserAgent']
+  com = [linux, windows]
+  computer = random.choice(com)
    
-    #Work Details
-    profession = k['profession']
-    company = k['company']
+  #Work Details
+  profession = k['profession']
+  company = k['company']
     
-    output = f"""**PERSONAL DETAIL**
+  output = f"""**PERSONAL DETAIL**
 **Name:** `{name}`
 **Date Of Birth:** `{dob}`
 **Phone Number:** `{number}`
@@ -56,18 +56,12 @@ async def fakeinfo(bot, message):
 **WORK DETAIL**
 **Profession:** `{profession}`
 **Company:** `{company}`"""
-    
-    await m.delete()
-    await message.reply_photo(
-      photo=photo,
-      caption=output
-    )
-    
-@Client.on_message(filters.command("this"))
-async def thisperson(bot, message):
+  
   URL = "https://thispersondoesnotexist.com/image"
   response = requests.get(URL)
   open("image.jpg", "wb").write(response.content)
-  await message.reply_photo("image.jpg")
+  
+  await m.delete()
+  await message.reply_photo(photo="image.jpg", caption=output)
   os.remove("image.jpg")
   
