@@ -6,10 +6,10 @@ from pyrogram import Client, filters
 async def picsum(bot, message):
   
   if not message.command:
-    await message.reply("No arguments provided, Read Help menu first")
+    return await message.reply("No arguments provided, Read Help menu first")
     
   if (message.command) == 1:
-    await message.reply("Required 2 arguments, you provided only 1.")
+    return await message.reply("Required 2 arguments, you provided only 1.")
     
   if (message.command) == 2:
     picsum = await message.reply("processing")
