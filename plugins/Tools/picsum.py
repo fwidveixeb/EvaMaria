@@ -6,6 +6,7 @@ from pyrogram import Client, filters
 async def picsum(bot, message):
     
     r = message.text.split(None)
+    id = message.chat.id 
     
     if len(message.command) == 1:
         await message.reply("No size details provided, Read Help Menu First.")
@@ -21,12 +22,12 @@ async def picsum(bot, message):
         try:
             response = requests.get(f"{API}/{height}/{width}")
             open("picsum.jpg", "wb").write(response.content)
-            await message.reply_photo("picsum.jpg")
+            await message.reply_photo(f"{id}.jpg")
             await picsum.delete()
-            os.remove("picsum.jpg")
+            os.remove(f"{id}.jpg")
         except Exception as e:
             await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Forward this to @HagadmansaChat.__")
-            os.remove("picsum.jpg")
+            os.remove(f"{id}.jpg")
     
     elif len(r) == 4:
         API = "https://picsum.photos"
@@ -39,23 +40,23 @@ async def picsum(bot, message):
             try:     
                 response = requests.get(f"{API}/{height}/{width}?grayscale")
                 open("picsum.jpg", "wb").write(response.content)
-                await message.reply_photo("picsum.jpg")
+                await message.reply_photo(f"{id}.jpg")
                 await picsum.delete()
-                os.remove("picsum.jpg")
+                os.remove(f"{id}.jpg")
             except Exception as e:
                 await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass 'True' in thirt argument to get a Black & White Image.\n4. Forward this to @HagadmansaChat.__")
-                os.remove("picsum.jpg")
+                os.remove(f"{id}.jpg")
                 
         if third == "Blur":
             try:     
-                response = requests.get(f"{API}/{height}/{width}/?blur={third}")
+                response = requests.get(f"{API}/{height}/{width}/?blur")
                 open("picsum.jpg", "wb").write(response.content)
-                await message.reply_photo("picsum.jpg")
+                await message.reply_photo(f"{id}.jpg")
                 await picsum.delete()
-                os.remove("picsum.jpg")
+                os.remove(f"{id}.jpg")
             except Exception as e:
                 await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass 'Blur' in thirt argument to get blurred Image.\n4. Forward this to @HagadmansaChat.__")
-                os.remove("picsum.jpg")
+                os.remove(f"{id}.jpg")
                     
         else:
             await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [105 THIRD_ARGUMENT_INVALID] - Third argument must be 'Blur' or 'Gray' (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass 'Blur' in third argument to get a Blurred Image.\n2. Pass 'Gray' in third argument to get a Black & White Image.__")
