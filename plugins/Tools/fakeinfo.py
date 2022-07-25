@@ -1,4 +1,5 @@
-import random
+import os
+import random 
 import requests
 from pyrogram import Client, filters
 
@@ -6,7 +7,7 @@ from pyrogram import Client, filters
 async def fakeinfo(bot, message):
   if (message.command):
     query = message.command[1]
-    await message.reply("Generating Fake Information...")
+    m = await message.reply("Generating Fake Information...")
     API = "https://api.safone.tech/fakeinfo?gender="
     k = requests.get(f"{API}{query}").json()
     
@@ -17,8 +18,6 @@ async def fakeinfo(bot, message):
     number = k['phoneNumber']
     email = k['emailAddress']
     cc = k['creditCard']
-    postalcode = k['postalCode']
-    timezone = k['timeZone']
     address = k['address']
     country = k['country']
     
@@ -45,8 +44,6 @@ async def fakeinfo(bot, message):
 **Phone Number:** `{number}`
 **Email Address:** `{email}`
 **Credit Card:** `{cc}`
-**Postal Code:** `{postalcode}`
-**Time Zone:** `{timezone}`
 **Address:** `{address}, {country}`
     
 **DEVICE DETAIL**
@@ -60,6 +57,7 @@ async def fakeinfo(bot, message):
 **Profession:** `{profession}`
 **Company:** `{company}`"""
     
+    await m.delete()
     await message.reply_photo(
       photo=photo,
       caption=output
@@ -67,6 +65,7 @@ async def fakeinfo(bot, message):
     
 @Client.on_message(filters.command("this"))
 async def thisperson(bot, message):
-  b = "https://thispersondoesnotexist.com/image"
+  b = requests.get("https://thispersondoesnotexist.com/image").save("random.jpg")
   await message.reply_photo(b)
+  os.remove("random.jpg")
   
