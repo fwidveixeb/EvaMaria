@@ -20,3 +20,4 @@ async def picsum(bot, message):
     open("picsum.jpg", "wb").write(response.content)
     await message.reply_photo("picsum.jpg")
     await picsum.delete()
+    os.remove("picsum.jpg")
