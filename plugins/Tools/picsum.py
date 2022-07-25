@@ -5,13 +5,13 @@ from pyrogram import Client, filters
 @Client.on_message(filters.command("picsum"))
 async def picsum(bot, message):
   
-  if not message.command:
+  if not (message.command):
     await message.reply("No arguments provided, Read Help menu first")
     
-  elif (message.command) == 1:
+  elif len(message.command) == 1:
     await message.reply("Required 2 arguments, you provided only 1.")
     
-  elif (message.command) == 2:
+  elif len(message.command) == 2:
     picsum = await message.reply("processing")
     height = message.command[1]
     width = message.command[2]
