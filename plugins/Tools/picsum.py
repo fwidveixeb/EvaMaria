@@ -4,17 +4,17 @@ from pyrogram import Client, filters
 
 @Client.on_message(filters.command("picsum"))
 async def picsum(bot, message):
-  
-  if not (message.command):
-    await message.reply("No arguments provided, Read Help menu first")
     
-  elif len(message.command) == 1:
-    await message.reply("Required 2 arguments, you provided only 1.")
+  if len(message.command) == 1:
+    await message.reply("No size details provided, Read Help Menu First.")
     
-  elif len(message.command) == 2:
+  if len(message.command) == 2:
+    await message.reply("Who will provide width?")
+    
+  elif len(message.command) == 3:
     picsum = await message.reply("processing")
-    height = message.command[1]
-    width = message.command[2]
+    height = message.command[2]
+    width = message.command[3]
     API = "https://picsum.photos"
     response = requests.get(f"{API}/{width}/{height}")
     open("picsum.jpg", "wb").write(response.content)
