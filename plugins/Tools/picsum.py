@@ -29,14 +29,13 @@ async def picsum(bot, message):
             os.remove("picsum.jpg")
     
     elif len(r) == 4:
-        blur = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
         API = "https://picsum.photos"
         picsum = await message.reply("`Processing...`")
         height = message.text.split(None, 3)[1]
         width = message.text.split(None, 3)[2]
         third = message.text.split(None, 3)[3]
         
-        if third == "True":
+        if third == "Gray":
             try:     
                 response = requests.get(f"{API}/{height}/{width}?grayscale")
                 open("picsum.jpg", "wb").write(response.content)
@@ -47,7 +46,7 @@ async def picsum(bot, message):
                 await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass 'True' in thirt argument to get a Black & White Image.\n4. Forward this to @HagadmansaChat.__")
                 os.remove("picsum.jpg")
                 
-        elif third in blur:
+        if third == "Blur":
             try:     
                 response = requests.get(f"{API}/{height}/{width}/?blur={third}")
                 open("picsum.jpg", "wb").write(response.content)
@@ -55,11 +54,11 @@ async def picsum(bot, message):
                 await picsum.delete()
                 os.remove("picsum.jpg")
             except Exception as e:
-                await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass a integer value between 1 to 10 to get blur Inage.\n4. Forward this to @HagadmansaChat.__")
+                await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass 'Blur' in thirt argument to get blurred Image.\n4. Forward this to @HagadmansaChat.__")
                 os.remove("picsum.jpg")
                     
         else:
-            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [105 THIRD_ARGUMENT_INVALID] - Third argument must be 'True' or must be an integer value from 1 to 10`\n\n**TIPS:**\n__1. Pass 'True' in third argument to get a Black & White Image.\n2. Pass a integer value between 1 to 10 to get blur Image.__")
+            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [105 THIRD_ARGUMENT_INVALID] - Third argument must be 'Blur' or 'Gray' (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass 'Blur' in third argument to get a Blurred Image.\n2. Pass 'Gray' in third argument to get a Black & White Image.__")
         
         
     else:
