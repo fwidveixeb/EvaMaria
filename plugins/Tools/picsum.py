@@ -21,3 +21,6 @@ async def picsum(bot, message):
     await message.reply_photo("picsum.jpg")
     await picsum.delete()
     os.remove("picsum.jpg")
+    
+  else:
+    await message.reply("Something went wrong")
