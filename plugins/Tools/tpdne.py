@@ -8,6 +8,6 @@ async def tpdne(bot, message):
   URL = "https://thispersondoesnotexist.com/image"
   response = requests.get(URL)
   open("tpdne.jpg", "wb").write(response.content)
-  await tpdne.delete()
   await message.reply_photo("tpdne.jpg")
+  await tpdne.delete()
   os.remove("tpdne.jpg")
