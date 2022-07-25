@@ -1,5 +1,5 @@
 import os
-import cv as cv2
+import cv2
 import asyncio
 import numpy as np
 from PIL import Image
