@@ -8,8 +8,9 @@ async def picsum(bot, message):
   if len(message.command) == 1:
     await message.reply("No size details provided, Read Help Menu First.")
     
-  if len(message.command) == 2:
+  elif len(message.command) == 2:
     await message.reply("Who will provide width?")
+    return
   
   r = message.text.split(None)
   elif len(r) > 2:
