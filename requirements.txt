@@ -1,13 +1,7 @@
 pyrogram==1.4.10
 carbonnow
 validators
-opencv-python==4.6.0.66
-opencv-contrib-python
-opencv-python-headless
-cv2-tools==2.4.0
-numpy==1.23.1
-python-constraint==1.4.0
-opencv-contrib-python-headless
+opencv-python
 Pillow
 tgcrypto
 aiofiles
@@ -20,7 +14,4 @@ bs4
 IMDbPY==2022.7.9
 python-dotenv
 telegraph==2.1.0
-py-Ultroid
-gingerit
-Telethon==1.21.1
-git+https://github.com/ProgrammingError/rextester_py.git
+PyUltroid
