@@ -21,7 +21,7 @@ async def picsum(bot, message):
         width = message.text.split(None, 2)[2]
         try:
             response = requests.get(f"{API}/{height}/{width}")
-            open("picsum.jpg", "wb").write(response.content)
+            open(f"{id}.jpg", "wb").write(response.content)
             await message.reply_photo(f"{id}.jpg")
             await picsum.delete()
             os.remove(f"{id}.jpg")
@@ -39,7 +39,7 @@ async def picsum(bot, message):
         if third == "Gray":
             try:     
                 response = requests.get(f"{API}/{height}/{width}?grayscale")
-                open("picsum.jpg", "wb").write(response.content)
+                open(f"{id}.jpg", "wb").write(response.content)
                 await message.reply_photo(f"{id}.jpg")
                 await picsum.delete()
                 os.remove(f"{id}.jpg")
@@ -50,7 +50,7 @@ async def picsum(bot, message):
         if third == "Blur":
             try:     
                 response = requests.get(f"{API}/{height}/{width}/?blur")
-                open("picsum.jpg", "wb").write(response.content)
+                open(f"{id}.jpg", "wb").write(response.content)
                 await message.reply_photo(f"{id}.jpg")
                 await picsum.delete()
                 os.remove(f"{id}.jpg")
