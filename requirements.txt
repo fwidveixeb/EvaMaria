@@ -3,9 +3,9 @@ carbonnow
 validators
 opencv-python==4.6.0.66
 cv2-tools==2.4.0
-opencv >= 3.6.2
-numpy >= 1.13.3
-python-constraint >= 1.4.0
+opencv
+numpy==1.23.1
+python-constraint==1.4.0
 Pillow
 tgcrypto
 aiofiles
