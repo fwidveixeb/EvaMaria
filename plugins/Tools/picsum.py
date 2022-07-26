@@ -11,10 +11,10 @@ async def picsum(bot, message):
     wi = ["100", "200", "300", "400", "500", "600", "700", "800", "900", "1000"]
     
     if len(message.command) == 1:
-        await message.reply("No size details provided, Read Help Menu First.")
+        await message.reply("No size details provided, Read Help Menu to know how command works.")
     
     elif len(message.command) == 2:
-        await message.reply("Who will provide width?")
+        await message.reply("No Width provided, Read Help Menu to know how command works.")
     
     elif len(r) == 3:
         API = "https://picsum.photos"
@@ -39,33 +39,33 @@ async def picsum(bot, message):
         third = message.text.split(None, 3)[3]
         
         if third == "Gray":
-            try:     
-                response = requests.get(f"{API}/{height}/{width}?grayscale")
+            if height not in he:
+                return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [103 FIRST_ARGUMENT_INVALID] - Height must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Height value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
+            if width not in wi:
+                return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
+            response = requests.get(f"{API}/{height}/{width}?grayscale")
                 open(f"{id}.jpg", "wb").write(response.content)
-                await message.reply_photo(f"{id}.jpg")
+                await message.reply_document(document=f"{id}.jpg")
                 await picsum.delete()
-                os.remove(f"{id}.jpg")
-            except Exception as e:
-                await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass 'True' in thirt argument to get a Black & White Image.\n4. Forward this to @HagadmansaChat.__")
                 os.remove(f"{id}.jpg")
                 
         elif third == "Blur":
-            try:     
-                response = requests.get(f"{API}/{height}/{width}/?blur")
+            if height not in he:
+                return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [103 FIRST_ARGUMENT_INVALID] - Height must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Height value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
+            if width not in wi:
+                return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
+            response = requests.get(f"{API}/{height}/{width}/?blur")
                 open(f"{id}.jpg", "wb").write(response.content)
-                await message.reply_photo(f"{id}.jpg")
+                await message.reply_document(document=f"{id}.jpg")
                 await picsum.delete()
-                os.remove(f"{id}.jpg")
-            except Exception as e:
-                await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`\n\n**TIPS:**\n__1. Size must be in numbers.\n2. Size must be less than or equal to 5000.\n3. Pass 'Blur' in thirt argument to get blurred Image.\n4. Forward this to @HagadmansaChat.__")
                 os.remove(f"{id}.jpg")
                     
         else:
-            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [105 THIRD_ARGUMENT_INVALID] - Third argument must be 'Blur' or 'Gray' (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass 'Blur' in third argument to get a Blurred Image.\n2. Pass 'Gray' in third argument to get a Black & White Image.__")
+            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [111 THIRD_ARGUMENT_INVALID] - Third argument must be 'Blur' or 'Gray' (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass 'Blur' in third argument to get a Blurred Image.\n2. Pass 'Gray' in third argument to get a Black & White Image.__")
         
         
     else:
-        await message.reply("Something went wrong")
+        await message.reply("Argument limit exceeded, Read Help Menu to know how command works.")
         
     
     
