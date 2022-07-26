@@ -44,10 +44,10 @@ async def picsum(bot, message):
             if width not in wi:
                 return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
             response = requests.get(f"{API}/{height}/{width}?grayscale")
-                open(f"{id}.jpg", "wb").write(response.content)
-                await message.reply_document(document=f"{id}.jpg")
-                await picsum.delete()
-                os.remove(f"{id}.jpg")
+            open(f"{id}.jpg", "wb").write(response.content)
+            await message.reply_document(document=f"{id}.jpg")
+            await picsum.delete()
+            os.remove(f"{id}.jpg")
                 
         elif third == "Blur":
             if height not in he:
@@ -55,10 +55,10 @@ async def picsum(bot, message):
             if width not in wi:
                 return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
             response = requests.get(f"{API}/{height}/{width}/?blur")
-                open(f"{id}.jpg", "wb").write(response.content)
-                await message.reply_document(document=f"{id}.jpg")
-                await picsum.delete()
-                os.remove(f"{id}.jpg")
+            open(f"{id}.jpg", "wb").write(response.content)
+            await message.reply_document(document=f"{id}.jpg")
+            await picsum.delete()
+            os.remove(f"{id}.jpg")
                     
         else:
             await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [111 THIRD_ARGUMENT_INVALID] - Third argument must be 'Blur' or 'Gray' (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass 'Blur' in third argument to get a Blurred Image.\n2. Pass 'Gray' in third argument to get a Black & White Image.__")
