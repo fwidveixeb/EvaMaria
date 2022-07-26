@@ -66,8 +66,3 @@ async def picsum(bot, message):
         
     else:
         await message.reply("Argument limit exceeded, Read Help Menu to know how command works.")
-        
-    
-    
-    
-    
