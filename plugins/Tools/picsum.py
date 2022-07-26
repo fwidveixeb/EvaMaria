@@ -59,7 +59,7 @@ async def picsum(bot, message):
             response = requests.get(f"{API}/{height}/{width}/?blur")
             open(f"{id}.jpg", "wb").write(response.content)
             await message.reply_photo(f"{id}.jpg")
-            await message.reply_document(f"{id}.jp")
+            await message.reply_document(f"{id}.jpg")
             await picsum.delete()
             os.remove(f"{id}.jpg")           
                     
