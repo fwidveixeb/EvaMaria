@@ -7,6 +7,8 @@ async def picsum(bot, message):
     
     r = message.text.split(None)
     id = message.chat.id 
+    he = ["100", "200", "300", "400", "500", "600", "700", "800", "900", "1000"]
+    wi = ["100", "200", "300", "400", "500", "600", "700", "800", "900", "1000"]
     
     if len(message.command) == 1:
         await message.reply("No size details provided, Read Help Menu First.")
@@ -19,6 +21,10 @@ async def picsum(bot, message):
         picsum = await message.reply("`Processing...`")
         height = message.text.split(None, 2)[1]
         width = message.text.split(None, 2)[2]
+        if height not in he:
+            return await picsum.edit("Height must be multiple to 100 and not more than 5000")
+        if width not in wi:
+            return await picsum.edit("width must be multiple to 100 and not more than 5000")
         try:
             response = requests.get(f"{API}/{height}/{width}")
             open(f"{id}.jpg", "wb").write(response.content)
