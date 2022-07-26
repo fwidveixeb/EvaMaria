@@ -26,9 +26,11 @@ async def picsum(bot, message):
         if width not in wi:
             return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
         response = requests.get(f"{API}/{height}/{width}")
-        await message.reply_photo(response.url)
-        await message.reply_document(response.url)
+        open(f"{id}.jpg", "wb").write(response.content)
+        await message.reply_photo(f"{id}.jpg")
+        await message.reply_document(f"{id}.jpg")
         await picsum.delete()
+        os.remove(f"{id}.jpg")
     
     elif len(r) == 4:
         API = "https://picsum.photos"
@@ -43,9 +45,11 @@ async def picsum(bot, message):
             if width not in wi:
                 return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
             response = requests.get(f"{API}/{height}/{width}?grayscale")
-            await message.reply_photo(response.url)
-            await message.reply_document(response.url)
+            open(f"{id}.jpg", "wb").write(response.content)
+            await message.reply_photo(f"{id}.jpg")
+            await message.reply_document(f"{id}.jpg")
             await picsum.delete()
+            os.remove(f"{id}.jpg")
                 
         elif third == "Blur":
             if height not in he:
@@ -53,19 +57,14 @@ async def picsum(bot, message):
             if width not in wi:
                 return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
             response = requests.get(f"{API}/{height}/{width}/?blur")
-            await message.reply_photo(response.url)
-            await message.reply_document(response.url)
+            open(f"{id}.jpg", "wb").write(response.content)
+            await message.reply_photo(f"{id}.jpg)
+            await message.reply_document(f"{id}.jpg)
             await picsum.delete()
+            os.remove(f"{id}.jpg)                        
                     
         else:
             await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [111 THIRD_ARGUMENT_INVALID] - Third argument must be 'Blur' or 'Gray' (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass 'Blur' in third argument to get a Blurred Image.\n2. Pass 'Gray' in third argument to get a Black & White Image.__")
        
     else:
-        await message.reply("Argument limit exceeded, Read Help Menu to know how command works.")
-        
-@Client.on_message(filters.command("hemlo"))
-async def hemlo(bot, message):
-    for x in range(5):
-        res = requests.get("https://picsum.photos/2000/1000")
-        await message.reply_photo(res.url)
-        await message.reply_document(res.url)
+        await message.reply("Argument limit exceeded, Read Help Menu to know how command works.")    
