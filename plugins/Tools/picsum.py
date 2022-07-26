@@ -22,9 +22,9 @@ async def picsum(bot, message):
         height = message.text.split(None, 2)[1]
         width = message.text.split(None, 2)[2]
         if height not in he:
-            return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [103 FIRST_ARGUMENT_INVALID] - Height must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Height value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__"")
+            return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [103 FIRST_ARGUMENT_INVALID] - Height must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Height value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
         if width not in wi:
-            return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__"")
+            return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
         response = requests.get(f"{API}/{height}/{width}")
         open(f"{id}.jpg", "wb").write(response.content)
         await message.reply_document(document=f"{id}.jpg")
