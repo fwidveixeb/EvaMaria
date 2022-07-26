@@ -62,7 +62,6 @@ async def picsum(bot, message):
                     
         else:
             await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [111 THIRD_ARGUMENT_INVALID] - Third argument must be 'Blur' or 'Gray' (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass 'Blur' in third argument to get a Blurred Image.\n2. Pass 'Gray' in third argument to get a Black & White Image.__")
-        
-        
+       
     else:
         await message.reply("Argument limit exceeded, Read Help Menu to know how command works.")
