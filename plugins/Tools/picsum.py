@@ -1,6 +1,5 @@
 import os
 import requests
-from urllib import request
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("picsum"))
@@ -70,7 +69,6 @@ async def picsum(bot, message):
 @Client.on_message(filters.command("hemlo"))
 async def hemlo(bot, message):
     for x in range(5):
-        res = request.urlopen("https://picsum.photos/2000/1000")
-        url = res.geturl()
-        await message.reply_photo(url)
-        await message.reply_document(url)
+        res = requests.get("https://picsum.photos/2000/1000")
+        await message.reply_photo(res.url)
+        await message.reply_document(res.url)
