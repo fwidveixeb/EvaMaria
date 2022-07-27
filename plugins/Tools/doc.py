@@ -19,7 +19,7 @@ async def doc(bot, message):
   
   with open(kp, "w") as b:
     b.write(str(replied.text))
-  await doc.edit(f"Packing into `{input_str}`")
-  await message.reply_document(document=pk, caption=f"Successfully Packed into `{input_str}`", thumb="resources/devoloper.png")
+  await doc.edit(f"Packing into `{kp}`.")
+  await message.reply_document(document=pk, caption=f"Successfully Packed into `{kp}`", thumb="resources/devoloper.png")
   await doc.delete()
   os.remove(kp)
