@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup as bs
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("dobt"))
-async def dob(bot, message):
+async def dobt(bot, message):
     
     #Declairing Some Important Variables
     match = message.text.split()
@@ -103,29 +103,29 @@ async def dob(bot, message):
           bday = f"{ish} Days Left 🥳"
         
       #Determining Zodiac
-      if month == "12":
+      if m == "12":
           sign = "Sagittarius" if (d < 22) else "Capricorn"
-      elif month == "01":
+      elif m == "01":
           sign = "Capricorn" if (d < 20) else "Aquarius"
-      elif month == "02":
+      elif m == "02":
           sign = "Aquarius" if (d < 19) else "Pisces"
-      elif month == "03":
+      elif m == "03":
           sign = "Pisces" if (d < 21) else "Aries"
-      elif month == "04":
+      elif m == "04":
           sign = "Aries" if (d < 20) else "Taurus"
-      elif month == "05":
+      elif m == "05":
           sign = "Taurus" if (d < 21) else "Gemini"
-      elif month == "06":
+      elif m == "06":
           sign = "Gemini" if (d < 21) else "Cancer"
-      elif month == "07":
+      elif m == "07":
           sign = "Cancer" if (d < 23) else "Leo"
-      elif month == "08":
+      elif m == "08":
           sign = "Leo" if (d < 23) else "Virgo"
-      elif month == "09":
+      elif m == "09":
           sign = "Virgo" if (d < 23) else "Libra"
-      elif month == "10":
+      elif m == "10":
           sign = "Libra" if (d < 23) else "Scorpion"
-      elif month == "11":
+      elif m == "11":
           sign = "Scorpio" if (d < 22) else "Sagittarius"
       
       #Getting Horoscope
