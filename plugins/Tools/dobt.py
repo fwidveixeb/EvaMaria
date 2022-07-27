@@ -130,7 +130,7 @@ async def dobt(bot, message):
       print(zodiac)
     
       #Getting Horoscope
-      horoscope = pyaztro.Aztro(sign=f'{zodiac}')
+      horoscope = pyaztro.Aztro(sign='Virgo')
       description = horoscope.description
       today_date = horoscope.current_date
         
