@@ -1,7 +1,7 @@
 import os
 import pytz
 import time
-import PyAztro
+import pyaztro
 import aiohttp
 from datetime import date
 from random import choice
