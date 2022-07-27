@@ -25,13 +25,17 @@ async def picsum(bot, message):
             return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [103 FIRST_ARGUMENT_INVALID] - Height must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Height value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
         if width not in wi:
             return await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [107 SECOND_ARGUMENT_INVALID] - Width must be in multiples of 100 and should not exceed 5000 (Caused by 'Argument.ValueError')`\n\n**TIPS:**\n__1. Pass Width value in multiples of 100 like 200, 500, 2500 but it should not exceed 5000.__")
-        response = requests.get(f"{API}/{height}/{width}")
-        open(f"{id}.jpg", "wb").write(response.content)
-        await message.reply_photo(f"{id}.jpg")
-        await message.reply_document(f"{id}.jpg")
-        await picsum.delete()
-        os.remove(f"{id}.jpg")
-    
+        try:
+            response = requests.get(f"{API}/{height}/{width}")
+            open(f"{id}.jpg", "wb").write(response.content)
+            await message.reply_photo(f"{id}.jpg")
+            await message.reply_document(f"{id}.jpg")
+            await picsum.delete()
+            os.remove(f"{id}.jpg")
+        except Exception as e:
+            await picsum.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [119 FILE_NOT_FOUND] - {e}`\n\n**TIPS:**\n__1. Don't use the command again until first process completes.__")
+            os.remove(f"{id}.jpg")
+            
     elif len(r) == 4:
         API = "https://picsum.photos"
         picsum = await message.reply("`Processing...`")
