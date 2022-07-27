@@ -134,7 +134,7 @@ async def dobt(bot, message):
       today_date = horoscope.current_date
         
       #Creating Final output that would be sent to user
-      output = f"**Name:** `{name}`\n**D.O.B:** `{full}`\n**Life Lived:** `{lived}`\n**Upcoming Birthday:** `{bday}`\n**Zodiac:** `{zodiac}`\n\n**Horoscope on `{today_date}:`**\n`{description}`"
+      output = f"**Name:** `{name}`\n**D.O.B:** `{full}`\n**Life Lived:** `{lived}`\n**Upcoming Birthday:** `{bday}`\n**Zodiac:** `{bday}`\n\n**Horoscope on `{today_date}:`**\n`{description}`"
         
       #Sendind Data to the User
       return await dobt.edit(output)
