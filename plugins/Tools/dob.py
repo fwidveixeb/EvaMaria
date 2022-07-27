@@ -54,13 +54,14 @@ async def dob(bot, message):
   p = match[1]
   r = match[2]
   s = match[3]
+  monu = f"{p} {r} {s}"
   print(p)
   print(r)
   print(s)
   day = int(p)
   month = r
   try:
-      jn = dt.strptime(match, "%d/%m/%Y")  
+      jn = dt.strptime(monu, "%d/%m/%Y")  
   except BaseException:
       return await message.reply("something went wrong in line 34")
   jnm = zn.localize(jn)
