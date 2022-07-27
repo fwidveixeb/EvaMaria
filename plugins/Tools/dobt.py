@@ -127,7 +127,6 @@ async def dobt(bot, message):
           zodiac = "Libra" if (d < 23) else "Scorpion"
       elif m == "11":
           zodiac = "Scorpio" if (d < 22) else "Sagittarius"
-      print(zodiac)
     
       #Getting Horoscope
       horoscope = pyaztro.Aztro(sign='Virgo')
