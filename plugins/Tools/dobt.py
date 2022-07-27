@@ -104,37 +104,37 @@ async def dobt(bot, message):
         
       #Determining Zodiac
       if m == "12":
-          sign = "Sagittarius" if (d < 22) else "Capricorn"
+          zodiac = "Sagittarius" if (d < 22) else "Capricorn"
       elif m == "01":
-          sign = "Capricorn" if (d < 20) else "Aquarius"
+          zodiac = "Capricorn" if (d < 20) else "Aquarius"
       elif m == "02":
-          sign = "Aquarius" if (d < 19) else "Pisces"
+          zodiac = "Aquarius" if (d < 19) else "Pisces"
       elif m == "03":
-          sign = "Pisces" if (d < 21) else "Aries"
+          zodiac = "Pisces" if (d < 21) else "Aries"
       elif m == "04":
-          sign = "Aries" if (d < 20) else "Taurus"
+          zodiac = "Aries" if (d < 20) else "Taurus"
       elif m == "05":
-          sign = "Taurus" if (d < 21) else "Gemini"
+          zodiac = "Taurus" if (d < 21) else "Gemini"
       elif m == "06":
-          sign = "Gemini" if (d < 21) else "Cancer"
+          zodiac = "Gemini" if (d < 21) else "Cancer"
       elif m == "07":
-          sign = "Cancer" if (d < 23) else "Leo"
+          zodiac = "Cancer" if (d < 23) else "Leo"
       elif m == "08":
-          sign = "Leo" if (d < 23) else "Virgo"
+          zodiac = "Leo" if (d < 23) else "Virgo"
       elif m == "09":
-          sign = "Virgo" if (d < 23) else "Libra"
+          zodiac = "Virgo" if (d < 23) else "Libra"
       elif m == "10":
-          sign = "Libra" if (d < 23) else "Scorpion"
+          zodiac = "Libra" if (d < 23) else "Scorpion"
       elif m == "11":
-          sign = "Scorpio" if (d < 22) else "Sagittarius"
+          zodiac = "Scorpio" if (d < 22) else "Sagittarius"
       
       #Getting Horoscope
-      horoscope = pyaztro.Aztro(sign=f'{sign}')
+      horoscope = pyaztro.Aztro(sign=f'{zodiac}')
       description = horoscope.description
       today_date = horoscope.current_date
         
       #Creating Final output that would be sent to user
-      output = f"**Name:** `{name}`\n**D.O.B:** `{full}`\n**Life Lived:** `{lived}`\n**Upcoming Birthday:** `{bday}`\n**Zodiac:** `{sign}`\n\n**Horoscope on `{today_date}:`**\n`{description}`"
+      output = f"**Name:** `{name}`\n**D.O.B:** `{full}`\n**Life Lived:** `{lived}`\n**Upcoming Birthday:** `{bday}`\n**Zodiac:** `{zodiac}`\n\n**Horoscope on `{today_date}:`**\n`{description}`"
         
       #Sendind Data to the User
       return await dobt.edit(output)
