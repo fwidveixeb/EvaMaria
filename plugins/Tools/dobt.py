@@ -2,6 +2,7 @@ import os
 import pytz
 import time
 import aiohttp
+from datetime import date
 from random import choice
 from shutil import rmtree
 from datetime import datetime as dt
@@ -40,16 +41,44 @@ async def async_searcher(
 
 @Client.on_message(filters.command("dobt"))
 async def dob(bot, message):
-  
-  match = message.text.split()
-  
-  name = message.from_user.first_name
-  dobt = await message.reply("Processing...")
-  
-  if len(match) == 1:
-    return await 
-  
-  zn = pytz.timezone("Asia/Kolkata")
+    
+    match = message.text.split()
+    today = date.today()
+    today_year = today.year
+    name = message.from_user.first_name
+    dobt = await message.reply("Processing...")
+    
+    if len(match) == 1:
+        return await dobt.edit("No Date Of Birth provided, Read Help Menu to know how command works.")
+    
+    if len(match) == 2 :
+      return await dobt.edit("No Month provided, Read Help Menu to know how command works.")
+
+    if len(match) == 3:
+      return await dobt.edit("No Year provided, Read Help Menu to know how command works.")
+
+   if len(match) == 4:
+        
+      a = match[1]
+      d = int(a)
+      if d > 31:
+        return await dobt.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [126 FIRST_PARAMETER_INVALID] - Date must be in numbers and should not exceed 31. (Caused by 'Parameter.ValueError')`")
+      
+      b =  match[2]
+      m = int(b)
+      if m > 12:
+        return await dobt.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [128 SECOND_PARAMETER_INVALID] - Month must be in numbers and should not exceed 12. (Caused by 'Parameter.ValueError')`")
+     
+      
+      c =  match[3]
+      y = int(c)
+      if len(y) != 4:
+        return await dobt.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [131 THIRD_PARAMETER_INVALID] - Year must be in 4 numbers and should not exceed 12. (Caused by 'Parameter.ValueError')`")
+        
+   if len(match) > 4:
+      
+
+    zn = pytz.timezone("Asia/Kolkata")
   abhi = dt.now(zn)
   p = match[1]
   r = match[2]
