@@ -50,7 +50,7 @@ async def dobt(bot, message):
       #Checking if Year is wrong
       c =  match[3]
       y = int(c)
-      if len(c) != 4:
+      if len(c) != 4 and c != y:
         return await dobt.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [131 THIRD_PARAMETER_INVALID] - Year must be in 4 numbers and should not exceed {today_year}. (Caused by 'Parameter.ValueError')`")
         
       #Getting Some Important Variables
@@ -119,7 +119,7 @@ async def dobt(bot, message):
       elif b == "09":
           zodiac = "Virgo" if (d < 23) else "Libra"
       elif b == "10":
-          zodiac = "Libra" if (d < 23) else "Scorpion"
+          zodiac = "Libra" if (d < 23) else "Scorpio"
       elif b == "11":
           zodiac = "Scorpio" if (d < 22) else "Sagittarius"
     
