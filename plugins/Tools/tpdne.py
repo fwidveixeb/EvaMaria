@@ -4,10 +4,12 @@ from pyrogram import Client, filters
 
 @Client.on_message(filters.command("tpdne"))
 async def tpdne(bot, message):
-  tpdne = await message.reply("processing...")
+  id = message.chat.id
+  tpdne = await message.reply("`Processing...`")
   URL = "https://thispersondoesnotexist.com/image"
   response = requests.get(URL)
-  open("tpdne.jpg", "wb").write(response.content)
-  await message.reply_photo("tpdne.jpg")
+  open(f"tpdne_{id}.jpg", "wb").write(response.content)
+  await message.reply_photo(f"tpdne_{id}.jpg")
+  await message.reply_document(f"tpdne_{id}.jpg")
   await tpdne.delete()
-  os.remove("tpdne.jpg")
+  os.remove(f"tpdne_{id}.jpg")
