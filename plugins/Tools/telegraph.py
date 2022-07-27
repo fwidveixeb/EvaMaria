@@ -25,100 +25,98 @@ async def telegraph(bot, message):
         return
         
     if replied.photo:
-        p = await message.reply("Downloading...")
+        p = await message.reply("`Downloading...`")
         img_path = (f"./DOWNLOADS/{message.chat.id}.jpg")
         img_download = await bot.download_media(message=replied, file_name=img_path)
-        await p.edit("Uploading...")
+        await p.edit("`Uploading...`")
         try:         
             tgraph_img = upload_file(img_download)
             await p.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_img[0]}", disable_web_page_preview=True)     
             os.remove(img_download) 
         except Exception as e:
-            await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+            await p.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             
     elif replied.video:
         if replied.video.file_size < 5242880:
-            a = await message.reply_text("Downloading...")
+            a = await message.reply_text("`Downloading...`")
             vid_path = (f"./DOWNLOADS/{message.chat.id}.mp4")
             vid_download = await bot.download_media(message=replied, file_name=vid_path)
-            await a.edit("Uploading...")
+            await a.edit("`Uploading...`")
             try:
                 tgraph_vid = upload_file(vid_download)
                 await a.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_vid[0]}", disable_web_page_preview=True)     
                 os.remove(vid_download) 
             except Exception as e:
-                await a.delete()
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
+                await a.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
             
     elif replied.animation:
         if replied.animation.file_size < 5242880:
-            g = await message.reply("Downloading...")
+            g = await message.reply("`Downloading...`")
             gif_path = (f"./DOWNLOADS/{message.chat.id}.mp4")
             gif_download = await bot.download_media(message=replied, file_name=gif_path)
-            await g.edit("Uploading...")
+            await g.edit("`Uploading...`")
             try:
                 tgraph_gif = upload_file(gif_download)
                 await g.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_gif[0]}", disable_web_page_preview=True)     
                 os.remove(gif_download) 
             except Exception as e:
-                await g.delete()
-                await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
+                await g.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat.")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
             
     elif replied.document:
         if replied.document.file_size < 5242880:
             if replied.document.file_name.lower().endswith('.png'):
-                q = await message.reply("Downloading...")
+                q = await message.reply("`Downloading...`")
                 img_pathq = (f"./DOWNLOADS/{message.chat.id}.png")
                 img_downloadq = await bot.download_media(message=replied, file_name=img_pathq)
-                await q.edit("Uploading...")
+                await q.edit("`Uploading...`")
                 try:   
                     tgraph_imgq = upload_file(img_downloadq)
                     await q.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_imgq[0]}", disable_web_page_preview=True)     
                     os.remove(img_downloadq) 
                 except Exception as e:
-                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                    await q.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             elif replied.document.file_name.lower().endswith('.jpg'):
-                i = await message.reply("Downloading...")
+                i = await message.reply("`Downloading...`")
                 img_pathi = (f"./DOWNLOADS/{message.chat.id}.jpg")
                 img_downloadi = await bot.download_media(message=replied, file_name=img_pathi)
-                await i.edit("Uploading...")
+                await i.edit("`Uploading...`")
                 try:   
                     tgraph_imgi = upload_file(img_downloadi)
                     await i.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_imgi[0]}", disable_web_page_preview=True)     
                     os.remove(img_downloadi) 
                 except Exception as e:
-                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                    await i.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             elif replied.document.file_name.lower().endswith('.jpeg'):
-                y = await message.reply("Downloading...")
+                y = await message.reply("`Downloading...`")
                 img_pathy = (f"./DOWNLOADS/{message.chat.id}.jpeg")
                 img_downloady = await bot.download_media(message=replied, file_name=img_pathy)
-                await y.edit("Uploading...")
+                await y.edit("`Uploading...`")
                 try:   
                     tgraph_imgy = upload_file(img_downloady)
                     await y.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_imgy[0]}", disable_web_page_preview=True)     
                     os.remove(img_downloadi) 
                 except Exception as e:
-                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                    await y.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             elif replied.document.file_name.lower().endswith('.mp4'):
-                z = await message.reply("Downloading...")
+                z = await message.reply("`Downloading...`")
                 img_pathz = (f"./DOWNLOADS/{message.chat.id}.mp4")
                 img_downloadz = await bot.download_media(message=replied, file_name=img_pathz)
-                await z.edit("Uploading...")
+                await z.edit("`Uploading...`")
                 try:   
                     tgraph_imgz = upload_file(img_downloadz)
                     await z.edit(f"Here is your link:\n\nhttps://telegra.ph{tgraph_imgz[0]}", disable_web_page_preview=True)     
                     os.remove(img_downloadz)
                 except Exception as e:
-                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                    await z.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             else:
-                x = await message.reply("Downloading...")
+                x = await message.reply("`Downloading...`")
                 path = (f"./DOWNLOADS/{message.chat.id}.txt")
                 await bot.download_media(message=replied, file_name=path)
-                await x.edit("Uploading...")
+                await x.edit("`Uploading...`")
                 k = open(path)
                 p = k.read()
                 if (message.command):
@@ -134,14 +132,13 @@ async def telegraph(bot, message):
                     await x.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
                     k.close()
                 except Exception as e:
-                    await x.delete()
-                    await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+                    await x.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
         else:
             await message.reply("Size must be less than 5 Mb, it's Telegraph's limit not ours.")
         
         
     elif replied.text:
-        b = await message.reply("Uploading...")
+        b = await message.reply("`Uploading...`")
         if (message.command):
             dj = message.command[1:]
             if not dj:
@@ -154,7 +151,6 @@ async def telegraph(bot, message):
             response = tg.create_page(title=f'{somu}', content=[f"{replied.text}"], author_name="Hagadmansa", author_url="https://hagadmansa.com")
             await b.edit(f"Here is your link:\n\n{response['url']}", disable_web_page_preview=True)
         except Exception as e:
-            await b.delete()
-            await message.reply(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+            await b.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
             
    
