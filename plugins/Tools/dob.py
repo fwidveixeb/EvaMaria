@@ -10,7 +10,7 @@ from datetime import datetime as dt
 from bs4 import BeautifulSoup as bs
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command("dobt"))
+@Client.on_message(filters.command("dob"))
 async def dobt(bot, message):
     
     #Declairing Some Important Variables
