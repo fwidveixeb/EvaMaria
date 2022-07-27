@@ -6,7 +6,8 @@ from pyrogram import Client, filters
 @Client.on_message(filters.command("fakeinfo"))
 async def fakeinfo(bot, message):
   
-  m = await message.reply("Generating Fake Information...")
+  id = message.chat.id
+  m = await message.reply("`Processing...`")
   API = "https://api.safone.tech/fakeinfo?gender=anything"
   k = requests.get(f"{API}").json()
     
@@ -59,9 +60,9 @@ async def fakeinfo(bot, message):
   
   URL = "https://thispersondoesnotexist.com/image"
   response = requests.get(URL)
-  open("tpdne.jpg", "wb").write(response.content)
+  open(f"fakeinfo_{id}.jpg", "wb").write(response.content)
   
-  await message.reply_photo(photo="tpdne.jpg", caption=output)
+  await message.reply_photo(photo=f"fakeinfo_{id}.jpg", caption=output)
   await m.delete()
-  os.remove("tpdne.jpg")
+  os.remove(f"fakeinfo_{id}.jpg")
   
