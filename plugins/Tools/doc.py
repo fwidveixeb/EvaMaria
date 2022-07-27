@@ -1,7 +1,7 @@
 import os
 from pyrogram import Client, filters
 
-@Client.on_message(filters.commans("doc"))
+@Client.on_message(filters.command("doc"))
 async def doc(bot, message):
   
   doc = await message.reply("`Processing...`")
