@@ -18,7 +18,7 @@ async def dob(bot, message):
     today = date.today()
     today_year = today.year
     name = message.from_user.first_name
-    dobt = await message.reply("Processing...")
+    dobt = await message.reply("`Processing...`")
     
     #Checking if Message has no Parameters
     if len(match) == 1:
@@ -50,7 +50,7 @@ async def dob(bot, message):
       #Checking if Year is wrong
       c =  match[3]
       y = int(c)
-      if len(y) != 4:
+      if len(c) != 4:
         return await dobt.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [131 THIRD_PARAMETER_INVALID] - Year must be in 4 numbers and should not exceed {today_year}. (Caused by 'Parameter.ValueError')`")
         
       #Getting Some Important Variables
