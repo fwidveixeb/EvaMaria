@@ -1,6 +1,7 @@
 pyrogram==1.4.10
 carbonnow
 tgcrypto
+aiohttp
 pymongo[srv]==3.12.3
 motor==2.5.1
 marshmallow==3.14.1
