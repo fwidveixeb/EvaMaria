@@ -54,10 +54,11 @@ async def dob(bot, message):
   p = match[1]
   r = match[2]
   s = match[3]
-  monu = f"{p} {r} {s}"
+  monu = f"{p}/{r}/{s}"
   print(p)
   print(r)
   print(s)
+  print(monu)
   day = int(p)
   month = r
   try:
