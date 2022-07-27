@@ -125,7 +125,7 @@ async def dobt(bot, message):
           zodiac = "Virgo" if (d < 23) else "Libra"
       elif m == "10":
           zodiac = "Libra" if (d < 23) else "Scorpion"
-      else m == "11":
+      elif m == "11":
           zodiac = "Scorpio" if (d < 22) else "Sagittarius"
       print(zodiac)
     
