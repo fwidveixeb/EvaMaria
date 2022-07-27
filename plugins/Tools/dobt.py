@@ -104,29 +104,29 @@ async def dob(bot, message):
         
       #Determining Zodiac
       if month == "12":
-          sign = "Sagittarius" if (day < 22) else "Capricorn"
+          sign = "Sagittarius" if (d < 22) else "Capricorn"
       elif month == "01":
-          sign = "Capricorn" if (day < 20) else "Aquarius"
+          sign = "Capricorn" if (d < 20) else "Aquarius"
       elif month == "02":
-          sign = "Aquarius" if (day < 19) else "Pisces"
+          sign = "Aquarius" if (d < 19) else "Pisces"
       elif month == "03":
-          sign = "Pisces" if (day < 21) else "Aries"
+          sign = "Pisces" if (d < 21) else "Aries"
       elif month == "04":
-          sign = "Aries" if (day < 20) else "Taurus"
+          sign = "Aries" if (d < 20) else "Taurus"
       elif month == "05":
-          sign = "Taurus" if (day < 21) else "Gemini"
+          sign = "Taurus" if (d < 21) else "Gemini"
       elif month == "06":
-          sign = "Gemini" if (day < 21) else "Cancer"
+          sign = "Gemini" if (d < 21) else "Cancer"
       elif month == "07":
-          sign = "Cancer" if (day < 23) else "Leo"
+          sign = "Cancer" if (d < 23) else "Leo"
       elif month == "08":
-          sign = "Leo" if (day < 23) else "Virgo"
+          sign = "Leo" if (d < 23) else "Virgo"
       elif month == "09":
-          sign = "Virgo" if (day < 23) else "Libra"
+          sign = "Virgo" if (d < 23) else "Libra"
       elif month == "10":
-          sign = "Libra" if (day < 23) else "Scorpion"
+          sign = "Libra" if (d < 23) else "Scorpion"
       elif month == "11":
-          sign = "Scorpio" if (day < 22) else "Sagittarius"
+          sign = "Scorpio" if (d < 22) else "Sagittarius"
       
       #Getting Horoscope
       horoscope = pyaztro.Aztro(sign=f'{sign}')
