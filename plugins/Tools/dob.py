@@ -1,12 +1,42 @@
 import os
 import pytz
 import time
+import aiohttp
 from random import choice
 from shutil import rmtree
 from datetime import datetime as dt
 from bs4 import BeautifulSoup as bs
 from pyrogram import Client, filters
-from pyUltroid.functions.tools import async_searcher
+
+async def async_searcher(
+    url: str,
+    post: bool = None,
+    headers: dict = None,
+    params: dict = None,
+    json: dict = None,
+    data: dict = None,
+    ssl=None,
+    re_json: bool = False,
+    re_content: bool = False,
+    real: bool = False,
+    *args,
+    **kwargs,
+):
+    
+    async with aiohttp.ClientSession(headers=headers) as client:
+        if post:
+            data = await client.post(
+                url, json=json, data=data, ssl=ssl, *args, **kwargs
+            )
+        else:
+            data = await client.get(url, params=params, ssl=ssl, *args, **kwargs)
+        if re_json:
+            return await data.json()
+        if re_content:
+            return await data.read()
+        if real:
+            return data
+        return await data.text()
 
 @Client.on_message(filters.command("dob"))
 async def dob(bot, message):
