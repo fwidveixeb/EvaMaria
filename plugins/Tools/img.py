@@ -28,6 +28,7 @@ async def img(bot, message):
           "output_directory": "./resources/",
       }
       path = await ggl.download(args)
+      print(path)
       #ok = path[0][query]
       await message.reply_media_group(media=path)
       rmtree(f"./resources/{query}/")
