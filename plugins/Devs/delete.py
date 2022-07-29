@@ -16,5 +16,4 @@ async def delete(bot, message):
             await asyncio.sleep(5)
             await k.delete()
             
-    if not replied:
-        await message.delete()
+    await message.delete()
