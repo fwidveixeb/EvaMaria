@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 @Client.on_message(filters.command("d") & filters.user(ADMINS))
 async def delete(bot, message):
     
-    replied = message.reply_to_message
+    t = message.reply_to_message
     
     if replied:
         try:
