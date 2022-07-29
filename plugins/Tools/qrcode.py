@@ -12,12 +12,18 @@ def listToString(s):
 async def qrdoce(bot, message):
   
   if len(message.command) == 1:
-    return await message.reply("No URL or Text provided, Read Help Menu to know how command works.")
-  
+    return await message.reply("No Text provided, Read Help Menu to know how command works.")
+
   qr = await message.reply("`Processing...`")
-  id = message.chat.id
-  txt = message.command[1:]
-  final = listToString(txt)
+  replied = message.reply_to_message
+    
+  if replied.text:
+    komal = replied.text.split()
+    final = listToString(komal)
+  else: 
+    id = message.chat.id
+    txt = message.command[1:]
+    final = listToString(txt)
   
   try:
       pyqrcode.create(final).png(f"qr_code_{id}.png" , scale = 6)
