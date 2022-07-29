@@ -16,4 +16,6 @@ async def delete(bot, message):
             await asyncio.sleep(5)
             await k.delete()
             
-    await message.delete()
+    s = await message.reply("reply to a message to delete it.")
+    await asyncio.sleep(5)
+    await s.delete()
