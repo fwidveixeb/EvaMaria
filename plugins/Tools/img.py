@@ -1,6 +1,6 @@
 from shutil import rmtree
 from pyrogram import Client, filters
-from pyUltroid.functions.google_image import googleimagesdownload
+from plugins.Helper.google_image import googleimagesdownload
 
 @Client.on_messqge(filters.command("img"))
 async def img(bot, message):
