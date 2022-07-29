@@ -1,4 +1,3 @@
-import time
 import heroku3
 import asyncio
 from Vars import Var
@@ -13,11 +12,6 @@ app = heroku.app(HEROKU_APP_NAME)
 
 @Client.on_message(filters.command("restart") & filters.user(ADMINS))
 async def restart_bot(bot, message):
-  
-  tm = time.localtime()
-  c_time = time.strftime("%H:%M:%S", tm)
-  f_time = c_time.split(':')
-  
-  
-  await message.reply(f"Sent for Restart at {c_time}, Check back in a minute.")
+ 
+  await message.reply("Sent for Restart, Check back in a minute.")
   app.restart()
