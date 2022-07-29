@@ -6,7 +6,7 @@ async def thumb(bot, message):
   thumb = await message.reply("`Processing...`")
   replied = message.reply_to_message
 
-  if not replied.document:
+  if not replied & replied.document:
     return await thumb.edit("Reply to a file to download it's Thumbnail.")
   
   if not replied.document.thumbs:
