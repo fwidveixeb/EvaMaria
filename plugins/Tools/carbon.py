@@ -1,4 +1,4 @@
-import os
+'''import os
 import random
 from . import *
 from carbonnow import Carbon
@@ -178,4 +178,4 @@ async def carbon(bot, message):
   ab = await carbon.save("hagadmansa")
   await abcd.delete()
   await bot.send_document(message.chat.id, ab, caption=f"Carbonised by {message.from_user.mention}")
-  os.remove(ab)
+  os.remove(ab)"""
