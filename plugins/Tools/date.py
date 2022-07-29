@@ -1,6 +1,6 @@
 import calendar
 from datetime import datetime as dt
-from pyrogram import Client, message
+from pyrogram import Client, filters
 
 @Client.on_message(filters.command("date"))
 async def date(bot, message):
