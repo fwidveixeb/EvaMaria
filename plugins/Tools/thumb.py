@@ -1,4 +1,4 @@
-from pyroogram import Clienr, filters
+from pyrogram import Client, filters
 
 @Client.on_message(filters.command("thumb"))
 async def thumb(bot, message_):
