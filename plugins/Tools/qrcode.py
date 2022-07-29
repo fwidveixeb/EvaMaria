@@ -7,12 +7,12 @@ from pyrogram import Client, filters
 @Client.on_message(filters.command("qrcode"))
 async def qrdoce(bot, message):
   
-  qr = await message.reply("`Processing...`")
   if len(message.command) == 1:
     return await message.reply("No URL or Text provided, Read Help Menu to know how command works.")
   
+  qr = await message.reply("`Processing...`")
   id = message.chat.id
-  url = message.command[1]
+  url = message.command[1:]
   
   try:
       pyqrcode.create(url).png(f"qr_code_{id}.png" , scale = 6)
