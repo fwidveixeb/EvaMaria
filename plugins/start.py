@@ -2,7 +2,6 @@ import os
 import logging
 import random
 import asyncio
-from Script import script
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -17,6 +16,16 @@ import base64
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
+
+LOG_TEXT_G = """#NewGroup
+Group = {}(<code>{}</code>)
+Total Members = <code>{}</code>
+Added By - {}
+"""
+LOG_TEXT_P = """#NewUser
+ID - <code>{}</code>
+Name - {}
+"""
 
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
