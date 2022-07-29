@@ -13,7 +13,7 @@ async def webss(bot, message):
   elif len(message.command) == 2:
     xurl = message.command[1]
     if not is_url_ok(xurl):
-      return webss.edit("Invalid URL Provided.")
+      return await webss.edit("Invalid URL Provided.")
     
     shot = WebShot(quality=88, flags=["--enable-javascript", "--no-stop-slow-scripts"])
     pic = await shot.create_pic_async(url=xurl)
