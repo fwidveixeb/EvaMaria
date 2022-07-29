@@ -13,6 +13,6 @@ async def restart_bot(bot, message):
   heroku = heroku3.from_key(HEROKU_API_KEY)
   app = heroku.app(HEROKU_APP_NAME)
   
-  k = await message.reply("`Restarting Bot... This may take time depending on the server.`"
+  k = await message.reply("`Restarting Bot... This may take time depending on the server.`")
   app.restart()
   await k.edit("Restarted Successfully, if I'm not working Check logs.") 
