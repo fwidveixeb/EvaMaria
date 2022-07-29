@@ -1,5 +1,5 @@
 import heroku3
-import asycnio
+import asyncio
 from Vars import Var
 from info import ADMINS
 from pyrogram import Client, filters
