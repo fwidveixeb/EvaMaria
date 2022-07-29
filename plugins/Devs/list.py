@@ -6,7 +6,7 @@ from pyrogram import Client, filters
 @Client.on_message(filters.command("list") & fillters.user(ADMINS))
 async def list(bot, message):
   
-  list = await message.reply("`Processing...`")
+    list = await message.reply("`Processing...`")
 
     files = message.command[1]
     if not files:
