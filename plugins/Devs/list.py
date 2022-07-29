@@ -3,7 +3,7 @@ import glob
 from info import ADMINS
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command("list") & fillters.user(ADMINS))
+@Client.on_message(filters.command("list") & filters.user(ADMINS))
 async def list(bot, message):
   
   list = await message.reply("`Processing...`")
