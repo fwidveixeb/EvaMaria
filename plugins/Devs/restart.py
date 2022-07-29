@@ -2,7 +2,7 @@ import heroku3
 import asycnio
 from Vars import Var
 from info import ADMINS
-from pyrogram import Client, Filters
+from pyrogram import Client, filters
 
 @Client.on_message(filters.command("restart") & filters.user(ADMINS))
 async def restart(bot, message):
