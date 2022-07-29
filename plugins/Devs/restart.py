@@ -13,5 +13,5 @@ app = heroku.app(HEROKU_APP_NAME)
 @Client.on_message(filters.command("restart") & filters.user(ADMINS))
 async def restart_bot(bot, message):
  
-  await message.reply("Sent for Restart, Check back in a minute.")
+  await message.reply("Restarting... Check back in a minute.")
   app.restart()
