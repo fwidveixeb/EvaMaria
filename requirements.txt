@@ -1,5 +1,7 @@
 pyrogram==1.4.10
 pytest-shutil
+codec
+http
 pyaztro
 pypng
 PyQRCode
