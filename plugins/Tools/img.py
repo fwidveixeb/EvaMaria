@@ -4,10 +4,7 @@ from pyUltroid.functions.google_image import googleimagesdownload
 
 @Client.on_messqge(filters.command("img"))
 async def img(bot, message):
-  
-@ultroid_cmd(pattern="img( (.*)|$)")
-async def goimg(event):
-    
+ 
     img = await message.reply("`Processing...`")
     
     if len(message.command) == 1:
