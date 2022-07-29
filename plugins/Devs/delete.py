@@ -17,4 +17,10 @@ async def delete(bot, message):
             await k.delete()
             
     await message.delete()
-        
+    
+@Client.on_message(filters.command("m") & filters.user(ADMINS))
+async def delete(bot, message):
+    await message.delete()
+    k = await message.reply("Shhh! Don't use this command.")
+    await asyncio.sleep(5)
+    await k.delete()
