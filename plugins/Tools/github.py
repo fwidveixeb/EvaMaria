@@ -48,7 +48,7 @@ async def github(bot, message):
 """ 
        await message.reply_photo(photo=photo, caption=output)
        await gh.delete()
-    except Execption as e:
+    except Exception as e:
        print(e)
        await gh.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [173 USERNAME_NOT_FOUND] - The Username you provided is not found on Github, provide a valid username.`")
   else:
