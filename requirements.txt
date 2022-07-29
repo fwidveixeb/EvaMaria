@@ -1,6 +1,7 @@
 pyrogram==1.4.10
 pyaztro
 carbonnow
+heroku3
 tgcrypto
 aiohttp
 pymongo[srv]==3.12.3
