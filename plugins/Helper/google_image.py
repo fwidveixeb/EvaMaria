@@ -981,7 +981,7 @@ class googleimagesdownload:
                 arguments[arg] = None
         # Initialization and Validation of user arguments
         if arguments["keywords"]:
-            search_keyword = [str(item) for item in arguments["keywords"].split(",")]
+            search_keyword = [str(item) for item in arguments["keywords"]]
 
         if arguments["keywords_from_file"]:
             search_keyword = self.keywords_from_file(arguments["keywords_from_file"])
