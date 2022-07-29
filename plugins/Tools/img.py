@@ -12,6 +12,7 @@ async def img(bot, message):
        
     elif len(message.command) > 1:
       query = message.command[1:]
+      np = query[0]
       limit = 5
       if ";" in query:
         try:
@@ -28,11 +29,8 @@ async def img(bot, message):
           "output_directory": "./resources/",
       }
       path = await ggl.download(args)
-      ok = path[0]
-      print(ok)
-      pk = ok[query]
-      print(pk)
-      #await message.reply_media_group(media=ok)
+      ok = path[0][np]
+      await message.reply_media_group(media=ok)
       rmtree(f"./resources/{query}/")
       await img.delete()
       
