@@ -34,7 +34,7 @@ async def img(bot, message):
           "output_directory": "./resources/",
       }
       path = await ggl.download(args)
-      s = [InputMediaPhoto(path[0][hemlo][0]), InputMediaPhoto(path[0][hemlo][1]), InputMediaPhoto(path[0][hemlo][2]), InputMediaPhoto(path[0][hemlo][3]), InputMediaPhoto(path[0][hemlo][4]]
+      s = [InputMediaPhoto(path[0][hemlo][0], InputMediaPhoto(path[0][hemlo][1], InputMediaPhoto(path[0][hemlo][2], InputMediaPhoto(path[0][hemlo][3], InputMediaPhoto(path[0][hemlo][4]]
       await message.reply_media_group(media=s)
       rmtree(f"./resources/{hemlo}/")
       await img.delete()
