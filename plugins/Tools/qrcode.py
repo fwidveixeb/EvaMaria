@@ -15,18 +15,11 @@ async def qrdoce(bot, message):
     return await message.reply("No Text provided, Read Help Menu to know how command works.")
 
   qr = await message.reply("`Processing...`")
-  replied = message.reply_to_message
-  
-  try:
-     komal = replied.text.split()
-     final = listToString(komal)
-  except:
-     i = message.chat.id
-     txt = message.command[1:]
-     final = listToString(txt)
+  txt = message.command[1:]
+  final = listToString(txt)
     
   try:
-      pyqrcode.create(final).png(f"qr_code_{i}.png" , scale = 6)
+      pyqrcode.create(final).png(f"qr_code_{message.chat.id}.png" , scale = 6)
       await message.reply_photo(f"qr_code_{id}.png")
       await qr.delete()
       os.remove(f"qr_code_{id}.png")
