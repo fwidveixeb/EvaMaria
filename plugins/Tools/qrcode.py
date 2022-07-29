@@ -20,10 +20,10 @@ async def qrdoce(bot, message):
     
   try:
       pyqrcode.create(final).png(f"qr_code_{message.chat.id}.png" , scale = 6)
-      await message.reply_photo(f"qr_code_{id}.png")
+      await message.reply_photo(f"qr_code_{message.chat.id}.png")
       await qr.delete()
-      os.remove(f"qr_code_{id}.png")
+      os.remove(f"qr_code_{message.chat.id}.png")
   except Exception as e:
       await qr.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`{e}`")
-      os.remove(f"qr_code_{id}.png")
+      os.remove(f"qr_code_{message.chat.id}.png")
   
