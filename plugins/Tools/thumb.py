@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("thumb"))
-async def thumb(bot, message_):
+async def thumb(bot, message):
   
   thumb = await message.reply("`Processing...`")
   replied = message.reply_to_message
