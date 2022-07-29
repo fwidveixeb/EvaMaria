@@ -1,7 +1,7 @@
 import requests
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command("advice"))
+@Client.on_message(filters.command("quote"))
 async def quote(bot, message):
   
   quote = await message.reply("`Processing...`")
