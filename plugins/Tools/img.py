@@ -34,5 +34,5 @@ async def img(bot, message):
         await img.delete()
       except Exception as e:
         return await img.edit(f"#Error {e}")
-   else:
-     return await img.edit("Parameter limit exceeded, Read Help Menu to know how command works.")
+    else:
+      return await img.edit("Parameter limit exceeded, Read Help Menu to know how command works.")
