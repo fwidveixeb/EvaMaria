@@ -15,5 +15,5 @@ app = heroku.app(HEROKU_APP_NAME)
 async def restart(bot, message):
   
   k = await message.reply("`Restarting Bot... This may take time depending on the server.`"
-  app.restart()
+  await app.restart()
   await k.edit("Restarted Successfully, if I'm not working Check logs.") 
