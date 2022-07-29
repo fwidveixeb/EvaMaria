@@ -1,11 +1,14 @@
 import requests
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command("fact"))
+@Client.on_message(filters.command("advice"))
 async def fact(bot, message):
-  k = await message.reply("processing...")
-  API = "https://api.safone.tech/fact"
-  m = requests.get(f"{API}").json()
-  n = m['fact']
-  await k.edit(f"{n}")
   
+  fact = await message.reply("`Processing...`")
+  API = "https://api.safone.tech/fact"
+  try:
+    m = requests.get(f"{API}").json()
+    n = m['fact']
+    await fact.edit(f"{n}")
+  except Exception as e:
+    await fact.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
