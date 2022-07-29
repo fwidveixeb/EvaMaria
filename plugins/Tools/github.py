@@ -7,10 +7,10 @@ async def github(bot, message):
   
   gh = await message.reply("`Processing...`")
   
-  if message.command == 1:
+  if len(message.command) == 1:
     return await gh.edit("No Username provided for GitHub, Read Help Menu to know how command works.")
   
-  elif message.command == 2:
+  elif len(message.command) == 2:
     username = message.command[1]
     try:
        github = requests.get(f"https://api.github.com/users/{username}").json()
@@ -49,6 +49,6 @@ async def github(bot, message):
        await message.reply_photo(photo=photo, caption=output)
        await gh.delete()
     except BaseException:
-       gh.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [173 USERNAME_NOT_FOUND] - The Username you provided is not found on Github, provide a valid username.`")
+       await gh.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [173 USERNAME_NOT_FOUND] - The Username you provided is not found on Github, provide a valid username.`")
   else:
-      gh.edit("Argument limit exceeded, Read Help Menu to know how command works.")
+      await gh.edit("Argument limit exceeded, Read Help Menu to know how command works.")
