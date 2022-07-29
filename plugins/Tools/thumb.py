@@ -1,4 +1,4 @@
-from pyrogram import Client, filters
+"""from pyrogram import Client, filters
 
 @Client.on_message(filters.command("thumb"))
 async def thumb(bot, message):
@@ -14,4 +14,4 @@ async def thumb(bot, message):
 
   await replied.download_media(thumb=-1)
   m = await reply_photo(m)
-  os.remove(m)
+  os.remove(m)"""
