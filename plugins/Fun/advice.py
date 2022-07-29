@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 @Client.on_message(filters.command("advice"))
 async def advice(bot, message):
   
-  k = await message.reply("Processing...")
+  k = await message.reply("`Processing...`")
   API = "https://api.safone.tech/advice"
   try:
     m = requests.get(f"{API}").json()
