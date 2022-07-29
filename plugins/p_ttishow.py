@@ -64,22 +64,6 @@ async def re_enable_chat(bot, message):
     temp.BANNED_CHATS.remove(int(chat_))
     await message.reply("Chat Successfully re-enabled")
 
-@Client.on_message(filters.command('invite') & filters.user(ADMINS))
-async def gen_invite(bot, message):
-    if len(message.command) == 1:
-        return await message.reply('Give me a chat id')
-    chat = message.command[1]
-    try:
-        chat = int(chat)
-    except:
-        return await message.reply('Give Me A Valid Chat ID')
-    try:
-        link = await bot.create_chat_invite_link(chat)
-    except ChatAdminRequired:
-        return await message.reply("Invite Link Generation Failed, Iam Not Having Sufficient Rights")
-    except Exception as e:
-        return await message.reply(f'Error {e}')
-    await message.reply(f'Here is your Invite Link {link.invite_link}')
     
 @Client.on_message(filters.command('users') & filters.user(ADMINS))
 async def list_users(bot, message):
