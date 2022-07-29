@@ -1,6 +1,6 @@
 pyrogram==1.4.10
 pyaztro
-png
+pypng
 PyQRCode
 carbonnow
 heroku3
