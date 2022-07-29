@@ -12,7 +12,7 @@ async def github(bot, message):
     username = message.command[1]
     gh = await message.reply("`Processing...`")
     try:
-       github = requests.get(f"https://api.github.com/users/{username{}").json()
+       github = requests.get(f"https://api.github.com/users/{username}").json()
        photo = github["avtar_url"]
        link = github["html_url"]
        name = github["name"]
