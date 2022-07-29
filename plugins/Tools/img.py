@@ -23,7 +23,7 @@ async def img(bot, message):
         ggl = googleimagesdownload()
         args = {
             "keywords": query,
-            "limit": lmt,
+            "limit": limit,
             "format": "jpg",
             "output_directory": "./resources/",
         }
