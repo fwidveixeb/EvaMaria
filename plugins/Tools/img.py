@@ -15,12 +15,12 @@ async def img(bot, message):
       return await img.edit("No query provided to search, Read Help Menu to know how command works.")
        
     elif len(message.command) > 1:
-      hemlo = message.command[1:]
-      query = listToString(hemlo)
+      query = message.command[1:]
+      hemlo = query[0]
       limit = 5
       if ";" in query:
         try:
-            query = hemlo.split(";")[0]
+            query = query.split(";")[0]
             limit = int(query.split(";")[1])
         except BaseException:
             pass
@@ -33,7 +33,7 @@ async def img(bot, message):
           "output_directory": "./resources/",
       }
       path = await ggl.download(args)
-      ok = path[0][query]
+      ok = path[0][hemlo]
       print(ok)
       #await message.reply_media_group(media=ok)
       rmtree(f"./resources/{query}/")
