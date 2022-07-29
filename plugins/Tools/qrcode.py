@@ -4,6 +4,10 @@ import pyqrcode
 from pyqrcode import QRCode
 from pyrogram import Client, filters
 
+def listToString(s):
+    str1 = " "
+    return (str1.join(s))
+
 @Client.on_message(filters.command("qrcode"))
 async def qrdoce(bot, message):
   
@@ -12,14 +16,15 @@ async def qrdoce(bot, message):
   
   qr = await message.reply("`Processing...`")
   id = message.chat.id
-  url = message.command[1:]
+  txt = message.command[1:]
+  final = listToString(txt)
   
   try:
-      pyqrcode.create(url).png(f"qr_code_{id}.png" , scale = 6)
+      pyqrcode.create(final).png(f"qr_code_{id}.png" , scale = 6)
       await message.reply_photo(photo=f"qr_code_{id}.png", caption=f"Here is your QR Code for {url}")
       await qr.delete()
       os.remove(f"qr_code_{id}.png")
   except Exception as e:
-      await qr.edit(f"#Error {e}, foreard this to @HagadmansaChat")
+      await qr.edit(f"#Error {e},\n forward this to @HagadmansaChat")
       os.remove(f"qr_code_{id}.png")
   
