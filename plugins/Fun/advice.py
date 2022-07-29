@@ -9,7 +9,7 @@ async def advice(bot, message):
   try:
     m = requests.get(f"{API}").json()
     n = m['advice']
-    o = f"{n}   ~**{message.from_user.first_name} {message.from_user.last}**"
+    o = f"{n}   ~**{message.from_user.first_name} {message.from_user.last_name}**"
     await advice.edit(f"{o}")
   except Exception as e:
     await advice.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
