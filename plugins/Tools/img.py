@@ -2,7 +2,7 @@ from shutil import rmtree
 from pyrogram import Client, filters
 from plugins.Helper.google_image import googleimagesdownload
 
-@Client.on_messqge(filters.command("img"))
+@Client.on_message(filters.command("img"))
 async def img(bot, message):
  
     img = await message.reply("`Processing...`")
