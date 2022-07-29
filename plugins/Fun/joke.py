@@ -1,11 +1,16 @@
 import requests
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command("joke"))
+@Client.on_message(filters.command("advice"))
 async def joke(bot, message):
-  k = await message.reply("processing...")
+  
+  joke = await message.reply("`Processing...`")
   API = "https://api.safone.tech/joke"
-  m = requests.get(f"{API}").json()
-  n = m['joke']
-  await k.edit(f"{n}")
+  try:
+    m = requests.get(f"{API}").json()
+    n = m['joke']
+    await joke.edit(f"{n}")
+  except Exception as e:
+    await joke.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+  
   
