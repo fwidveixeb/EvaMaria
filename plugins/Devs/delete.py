@@ -17,4 +17,4 @@ async def delete(bot, message):
             await k.delete()
             
     if not replied:
-        return
+        d
