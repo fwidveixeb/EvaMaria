@@ -16,17 +16,17 @@ async def qrdoce(bot, message):
 
   qr = await message.reply("`Processing...`")
   replied = message.reply_to_message
-    
-  if replied.text:
-    komal = replied.text.split()
-    final = listToString(komal)
-  else: 
-    id = message.chat.id
-    txt = message.command[1:]
-    final = listToString(txt)
   
   try:
-      pyqrcode.create(final).png(f"qr_code_{id}.png" , scale = 6)
+     komal = replied.text.split()
+     final = listToString(komal)
+  except:
+     i = message.chat.id
+     txt = message.command[1:]
+     final = listToString(txt)
+    
+  try:
+      pyqrcode.create(final).png(f"qr_code_{i}.png" , scale = 6)
       await message.reply_photo(f"qr_code_{id}.png")
       await qr.delete()
       os.remove(f"qr_code_{id}.png")
