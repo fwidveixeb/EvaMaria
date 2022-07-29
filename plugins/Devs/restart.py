@@ -15,4 +15,5 @@ async def restart_bot(bot, message):
   
   k = await message.reply("`Restarting Bot... This may take time depending on the server.`")
   app.restart()
+  await asyncio.sleep(5)
   await k.edit("Restarted Successfully, if I'm not working Check logs.") 
