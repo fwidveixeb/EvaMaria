@@ -21,7 +21,7 @@ async def qrdoce(bot, message):
   
   try:
       pyqrcode.create(final).png(f"qr_code_{id}.png" , scale = 6)
-      await message.reply_photo(photo=f"qr_code_{id}.png", caption=f"Here is your QR Code for {url}")
+      await message.reply_photo(photo=f"qr_code_{id}.png", caption=f"**Here is your QR Code for** `{txt}`")
       await qr.delete()
       os.remove(f"qr_code_{id}.png")
   except Exception as e:
