@@ -48,6 +48,6 @@ async def github(bot, message):
        await message.reply_photo(photo=photo, caption=output)
        await gh.delete()
     except BaseException:
-       gh.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [173 USERNAME_NOT_FOUND] - The Username you provided is not found on Github, provide a valid username.`"
+       gh.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [173 USERNAME_NOT_FOUND] - The Username you provided is not found on Github, provide a valid username.`")
   else:
       gh.edit("Argument limit exceeded, Read Help Menu to know how command works.")
