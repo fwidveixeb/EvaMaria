@@ -14,7 +14,7 @@ async def github(bot, message):
     username = message.command[1]
     try:
        github = requests.get(f"https://api.github.com/users/{username}").json()
-       photo = github["avtar_url"]
+       photo = github["avatar_url"]
        link = github["html_url"]
        name = github["name"]
        acctype = github["type"]
