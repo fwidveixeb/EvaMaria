@@ -18,6 +18,7 @@ from urllib.parse import quote
 from urllib.request import HTTPError, Request, URLError, urlopen
 
 # Import Libraries
+from plugins.Helper.async_searcher import async_searcher
 
 http.client._MAXHEADERS = 1000
 
