@@ -1,5 +1,6 @@
 from shutil import rmtree
 from pyrogram import Client, filters
+from pyrogram.types import InputMediaPhoto
 from plugins.Helper.google_image import googleimagesdownload
 
 def listToString(s):
@@ -33,11 +34,8 @@ async def img(bot, message):
           "output_directory": "./resources/",
       }
       path = await ggl.download(args)
-      s = []
-      for x in range(limit):
-        ok = path[0][hemlo][x]
-        await message.reply_photo(ok)
-      await message.reply_media_group(media=ok)
+      s = [InputMediaPhoto("{}"), InputMediaPhoto("{}"), InputMediaPhoto("{}"), InputMediaPhoto("{}"), InputMediaPhoto("{}")]
+      await message.reply_media_group(media=s.format(path[0][hemlo][0], path[0][hemlo][1], path[0][hemlo][2], path[0][hemlo][3], path[0][hemlo][4]))
       rmtree(f"./resources/{hemlo}/")
       await img.delete()
       
