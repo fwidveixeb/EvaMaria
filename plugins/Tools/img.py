@@ -28,10 +28,11 @@ async def img(bot, message):
           "output_directory": "./resources/",
       }
       path = await ggl.download(args)
-      for x in range(limit):
-       ok = path[0][query][x]
-       print(ok)
-      await message.reply_media_group(media=ok)
+      ok = path[0]
+      print(ok)
+      pk = ok[query]
+      print(pk)
+      #await message.reply_media_group(media=ok)
       rmtree(f"./resources/{query}/")
       await img.delete()
       
