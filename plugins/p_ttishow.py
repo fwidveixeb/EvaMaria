@@ -8,76 +8,7 @@ from database.ia_filterdb import Media
 from utils import get_size, temp, get_settings
 from Script import script
 from pyrogram.errors import ChatAdminRequired
-
-"""-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
-
-@Client.on_message(filters.new_chat_members & filters.group)
-async def save_group(bot, message):
-    r_j_check = [u.id for u in message.new_chat_members]
-    if temp.ME in r_j_check:
-        if not await db.get_chat(message.chat.id):
-            total=await bot.get_chat_members_count(message.chat.id)
-            r_j = message.from_user.mention if message.from_user else "Anonymous" 
-            await bot.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, r_j))       
-            await db.add_chat(message.chat.id, message.chat.title)
-        if message.chat.id in temp.BANNED_CHATS:
-            # Inspired from a boat of a banana tree
-            buttons = [[
-                InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
-            ]]
-            reply_markup=InlineKeyboardMarkup(buttons)
-            k = await message.reply(
-                text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support @hagadmansachat</b>',
-                reply_markup=reply_markup,
-            )
-
-            try:
-                await k.pin()
-            except:
-                pass
-            await bot.leave_chat(message.chat.id)
-            return
-        buttons = [[
-            InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📣 Updates', url='https://t.me/hagadmansa')
-        ]]
-        reply_markup=InlineKeyboardMarkup(buttons)
-        await message.reply_text(
-            text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support @hagadmansachat</b>",
-            reply_markup=reply_markup)
-    else:
-            chat_member = await bot.get_chat_members(message.chat.id)
-            if ADMINS not in chat_member:
-                await bot.leave_chat(message.chat.id)
-      
-
     
-    
-@Client.on_message(filters.command('leave') & filters.user(ADMINS))
-async def leave_a_chat(bot, message):
-    if len(message.command) == 1:
-        return await message.reply('Give me a chat id')
-    chat = message.command[1]
-    try:
-        chat = int(chat)
-    except:
-        chat = chat
-    try:
-        buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
-        ]]
-        reply_markup=InlineKeyboardMarkup(buttons)
-        await bot.send_message(
-            chat_id=chat,
-            text='<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group @hagadmansachat</b>',
-            reply_markup=reply_markup,
-        )
-
-        await bot.leave_chat(chat)
-        await message.reply(f"left the chat `{chat}`")
-    except Exception as e:
-        await message.reply(f'Error - {e}')
-
 @Client.on_message(filters.command('disable') & filters.user(ADMINS))
 async def disable_chat(bot, message):
     if len(message.command) == 1:
