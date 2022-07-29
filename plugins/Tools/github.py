@@ -29,7 +29,7 @@ async def github(bot, message):
        followers = github["followers"]
        following = github["following"]
        joined = github["created_at"]
-       d_username = username.upper()
+       d_username = username.capitalize() 
        output = f"""**USER DETAILS**
 **Name:** `{name}`
 **Bio:** `{bio}`
@@ -44,7 +44,7 @@ async def github(bot, message):
 **No of Public Repos:** `{repo}`
 **No of Public Gists:** `{gist}`
 **Joined Date:** `{joined}`
-**View more at Github:** [{username}]({link})
+**View more at Github:** [{d_username}]({link})
 """ 
        await message.reply_photo(photo=photo, caption=output)
        await gh.delete()
