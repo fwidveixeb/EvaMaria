@@ -5,12 +5,13 @@ from pyrogram import Client, filters
 @Client.on_message(filters.command("github"))
 async def github(bot, message):
   
+  gh = await message.reply("`Processing...`")
+  
   if message.command == 1:
-    return await message.reply("No Username provided for GitHub, Read Help Menu to know how command works.")
+    return await gh.edit("No Username provided for GitHub, Read Help Menu to know how command works.")
   
   elif message.command == 2:
     username = message.command[1]
-    gh = await message.reply("`Processing...`")
     try:
        github = requests.get(f"https://api.github.com/users/{username}").json()
        photo = github["avtar_url"]
