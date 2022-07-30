@@ -11,8 +11,9 @@ async def dns(bot, message):
   
   elif len(message.command) == 2:
     url = message.command[1]
-    if url.startswith("https://", "http://"):
-      xurl = url.split('/')
+    xurl = url.split('/')
+    mlist = ["http:", "https:"]
+    if xurl[1] in mlist:
       final = xurl[2]
       response = requests.get(f"https://da.gd/dns/{final}").text
       try:
