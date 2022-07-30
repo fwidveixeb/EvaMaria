@@ -1,6 +1,5 @@
 import requests
 from pyrogram import Client, filters
-from plugins.Helper.url_checker import is_url_ok
 
 @Client.on_message(filters.command("dns"))
 async def dns(bot, message):
@@ -12,12 +11,12 @@ async def dns(bot, message):
   
   elif len(message.command) == 2:
     url = message.command[1]
-    if is_url_ok(url):
-      xurl = url.split('/')
-      final = xurl[2]
-      response = requests.get(f"https://da.gd/dns/{final}").text
+    xurl = url.split('/')
+    final = xurl[2]
+    response = requests.get(f"https://da.gd/dns/{final}").text
+    try:
       await dns.edit(f"{response}")
-    else: 
-      await dns.edit("Wrong URL provided.")
+    except len(response) == 0:
+      await dns.edit("Wrong URL Provided.")
   else:
     await dns.edit("Parameter limit exceeded, Read Help Menu to know how command works.")  
