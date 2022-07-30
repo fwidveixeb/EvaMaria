@@ -1,19 +1,18 @@
-"""from PIL import Image
+import os
+from PIL import Image
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("size"))
 async def suze(bot, message):
   
+  size = await message.reply("`Processing...`")
+  replied = message.reply_to_message
   
-    r = await e.get_reply_message()
-    if not (r and r.media):
-        return await e.eor(get_string("ascii_1"))
-    k = await e.eor(get_string("com_1"))
-    if hasattr(r.media, "document"):
-        img = await e.client.download_media(r, thumb=-1)
-    else:
-        img = await r.download_media()
+  if replied.photo: 
+    img = bot.download_media(replied)
     im = Image.open(img)
     x, y = im.size
-    await k.edit(f"Dimension Of This Image Is\n`{x} x {y}`")
-    os.remove(img)"""
+    await size.edit(f"Dimension of the Image is `{x} x {y}`")
+    os.remove(img)
+  else: 
+    await size.edit("Reply to a photo only.")
