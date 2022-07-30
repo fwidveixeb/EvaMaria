@@ -17,7 +17,7 @@ async def phlogo(bot, message):
     first = message.command[1]
     second = message.command[2]
     logo = generate(first, second)
-    name = f"phlogo_{message.chat,id}.png"
+    name = f"phlogo_{message.chat.id}.png"
     logo.save(name)
     await message.reply_photo(name)
     await ph.delete()
