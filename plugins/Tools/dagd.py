@@ -13,7 +13,7 @@ async def dagd(bot, message):
   elif len(message.command) == 2:
     url = message.command[1]
     if not is_url_ok(url):
-      return await webss.edit("Invalid URL Provided.")
+      return await dagd.edit("Invalid URL Provided.")
     response = requests.get(f"https://da.gd/s?url={url}").text
     await dagd.edit(f"{response}")
   else:
