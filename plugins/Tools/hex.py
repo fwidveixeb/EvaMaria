@@ -1,4 +1,3 @@
-import requests
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("hex"))
@@ -12,8 +11,9 @@ async def hex(bot, message):
   elif len(message.command) == 2:
     color = message.command[1]
     if len(color) == 6:
-      photo = requests.get(f"https://da.gd/image/750*750/jpg?bgcolor={color}")
-      await message.reply_photo(photo=photo, caption=f"Here is the Image for Hex Color `{color}`.")
+      photo = f"https://da.gd/image/750*750/jpg?bgcolor={color}"
+      caption = f"Here is the Image for Hex Color `{color}`."
+      await message.reply_photo(photo=photo, caption=caption)
       await hex.delete()
     else:
       hex.edit("Color code must be a combination of 6 alphabets & numbers.") 
