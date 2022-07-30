@@ -15,8 +15,8 @@ async def dns(bot, message):
     if is_url_ok(url):
       xurl = url.split('/')
       final = xurl[2]
-      response = requests.get(f"https://da.gd/dns{final}").text
-      await dns.edit(text=f"{response}", disable_web_page_preview=True)
+      response = requests.get(f"https://da.gd/dns/{final}").text
+      await dns.edit(f"{response}")
     else: 
       await dns.edit("Wrong URL provided.")
   else:
