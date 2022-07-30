@@ -1,3 +1,4 @@
+import io, os
 import requests
 from pyrogram import Client, filters
 
@@ -16,7 +17,14 @@ async def whois(bot, message):
     if xurl[0] in mlist:
       final = xurl[2]
       response = requests.get(f"https://da.gd/w/{final}").text
-      await whois.edit(f"{response}")
+      if len(response) > 4096:
+        with io.BytesIO(str.encode(response)) as out_file:
+            out_file.name = f"whois_{message.chat.id}.text"
+            await message.reply_document(document=out_file, thumb="resources/devoloper.png")
+            await whois.delete()
+            os.remove(f"whois_{message.chat.id}.text")
+      else:
+        await whois.edit(f"{response}")
     else:
       await whois.edit(f"URL must starts with http:// or https:// schema.")
   else:
