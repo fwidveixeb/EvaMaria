@@ -12,6 +12,7 @@ async def glitch(bot, message):
     return await glitch.edit('Reply to a photo to convert it to Glitch')
   
   elif replied.photo:
+    await bash("pip install -e git+https://github.com/1Danish-00/glitch_me.git#egg=glitch_me")
     poma = await bot.download_media(replied)
     userid = message.chat.id
     cmd = f"glitch_me gif --line_count 200 -f 10 -d 50 '{poma}' glitch_{userid}_.gif"
