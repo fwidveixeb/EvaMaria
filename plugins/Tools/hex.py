@@ -16,6 +16,6 @@ async def hex(bot, message):
       await message.reply_photo(photo=photo, caption=caption)
       await hex.delete()
     else:
-      hex.edit("Color code must be a combination of 6 alphabets & numbers.") 
+      await hex.edit("Color code must be a combination of 6 alphabets & numbers.") 
   else:
     await hex.edit("Parameter limit exceeded, Read Help Menu to know how command works.")  
