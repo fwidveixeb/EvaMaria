@@ -12,6 +12,6 @@ async def dagd(bot, message):
   elif len(message.command) == 2:
     url = message.command[1]
     response = requests.get(f"https://da.gd/s?url={url}").text
-    await dagd.edit(f"{response}")
+    await dagd.edit(text=f"{response}", disable_web_page_preview=True)
   else:
     await dagd.edit("Parameter limit exceeded, Read Help Menu to know how command works.")  
