@@ -1,4 +1,4 @@
-import io, os
+import io
 import requests
 from pyrogram import Client, filters
 
@@ -22,7 +22,6 @@ async def whois(bot, message):
             out_file.name = f"whois_{message.chat.id}.text"
             await message.reply_document(document=out_file, thumb="resources/devoloper.png")
             await whois.delete()
-            os.remove(f"whois_{message.chat.id}.text")
       else:
         await whois.edit(f"{response}")
     else:
