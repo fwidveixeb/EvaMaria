@@ -16,7 +16,5 @@ async def dns(bot, message):
     response = requests.get(f"https://da.gd/dns/{final}").text
     try:
       await dns.edit(f"{response}")
-    except len(response) == 0:
-      await dns.edit("Wrong URL Provided.")
   else:
     await dns.edit("Parameter limit exceeded, Read Help Menu to know how command works.")  
