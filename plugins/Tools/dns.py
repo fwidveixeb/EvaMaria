@@ -14,7 +14,6 @@ async def dns(bot, message):
     xurl = url.split('/')
     final = xurl[2]
     response = requests.get(f"https://da.gd/dns/{final}").text
-    try:
-      await dns.edit(f"`{response}`")
+    await dns.edit(f"`{response}`")
   else:
     await dns.edit("Parameter limit exceeded, Read Help Menu to know how command works.")  
