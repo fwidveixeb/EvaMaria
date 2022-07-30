@@ -10,7 +10,7 @@ async def dagd(bot, message):
   if len(message.command) == 1:
     return await dagd.edit("No URL provided to short, Read Help Menu to know how command works")
   
-  elif len(message.cmmand) == 2:
+  elif len(message.command) == 2:
     url = message.command[1]
     if not is_url_ok(url):
       return await webss.edit("Invalid URL Provided.")
