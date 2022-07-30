@@ -5,8 +5,6 @@ from plugins.Helper.bash import bash
 @Client.on_message(filters.command("glitch"))
 async def glitch(bot, message):
   
-  await bash("pip install -e git+https://github.com/1Danish-00/glitch_me.git#egg=glitch_me")
-  
   glitch = await message.reply("`Processing...`")
   replied = message.reply_to_message
   
@@ -20,7 +18,7 @@ async def glitch(bot, message):
     stdout, stderr = await bash(cmd)
     await message.reply_animation(f"glitch_{userid}_.gif")
     await glitch.delete()
-    os.remove(ok)
+    os.remove(poma)
     os.remove(f"glitch_{userid}_.gif")
     
   else: 
