@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import os
-font=ImageFont.truetype(os.path.dirname(__file__)+"/resources/fonts/Arial-bold.ttf",110)
+font=ImageFont.truetype(os.path.dirname"/resources/fonts/Arial-bold.ttf",110)
 def add_corners(im, rad):
     circle = Image.new('L', (rad * 2, rad * 2), 0)
     draw = ImageDraw.Draw(circle)
