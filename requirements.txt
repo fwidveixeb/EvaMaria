@@ -20,3 +20,4 @@ IMDbPY==2022.7.9
 python-dotenv
 telegraph==2.1.0
 PyUltroid
+git+https://github.com/1Danish-00/glitch_me.git#egg=glitch_me
