@@ -1,10 +1,11 @@
 import os
 from pyrogram import Client, filters
 from plugins.Helper.bash import bash
-await bash("pip install -e git+https://github.com/1Danish-00/glitch_me.git#egg=glitch_me")
 
 @Client.on_message(filters.command("glitch"))
 async def glitch(bot, message):
+  
+  await bash("pip install -e git+https://github.com/1Danish-00/glitch_me.git#egg=glitch_me")
   
   glitch = await message.reply("`Processing...`")
   replied = message.reply_to_message
