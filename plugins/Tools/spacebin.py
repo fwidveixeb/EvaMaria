@@ -2,8 +2,8 @@ from pyrogram import Client, filters
 from plugins.Helper.spacebin import get_paste
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-@Client.on_message(filters.command("meaning"))
-async def meaning(bot, message):
+@Client.on_message(filters.command("spacebin"))
+async def spacebin(bot, message):
   
   sb = await message.reply("`Processing...`")
   replied = message.reply_to_message
@@ -26,14 +26,14 @@ async def meaning(bot, message):
   
   if replied.document:
      if replied.document.file_size > 5242880:
-        return await carbon.edit("Replied file must be less then 5 Mb.")
+        return await sb.edit("Replied file must be less then 5 Mb.")
      try:
         down = await bot.download_media(replied)
         with open(down) as a:  
            msg = a.read()
            os.remove(down)
      except:
-        return await carbon.edit("Reply only to a Text file only, Read Help Menu to know how command works.")
+        return await sb.edit("Reply only to a Text file only, Read Help Menu to know how command works.")
      done, key = await get_paste(msg)
      if not done:
         return await sb.edit(key)
@@ -44,4 +44,4 @@ async def meaning(bot, message):
       disable_web_page_preview=True,
       reply_markup=InlineKeyboardMarkup([InlineKeyboardButton('Spacebin', link), InlineKeyboardButton('Raw Text', raw)])
     )
-  await carbon.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
+  await sb.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
