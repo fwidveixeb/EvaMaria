@@ -9,7 +9,7 @@ async def carbon(bot, message):
   replied = message.reply_to_message
   
   if replied:
-    if replied.document and replied.document.file_size < 5242880:
+    if replied.document and replied.document.file_size > 5242880:
       try:
         down = await bot.download_media(replied)
         with open(down) as a:
