@@ -15,7 +15,7 @@ async def RemoveBG(input_file_name):
             if "image" not in contentType:
                 return False, (await out.json())
 
-            name = check_filename(f"rmbg_{message.chat.id}.png")
+            name = check_filename("hagadmansa-rmbg.png")
             file = await aiofiles.open(name, "wb")
             await file.write(await out.read())
             await file.close()
