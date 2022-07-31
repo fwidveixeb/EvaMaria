@@ -1,4 +1,5 @@
 import aiohttp
+import iaofiles
 from Vars import Var
 from aiohttp import ContentTypeError
 from plugins.Helper.check_filename import check_filename
