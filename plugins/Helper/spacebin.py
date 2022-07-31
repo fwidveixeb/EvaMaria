@@ -1,3 +1,6 @@
+import ssl
+import certifi
+
 from plugins.Helper.async_searcher import async_searcher
 
 async def get_paste(data: str, extension: str = "txt"):
