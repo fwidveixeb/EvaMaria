@@ -5,11 +5,8 @@ from plugins.Helper.carbon import Carbon
 
 colorpath = "resources/colorlist.txt"
 
-if os.path.exists(colorpath):
- with open(colorpath, "r") as f:
+with open(colorpath, "r") as f:
   colors = f.read().split()
-else:
- colors = []
 
 rom = random.choice(colors)
 
@@ -23,8 +20,17 @@ async def carbon(bot, message):
      bg = "White"
   elif len(message.command) == 2 and message.command[1] in ["random", "Random"]:
      bg = rom
+  elif len(message.command) == 2 and message.command[1] in ["colorlist", "Colorlist"]:
+     await message.reply_document(
+      document="resources/colorlist.txt",
+      caption="Here is the list of colors for Command Carbon.",
+      thumb="resources/devoloper.png"
+     )
   else:
      bg = message.command[1]
+    
+  if not replied:
+     return await carbon.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
   
   if replied.text:
      code = replied.text
@@ -45,5 +51,3 @@ async def carbon(bot, message):
      pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
      await message.reply_photo(pp)
      await carbon.delete()
-  else:
-     return await carbon.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
