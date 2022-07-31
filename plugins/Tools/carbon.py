@@ -28,7 +28,7 @@ async def carbon(bot, message):
         code = a.read()
         os.remove(down)
     except:
-      return await carbon.edit("Reply to a text file only, Read Help Menu to know how command works.")
+      code = replied.text
     else:
       code = replied.text
     if len(message.command) == 1:
