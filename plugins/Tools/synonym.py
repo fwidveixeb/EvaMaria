@@ -22,7 +22,7 @@ async def synonym(bot, message):
                     await message.reply_document(document=file, caption=f"Synonyms of {word}", thumb="resources/devoloper.png")
                     return await synonym.delete()
             else:
-                await synonym.edit(x)
+                await synonym.edit(f"**• Word: **{word}\n**• Synonyms:\n**{x}")
         except Exception as e:
             return await synonym.edit(e)
     else:
