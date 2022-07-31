@@ -1,8 +1,9 @@
+import os
 from pyrogram import Client, filters
 from plugins.Helper.rmbg import RemoveBG
 
-@Client.on_message(filters.command("carbon"))
-async def carbon(bot, message):
+@Client.on_message(filters.command("rmbg"))
+async def rmbg(bot, message):
   
   rmbg = await message.reply("`Processing...`")
   replied = message.reply_to_message
@@ -11,7 +12,7 @@ async def carbon(bot, message):
       return await rmgb.edit("Reply to a photo to Remove it's Backgroud, Read Help Menu to know how command works.")
 
   if replied.photo:
-      photo = await bot.download_medua(replied)
+      photo = await bot.download_media(replied)
       dn, out = await RemoveBG(photo)
       os.remove(photo)
       if not dn:
