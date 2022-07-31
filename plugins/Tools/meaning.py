@@ -14,12 +14,12 @@ async def meaning(bot, message):
     url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word
     out = await async_searcher(url, re_json=True)
     try:
-        return await meaning.edit(f'**{out["title"]}**')
+        return await meaning.edit(f'{out["title"]} For Word `{word}`.')
     except (KeyError, TypeError):
         pass
     defi = out[0]["meanings"][0]["definitions"][0]
     ex = "None" if not defi.get("example") else defi["example"]
-    text = "Word: {}\nMeaning: {}\nExample: {}".format(word, defi["definition"], ex)
+    text = f"**• Word: **`{word}`\n**• Meaning: **`{defi["definition"]}`\n**• Example: **__{ex}__"
     if len(text) > 4096: 
         with io.BytesIO(str.encode(text)) as file: 
             file.name = f"{wrd}-meaning.txt"
