@@ -21,12 +21,7 @@ async def carbon(bot, message):
   elif len(message.command) == 2 and message.command[1] in ["random", "Random"]:
      bg = rom
   elif len(message.command) == 2 and message.command[1] in ["colorlist", "Colorlist"]:
-     await message.reply_document(
-     document="resources/colorlist.txt",
-     caption="Here is the list of colors for Command Carbon.",
-     thumb="resources/devoloper.png"
-     )
-     return await carbon.delete()
+     return await carbon.edit("Here is the [ [List](https://telegra.ph/Color-List-For-Command-Carbon-07-31) ] of Colors.")
   else:
      bg = message.command[1]
     
@@ -37,7 +32,7 @@ async def carbon(bot, message):
      code = replied.text
      pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
      await message.reply_photo(pp)
-     await carbon.delete()
+     return await carbon.delete()
       
   if replied.document:
      if replied.document.file_size > 5242880:
@@ -51,5 +46,5 @@ async def carbon(bot, message):
         return await carbon.edit("Reply only to a Text file only, Read Help Menu to know how command works.")
      pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
      await message.reply_photo(pp)
-     await carbon.delete()
+     return await carbon.delete()
   await carbon.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
