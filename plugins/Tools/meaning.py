@@ -1,7 +1,7 @@
 import requests
 from pyrogram import Client, filters
 
-@Client.on_essage(filters.command("meaning"))
+@Client.on_message(filters.command("meaning"))
 async def meaning(bot, message):
   
   meaning = await message.reply("`Processing...`")
