@@ -15,14 +15,15 @@ async def spacebin(bot, message):
     msg = replied.text
     done, key = await get_paste(msg)
     if not done:
-        return await sb.edit(key)
+        return await message.reply(key)
     link = "https://spaceb.in/" + key
     raw = f"https://spaceb.in/api/v1/documents/{key}/raw"
-    return await sb.edit(
+    await sb.edit(
       text="Given text is successfully pasted on Spaceb.in",
       disable_web_page_preview=True,
       reply_markup=InlineKeyboardMarkup([InlineKeyboardButton('Spacebin', link), InlineKeyboardButton('Raw Text', raw)])
     )
+    return await sb.delete()
   
   if replied.document:
      if replied.document.file_size > 5242880:
