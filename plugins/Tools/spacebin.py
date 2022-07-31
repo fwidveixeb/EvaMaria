@@ -21,7 +21,7 @@ async def spacebin(bot, message):
     await message.reply(
       text="Given text is successfully pasted on Spaceb.in",
       disable_web_page_preview=True,
-      reply_markup=InlineKeyboardMarkup([InlineKeyboardButton('Spacebin', link), InlineKeyboardButton('Raw Text', raw)])
+      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Spacebin', link), InlineKeyboardButton('Raw Text', raw)]])
     )
     return await sb.delete()
   
