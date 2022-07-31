@@ -19,7 +19,7 @@ async def rmbg(bot, message):
           dr = out["errors"][0]
           de = dr.get("detail", "")
           return await rmbg.edit(f"**ERROR ~** `{dr['title']}`,\n`{de}`")
-      await message.reply_photo(photo=out, caption="Here is your Image without Backgroud")
+      await message.reply_document(document=out, caption="Here is your Image without Backgroud")
       await rmbg.delete()
       return os.remove(out)
   await rmbg.edit("Reply only to a photo to Remove it's Background, Read Help Menu to know how command works.")
