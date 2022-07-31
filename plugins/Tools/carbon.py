@@ -7,7 +7,7 @@ colopath = "resources/colorlist.txt"
 
 if os.path.exists(colorpath):
  with open(colorpath, "r") as f:
- colors = f.read().split()
+  colors = f.read().split()
 else:
  colors = []
 
