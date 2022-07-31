@@ -1,4 +1,4 @@
-from plugins.async_searcher import async_searcher
+from plugins.Helper.async_searcher import async_searcher
 
 async def get_synonyms_or_antonyms(word, type_of_words):
     if type_of_words not in ["synonyms", "antonyms"]:
