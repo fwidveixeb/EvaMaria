@@ -27,7 +27,7 @@ async def ip(bot, message):
         zipc = mota["postal"]
     except KeyError:
         zipc = "None"
-    tz = det["timezone"]
+    tz = mota["timezone"]
     data = f"""**IP Details Fetched**
 
 **IP:** `{ipa}`
