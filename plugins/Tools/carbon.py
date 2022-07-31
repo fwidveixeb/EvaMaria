@@ -40,7 +40,7 @@ async def carbon(bot, message):
       bg = message.command[1]
     elif len(message.command) > 2:
      return await carbon.edit("Parameter limit exceeded, Read Help Menu to know how command works.")  
-    elif:
+    else:
       return await carbon.edit(f"**COMMAND:**\n`{message.text}`\n\n**ERROR:**\n`Hagadmansa Says: [132 FIRST_PARAMETER_INVALID] - Firet Parameter should be 'Random' if need random colors, otherwise it should be a combination of 6 alphabets and numbers if need custom colors (Caused by 'Argument.ValueError')`")
     pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
     await message.reply_photo(pp)
