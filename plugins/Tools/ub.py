@@ -16,7 +16,8 @@ async def ud(bot, message):
         out = out["list"][0]
     except IndexError:
         return await ud.edit(f"Nothing Found For Word `{word}`.")
-    await ud.edit("**• Word: **`{}`\n**• Meaning: **`{}`\n**• Example: **__{}__").format(out["word"], out["definition"], out["example"])
+    text = "**• Word: **`{}`\n**• Meaning: **`{}`\n**• Example: **__{}__".format(out["word"], out["definition"], out["example"])
+    await ud.edit(text)
     
   else:
     await ud.edit("Parameter limit exceeded, Read Help Menu to know how command works.")
