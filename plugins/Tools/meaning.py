@@ -1,5 +1,5 @@
-import requests
 from pyrogram import Client, filters
+from plugins.Helper.async_searcher import async_searcher
 
 @Client.on_message(filters.command("meaning"))
 async def meaning(bot, message):
@@ -12,7 +12,7 @@ async def meaning(bot, message):
   elif len(message.command) == 2:
     word = message.command[1]
     url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word
-    out = requests.get(url).json()
+    out = await async_searcher(url, re_json=True)
     try:
         return await meaning.edit(f'**{out["title"]}**')
     except (KeyError, TypeError):
