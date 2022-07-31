@@ -12,8 +12,8 @@ async def carbon(bot, message):
     if replied.document:
         down = await bot.download_media(replied)
         with open(down) as a:
-        code = a.read()
-      os.remove(down)
+          code = a.read()
+          os.remove(down)
     else:
       code = replied.text
     pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor="White")
