@@ -18,7 +18,7 @@ async def spacebin(bot, message):
         return await message.reply(key)
     link = "https://spaceb.in/" + key
     raw = f"https://spaceb.in/api/v1/documents/{key}/raw"
-    await sb.edit(
+    await message.reply(
       text="Given text is successfully pasted on Spaceb.in",
       disable_web_page_preview=True,
       reply_markup=InlineKeyboardMarkup([InlineKeyboardButton('Spacebin', link), InlineKeyboardButton('Raw Text', raw)])
