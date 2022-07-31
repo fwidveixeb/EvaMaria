@@ -42,6 +42,6 @@ async def spacebin(bot, message):
      return await sb.edit(
       text="Given text is successfully pasted on Spaceb.in",
       disable_web_page_preview=True,
-      reply_markup=InlineKeyboardMarkup([InlineKeyboardButton('Spacebin', link), InlineKeyboardButton('Raw Text', raw)])
+      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text='Spacebin', url=link), InlineKeyboardButton(text='Raw Text', url=raw)])
     )
   await sb.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
