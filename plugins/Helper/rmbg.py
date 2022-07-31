@@ -1,6 +1,7 @@
 import aiohttp
 from Vars import Var
 from aiohttp import ContentTypeError
+from plugins.Helper.check_filename import check_filename
 
 async def RemoveBG(input_file_name):
     RMBG_API = Var.RMBG_API
