@@ -20,5 +20,4 @@ async def get_paste(data: str, extension: str = "txt"):
             return await get_paste(data[-400000:], extension=extension)
         return False, key["error"]
     except Exception as e:
-        LOGS.info(e)
         return None, str(e)
