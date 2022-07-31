@@ -19,7 +19,7 @@ async def meaning(bot, message):
         pass
     defi = out[0]["meanings"][0]["definitions"][0]
     ex = "None" if not defi.get("example") else defi["example"]
-    text = "{}{}{}".format(word, defi["definition"], ex)
+    text = "Word: {}\nMeaning: {}\nExample: {}".format(word, defi["definition"], ex)
     if len(text) > 4096: 
         with io.BytesIO(str.encode(text)) as file: 
             file.name = f"{wrd}-meaning.txt"
