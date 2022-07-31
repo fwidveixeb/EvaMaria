@@ -32,7 +32,7 @@ async def carbon(bot, message):
   if replied.text:
      code = replied.text
      pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
-     await message.reply_photo(pp)
+     await message.reply_photo(photo=pp, caption=f"Here is your Carbon with colour {bg}")
      return await carbon.delete()
       
   if replied.document:
@@ -46,6 +46,6 @@ async def carbon(bot, message):
      except:
         return await carbon.edit("Reply only to a Text file only, Read Help Menu to know how command works.")
      pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
-     await message.reply_photo(pp)
+     await message.reply_photo(photo=pp, caption=f"Here is your Carbon with colour {bg}")
      return await carbon.delete()
   await carbon.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
