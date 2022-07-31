@@ -21,11 +21,12 @@ async def carbon(bot, message):
   elif len(message.command) == 2 and message.command[1] in ["random", "Random"]:
      bg = rom
   elif len(message.command) == 2 and message.command[1] in ["colorlist", "Colorlist"]:
-     return await message.reply_document(
-       document="resources/colorlist.txt",
-       caption="Here is the list of colors for Command Carbon.",
-       thumb="resources/devoloper.png"
-      )
+     await message.reply_document(
+     document="resources/colorlist.txt",
+     caption="Here is the list of colors for Command Carbon.",
+     thumb="resources/devoloper.png"
+     )
+     return await carbon.delete()
   else:
      bg = message.command[1]
     
