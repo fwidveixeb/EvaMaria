@@ -6,7 +6,7 @@ async def meaning(bot, message):
   
   meaning = await message.reply("`Processing...`")
   
-  if len(message.comand) == 1:
+  if len(message.command) == 1:
      return await meaning.edit("No word provided to find meaning, Read Help Menu to know how command works")
     
   elif len(message.command) == 2:
