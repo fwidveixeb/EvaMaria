@@ -2,8 +2,6 @@ import aiohttp
 from Vars import Var
 from aiohttp import ContentTypeError
 
-RMBG_API = Var.RMBG_API
-
 async def RemoveBG(input_file_name):
     RMBG_API = Var.RMBG_API
     headers = {"X-API-Key": RMBG_API}
