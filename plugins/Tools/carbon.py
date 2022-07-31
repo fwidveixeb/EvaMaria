@@ -9,11 +9,6 @@ async def carbon(bot, message):
   carbon = await message.reply("`Processing...`")
   replied = message.reply_to_message
   
-  colorpath = "resources/colorlist.txt"
-  with open(colorpath, "r") as f:    
-     colors = f.read().split()
-  rom = random.choice(colors)
-  
   if len(message.command) == 1:
      bg = "White"
   elif len(message.command) == 2 and message.command[1] in ["random", "Random"]:
@@ -30,6 +25,10 @@ async def carbon(bot, message):
      return await carbon.edit("Reply to a Text or file, Read Help Menu to know how command works.")
   
   if replied.text:
+     colorpath = "resources/colorlist.txt"
+     with open(colorpath, "r") as f:      
+        colors = f.read().split()
+     rom = random.choice(colors)
      code = replied.text
      pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
      await message.reply_photo(pp)
@@ -45,6 +44,10 @@ async def carbon(bot, message):
            os.remove(down)
      except:
         return await carbon.edit("Reply only to a Text file only, Read Help Menu to know how command works.")
+     colorpath = "resources/colorlist.txt"
+     with open(colorpath, "r") as f:      
+        colors = f.read().split()
+     rom = random.choice(colors)
      pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
      await message.reply_photo(pp)
      return await carbon.delete()
