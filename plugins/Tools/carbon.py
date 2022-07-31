@@ -3,7 +3,7 @@ import random
 from pyrogram import Client, filters
 from plugins.Helper.carbon import Carbon
 
-colopath = "resources/colorlist.txt"
+colorpath = "resources/colorlist.txt"
 
 if os.path.exists(colorpath):
  with open(colorpath, "r") as f:
