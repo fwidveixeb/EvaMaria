@@ -32,13 +32,13 @@ async def carbon(bot, message):
   if not replied:
      return await carbon.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
   
-  if replied.text:
+  elif replied.text:
      code = replied.text
      pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
      await message.reply_photo(pp)
      await carbon.delete()
       
-  elif replied.document:
+  else replied.document:
      if replied.document.file_size > 5242880:
         return await carbon.edit("Replied file must be less then 5 Mb.")
      try:
