@@ -11,7 +11,7 @@ async def synonym(bot, message):
     
     elif len(message.command) == 2:
         word = message.command[1]
-        ok = await get_synonyms_or_antonyms(wrd, "synonyms")
+        ok = await get_synonyms_or_antonyms(word, "synonyms")
         x = "".format(word)
         try:
             for c, i in enumerate(ok, start=1):
