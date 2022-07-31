@@ -3,6 +3,7 @@ wkhtmltopdf
 pytest-shutil
 htmlwebshot
 Pillow
+aiofiles
 certifi
 phlogo
 pyaztro
