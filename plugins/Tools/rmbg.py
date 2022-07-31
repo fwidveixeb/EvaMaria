@@ -32,7 +32,7 @@ async def abs_rmbg(event):
         dl = file
     xx = await event.eor("`Sending to remove.bg`")
     dn, out = await ReTrieveFile(dl)
-    os.remove(dl)"""
+    os.remove(dl)
     if not dn:
         dr = out["errors"][0]
         de = dr.get("detail", "")
@@ -53,4 +53,4 @@ async def abs_rmbg(event):
     await event.client.send_file(event.chat_id, wbn, reply_to=reply)
     os.remove(out)
     os.remove(wbn)
-    await xx.delete()
+    await xx.delete()"""
