@@ -9,3 +9,4 @@ class Var(object):
     HEROKU_APP_NAME = environ['HEROKU_APP_NAME']
     BIN_CHANNEL = int(environ.get("BIN_CHANNEL", None))
     URL = f"https://download.hagadmansa.com/"
+    RMBG_API = environ['RMBG_API']
