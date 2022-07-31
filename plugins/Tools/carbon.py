@@ -21,7 +21,7 @@ async def carbon(bot, message):
   
   if len(message.command) == 1:
      bg = "White"
-  elif message.command[1] in ["random", "Random"]:
+  elif len(message.command == 2 and message.command[1] in ["random", "Random"]:
      bg = rom
   else:
      bg = message.command[1]
