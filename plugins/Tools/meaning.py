@@ -9,7 +9,7 @@ async def meaning(bot, message):
   if len(message.comand) == 1:
      return await meaning.edit("No word provided to find meaning, Read Help Menu to know how command works")
     
-  elif len(message.comand) == 2:
+  elif len(message.command) == 2:
     word = message.command[1]
     url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + word
     out = requests.get(url).json()
