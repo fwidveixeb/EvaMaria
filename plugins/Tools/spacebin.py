@@ -12,7 +12,7 @@ async def spacebin(bot, message):
     return await sb.edit(text="Reply to a Text or file to upload it on Spaceb.in, Read Help Menu to know how command works.", disable_web_page_preview=True)
   
   if replied.text:
-    mesg = replied.text
+    msg = replied.text
     done, key = await get_paste(msg)
     if not done:
         return await sb.edit(key)
