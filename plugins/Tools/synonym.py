@@ -7,7 +7,7 @@ async def synonym(bot, message):
     synonym = await message.reply("`Processing...`")
     
     if len(message.command) == 1:
-        return await meaning.edit("No word provided to find meaning, Read Help Menu to know how command works")
+        return await synonym.edit("No word provided to find synonyms, Read Help Menu to know how command works")
     
     elif len(message.command) == 2:
         word = message.command[1]
@@ -24,6 +24,6 @@ async def synonym(bot, message):
             else:
                 await synonym.edit(x)
         except Exception as e:
-            await return await synonym.edit(e)
+            return await synonym.edit(e)
     else:
-        await meaning.edit("Parameter limit exceeded, Read Help Menu to know how command works.")
+        await synonym.edit("Parameter limit exceeded, Read Help Menu to know how command works.")
