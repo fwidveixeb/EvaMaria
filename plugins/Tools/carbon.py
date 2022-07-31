@@ -3,18 +3,16 @@ import random
 from pyrogram import Client, filters
 from plugins.Helper.carbon import Carbon
 
-colorpath = "resources/colorlist.txt"
-
-with open(colorpath, "r") as f:
-  colors = f.read().split()
-
-rom = random.choice(colors)
-
 @Client.on_message(filters.command("carbon"))
 async def carbon(bot, message):
   
   carbon = await message.reply("`Processing...`")
   replied = message.reply_to_message
+  
+  colorpath = "resources/colorlist.txt"
+  with open(colorpath, "r") as f:    
+     colors = f.read().split()
+  rom = random.choice(colors)
   
   if len(message.command) == 1:
      bg = "White"
@@ -22,7 +20,7 @@ async def carbon(bot, message):
      bg = rom
   elif len(message.command) == 2 and message.command[1] in ["colorlist", "Colorlist"]:
      return await carbon.edit(
-       text="Here is the [List](https://telegra.ph/Color-List-For-Command-Carbon-07-31) of Colors.",
+       text="Here is the [List](https://telegra.ph/List-of-Colors-07-31) of Colors.",
        disable_web_page_preview=True
      )
   else:
