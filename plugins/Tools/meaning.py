@@ -22,7 +22,7 @@ async def meaning(bot, message):
     text = "**• Word: **`{}`\n**• Meaning: **`{}`\n**• Example: **__{}__".format(word, defi["definition"], ex)
     if len(text) > 4096: 
         with io.BytesIO(str.encode(text)) as file: 
-            file.name = f"{wrd}-meaning.txt"
+            file.name = f"{word}-meaning.txt"
             await message.reply_document(document=file, caption=f"Meanings of {word}", thumb="resources/devoloper.png")
             return await meaning.delete()
     else:
