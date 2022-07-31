@@ -30,6 +30,7 @@ async def carbon(bot, message):
      return await carbon.edit("Reply to a Text or file, Read Help Menu to know how command works.")
   
   if replied.text:
+     code = replied.text
      pp = await Carbon(code=code, file_name=f"carbon_{message.chat.id}", backgroundColor=bg)
      await message.reply_photo(pp)
      return await carbon.delete()
