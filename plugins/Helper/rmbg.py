@@ -5,7 +5,7 @@ from aiohttp import ContentTypeError
 RMBG_API = Var.RMBG_API
 
 async def RemoveBG(input_file_name):
-    RMBG_API = udB.get_key("RMBG_API")
+    RMBG_API = Var.RMBG_API
     headers = {"X-API-Key": RMBG_API}
     files = {"image_file": open(input_file_name, "rb").read()}
     async with aiohttp.ClientSession() as ses:
