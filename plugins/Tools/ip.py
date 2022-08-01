@@ -1,6 +1,5 @@
 import requests
 from pyrogram import Client, filters
-from plugins.Helper.async_searcher import async_searcher
 
 @Client.on_message(filters.command("ip"))
 async def ip(bot, message):
@@ -12,7 +11,7 @@ async def ip(bot, message):
   
   elif len(message.command) == 2:
     ipp = message.command[1]
-    mota = await requests.get(f"https://ipinfo.io/{ipp}/geo").json()
+    mota = requests.get(f"https://ipinfo.io/{ipp}/geo").json()
     try:
         msg = mota["error"]["message"]
         return await ip.edit(msg)
