@@ -21,8 +21,11 @@ async def pexels(bot, message):
         if pani["total_results"] == 0:
           return await pexels.edit("No Results Found for your query.")
         for x in range(10):
-            photo = pani["photos"][x]["src"]["large2x"]
-            caption = pani["photos"][x]["alt"]
+            try:
+                photo = pani["photos"][x]["src"]["large2x"]
+                caption = pani["photos"][x]["alt"]
+            except IndexError:
+                return await pexels.edit("There is something wrong in your query, please try a different one.")
             nila.append(photo)
             pila.append(caption)
         media = [InputMediaPhoto(nila[0], caption=pila[0]), InputMediaPhoto(nila[1], caption=pila[1]), InputMediaPhoto(nila[2], caption=pila[2]), InputMediaPhoto(nila[3], caption=pila[3]), InputMediaPhoto(nila[4], caption=pila[4]), InputMediaPhoto(nila[5], caption=pila[5]), InputMediaPhoto(nila[6], caption=pila[6]), InputMediaPhoto(nila[7], caption=pila[7]), InputMediaPhoto(nila[8], caption=pila[8]), InputMediaPhoto(nila[9], caption=pila[9])]
