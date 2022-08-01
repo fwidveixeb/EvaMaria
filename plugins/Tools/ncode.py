@@ -18,9 +18,9 @@ async def ncode(bot, message):
           f"ncode_{message.chat.id}.png",
       )
       await message.reply_photo(
-        photo=f"ncode_{message.chat.id}.png,
+        photo=f"ncode_{message.chat.id}.png",
         caption="Here is your ncoded Image of given text"
       )
-      os.remove(f"ncode_{message.chat.id}.png)
+      os.remove(f"ncode_{message.chat.id}.png")
       return await ncode.delete()
   await ncode.edit("Reply to a text or a file to get a Image.")
