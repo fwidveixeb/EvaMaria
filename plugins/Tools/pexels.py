@@ -1,3 +1,4 @@
+import random
 import requests
 from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto
@@ -6,6 +7,7 @@ from pyrogram.types import InputMediaPhoto
 async def pexels(bot, message):
   
     pexels = await message.reply("`Processing...`")
+    pio = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     
     if len(message.command) == 1:
       return await pexels.edit("No query provided for Pexels, Read Help Menu to know how command works")
@@ -14,7 +16,8 @@ async def pexels(bot, message):
         nila = []
         pila = []
         query = message.command[1:]
-        pani = requests.get(f"https://api.pexels.com/v1/search?query={query}").json()
+        page = random.choice(pio)
+        pani = requests.get(f"https://api.pexels.com/v1/search?page={page}&query={query}").json()
         if pani["total_results"] == 0:
           return await pexels.edit("No Results Found for your query.")
         for x in range(10):
