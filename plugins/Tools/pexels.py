@@ -1,5 +1,4 @@
 import requests
-from pyrogram import enums
 from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto
 
@@ -24,6 +23,5 @@ async def pexels(bot, message):
             nila.append(photo)
             pila.append(caption)
         media = [InputMediaPhoto(nila[0], caption=pila[0]), InputMediaPhoto(nila[1], caption=pila[1]), InputMediaPhoto(nila[2], caption=pila[2]), InputMediaPhoto(nila[3], caption=pila[3]), InputMediaPhoto(nila[4], caption=pila[4]), InputMediaPhoto(nila[5], caption=pila[5]), InputMediaPhoto(nila[6], caption=pila[6]), InputMediaPhoto(nila[7], caption=pila[7]), InputMediaPhoto(nila[8], caption=pila[8]), InputMediaPhoto(nila[9], caption=pila[9])]
-        await message.reply_chat_action(enums.ChatAction.UPLOAD_PHOTO)
         await message.reply_media_group(media=media)
         return await pexels.delete()
