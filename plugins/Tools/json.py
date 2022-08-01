@@ -9,9 +9,11 @@ async def json(bot, message):
     lomu = None
     
     if replied:
-        lomu = replied.stringify()
+        chomu = replied
+        lomu = chomu.stringify()
     else:
-        lomu = message.stringify()
+        dhomu = message
+        lomu = dhomu.stringify()
         
     if len(lomu) > 4096:
         with io.BytesIO(str.encode(lomu)) as out_file:
