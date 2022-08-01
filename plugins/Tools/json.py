@@ -29,9 +29,9 @@ async def json(bot, message):
         with io.BytesIO(str.encode(msg)) as out_file:
             out_file.name = f"json_{message,chat.id}.txt"
             await message.reply_document(
-              document=f"json_{message,chat.id}",
+              document=f"json_{message.chat.id}.txt",
               caption="Here is your JSON data.",
-              thumb="resources/devoliper.png"
+              thumb="resources/devoloper.png"
             )
             return await json.delete()
     else:
