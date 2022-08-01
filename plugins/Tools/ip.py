@@ -1,3 +1,4 @@
+import requests
 from pyrogram import Client, filters
 from plugins.Helper.async_searcher import async_searcher
 
@@ -11,18 +12,18 @@ async def ip(bot, message):
   
   elif len(message.command) == 2:
     ipp = message.command[1]
-    mota = await async_searcher(f"https://ipinfo.io/{ipp}/geo", re_json=True)
+    mota = await requests.get(f"https://ipinfo.io/{ipp}/geo").json()
     try:
-        err = mota["error"]["title"]
         msg = mota["error"]["message"]
-        return await ip.edit(f"Error = {err}/nMessage = {msg}")
+        return await ip.edit(msg)
     except:
         pass
     ipa = mota["ip"]
     city = mota["city"]
     region = mota["region"]
     country = mota["country"]
-    cord = mota["loc"]
+    location = mota["loc"]
+    ntwrk = mota["org"]
     try:
         zipc = mota["postal"]
     except KeyError:
@@ -34,7 +35,8 @@ async def ip(bot, message):
 **City:** `{city}`
 **Region:** `{region}`
 **Country:** `{country}`
-**Co-ordinates:** `{cord}`
+**Location:** `{location}`
+**Network:** `{ntwrk}`
 **Postal Code:** `{zipc}`
 **Time Zone:** `{tz}`
 """
