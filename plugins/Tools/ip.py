@@ -11,7 +11,7 @@ async def ip(bot, message):
   
   elif len(message.command) == 2:
     ipp = message.command[1]
-    mota = await async_searcher(f"https://ipinfo.io{ipp}/geo", re_json=True)
+    mota = await async_searcher(f"https://ipinfo.io/{ipp}/geo", re_json=True)
     try:
         err = mota["error"]["title"]
         msg = mota["error"]["message"]
