@@ -1,5 +1,5 @@
 import requests
-from pyrogram import emuns
+from pyrogram import enums
 from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto
 
