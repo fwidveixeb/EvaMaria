@@ -14,7 +14,7 @@ async def ip(bot, message):
     mota = requests.get(f"https://ipinfo.io/{ipp}/geo").json()
     try:
         msg = mota["error"]["message"]
-        return await ip.edit(msg)
+        return await ip.edit(f"{msg}.")
     except:
         pass
     ipa = mota["ip"]
