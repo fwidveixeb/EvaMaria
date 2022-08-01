@@ -1,8 +1,8 @@
 import requests
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command("igdl"))
-async def igdl(bot, message):
+@Client.on_message(filters.command("ttdl"))
+async def ttdl(bot, message):
   
   tt = await message.reply("`Processing...`")
   
