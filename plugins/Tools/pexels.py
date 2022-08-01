@@ -17,7 +17,8 @@ async def pexels(bot, message):
         query = message.command[1:]
         pani = requests.get(f"https://api.pexels.com/v1/search?query={query}").json()
         if pani["total_results"] == 0:
-          return await pexels.edit("No Results Found for your query.") for x in range(10):
+          return await pexels.edit("No Results Found for your query.")
+        for x in range(10):
             photo = pani["photos"][x]["src"]["large2x"]
             caption = pani["photos"][x]["alt"]
             nila.append(photo)
