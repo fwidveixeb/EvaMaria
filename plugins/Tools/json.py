@@ -4,8 +4,9 @@ from plugins.Helper.json import json_parser
 @Client.on_message(filters.command("json"))
 async def json(bot, message):
   
-    dns = await message.reply("`Processing...`")
+    json = await message.reply("`Processing...`")
     replied = message.reply_to_message
+    
     if replied:
       msg = replied
     else:
