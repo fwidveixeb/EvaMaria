@@ -20,8 +20,8 @@ async def pexels(bot, message):
         headers = {"Authorization": "563492ad6f917000010000012032e1a0072048019af02d2c9730b360"}
         pani = requests.get(f"https://api.pexels.com/v1/search?page={page}&query={query}", headers=headers).json()
         try:
-            no_result = pani["total_results"]
-            return await pexels.edit("No Results Found for your query.")
+            if pani["total_results"] == 0:
+                return await pexels.edit("No Results Found for your query.")
         except:
             pass
         for x in range(10):
