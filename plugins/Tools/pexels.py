@@ -18,8 +18,11 @@ async def pexels(bot, message):
         query = message.command[1:]
         page = random.choice(pio)
         pani = requests.get(f"https://api.pexels.com/v1/search?page={page}&query={query}").json()
-        if pani["total_results"] == 0:
-          return await pexels.edit("No Results Found for your query.")
+        try:
+            no_result = pani["total_results"]
+            return await pexels.edit("No Results Found for your query.")
+        except:
+            pass
         for x in range(10):
             try:
                 photo = pani["photos"][x]["src"]["large2x"]
