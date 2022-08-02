@@ -1,6 +1,6 @@
 import requests
 from pyrogram import Client, filters
-"""
+
 @Client.on_message(filters.command("nekobin"))
 async def nekobin(bot, message):
   
@@ -28,4 +28,4 @@ async def nekobin(bot, message):
      hemlo = requests.get(f"https://open-apis-rest.up.railway.app/api/nekobin?text={replied.text}").json()
      url = hemlo["data"]["url"]
      return await nb.edit(f"Given text is successfully pasted on [Nekobin]({url}).")
-  await nb.edit("Reply only to a Text or file, Read Help Menu to know how command works.")"""
+  await nb.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
