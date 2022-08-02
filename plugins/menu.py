@@ -168,7 +168,7 @@ async def about(client, message):
             InlineKeyboardButton('💰 Donate', callback_data='donate')
         ]]))
 
-@Client.on_message(filters.command("help")) 
+#Client.on_message(filters.command("help")) 
 async def help(client, message):
         await message.reply_photo(
         photo=random.choice(PICS),
