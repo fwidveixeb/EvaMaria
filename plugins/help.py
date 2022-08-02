@@ -58,7 +58,7 @@ LIST_2_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('14', callback_data='3')
             ],[
             InlineKeyboardButton('15', callback_data='1'),
-            InlineKeyboardButton('6', callback_data='3')
+            InlineKeyboardButton('16', callback_data='3')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_1'),
             InlineKeyboardButton('Home', callback_data='help'),
@@ -144,7 +144,7 @@ async def cb_data(bot, message):
           text=LIST_3_TXT,
           reply_markup=LIST_3_BTN
         )
-    elif message.data == "list_3":
+    elif message.data == "list_4":
         await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
           text=LIST_4_TXT,
