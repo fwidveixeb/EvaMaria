@@ -26,7 +26,7 @@ async def cb_data(bot, message):
     if message.data == "help":
         await message.answer('www.hagadmansa.com')
         await message.edit(
-          caotion=HELP_TEXT
+          caotion=HELP_TEXT,
           reply_markup=HELP_BUTTONS
         )
 
