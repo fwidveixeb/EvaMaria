@@ -1,16 +1,13 @@
-from plugins.help import txt, btn
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
-class txt(object):
-        HELP_TXT = """**Welcome to the Help Menu**
+HELP_TXT = """**Welcome to the Help Menu**
 
 Here you will find a detailed overview of every command with examples.
 
 Click on 'Open Help Menu' to open the detailed Menu."""
 
-class btn(object):
-        HELP_BTN = InlineKeyboardMarkup(
+HELP_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
             ],[
@@ -28,7 +25,7 @@ async def cb_data(bot, message):
           text=HELP_TXT,
           reply_markup=HELP_BTN
         )
-HELP_TXT = txt.HELP_TEXT
+
 @Client.on_message(filters.command("help")) 
 async def help(client, message):
   
