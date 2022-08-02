@@ -22,6 +22,7 @@ async def nekobin(bot, message):
         down = await bot.download_media(replied)
         with open(down) as a:  
            msg = a.read()
+           print(msg)
            os.remove(down)
      except:
         return await nb.edit("Reply only to a Text file only, Read Help Menu to know how command works.")
