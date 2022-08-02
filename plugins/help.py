@@ -13,8 +13,6 @@ LIST_2_TXT = "List 2"
 
 LIST_3_TXT = "List 3"
 
-LIST_4_TXT = "List 4"
-
 HELP_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
@@ -43,7 +41,7 @@ LIST_1_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('11', callback_data='2'),
             InlineKeyboardButton('12', callback_data='3')
             ],[
-            InlineKeyboardButton('⇦', callback_data='list_4'),
+            InlineKeyboardButton('⇦', callback_data='list_3'),
             InlineKeyboardButton('Home', callback_data='help'),
             InlineKeyboardButton('⇨', callback_data='list_2')
        ]])
@@ -91,29 +89,6 @@ LIST_3_BTN = InlineKeyboardMarkup(
             ],[
             InlineKeyboardButton('⇦', callback_data='list_2'),
             InlineKeyboardButton('Home', callback_data='help'),
-            InlineKeyboardButton('⇨', callback_data='list_4')
-       ]])
-
-LIST_4_BTN = InlineKeyboardMarkup(
-        [[
-            InlineKeyboardButton('1', callback_data='1'),
-            InlineKeyboardButton('2', callback_data='2'),
-            InlineKeyboardButton('3', callback_data='3')
-            ],[
-            InlineKeyboardButton('1', callback_data='1'),
-            InlineKeyboardButton('2', callback_data='2'),
-            InlineKeyboardButton('3', callback_data='3')
-            ],[
-            InlineKeyboardButton('1', callback_data='1'),
-            InlineKeyboardButton('2', callback_data='2'),
-            InlineKeyboardButton('3', callback_data='3')
-            ],[
-            InlineKeyboardButton('1', callback_data='1'),
-            InlineKeyboardButton('2', callback_data='2'),
-            InlineKeyboardButton('3', callback_data='3')
-            ],[
-            InlineKeyboardButton('⇦', callback_data='list_3'),
-            InlineKeyboardButton('Home', callback_data='help'),
             InlineKeyboardButton('⇨', callback_data='list_1')
        ]])
 
@@ -142,12 +117,6 @@ async def cb_data(bot, message):
         await message.edit_message_text(
           text=LIST_3_TXT,
           reply_markup=LIST_3_BTN
-        )
-    elif message.data == "list_4":
-        await message.answer('www.hagadmansa.com')
-        await message.edit_message_text(
-          text=LIST_4_TXT,
-          reply_markup=LIST_4_BTN
         )
       
 @Client.on_message(filters.command("hp")) 
