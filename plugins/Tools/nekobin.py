@@ -8,12 +8,12 @@ async def nekobin(bot, message):
   replied = message.reply_to_message
   
   if not replied:
-    return await nb.edit(text="Reply to a Text or file to upload it on Spaceb.in, Read Help Menu to know how command works.", disable_web_page_preview=True)
+    return await nb.edit(text="Reply to a Text or file to upload it on Nekobin, Read Help Menu to know how command works.", disable_web_page_preview=True)
   
   if replied.text:
     hemlo = requests.get(f"https://open-apis-rest.up.railway.app/api/nekobin?text={replied.text}").json()
     url = hemlo["data"]["url"]
-    return await nb.edit(f"Given text is successfully pasted on [Nekobin]({url}).")
+    return await nb.edit(text=f"Given text is successfully pasted on [Nekobin]({url}).", disable_web_page_preview=True)
   
   if replied.document:
      if replied.document.file_size > 5242880:
@@ -25,7 +25,7 @@ async def nekobin(bot, message):
            os.remove(down)
      except:
         return await nb.edit("Reply only to a Text file only, Read Help Menu to know how command works.")
-     hemlo = requests.get(f"https://open-apis-rest.up.railway.app/api/nekobin?text={replied.text}").json()
+     hemlo = requests.get(f"https://open-apis-rest.up.railway.app/api/nekobin?text={msg}").json()
      url = hemlo["data"]["url"]
-     return await nb.edit(f"Given text is successfully pasted on [Nekobin]({url}).")
+     return await nb.edit(text=f"Given file is successfully pasted on [Nekobin]({url}).", disable_web_page_preview=True)
   await nb.edit("Reply only to a Text or file, Read Help Menu to know how command works.")
