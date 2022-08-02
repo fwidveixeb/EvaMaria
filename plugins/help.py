@@ -27,7 +27,7 @@ async def cb_data(bot, message):
           text=HELP_TXT,
           reply_markup=HELP_BTN
         )
-
+HELP_TXT = txt.HELP_TEXT
 @Client.on_message(filters.command("help")) 
 async def help(client, message):
   
