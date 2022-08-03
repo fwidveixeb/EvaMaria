@@ -59,7 +59,7 @@ __Convert your text to beautiful images.__
 **1.** `/carbon`
 **2.** `/carbon red`
 **3.** `/carbon random`
-**3.** `/carbon colorlist`"""
+**4.** `/carbon colorlist`"""
 
 HELP_BTN = InlineKeyboardMarkup(
         [[
