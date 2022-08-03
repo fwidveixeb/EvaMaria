@@ -13,9 +13,9 @@ LIST_2_TXT = "List 2"
 
 LIST_3_TXT = "List 3"
 
-LIST_4_TXT = "List 3"
+LIST_4_TXT = "List 4"
 
-LIST_5_TXT = "List 3"
+LIST_5_TXT = "List 5"
 
 HELP_BTN = InlineKeyboardMarkup(
         [[
@@ -29,17 +29,17 @@ HELP_BTN = InlineKeyboardMarkup(
 
 LIST_1_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('1', callback_data='1'),
-            InlineKeyboardButton('2', callback_data='3')
+            InlineKeyboardButton('Advice', callback_data='1'),
+            InlineKeyboardButton('Bully', callback_data='3')
             ],[
-            InlineKeyboardButton('3', callback_data='1'),
-            InlineKeyboardButton('4', callback_data='3')
+            InlineKeyboardButton('Carbon', callback_data='1'),
+            InlineKeyboardButton('Da.gd', callback_data='3')
             ],[
-            InlineKeyboardButton('5', callback_data='1'),
-            InlineKeyboardButton('6', callback_data='3')
+            InlineKeyboardButton('Dare', callback_data='1'),
+            InlineKeyboardButton('Decide', callback_data='3')
             ],[
-            InlineKeyboardButton('7', callback_data='1'),
-            InlineKeyboardButton('8', callback_data='3')
+            InlineKeyboardButton('DNS', callback_data='1'),
+            InlineKeyboardButton('D.O.B.', callback_data='3')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_5'),
             InlineKeyboardButton('Home', callback_data='help'),
@@ -48,17 +48,17 @@ LIST_1_BTN = InlineKeyboardMarkup(
 
 LIST_2_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('9', callback_data='1'),
-            InlineKeyboardButton('10', callback_data='3')
+            InlineKeyboardButton('Doc', callback_data='1'),
+            InlineKeyboardButton('Fact', callback_data='3')
             ],[
-            InlineKeyboardButton('11', callback_data='1'),
-            InlineKeyboardButton('12', callback_data='3')
+            InlineKeyboardButton('Fake Info', callback_data='1'),
+            InlineKeyboardButton('File Store', callback_data='3')
             ],[
-            InlineKeyboardButton('13', callback_data='1'),
-            InlineKeyboardButton('14', callback_data='3')
+            InlineKeyboardButton('File Stream', callback_data='1'),
+            InlineKeyboardButton('Github', callback_data='3')
             ],[
-            InlineKeyboardButton('15', callback_data='1'),
-            InlineKeyboardButton('16', callback_data='3')
+            InlineKeyboardButton('Glitch', callback_data='1'),
+            InlineKeyboardButton('Hex Color', callback_data='3')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_1'),
             InlineKeyboardButton('Home', callback_data='help'),
@@ -67,17 +67,17 @@ LIST_2_BTN = InlineKeyboardMarkup(
 
 LIST_3_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('17', callback_data='1'),
-            InlineKeyboardButton('18', callback_data='3')
+            InlineKeyboardButton('Host', callback_data='1'),
+            InlineKeyboardButton('Google Img', callback_data='3')
             ],[
-            InlineKeyboardButton('19', callback_data='1'),
-            InlineKeyboardButton('20', callback_data='3')
+            InlineKeyboardButton('User Info', callback_data='1'),
+            InlineKeyboardButton('IP Address', callback_data='3')
             ],[
-            InlineKeyboardButton('21', callback_data='1'),
-            InlineKeyboardButton('22', callback_data='3')
+            InlineKeyboardButton('Joke', callback_data='1'),
+            InlineKeyboardButton('Meaning', callback_data='3')
             ],[
-            InlineKeyboardButton('23', callback_data='1'),
-            InlineKeyboardButton('24', callback_data='3')
+            InlineKeyboardButton('Ncode', callback_data='1'),
+            InlineKeyboardButton('Nekobin', callback_data='3')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_2'),
             InlineKeyboardButton('Home', callback_data='help'),
@@ -86,17 +86,17 @@ LIST_3_BTN = InlineKeyboardMarkup(
 
 LIST_4_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('25', callback_data='1'),
-            InlineKeyboardButton('26', callback_data='3')
+            InlineKeyboardButton('Pexels', callback_data='1'),
+            InlineKeyboardButton('PH Logo', callback_data='3')
             ],[
-            InlineKeyboardButton('27', callback_data='1'),
-            InlineKeyboardButton('28', callback_data='3')
+            InlineKeyboardButton('Picsum', callback_data='1'),
+            InlineKeyboardButton('QR Generator', callback_data='3')
             ],[
-            InlineKeyboardButton('29', callback_data='1'),
-            InlineKeyboardButton('30', callback_data='3')
+            InlineKeyboardButton('Quote', callback_data='1'),
+            InlineKeyboardButton('Remove BG', callback_data='3')
             ],[
-            InlineKeyboardButton('31', callback_data='1'),
-            InlineKeyboardButton('32', callback_data='3')
+            InlineKeyboardButton('Spacebin', callback_data='1'),
+            InlineKeyboardButton('Telegraph', callback_data='3')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_3'),
             InlineKeyboardButton('Home', callback_data='help'),
@@ -105,11 +105,11 @@ LIST_4_BTN = InlineKeyboardMarkup(
 
 LIST_5_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('33', callback_data='1'),
-            InlineKeyboardButton('34', callback_data='3')
+            InlineKeyboardButton('TPDNE', callback_data='1'),
+            InlineKeyboardButton('Truth', callback_data='3')
             ],[
-            InlineKeyboardButton('35', callback_data='1'),
-            InlineKeyboardButton('36', callback_data='3')
+            InlineKeyboardButton('Dictionary', callback_data='1'),
+            InlineKeyboardButton('WHOIS', callback_data='3')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_4'),
             InlineKeyboardButton('Home', callback_data='help'),
