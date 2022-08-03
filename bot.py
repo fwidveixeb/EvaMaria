@@ -17,7 +17,6 @@ from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
 
 class Bot(Client):
-    start_time = round(time.time())
 
     def __init__(self):
         super().__init__(
@@ -31,6 +30,7 @@ class Bot(Client):
         )
 
     async def start(self):
+        start_time = round(time.time())
         b_users, b_chats = await db.get_banned()
         temp.BANNED_USERS = b_users
         temp.BANNED_CHATS = b_chats
