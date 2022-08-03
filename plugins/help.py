@@ -585,6 +585,12 @@ async def cb_data(bot, message):
           reply_markup=GITHUB_BTN
         )
         await message.answer('www.hagadmansa.com')
+    elif message.data == "glitch":
+        await message.edit_message_text(
+          text=GLITCH_TXT,
+          reply_markup=GLITCH_BTN
+        )
+        await message.answer('www.hagadmansa.com')
     elif message.data == "hex":
         await message.edit_message_text(
           text=HEX_TXT,
