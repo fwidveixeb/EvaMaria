@@ -7,8 +7,5 @@ async def user(bot, message):
 
 @Client.on_message(filters.command("file"))
 async def file(bot, message):
-    replied = message.reply_to_message
-    media = replied.document or replied.video or replied.photo
-    k = replied.file_id
-    print(k)
-    await message.reply(k)
+    print(message.reply_to_message.document.file_id)
+    await message.reply(message.reply_to_message.document.file_id)
