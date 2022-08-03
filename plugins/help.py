@@ -272,27 +272,7 @@ LIST_1_BTN = InlineKeyboardMarkup(
             ],[
             InlineKeyboardButton('Dare', callback_data='dare'),
             InlineKeyboardButton('Decide', callback_data='decide')
-     CARBON_TXT = """■ **HELP:** `Carbon`
- 
-__Convert your text to beautiful images.__
-
-■ **USAGE:**
-**Parameter:** 1, Optional.
-**Replied:** (message, text document), Required.
-
-**__Command must be reply to a message or text document.__**
-
-**~ 1st Parameter:**
-**1.** Value must be alphabetical, not numerical.
-**2.** Pass '`random`' to generate random background.
-**3.** Pass a color name to generate custom background.
-**4.** Pass '`colorlist`' to get a list of colors.
-
-■ **EXAMPLE:**
-**1.** `/carbon`
-**2.** `/carbon red`
-**3.** `/carbon random`
-**4.** `/carbon colorlist`"""       ],[
+            ],[
             InlineKeyboardButton('DNS', callback_data='dns'),
             InlineKeyboardButton('D.O.B.', callback_data='dob')
             ],[
