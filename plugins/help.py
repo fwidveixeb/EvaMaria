@@ -37,7 +37,7 @@ __Get a random bully.__
 **Replied:** Not required.
 
 ■ **EXAMPLE:**
-**1. **`/bully`"""
+**1.** `/bully`"""
 
 CARBON_TXT = """■ **HELP:** `Carbon`
 
@@ -47,17 +47,17 @@ __Convert your text or codes into bueautifyl templates.__
 **Parameter:** 1, ~Optional.
 **Replied:** (Text, Text Document), *Required.
 
-**1. **If you put 'random' on 1st Parameter it'll generate Carbon with random Backgrounds.
-**2. **If you put a color name in 1st Parameter it'll generate Carbon with given color Background.
-**3. **Send `/carbon colorlist` to get Color List.
+**1.** If you put 'random' on 1st Parameter it'll generate Carbon with random Backgrounds.
+**2.** If you put a color name in 1st Parameter it'll generate Carbon with given color Background.
+**3.** Send `/carbon colorlist` to get Color List.
 
 ■ **NOTE:**
-**1. **1st Parameter must be alphabetical, not numerical.
+**1.** 1st Parameter must be alphabetical, not numerical.
 
 ■ **EXAMPLE:**
-**1. **`/carbon`
-**2. **`/carbon random`
-**3. **`/carbon red`"""
+**1.** `/carbon`
+**2.** `/carbon random`
+**3.** `/carbon red`"""
 
 HELP_BTN = InlineKeyboardMarkup(
         [[
@@ -230,11 +230,11 @@ async def cb_data(bot, message):
           text=BULLY_TXT,
           reply_markup=BULLY_BTN
         )
-    elif message.data == "advice":
+    elif message.data == "carbon":
         await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
-          text=ADVICE_TXT,
-          reply_markup=ADVICE_BTN
+          text=CARBON_TXT,
+          reply_markup=CARBON_BTN
         )
       
 @Client.on_message(filters.command("hp")) 
