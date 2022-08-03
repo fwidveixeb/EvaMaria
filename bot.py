@@ -1,7 +1,6 @@
 import time
 import logging
 import logging.config
-from info import ADMINS
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
@@ -46,7 +45,7 @@ class Bot(Client):
         end_time = round(time.time())
         f = end_time - start_time
         p = f"Successfully restarted in {f} seconds."
-        await self.send_message(chat_id=ADMINS, text=p)
+        await self.send_message(chat_id=1250003833, text=p)
 
 app = Bot()
 app.run()
