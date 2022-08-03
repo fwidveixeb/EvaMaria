@@ -17,6 +17,48 @@ LIST_4_TXT = "List 4"
 
 LIST_5_TXT = "List 5"
 
+ADVICE_TXT = """■ **HELP:** `Advice`
+
+__Get a random advice.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1. **`/advice`"""
+
+BULLY_TXT = """■ **HELP:** `Bully`
+
+__Get a random bully.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1. **`/bully`"""
+
+CARBON_TXT = """■ **HELP:** `Carbon`
+
+__Convert your text or codes into bueautifyl templates.__
+
+■ **USAGE:**
+**Parameter:** 1, ~Optional.
+**Replied:** (Text, Text Document), *Required.
+
+**1. **If you put 'random' on 1st Parameter it'll generate Carbon with random Backgrounds.
+**2. **If you put a color name in 1st Parameter it'll generate Carbon with given color Background.
+**3. **Send `/carbon colorlist` to get Color List.
+
+■ **NOTE:**
+**1. **1st Parameter must be alphabetical, not numerical.
+
+■ **EXAMPLE:**
+**1. **`/carbon`
+**2. **`/carbon random`
+**3. **`/carbon red`"""
+
 HELP_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
@@ -29,7 +71,7 @@ HELP_BTN = InlineKeyboardMarkup(
 
 LIST_1_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('Advice', callback_data='1'),
+            InlineKeyboardButton('Advice', callback_data='advice'),
             InlineKeyboardButton('Bully', callback_data='3')
             ],[
             InlineKeyboardButton('Carbon', callback_data='1'),
@@ -48,7 +90,7 @@ LIST_1_BTN = InlineKeyboardMarkup(
 
 LIST_2_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('Doc', callback_data='1'),
+            InlineKeyboardButton('Doc', callback_data=''),
             InlineKeyboardButton('Fact', callback_data='3')
             ],[
             InlineKeyboardButton('Fake Info', callback_data='1'),
@@ -116,6 +158,26 @@ LIST_5_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('⇨', callback_data='list_1')
        ]])
 
+ADVICE_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='whois'),
+            InlineKeyboardButton('Back', callback_data='list_1'),
+            InlineKeyboardButton('⇨', callback_data='bully')
+       ]])
+
+BULLY_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='advice'),
+            InlineKeyboardButton('Back', callback_data='list_1'),
+            InlineKeyboardButton('⇨', callback_data='carbon')
+       ]])
+
+CARBON_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='bully'),
+            InlineKeyboardButton('Back', callback_data='list_1'),
+            InlineKeyboardButton('⇨', callback_data='dagd')
+       ]])
 
 
 @Client.on_callback_query()
@@ -155,6 +217,24 @@ async def cb_data(bot, message):
         await message.edit_message_text(
           text=LIST_5_TXT,
           reply_markup=LIST_5_BTN
+        )
+    elif message.data == "advice":
+        await message.answer('www.hagadmansa.com')
+        await message.edit_message_text(
+          text=ADVICE_TXT,
+          reply_markup=ADVICE_BTN
+        )
+    elif message.data == "bully":
+        await message.answer('www.hagadmansa.com')
+        await message.edit_message_text(
+          text=BULLY_TXT,
+          reply_markup=BULLY_BTN
+        )
+    elif message.data == "advice":
+        await message.answer('www.hagadmansa.com')
+        await message.edit_message_text(
+          text=ADVICE_TXT,
+          reply_markup=ADVICE_BTN
         )
       
 @Client.on_message(filters.command("hp")) 
