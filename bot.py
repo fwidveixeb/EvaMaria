@@ -1,5 +1,7 @@
+import time
 import logging
 import logging.config
+from info import ADMINS
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
@@ -15,6 +17,7 @@ from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
 
 class Bot(Client):
+    start_time = round(time.time())
 
     def __init__(self):
         super().__init__(
@@ -37,14 +40,13 @@ class Bot(Client):
         temp.ME = me.id
         temp.U_NAME = me.username
         temp.B_NAME = me.first_name
-        await self.send_message(chat_id=1250003833, text="Bot Started")
         self.username = '@' + me.username
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
-
-    async def stop(self, *args):
-        await super().stop()
-        logging.info("Bot stopped. Bye.")
+        end_time = round(time.time))
+        f = end_time - start_time
+        p = f"Successfully restarted in {f} seconds."
+        await self.send_message(chat_id=ADMINS, text=p)
 
 app = Bot()
 app.run()
