@@ -44,7 +44,7 @@ CARBON_TXT = """■ **HELP:** `Carbon`
 __Convert your text to beautiful images.__
 
 ■ **USAGE:**
-**Parameter:** 1, Optional
+**Parameter:** 1, Optional.
 **Replied:** (message, text document), Required.
 
 **__Command must be reply to a message or text document.__**
