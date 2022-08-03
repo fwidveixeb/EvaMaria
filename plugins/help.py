@@ -61,6 +61,86 @@ __Convert your text to beautiful images.__
 **3.** `/carbon random`
 **4.** `/carbon colorlist`"""
 
+DAGD_TXT = """■ **HELP:** `Da.gd`
+ 
+__Convert a long URL to short.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a link to short.__**
+
+**~ 1st Parameter:**
+**1.** URL must start with http:// or https://.
+
+■ **EXAMPLE:**
+**1.** `/dagd https://1.1.1.1`
+**2.** `/dagd https://hagadmansa.com`"""
+
+DARE_TXT = """■ **HELP:** `Dare`
+
+__Get a random Dare.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1. **`/dare`"""
+
+DECIDE_TXT = """■ **HELP:** `Decide`
+
+__Decide, to be Yes or No?__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1. **`/decide`"""
+
+DNS_TXT = """■ **HELP:** `DNS`
+ 
+__Get Domain Name Servers of any website.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a link to find it's DNS.__**
+
+**~ 1st Parameter:**
+**1.** URL must start with http:// or https://.
+
+■ **EXAMPLE:**
+**1.** `/dns https://hagadmansa.com`"""
+
+DOB_TXT = """■ **HELP:** `D.O.B.`
+ 
+__Find how much days remaining in your birthday, your exact age, your zodiac and Horoscope too.__
+
+■ **USAGE:**
+**Parameter:** 3, Required.
+**Replied:** Not Required.
+
+**__Command must have a date of birth in 3 parameters.__**
+
+**~ 1st Parameter:**
+**1.** Value must be numerical, not alphabetical.
+**2.** Date must be a combination of 2 numbers and should not exceed 31.
+
+**~ 2nd Parameter:**
+**1.** Value must be numerical, not alphabetical.
+**2.** Month must be a combination of 2 numbers and should not exceed 12.
+
+**~ 3rd Parameter:**
+**1.** Value must be numerical, not alphabetical.
+**2.** Year must be a combination of 4 numbers.
+
+■ **EXAMPLE:**
+**1.** `/dob 01 01 2001`"""
+
 HELP_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
@@ -77,13 +157,13 @@ LIST_1_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('Bully', callback_data='bully')
             ],[
             InlineKeyboardButton('Carbon', callback_data='carbon'),
-            InlineKeyboardButton('Da.gd', callback_data='3')
+            InlineKeyboardButton('Da.gd', callback_data='dagd')
             ],[
-            InlineKeyboardButton('Dare', callback_data='1'),
-            InlineKeyboardButton('Decide', callback_data='3')
+            InlineKeyboardButton('Dare', callback_data='dare'),
+            InlineKeyboardButton('Decide', callback_data='decide')
             ],[
-            InlineKeyboardButton('DNS', callback_data='1'),
-            InlineKeyboardButton('D.O.B.', callback_data='3')
+            InlineKeyboardButton('DNS', callback_data='dns'),
+            InlineKeyboardButton('D.O.B.', callback_data='dob')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_5'),
             InlineKeyboardButton('Home', callback_data='help'),
@@ -181,6 +261,41 @@ CARBON_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('⇨', callback_data='dagd')
        ]])
 
+DAGD_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='carbon'),
+            InlineKeyboardButton('Back', callback_data='list_1'),
+            InlineKeyboardButton('⇨', callback_data='dare')
+       ]])
+
+DARE_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='dagd'),
+            InlineKeyboardButton('Back', callback_data='list_1'),
+            InlineKeyboardButton('⇨', callback_data='decide')
+       ]])
+
+DECIDE_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='dare'),
+            InlineKeyboardButton('Back', callback_data='list_1'),
+            InlineKeyboardButton('⇨', callback_data='dns')
+       ]])
+
+DNS_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='decide'),
+            InlineKeyboardButton('Back', callback_data='list_1'),
+            InlineKeyboardButton('⇨', callback_data='dob')
+       ]])
+
+DOB_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='dns'),
+            InlineKeyboardButton('Back', callback_data='list_1'),
+            InlineKeyboardButton('⇨', callback_data='doc')
+       ]])
+
 
 @Client.on_callback_query()
 async def cb_data(bot, message):
@@ -236,6 +351,36 @@ async def cb_data(bot, message):
         await message.edit_message_text(
           text=CARBON_TXT,
           reply_markup=CARBON_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "dagd":
+        await message.edit_message_text(
+          text=DAGD_TXT,
+          reply_markup=DAGD_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "dare":
+        await message.edit_message_text(
+          text=DARE_TXT,
+          reply_markup=DARE_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "decide":
+        await message.edit_message_text(
+          text=DECIDE_TXT,
+          reply_markup=DECIDE_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "dns":
+        await message.edit_message_text(
+          text=DNS_TXT,
+          reply_markup=DNS_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "dob":
+        await message.edit_message_text(
+          text=DOB_TXT,
+          reply_markup=DOB_BTN
         )
         await message.answer('www.hagadmansa.com')
       
