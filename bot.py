@@ -43,7 +43,7 @@ class Bot(Client):
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
         end_time = round(time.time())
-        f = end_time - start_time
+        f = end_time - start_time + 9
         p = f"Successfully restarted in {f} seconds."
         await self.send_message(chat_id=1250003833, text=p)
 
