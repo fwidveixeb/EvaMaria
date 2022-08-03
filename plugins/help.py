@@ -189,16 +189,19 @@ async def cb_data(bot, message):
           text=HELP_TXT,
           reply_markup=HELP_BTN
         )
+        await message.answer('www.hagadmansa.com')
     elif message.data == "list_1":
         await message.edit_message_text(
           text=LIST_1_TXT,
           reply_markup=LIST_1_BTN
         )
+        await message.answer('www.hagadmansa.com')
     elif message.data == "list_2":
         await message.edit_message_text(
           text=LIST_2_TXT,
           reply_markup=LIST_2_BTN
         )
+        await message.answer('www.hagadmansa.com')
     elif message.data == "list_3":
         await message.edit_message_text(
           text=LIST_3_TXT,
@@ -210,26 +213,31 @@ async def cb_data(bot, message):
           text=LIST_4_TXT,
           reply_markup=LIST_4_BTN
         )
+        await message.answer('www.hagadmansa.com')
     elif message.data == "list_5":
         await message.edit_message_text(
           text=LIST_5_TXT,
           reply_markup=LIST_5_BTN
         )
+        await message.answer('www.hagadmansa.com')
     elif message.data == "advice":
         await message.edit_message_text(
           text=ADVICE_TXT,
           reply_markup=ADVICE_BTN
         )
+        await message.answer('www.hagadmansa.com')
     elif message.data == "bully":
         await message.edit_message_text(
           text=BULLY_TXT,
           reply_markup=BULLY_BTN
         )
+        await message.answer('www.hagadmansa.com')
     elif message.data == "carbon":
         await message.edit_message_text(
           text=CARBON_TXT,
           reply_markup=CARBON_BTN
         )
+        await message.answer('www.hagadmansa.com')
       
 @Client.on_message(filters.command("hp")) 
 async def help(client, message):
