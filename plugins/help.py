@@ -231,10 +231,10 @@ __Convert a photo to glitchy GIF.__
 **Parameter:** Not Required
 **Replied:** (Photo), Required.
 
-**__Command must have a valid username to find it's details.__**
+**__Command must be reply to a photo.__**
 
 ■ **EXAMPLE:**
-**1.** `/github hagadmansa`"""
+**1.** `/glitch`"""
 
 HEX_TXT = """■ **HELP:** `Hex Color`
  
