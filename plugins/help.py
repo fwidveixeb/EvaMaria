@@ -185,55 +185,47 @@ CARBON_BTN = InlineKeyboardMarkup(
 @Client.on_callback_query()
 async def cb_data(bot, message):
     if message.data == "help":
-        await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
           text=HELP_TXT,
           reply_markup=HELP_BTN
         )
     elif message.data == "list_1":
-        await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
           text=LIST_1_TXT,
           reply_markup=LIST_1_BTN
         )
     elif message.data == "list_2":
-        await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
           text=LIST_2_TXT,
           reply_markup=LIST_2_BTN
         )
     elif message.data == "list_3":
-        await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
           text=LIST_3_TXT,
           reply_markup=LIST_3_BTN
         )
-    elif message.data == "list_4":
         await message.answer('www.hagadmansa.com')
+    elif message.data == "list_4":
         await message.edit_message_text(
           text=LIST_4_TXT,
           reply_markup=LIST_4_BTN
         )
     elif message.data == "list_5":
-        await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
           text=LIST_5_TXT,
           reply_markup=LIST_5_BTN
         )
     elif message.data == "advice":
-        await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
           text=ADVICE_TXT,
           reply_markup=ADVICE_BTN
         )
     elif message.data == "bully":
-        await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
           text=BULLY_TXT,
           reply_markup=BULLY_BTN
         )
     elif message.data == "carbon":
-        await message.answer('www.hagadmansa.com')
         await message.edit_message_text(
           text=CARBON_TXT,
           reply_markup=CARBON_BTN
