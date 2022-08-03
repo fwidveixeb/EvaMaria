@@ -87,7 +87,7 @@ __Get a random Dare.__
 **Replied:** Not required.
 
 ■ **EXAMPLE:**
-**1. **`/dare`"""
+**1.** `/dare`"""
 
 DECIDE_TXT = """■ **HELP:** `Decide`
 
@@ -98,7 +98,7 @@ __Decide, to be Yes or No?__
 **Replied:** Not required.
 
 ■ **EXAMPLE:**
-**1. **`/decide`"""
+**1.** `/decide`"""
 
 DNS_TXT = """■ **HELP:** `DNS`
  
@@ -141,6 +141,117 @@ __Find how much days remaining in your birthday, your exact age, your zodiac and
 ■ **EXAMPLE:**
 **1.** `/dob 01 01 2001`"""
 
+DOC_TXT = """■ **HELP:** `Doc`
+ 
+__Convert your text into files.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** (Message), Required
+
+**__Command must be reply to a message.__**
+
+**~ 1st Parameter:**
+**1.** File name must be alphabetical, numerical.
+**2.** File name must end with a text file extension such as '`.txt`', '`.py`'.
+
+■ **EXAMPLE:**
+**1.** `/doc hagadmansa.txt`"""
+
+FACT_TXT = """■ **HELP:** `Fact`
+
+__Get a random Fact.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1.** `/fact`"""
+
+FAKEINFO_TXT = """■ **HELP:** `Fake Information`
+
+__Get fake information about a person.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1.** `/fakeinfo`"""
+
+FILESTORE_TXT = """■ **HELP:** `File Store`
+
+__Get a link to access files available on Telegram.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** (video, audio, document), Required.
+
+**__Command must be reply to a video, audio or document.__**
+
+■ **EXAMPLE:**
+**1.** `/filestore`"""
+
+FILESTREAM_TXT = """■ **HELP:** `File Stream`
+
+__Get Direct Download Links of files to download it outside of Telegram.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** (video, audio, document), Required.
+
+**__Command must be reply to a video, audio or document.__**
+
+■ **EXAMPLE:**
+**1.** `/filestream`"""
+
+GITHUB_TXT = """■ **HELP:** `Github`
+ 
+__Get Github users details.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a valid username to find it's details.__**
+
+**~ 1st Parameter:**
+**1.** Value should be alphabetical, not numerical.
+**2.** Value must be a valid github username.
+
+■ **EXAMPLE:**
+**1.** `/github hagadmansa`"""
+
+GLITCH_TXT = """■ **HELP:** `Glitch`
+ 
+__Convert a photo to glitchy GIF.__
+
+■ **USAGE:**
+**Parameter:** Not Required
+**Replied:** (Photo), Required.
+
+**__Command must have a valid username to find it's details.__**
+
+■ **EXAMPLE:**
+**1.** `/github hagadmansa`"""
+
+HEX_TXT = """■ **HELP:** `Hex Color`
+ 
+__Get a image of color codes.__
+
+■ **USAGE:**
+**Parameter:** 1, Required
+**Replied:** Not Required.
+
+**__Command must have a valid color code.__**
+
+**~ 1st Parameter:**
+**1.** Code must be a combination of 6 alphabets and numericals.
+
+■ **EXAMPLE:**
+**1.** `/hex 7FFFD4`"""
+
 HELP_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
@@ -161,7 +272,27 @@ LIST_1_BTN = InlineKeyboardMarkup(
             ],[
             InlineKeyboardButton('Dare', callback_data='dare'),
             InlineKeyboardButton('Decide', callback_data='decide')
-            ],[
+     CARBON_TXT = """■ **HELP:** `Carbon`
+ 
+__Convert your text to beautiful images.__
+
+■ **USAGE:**
+**Parameter:** 1, Optional.
+**Replied:** (message, text document), Required.
+
+**__Command must be reply to a message or text document.__**
+
+**~ 1st Parameter:**
+**1.** Value must be alphabetical, not numerical.
+**2.** Pass '`random`' to generate random background.
+**3.** Pass a color name to generate custom background.
+**4.** Pass '`colorlist`' to get a list of colors.
+
+■ **EXAMPLE:**
+**1.** `/carbon`
+**2.** `/carbon red`
+**3.** `/carbon random`
+**4.** `/carbon colorlist`"""       ],[
             InlineKeyboardButton('DNS', callback_data='dns'),
             InlineKeyboardButton('D.O.B.', callback_data='dob')
             ],[
@@ -172,17 +303,17 @@ LIST_1_BTN = InlineKeyboardMarkup(
 
 LIST_2_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('Doc', callback_data='1'),
-            InlineKeyboardButton('Fact', callback_data='3')
+            InlineKeyboardButton('Doc', callback_data='doc'),
+            InlineKeyboardButton('Fact', callback_data='fact')
             ],[
-            InlineKeyboardButton('Fake Info', callback_data='1'),
-            InlineKeyboardButton('File Store', callback_data='3')
+            InlineKeyboardButton('Fake Info', callback_data='fakeinfo'),
+            InlineKeyboardButton('File Store', callback_data='filestore')
             ],[
-            InlineKeyboardButton('File Stream', callback_data='1'),
-            InlineKeyboardButton('Github', callback_data='3')
+            InlineKeyboardButton('File Stream', callback_data='filestream'),
+            InlineKeyboardButton('Github', callback_data='github')
             ],[
-            InlineKeyboardButton('Glitch', callback_data='1'),
-            InlineKeyboardButton('Hex Color', callback_data='3')
+            InlineKeyboardButton('Glitch', callback_data='glitch'),
+            InlineKeyboardButton('Hex Color', callback_data='hex')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_1'),
             InlineKeyboardButton('Home', callback_data='help'),
@@ -296,6 +427,61 @@ DOB_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('⇨', callback_data='doc')
        ]])
 
+DOC_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='dob'),
+            InlineKeyboardButton('Back', callback_data='list_2'),
+            InlineKeyboardButton('⇨', callback_data='fact')
+       ]])
+
+FACT_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='doc'),
+            InlineKeyboardButton('Back', callback_data='list_2'),
+            InlineKeyboardButton('⇨', callback_data='fakeinfo')
+       ]])
+
+FAKEINFO_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='fact'),
+            InlineKeyboardButton('Back', callback_data='list_2'),
+            InlineKeyboardButton('⇨', callback_data='filestore')
+       ]])
+
+FILESTORE_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='fakeinfo'),
+            InlineKeyboardButton('Back', callback_data='list_2'),
+            InlineKeyboardButton('⇨', callback_data='filestream')
+       ]])
+
+FILESTREAM_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='filestore'),
+            InlineKeyboardButton('Back', callback_data='list_2'),fact
+            InlineKeyboardButton('⇨', callback_data='github')
+       ]])
+
+GITHUB_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='filestream'),
+            InlineKeyboardButton('Back', callback_data='list_2'),
+            InlineKeyboardButton('⇨', callback_data='glitch')
+       ]])
+
+GLITCH_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='github'),
+            InlineKeyboardButton('Back', callback_data='list_2'),
+            InlineKeyboardButton('⇨', callback_data='hex')
+       ]])
+
+HEX_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='glitch'),
+            InlineKeyboardButton('Back', callback_data='list_2'),
+            InlineKeyboardButton('⇨', callback_data='host')
+       ]])
 
 @Client.on_callback_query()
 async def cb_data(bot, message):
@@ -381,6 +567,48 @@ async def cb_data(bot, message):
         await message.edit_message_text(
           text=DOB_TXT,
           reply_markup=DOB_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "doc":
+        await message.edit_message_text(
+          text=DOC_TXT,
+          reply_markup=DOC_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "fact":
+        await message.edit_message_text(
+          text=FACT_TXT,
+          reply_markup=FACT_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "fakeinfo":
+        await message.edit_message_text(
+          text=FAKEINFO_TXT,
+          reply_markup=FAKEINFO_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "filestore":
+        await message.edit_message_text(
+          text=FILESTORE_TXT,
+          reply_markup=FILESTORE_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "filestream":
+        await message.edit_message_text(
+          text=FILESTREAM_TXT,
+          reply_markup=FILESTREAM_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "github":
+        await message.edit_message_text(
+          text=GITHUB_TXT,
+          reply_markup=GITHUB_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "hex":
+        await message.edit_message_text(
+          text=HEX_TXT,
+          reply_markup=HEX_BTN
         )
         await message.answer('www.hagadmansa.com')
       
