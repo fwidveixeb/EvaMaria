@@ -802,7 +802,7 @@ async def cb_data(bot, message):
         await message.answer('www.hagadmansa.com')
     elif message.data == "ncode":
         await message.edit_message_text(
-          text=NDODE_TXT,
+          text=NCODE_TXT,
           reply_markup=NCODE_BTN
         )
         await message.answer('www.hagadmansa.com')
