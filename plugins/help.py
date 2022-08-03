@@ -252,6 +252,117 @@ __Get a image of color codes.__
 ■ **EXAMPLE:**
 **1.** `/hex 7FFFD4`"""
 
+HOST_TXT = """■ **HELP:** `Host`
+ 
+__Find on which IP Address a website is hosting?__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a link to find it's Host.__**
+
+**~ 1st Parameter:**
+**1.** URL must start with http:// or https://.
+**2.** Value must be a valid URL.
+
+■ **EXAMPLE:**
+**1.** `/host https://hagadmansa.com`"""
+
+IMG_TXT = """■ **HELP:** `Google Image`
+ 
+__Search Images on Google.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a query to search.__**
+
+■ **EXAMPLE:**
+**1.** `/img hagadmansa`"""
+
+INFO_TXT = """■ **HELP:** `User Info`
+ 
+__Get details about your Telegram Account.__
+
+■ **USAGE:**
+**Parameter:** Not Required.
+**Replied:** Not Required.
+
+■ **EXAMPLE:**
+**1.** `/info`"""
+
+IP_TXT = """■ **HELP:** `IP Address`
+ 
+__Get details about your IP Address.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a valid IP Address to get it's details.__**
+
+**~ 1st Parameter:**
+**1.** Value must be numerical, not alphabetical.
+**2.** Value must be a valid IP Address.
+
+■ **EXAMPLE:**
+**1.** `/ip 103.81.26.122`"""
+
+JOKE_TXT = """■ **HELP:** `Joke`
+
+__Get a random Joke.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1.** `/joke`"""
+
+MEANING_TXT = """■ **HELP:** `Meaning`
+ 
+__Find meaning of a word.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a query to search it's meaning.__**
+
+**~ 1st Parameter:**
+**1.** Value must be alphabetical., not numerical.
+
+■ **EXAMPLE:**
+**1.** `/meaning help`"""
+
+NCODE_TXT = """■ **HELP:** `Ncode`
+ 
+__Convert your text to images.__
+
+■ **USAGE:**
+**Parameter:** Not Required.
+**Replied:** (message, text document), Required.
+
+**__Command must be reply to a message or text document.__**
+
+■ **EXAMPLE:**
+**1.** `/ncode`"""
+
+NCODE_TXT = """■ **HELP:** `Nekobin`
+ 
+__Upload given text to Nekobin.__
+
+■ **USAGE:**
+**Parameter:** Not Required.
+**Replied:** (message, text document), Required.
+
+**__Command must be reply to a message or text document.__**
+
+■ **EXAMPLE:**
+**1.** `/nekobin`"""
+
 HELP_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
@@ -302,17 +413,17 @@ LIST_2_BTN = InlineKeyboardMarkup(
 
 LIST_3_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('Host', callback_data='1'),
+            InlineKeyboardButton('Host', callback_data='host'),
             InlineKeyboardButton('Google Img', callback_data='3')
             ],[
-            InlineKeyboardButton('User Info', callback_data='1'),
-            InlineKeyboardButton('IP Address', callback_data='3')
+            InlineKeyboardButton('User Info', callback_data='info'),
+            InlineKeyboardButton('IP Address', callback_data='ip')
             ],[
-            InlineKeyboardButton('Joke', callback_data='1'),
-            InlineKeyboardButton('Meaning', callback_data='3')
+            InlineKeyboardButton('Joke', callback_data='joke'),
+            InlineKeyboardButton('Meaning', callback_data='meaning')
             ],[
-            InlineKeyboardButton('Ncode', callback_data='1'),
-            InlineKeyboardButton('Nekobin', callback_data='3')
+            InlineKeyboardButton('Ncode', callback_data='ncode'),
+            InlineKeyboardButton('Nekobin', callback_data='nekobin')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_2'),
             InlineKeyboardButton('Home', callback_data='help'),
@@ -463,6 +574,62 @@ HEX_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('⇨', callback_data='host')
        ]])
 
+HOST_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='hex'),
+            InlineKeyboardButton('Back', callback_data='list_3'),
+            InlineKeyboardButton('⇨', callback_data='img')
+       ]])
+
+IMG_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='host'),
+            InlineKeyboardButton('Back', callback_data='list_3'),
+            InlineKeyboardButton('⇨', callback_data='info')
+       ]])
+
+INFO_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='img'),
+            InlineKeyboardButton('Back', callback_data='list_3'),
+            InlineKeyboardButton('⇨', callback_data='ip')
+       ]])
+
+IP_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='info'),
+            InlineKeyboardButton('Back', callback_data='list_3'),
+            InlineKeyboardButton('⇨', callback_data='joke')
+       ]])
+
+JOKE_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='ip'),
+            InlineKeyboardButton('Back', callback_data='list_3'),
+            InlineKeyboardButton('⇨', callback_data='meaning')
+       ]])
+
+MEANING_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='joke'),
+            InlineKeyboardButton('Back', callback_data='list_3'),
+            InlineKeyboardButton('⇨', callback_data='ncode')
+       ]])
+
+NCODE_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='meaning'),
+            InlineKeyboardButton('Back', callback_data='list_3'),
+            InlineKeyboardButton('⇨', callback_data='nekobin')
+       ]])
+
+NEKOBIN_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='ncode'),
+            InlineKeyboardButton('Back', callback_data='list_3'),
+            InlineKeyboardButton('⇨', callback_data='pexels')
+       ]])
+
 @Client.on_callback_query()
 async def cb_data(bot, message):
     if message.data == "help":
@@ -595,6 +762,54 @@ async def cb_data(bot, message):
         await message.edit_message_text(
           text=HEX_TXT,
           reply_markup=HEX_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "hosy":
+        await message.edit_message_text(
+          text=HOST_TXT,
+          reply_markup=HOST_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "img":
+        await message.edit_message_text(
+          text=IMG_TXT,
+          reply_markup=IMG_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "info":
+        await message.edit_message_text(
+          text=INFO_TXT,
+          reply_markup=INFO_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "ip":
+        await message.edit_message_text(
+          text=IP_TXT,
+          reply_markup=IP_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "joke":
+        await message.edit_message_text(
+          text=JOKE_TXT,
+          reply_markup=JOKE_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "hex":
+        await message.edit_message_text(
+          text=MEANING_TXT,
+          reply_markup=MEANING_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "ncode":
+        await message.edit_message_text(
+          text=NDODE_TXT,
+          reply_markup=NCODE_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "NEKOBIN":
+        await message.edit_message_text(
+          text=NEKOBIN_TXT,
+          reply_markup=NEKOBIN_BTN
         )
         await message.answer('www.hagadmansa.com')
       
