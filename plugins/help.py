@@ -50,7 +50,7 @@ __Convert your text to beautiful images.__
 **__Command must be reply to a message or text document.__**
 
 **~ 1st Parameter:**
-**1.** 1st Parameter must be alphabetical, not numerical.
+**1.** Value must be alphabetical, not numerical.
 **2.** Pass '`random`' to generate random background.
 **3.** Pass a color name to generate custom background.
 **4.** Pass '`colorlist`' to get a list of colors.
