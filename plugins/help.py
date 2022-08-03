@@ -44,20 +44,22 @@ CARBON_TXT = """■ **HELP:** `Carbon`
 __Convert your text or codes into bueautifyl templates.__
 
 ■ **USAGE:**
-**Parameter:** 1, ~Optional.
-**Replied:** (Text, Text Document), *Required.
+**Parameter:** 1, Optional
+**Replied:** (message, text document), Required.
 
-**1.** If you put 'random' on 1st Parameter it'll generate Carbon with random Backgrounds.
-**2.** If you put a color name in 1st Parameter it'll generate Carbon with given color Background.
-**3.** Send `/carbon colorlist` to get Color List.
+**__Command must be reply to a message or text document.__**
 
-■ **NOTE:**
+**~ 1st Parameter:**
+**1.** Pass `random` to generate random background.
+**2.** Pass a color name to generate custom background.
+**3.** Pass `colorlist` to get a list of colors.
 **1.** 1st Parameter must be alphabetical, not numerical.
 
 ■ **EXAMPLE:**
 **1.** `/carbon`
-**2.** `/carbon random`
-**3.** `/carbon red`"""
+**2.** `/carbon red`
+**3.** `/carbon random`
+**3.** `/carbon colorlist`"""
 
 HELP_BTN = InlineKeyboardMarkup(
         [[
@@ -72,9 +74,9 @@ HELP_BTN = InlineKeyboardMarkup(
 LIST_1_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Advice', callback_data='advice'),
-            InlineKeyboardButton('Bully', callback_data='3')
+            InlineKeyboardButton('Bully', callback_data='bully')
             ],[
-            InlineKeyboardButton('Carbon', callback_data='1'),
+            InlineKeyboardButton('Carbon', callback_data='carbon'),
             InlineKeyboardButton('Da.gd', callback_data='3')
             ],[
             InlineKeyboardButton('Dare', callback_data='1'),
