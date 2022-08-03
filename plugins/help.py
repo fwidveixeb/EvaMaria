@@ -53,7 +53,7 @@ __Convert your text or codes into bueautifyl templates.__
 **1.** Pass `random` to generate random background.
 **2.** Pass a color name to generate custom background.
 **3.** Pass `colorlist` to get a list of colors.
-**1.** 1st Parameter must be alphabetical, not numerical.
+**4.** 1st Parameter must be alphabetical, not numerical.
 
 ■ **EXAMPLE:**
 **1.** `/carbon`
@@ -92,7 +92,7 @@ LIST_1_BTN = InlineKeyboardMarkup(
 
 LIST_2_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('Doc', callback_data=''),
+            InlineKeyboardButton('Doc', callback_data='1'),
             InlineKeyboardButton('Fact', callback_data='3')
             ],[
             InlineKeyboardButton('Fake Info', callback_data='1'),
