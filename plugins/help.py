@@ -350,7 +350,7 @@ __Convert your text to images.__
 ■ **EXAMPLE:**
 **1.** `/ncode`"""
 
-NCODE_TXT = """■ **HELP:** `Nekobin`
+NEKOBIN_TXT = """■ **HELP:** `Nekobin`
  
 __Upload given text to Nekobin.__
 
@@ -414,7 +414,7 @@ LIST_2_BTN = InlineKeyboardMarkup(
 LIST_3_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Host', callback_data='host'),
-            InlineKeyboardButton('Google Img', callback_data='3')
+            InlineKeyboardButton('Google Img', callback_data='img')
             ],[
             InlineKeyboardButton('User Info', callback_data='info'),
             InlineKeyboardButton('IP Address', callback_data='ip')
@@ -764,7 +764,7 @@ async def cb_data(bot, message):
           reply_markup=HEX_BTN
         )
         await message.answer('www.hagadmansa.com')
-    elif message.data == "hosy":
+    elif message.data == "host":
         await message.edit_message_text(
           text=HOST_TXT,
           reply_markup=HOST_BTN
@@ -794,7 +794,7 @@ async def cb_data(bot, message):
           reply_markup=JOKE_BTN
         )
         await message.answer('www.hagadmansa.com')
-    elif message.data == "hex":
+    elif message.data == "meaning":
         await message.edit_message_text(
           text=MEANING_TXT,
           reply_markup=MEANING_BTN
@@ -806,7 +806,7 @@ async def cb_data(bot, message):
           reply_markup=NCODE_BTN
         )
         await message.answer('www.hagadmansa.com')
-    elif message.data == "NEKOBIN":
+    elif message.data == "nekobin":
         await message.edit_message_text(
           text=NEKOBIN_TXT,
           reply_markup=NEKOBIN_BTN
