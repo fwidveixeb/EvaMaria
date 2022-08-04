@@ -498,7 +498,7 @@ __Get a random image of person that does not exist.__
 ■ **EXAMPLE:**
 **1. **`/tpdne`"""
 
-TPDNE_TXT = """■ **HELP:** `Truth`
+TRUTH_TXT = """■ **HELP:** `Truth`
 
 __Get a truth to play with your friends & family.__
 
