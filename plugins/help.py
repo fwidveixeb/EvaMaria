@@ -480,8 +480,12 @@ __Upload message, photo, video, animation, text document to Telegraph.__
 
 **__Command must be reply to a message, photo, video, animation or text document.__**
 
+**~ 1st Parameter:**
+**1.** While replying to a message or text document, you can paas a custom alias.
+
 ■ **EXAMPLE:**
-**1.** `/telegraph`"""
+**1.** `/telegraph`
+**2.** `/telegraph Hello this is a Telegraph.`"""
 
 HELP_BTN = InlineKeyboardMarkup(
         [[
@@ -552,17 +556,17 @@ LIST_3_BTN = InlineKeyboardMarkup(
 
 LIST_4_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('Pexels', callback_data='1'),
-            InlineKeyboardButton('PH Logo', callback_data='3')
+            InlineKeyboardButton('Pexels', callback_data='pexels'),
+            InlineKeyboardButton('PH Logo', callback_data='phlogo')
             ],[
-            InlineKeyboardButton('Picsum', callback_data='1'),
-            InlineKeyboardButton('QR Generator', callback_data='3')
+            InlineKeyboardButton('Picsum', callback_data='picsum'),
+            InlineKeyboardButton('QR Generator', callback_data='qrcode')
             ],[
-            InlineKeyboardButton('Quote', callback_data='1'),
-            InlineKeyboardButton('Remove BG', callback_data='3')
+            InlineKeyboardButton('Quote', callback_data='quote'),
+            InlineKeyboardButton('Remove BG', callback_data='rmbg')
             ],[
-            InlineKeyboardButton('Spacebin', callback_data='1'),
-            InlineKeyboardButton('Telegraph', callback_data='3')
+            InlineKeyboardButton('Spacebin', callback_data='spacebin'),
+            InlineKeyboardButton('Telegraph', callback_data='telegraph')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_3'),
             InlineKeyboardButton('Home', callback_data='help'),
@@ -750,6 +754,62 @@ NEKOBIN_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('⇨', callback_data='pexels')
        ]])
 
+PEXELS_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='nekobin'),
+            InlineKeyboardButton('Back', callback_data='list_4'),
+            InlineKeyboardButton('⇨', callback_data='phlogo')
+       ]])
+
+PHLOGO_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='pexels'),
+            InlineKeyboardButton('Back', callback_data='list_4'),
+            InlineKeyboardButton('⇨', callback_data='picsum')
+       ]])
+
+PICSUM_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='phlogo'),
+            InlineKeyboardButton('Back', callback_data='list_4'),
+            InlineKeyboardButton('⇨', callback_data='qrcode')
+       ]])
+
+QRCODE_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='picsum'),
+            InlineKeyboardButton('Back', callback_data='list_4'),
+            InlineKeyboardButton('⇨', callback_data='quote')
+       ]])
+
+QUOTE_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='qrcode'),
+            InlineKeyboardButton('Back', callback_data='list_4'),
+            InlineKeyboardButton('⇨', callback_data='rmbg')
+       ]])
+
+RMBG_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='quote'),
+            InlineKeyboardButton('Back', callback_data='list_4'),
+            InlineKeyboardButton('⇨', callback_data='spacebin')
+       ]])
+
+SPACEBIN_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='rmbg'),
+            InlineKeyboardButton('Back', callback_data='list_4'),
+            InlineKeyboardButton('⇨', callback_data='telegraph')
+       ]])
+
+TELEGRAPH_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='spacebin'),
+            InlineKeyboardButton('Back', callback_data='list_4'),
+            InlineKeyboardButton('⇨', callback_data='tpdne')
+       ]])
+
 @Client.on_callback_query()
 async def cb_data(bot, message):
     if message.data == "help":
@@ -930,6 +990,54 @@ async def cb_data(bot, message):
         await message.edit_message_text(
           text=NEKOBIN_TXT,
           reply_markup=NEKOBIN_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "pexels":
+        await message.edit_message_text(
+          text=PEXELS_TXT,
+          reply_markup=PEXELS_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "phlogo":
+        await message.edit_message_text(
+          text=PHLOGO_TXT,
+          reply_markup=PHLOGO_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "picsum":
+        await message.edit_message_text(
+          text=PICSUM_TXT,
+          reply_markup=PICSUM_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "qrcode":
+        await message.edit_message_text(
+          text=QRCODE_TXT,
+          reply_markup=QRCODE_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "quote":
+        await message.edit_message_text(
+          text=QUOTE_TXT,
+          reply_markup=QUOTE_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "rmbg":
+        await message.edit_message_text(
+          text=RMBG_TXT,
+          reply_markup=RMBG_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "spacebin":
+        await message.edit_message_text(
+          text=SPACEBIN_TXT,
+          reply_markup=SPACEBIN_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "telegraph":
+        await message.edit_message_text(
+          text=TELEGRAPH_TXT,
+          reply_markup=TELEGRAPH_BTN
         )
         await message.answer('www.hagadmansa.com')
       
