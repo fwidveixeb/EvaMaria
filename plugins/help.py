@@ -629,11 +629,11 @@ LIST_4_BTN = InlineKeyboardMarkup(
 
 LIST_5_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('TPDNE', callback_data='1'),
-            InlineKeyboardButton('Truth', callback_data='3')
+            InlineKeyboardButton('TPDNE', callback_data='tpdne'),
+            InlineKeyboardButton('Truth', callback_data='truth')
             ],[
-            InlineKeyboardButton('Dictionary', callback_data='1'),
-            InlineKeyboardButton('WHOIS', callback_data='3')
+            InlineKeyboardButton('Dictionary', callback_data='ud'),
+            InlineKeyboardButton('WHOIS', callback_data='whois')
             ],[
             InlineKeyboardButton('⇦', callback_data='list_4'),
             InlineKeyboardButton('Home', callback_data='help'),
