@@ -80,7 +80,7 @@ __Convert a long URL to short.__
 
 DARE_TXT = """■ **HELP:** `Dare`
 
-__Get a random Dare.__
+__Get a dare to play with your friends & family.__
 
 ■ **USAGE:**
 **Parameter:** Not required.
@@ -487,6 +487,60 @@ __Upload message, photo, video, animation, text document to Telegraph.__
 **1.** `/telegraph`
 **2.** `/telegraph Hello this is a Telegraph.`"""
 
+TPDNE_TXT = """■ **HELP:** `This Person Does Not Exist`
+
+__Get a random image of person that does not exist.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1. **`/tpdne`"""
+
+TPDNE_TXT = """■ **HELP:** `Truth`
+
+__Get a truth to play with your friends & family.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1. **`/truth`"""
+
+UD_TXT = """■ **HELP:** `Urban Dictionary`
+ 
+__Search words on Urban Dictionary.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a query to search on Urban Dictionary.__**
+
+**~ 1st Parameter:**
+**1.** Value must be alphabetical., not numerical.
+
+■ **EXAMPLE:**
+**1.** `/ud help`"""
+
+WHOIS_TXT = """■ **HELP:** `WHOIS`
+ 
+__Check website's WHOIS details.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a link to get WHOIS details.__**
+
+**~ 1st Parameter:**
+**1.** URL must start with http:// or https://.
+
+■ **EXAMPLE:**
+**1.** `/whois https://hagadmansa.com`"""
+
 HELP_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
@@ -810,6 +864,34 @@ TELEGRAPH_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('⇨', callback_data='tpdne')
        ]])
 
+TPDNE_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='telegraph'),
+            InlineKeyboardButton('Back', callback_data='list_5'),
+            InlineKeyboardButton('⇨', callback_data='truth')
+       ]])
+
+TRUTH_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='tpdne'),
+            InlineKeyboardButton('Back', callback_data='list_5'),
+            InlineKeyboardButton('⇨', callback_data='ud')
+       ]])
+
+UD_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='truth'),
+            InlineKeyboardButton('Back', callback_data='list_5'),
+            InlineKeyboardButton('⇨', callback_data='whois')
+       ]])
+
+WHOIS_BTN = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('⇦', callback_data='ud'),
+            InlineKeyboardButton('Back', callback_data='list_5'),
+            InlineKeyboardButton('⇨', callback_data='advice')
+       ]])
+
 @Client.on_callback_query()
 async def cb_data(bot, message):
     if message.data == "help":
@@ -1038,6 +1120,30 @@ async def cb_data(bot, message):
         await message.edit_message_text(
           text=TELEGRAPH_TXT,
           reply_markup=TELEGRAPH_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "tpdne":
+        await message.edit_message_text(
+          text=TPDNE_TXT,
+          reply_markup=TPDNE_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "truth":
+        await message.edit_message_text(
+          text=TRUTH_TXT,
+          reply_markup=TRUTH_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "ud":
+        await message.edit_message_text(
+          text=UD_TXT,
+          reply_markup=UD_BTN
+        )
+        await message.answer('www.hagadmansa.com')
+    elif message.data == "whois":
+        await message.edit_message_text(
+          text=WHOIS_TXT,
+          reply_markup=WHOIS_BTN
         )
         await message.answer('www.hagadmansa.com')
       
