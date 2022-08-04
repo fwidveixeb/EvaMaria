@@ -363,6 +363,126 @@ __Upload given text to Nekobin.__
 ■ **EXAMPLE:**
 **1.** `/nekobin`"""
 
+PEXELS_TXT = """■ **HELP:** `Pexels`
+ 
+__Get Images from Pexels.com.__
+
+■ **USAGE:**
+**Parameter:** 1, Required.
+**Replied:** Not Required.
+
+**__Command must have a query to get images.__**
+
+■ **EXAMPLE:**
+**1.** `/pexels cat`
+**2.** `/pexels mountain`"""
+
+PHLOGO_TXT = """■ **HELP:** `Pornhub Logo`
+ 
+__Genarate a logo like Pornhub.__
+
+■ **USAGE:**
+**Parameter:** 2, Required.
+**Replied:** Not Required.
+
+**__Command must have a name and sirname to generate logo.__**
+
+■ **EXAMPLE:**
+**1.** `/phlogo Hello moto`
+**2.** `/phlogo Ankit Kumar`"""
+
+PICSUM_TXT = """■ **HELP:** `Picsum`
+ 
+__Get random images according to your size.__
+
+■ **USAGE:**
+**Parameter:** 2, Required; 1, Optional.
+**Replied:** Not Required.
+
+**__Command must have height and width to get image.__**
+
+**~ 1st Parameter:**
+**1.** Value must be numerical, not alphabetical.
+**2.** Height must be in multiple of 100 and should not exceed 5000.
+
+**~ 2nd Parameter:**
+**1.** Value must be numerical, not alphabetical.
+**2.** Width must be in multiple of 100 and should not exceed 5000.
+
+**~ 3rd Parameter:**
+**1.** Pass '`Blur`' to get a blurred image.
+**2.** Pass '`Grey`' to get a grayscale image.
+
+■ **EXAMPLE:**
+**1.** `/picsum 500 1000`
+**1.** `/picsum 2000 3000`
+**1.** `/picsum 1200 1800 Blur`
+**1.** `/picsum 2500 1500 Gray`"""
+
+QRCODE_TXT = """■ **HELP:** `QR Generator`
+ 
+__Genarate a QR Code of given text.__
+
+■ **USAGE:**
+**Parameter:** Required.
+**Replied:** Not Required.
+
+**__Command must have some text to make QR Code of.__**
+
+■ **EXAMPLE:**
+**1.** `/qrcode https://hagadmansa.com`
+**2.** `/qrcode Hello my name is {your name here}.`"""
+
+QUOTE_TXT = """■ **HELP:** `Quote`
+
+__Get a random Quotes.__
+
+■ **USAGE:**
+**Parameter:** Not required.
+**Replied:** Not required.
+
+■ **EXAMPLE:**
+**1.** `/quote`"""
+
+RMBG_TXT = """■ **HELP:** `Remove Background`
+ 
+__Remove background of any image.__
+
+■ **USAGE:**
+**Parameter:** Not Required.
+**Replied:** (photo), Required.
+
+**__Command must be replied to a photo to remove background.__**
+
+■ **EXAMPLE:**
+**1.** `/rmbg`"""
+
+SPACEBIN_TXT = """■ **HELP:** `Spacebin`
+ 
+__Upload given text to Spacebin.__
+
+■ **USAGE:**
+**Parameter:** Not Required.
+**Replied:** (message, text document), Required.
+
+**__Command must be reply to a message or text document.__**
+
+■ **EXAMPLE:**
+**1.** `/spacebin`"""
+
+TELEGRAPH_TXT = """■ **HELP:** `Telegrph`
+ 
+__Upload message, photo, video, animation, text document to Telegraph.__
+
+■ **USAGE:**
+**Parameter:** Optional.
+**Replied:** (message, photo, video, animation, text document), Required.
+
+**__Command must be reply to a message, photo, video, animation or text document.__**
+
+■ **EXAMPLE:**
+**1.** `/telegraph`"""
+
 HELP_BTN = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
@@ -378,7 +498,7 @@ LIST_1_BTN = InlineKeyboardMarkup(
             InlineKeyboardButton('Advice', callback_data='advice'),
             InlineKeyboardButton('Bully', callback_data='bully')
             ],[
-            InlineKeyboardButton('Carbon', callback_data='carbon'),
+            InlineKeyboardButton('carbon', callback_data='carbon'),
             InlineKeyboardButton('Da.gd', callback_data='dagd')
             ],[
             InlineKeyboardButton('Dare', callback_data='dare'),
