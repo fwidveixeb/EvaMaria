@@ -50,18 +50,6 @@ async def start(client, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
-    if message.command[1].lower() == "advice":   
-         advice = await message.reply("`Processing...`")
-         await asyncio.sleep(0.5)
-         await advice.edit(ADVICE_TXT)
-    elif message.command[1].lower() == "bully":
-         bully = await message.reply("`Processing...`")
-         await asyncio.sleep(0.5)
-         await bully.edit(BULLY_TXT)
-    elif message.command[1].lower() == "carbon":
-         carbon = await message.reply("`Processing...`")
-         await asyncio.sleep(0.5)
-         await carbon.edit(CARBON_TXT)
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
@@ -75,6 +63,20 @@ async def start(client, message):
             parse_mode='html'
         )
         return
+    
+    if message.command[1].lower() == "advice":   
+         advice = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         await advice.edit(ADVICE_TXT)
+    elif message.command[1].lower() == "bully":
+         bully = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         await bully.edit(BULLY_TXT)
+    elif message.command[1].lower() == "carbon":
+         carbon = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         await carbon.edit(CARBON_TXT)
+    
    
     data = message.command[1]
     try:
