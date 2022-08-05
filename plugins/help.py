@@ -1263,7 +1263,7 @@ async def help(client, message):
      await phlogo.edit(PHLOGO_TXT)
  elif message.command[1].lower() == "picsum":
      picsum = await message.reply("`Processing...`")
-     await asynio.sleep(0.5)
+     await asyncio.sleep(0.5)
      await picsum.edit(PICSUM_TXT)
  elif message.command[1].lower() == "qrcode":
      qrcode = await message.reply("`Processing...`")
