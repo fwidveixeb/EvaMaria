@@ -1301,7 +1301,7 @@ async def help(client, message):
      whois = await message.reply("`Processing...`")
      await asyncio.sleep(0.5)
      await whois.edit(WHOIS_TXT)
- elif:
+ else:
      k = await message.reply("`Processing...`")
      await asyncio.sleep(0.5)
      await k.edit(f"Sorry I could not fount any command name {message.command[1]}, send '`/cmds`' to check all commands else send '`/help`' to open detailed help menu.") 
