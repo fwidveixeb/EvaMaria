@@ -9,7 +9,7 @@ async def rmbg(bot, message):
   replied = message.reply_to_message
 
   if not replied:
-      return await rmgb.edit("Reply to a photo to Remove it's Backgroud, Read Help Menu to know how command works.")
+      return await rmbg.edit("Reply to a photo to Remove it's Backgroud, Read Help Menu to know how command works.")
 
   if replied.photo:
       photo = await bot.download_media(replied)
