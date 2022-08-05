@@ -1157,4 +1157,5 @@ async def help(client, message):
        reply_markup=HELP_BTN
      )
  elif message.command[1].lower() == "advice":
-     await message.reply(text=ADVICE_TXT, reply_markup=ADVICE_BTN)
+     advice = await message.reply("`Processing...`")
+     await advice.edit(ADVICE_TXT)
