@@ -1304,6 +1304,6 @@ async def help(client, message):
  else:
      k = await message.reply("`Processing...`")
      await asyncio.sleep(0.5)
-     await k.edit(f"Sorry I could not fount any command name '`{message.command[1:]}`'.\n Send '`/cmds`' to check all commands else send '`/help`' to open detailed help menu.") 
+     await k.edit(f"Sorry I could not found any command named '`{message.command[1]}`'.\nSend '`/cmds`' to know all commands else send '`/help`' to open detailed help menu.") 
      
  
