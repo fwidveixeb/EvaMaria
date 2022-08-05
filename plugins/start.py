@@ -53,10 +53,10 @@ async def start(client, message):
     if len(message.command) != 2:
         reply_markup = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
-            ],[
             InlineKeyboardButton('Updates', url='https://t.me/hagadmansa'),
             InlineKeyboardButton('Support', url='https://t.me/hagadmansachat')
+            ],[
+            InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
             ]])
         await message.reply_photo(
             photo="https://telegra.ph/file/bcaca021044aac6ac3804.jpg",
