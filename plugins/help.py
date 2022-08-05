@@ -1149,9 +1149,12 @@ async def cb_data(bot, message):
       
 @Client.on_message(filters.command("hp")) 
 async def help(client, message):
-  
-    await message.reply_photo(
-      photo="https://telegra.ph/file/ebba73e063dac600db5d0.jpg",
-      caption=HELP_TXT,
-      reply_markup=HELP_BTN
-    )
+ 
+ if len(message.command) == 1:
+     await message.reply_photo(
+       photo="https://telegra.ph/file/ebba73e063dac600db5d0.jpg",
+       caption=HELP_TXT,
+       reply_markup=HELP_BTN
+     )
+ elif message.command[1].lower() == "advice":
+     await message.reply(text=ADVICE_TXT, reply_markup=ADVICE_BTN)
