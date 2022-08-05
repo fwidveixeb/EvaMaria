@@ -28,7 +28,7 @@ async def allowed(_, __, message):
     return False
 
 
-@Client.on_message(filters.command(['fs']) & filters.create(allowed))
+@Client.on_message(filters.command(['fs', 'filestore']) & filters.create(allowed))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
