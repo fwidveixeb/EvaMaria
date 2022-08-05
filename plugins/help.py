@@ -1279,7 +1279,7 @@ async def help(client, message):
      await rmbg.edit(RMBG_TXT)
  elif message.command[1].lower() == "spacebin":
      spacebin = await message.reply("`Processing...`")
-     await asynio.sleep(0.5)
+     await asyncio.sleep(0.5)
      await spacebin.edit(SPACEBIN_TXT)
  elif message.command[1].lower() == "telegraph":
      telegraph = await message.reply("`Processing...`")
