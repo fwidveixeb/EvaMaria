@@ -1189,3 +1189,121 @@ async def help(client, message):
      dob = await message.reply("`Processing...`")
      await asyncio.sleep(0.5)
      await dob.edit(DOB_TXT)
+ elif message.command[1].lower() == "doc":
+     doc = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await doc.edit(DOC_TXT)
+ elif message.command[1].lower() == "fact":
+     fact = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await fact.edit(FACT_TXT)
+ elif message.command[1].lower() == "fakeinfo":
+     fakeinfo = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await fakeinfo.edit(FAKEINFO_TXT)
+ elif message.command[1].lower() == "filestore":
+     filestore = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await filestore.edit(FILESTORE_TXT)
+ elif message.command[1].lower() == "filestream":
+     filestream = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await filestream.edit(FILESTREAM_TXT)
+ elif message.command[1].lower() == "github":
+     github = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await github.edit(GITHUB_TXT)
+ elif message.command[1].lower() == "glitch":
+     glitch = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await glitch.edit(GLITCH_TXT)
+ elif message.command[1].lower() == "hex":
+     hexn = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await hexn.edit(HEX_TXT)
+ elif message.command[1].lower() == "host":
+     host = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await host.edit(HOST_TXT)
+ elif message.command[1].lower() == "img":
+     img = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await img.edit(IMG_TXT)
+ elif message.command[1].lower() == "info":
+     info = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await info.edit(INFO_TXT)
+ elif message.command[1].lower() == "ip":
+     ip = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await ip.edit(IP_TXT)
+ elif message.command[1].lower() == "joke":
+     joke = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await joke.edit(JOKE_TXT)
+ elif message.command[1].lower() == "meaning":
+     meaning = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await meaning.edit(MEANING_TXT)
+ elif message.command[1].lower() == "ncode":
+     ncode = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await ncode.edit(NCODE_TXT)
+ elif message.command[1].lower() == "nekobin":
+     nekobin = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await nekobin.edit(NEKOBIN_TXT)
+ elif message.command[1].lower() == "pexels":
+     pexels = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await pexels.edit(PEXELS_TXT)
+ elif message.command[1].lower() == "phlogo":
+     phlogo = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await phlogo.edit(PHLOGO_TXT)
+ elif message.command[1].lower() == "picsum":
+     picsum = await message.reply("`Processing...`")
+     await asynio.sleep(0.5)
+     await picsum.edit(PICSUM_TXT)
+ elif message.command[1].lower() == "qrcode":
+     qrcode = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await qrcode.edit(QRCODE_TXT)
+ elif message.command[1].lower() == "quote":
+     quote = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await quote.edit(QUOTE_TXT)
+ elif message.command[1].lower() == "rmbg":
+     rmbg = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await rmbg.edit(RMBG_TXT)
+ elif message.command[1].lower() == "spacebin":
+     spacebin = await message.reply("`Processing...`")
+     await asynio.sleep(0.5)
+     await spacebin.edit(SPACEBIN_TXT)
+ elif message.command[1].lower() == "telegraph":
+     telegraph = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await telegraph.edit(TELEGRAPH_TXT)
+ elif message.command[1].lower() == "tpdne":
+     tpdne = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await tpdne.edit(TPDNE_TXT)
+ elif message.command[1].lower() == "truth":
+     truth = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await truth.edit(TRUTH_TXT)
+ elif message.command[1].lower() == "ud":
+     ud = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await ud.edit(UD_TXT)
+ elif message.command[1].lower() == "whois":
+     whois = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await whois.edit(WHOIS_TXT)
+ elif:
+     k = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await k.edit(f"Sorry I could not fount any command name {message.command[1]}, send '`/cmds`' to check all commands else send '`/help`' to open detailed help menu.") 
+     
+ 
