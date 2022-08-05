@@ -184,7 +184,7 @@ async def start(client, message):
      return await phlogo.edit(PHLOGO_TXT)
     elif message.command[1].lower() == "picsum":
      picsum = await message.reply("`Processing...`")
-     await asynio.sleep(0.5)
+     await asyncio.sleep(0.5)
      return await picsum.edit(PICSUM_TXT)
     elif message.command[1].lower() == "qrcode":
      qrcode = await message.reply("`Processing...`")
