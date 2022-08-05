@@ -1,4 +1,4 @@
-import random
+"""import random
 import asyncio
 from Vars import Var
 from info import PICS, ADMINS
@@ -182,5 +182,4 @@ async def help(client, message):
             InlineKeyboardButton('🕹 Tutorials', callback_data='tutorials'),
             ],[
             InlineKeyboardButton('⚠️ Warning', callback_data='warning')
-         ]]))
-       
+         ]]))"""
