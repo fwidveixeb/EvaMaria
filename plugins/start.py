@@ -51,11 +51,13 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
-        buttons = [[
-            InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
-            InlineKeyboardButton('📣 Updates', url='https://t.me/hagadmansa')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
+        reply_markup = InlineKeyboardMarkup(
+        [[
+            InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
+            ],[
+            InlineKeyboardButton('Updates', url='https://t.me/hagadmansa'),
+            InlineKeyboardButton('Support', url='https://t.me/hagadmansachat')
+            ]])
         await message.reply_photo(
             photo="https://telegra.ph/file/bcaca021044aac6ac3804.jpg",
             caption=f"👋 Hello {message.from_user.mention}, I can provide you movies, apart from that i've a lot of featurs. Just visit my website www.hagadmansa.com to download movies else send /cmds or /help to know my other features.",
