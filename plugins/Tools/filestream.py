@@ -59,7 +59,7 @@ async def banned_users(_, client, message: Message):
 
 banned_user = filters.create(banned_users)
 
-@Client.on_message( filters.command("dd") & ~banned_user, group=4,)
+@Client.on_message( filters.command(['dd', 'filestream']) & ~banned_user, group=4,)
 async def media_receive_handler(bot, message):
     replied = message.reply_to_message
     if not replied:
