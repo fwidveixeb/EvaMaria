@@ -1,5 +1,5 @@
 import asyncio
-from pyrogram import Client
+from pyrogram import Client, filters
 
 @Client.on_message(filters.command('cmds'))
 async def cmds(bot, message):
