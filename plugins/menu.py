@@ -4,7 +4,7 @@ from Vars import Var
 from info import PICS, ADMINS
 from pyrogram import filters, Client
 from utils import temp
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto"""
 
 NEW_ABOUT_TEXT = """<b>😊 Use these buttons to know about me. Send /start to reload me.</b>"""
 
@@ -42,7 +42,7 @@ VIDEO = ["https://telegra.ph/file/bafed7e9c21f326193963.jpg"]
 
 AUDIO = ["https://telegra.ph/file/a1900232d1715b8b9adbb.jpg"]
 
-NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
+"""NEW_ABOUT_HOME_BUTTONS = InlineKeyboardMarkup(
         [[
             InlineKeyboardButton('⭐️ Rating', callback_data='rating'),
             InlineKeyboardButton('❤️ Source', callback_data='source'),
