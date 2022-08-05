@@ -2,6 +2,7 @@ import os
 import logging
 import random
 import asyncio
+from plugins.help import ADVICE_TXT, BULLY_TXT, CARBON_TXT
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -61,7 +62,7 @@ async def start(client, message):
          carbon = await message.reply("`Processing...`")
          await asyncio.sleep(0.5)
          await carbon.edit(CARBON_TXT)
-    else len(message.command) != 2:
+    if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('🌐 Website', url='https://hagadmansa.com'),
             InlineKeyboardButton('📣 Updates', url='https://t.me/hagadmansa')
