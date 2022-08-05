@@ -6,7 +6,9 @@ HELP_TXT = """**Welcome to the Help Menu**
 
 Here you will find a detailed overview of every command with examples.
 
-Click on 'Open Help Menu' to open the detailed Menu."""
+Click on 'Open Help Menu' to open the detailed Menu.
+
+**TIP:** You can send '`/help {command name}`' to open it's details, for example '`/help carbon`'."""
 
 LIST_1_TXT = "List 1"
 
@@ -1148,7 +1150,7 @@ async def cb_data(bot, message):
         )
         await message.answer('www.hagadmansa.com')
       
-@Client.on_message(filters.command("hp")) 
+@Client.on_message(filters.command("help")) 
 async def help(client, message):
  
  if len(message.command) == 1:
@@ -1304,6 +1306,6 @@ async def help(client, message):
  else:
      k = await message.reply("`Processing...`")
      await asyncio.sleep(0.5)
-     await k.edit(f"Sorry I could not found any command named '`{message.command[1]}`'.\nSend '`/cmds`' to know all commands else send '`/help`' to open detailed help menu.") 
+     await k.edit(f"Sorry I could not found any command named '`{message.command[1]}`'.\nSend /cmds to know all commands else send /help to open detailed help menu.") 
      
  
