@@ -546,8 +546,6 @@ __Check website's WHOIS details.__
 
 HELP_BTN = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton('Visit Website', url='https://hagadmansa.com')
-            ],[
             InlineKeyboardButton('Updates', url='https://t.me/hagadmansa'),
             InlineKeyboardButton('Support', url='https://t.me/hagadmansachat')
             ],[
