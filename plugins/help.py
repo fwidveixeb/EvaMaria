@@ -1161,3 +1161,31 @@ async def help(client, message):
      advice = await message.reply("`Processing...`")
      await asyncio.sleep(0.5)
      await advice.edit(ADVICE_TXT)
+ elif message.command[1].lower() == "bully":
+     bully = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await bully.edit(BULLY_TXT)
+ elif message.command[1].lower() == "carbon":
+     carbon = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await carbon.edit(CARBON_TXT)
+ elif message.command[1].lower() == "dagd":
+     dagd = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await dagd.edit(DAGD_TXT)
+ elif message.command[1].lower() == "dare":
+     dare = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await dare.edit(DARE_TXT)
+ elif message.command[1].lower() == "decide":
+     decide = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await decide.edit(DECIDE_TXT)
+ elif message.command[1].lower() == "dns":
+     dns = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await dns.edit(DNS_TXT)
+ elif message.command[1].lower() == "dob":
+     dob = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
+     await dob.edit(DOB_TXT)
