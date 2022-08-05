@@ -58,7 +58,7 @@ async def start(client, message):
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo="https://telegra.ph/file/bcaca021044aac6ac3804.jpg",
-            caption=f"👋 Hello {message.from_user.mention}, I can provide you movies, apart from that i've a lot of featurs. Just visit my website www.hagadmansa.com to download movies else send /cmds to know my other features.",
+            caption=f"👋 Hello {message.from_user.mention}, I can provide you movies, apart from that i've a lot of featurs. Just visit my website www.hagadmansa.com to download movies else send /cmds or /help to know my other features.",
             reply_markup=reply_markup,
             parse_mode='html'
         )
