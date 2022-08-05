@@ -1,3 +1,4 @@
+import asyncio
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 
@@ -1158,4 +1159,5 @@ async def help(client, message):
      )
  elif message.command[1].lower() == "advice":
      advice = await message.reply("`Processing...`")
+     await asyncio.sleep(0.5)
      await advice.edit(ADVICE_TXT)
