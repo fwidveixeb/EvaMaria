@@ -2,7 +2,7 @@ import os
 import logging
 import random
 import asyncio
-from plugins.help import ADVICE_TXT, BULLY_TXT, CARBON_TXT, DAGD_TXT, DARE_TXT, DECIDE_TXT, DNS_TXT, DOB_TXT, DOC_TXT, FAKEINFO_TXT, FILESTORE_TXT, FILESTREAM_TXT, GITHUB_TXT, GLITCH_TXT, HEX_TXT, HOST_TXT, IMG_TXT, INFO_TXT, IP_TXT, JOKE_TXT, MEANING_TXT, NCODE_TXT, NEKOBIN_TXT, PEXELS_TXT, PHLOGO_TXT, PICSUM_TXT, QRCODE_TXT, QUOTE_TXT, RMBG_TXT, SPACEBI_TXTN, TELEGRAPH_TXT, TPDNE_TXT, TRUTH_TXT, UD_TXT, WHOIS_TXT
+from plugins.help import ADVICE_TXT, BULLY_TXT, CARBON_TXT, DAGD_TXT, DARE_TXT, DECIDE_TXT, DNS_TXT, DOB_TXT, DOC_TXT, FAKEINFO_TXT, FILESTORE_TXT, FILESTREAM_TXT, GITHUB_TXT, GLITCH_TXT, HEX_TXT, HOST_TXT, IMG_TXT, INFO_TXT, IP_TXT, JOKE_TXT, MEANING_TXT, NCODE_TXT, NEKOBIN_TXT, PEXELS_TXT, PHLOGO_TXT, PICSUM_TXT, QRCODE_TXT, QUOTE_TXT, RMBG_TXT, SPACEBIN_TXT, TELEGRAPH_TXT, TPDNE_TXT, TRUTH_TXT, UD_TXT, WHOIS_TXT
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -58,7 +58,7 @@ async def start(client, message):
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=random.choice(PICS),
-            caption=f"👋 Hello {message.from_user.mention}, I am a simple File Store and File Stream Bot. Send /help to know my commands.",
+            caption=f"👋 Hello {message.from_user.mention}, I can provide you movies, apart from that i've a lot of featurs. Just visit my website www.hagadmansa.com to download movies else send /cmds to know my other features.",
             reply_markup=reply_markup,
             parse_mode='html'
         )
