@@ -241,13 +241,7 @@ async def start(client, message):
             file = getattr(msg, filetype)
             title = file.file_name
             size=get_size(file.file_size)
-            f_caption = f"<code>{title}</code>"
-            
-            if CUSTOM_FILE_CAPTION:
-                try:
-                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
-                except:
-                    return 
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
             await msg.edit_caption(f_caption)
             hemlo = await client.send_message(
                 chat_id=message.chat.id,
@@ -256,12 +250,10 @@ async def start(client, message):
             await asyncio.sleep(10)
             await msg.delete()
             await hemlo.delete()
-            await msg.edit_caption(f_caption)
-            await client.send_message(
+            return await client.send_message(
                 chat_id=message.chat.id,
                 text='Your file has been deleted to avoid copyright infringement.'
-            )
-            return 
+            ) 
         except:
             return
     
