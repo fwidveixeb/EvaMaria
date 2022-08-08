@@ -1,8 +1,6 @@
-import os
 import re
 from imdb import Cinemagoer
-
-MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
+from info import MAX_LIST_ELM
 
 def list_to_str(k):
     if not k:
