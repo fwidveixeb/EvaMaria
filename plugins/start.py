@@ -242,6 +242,10 @@ async def start(client, message):
             title = file.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
+            await client.send_message(
+                chat_id=message.chat.id,
+                text='Hello'
+            )
             if CUSTOM_FILE_CAPTION:
                 try:
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
