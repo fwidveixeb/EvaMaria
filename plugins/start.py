@@ -249,9 +249,17 @@ async def start(client, message):
                 except:
                     return 
             await msg.edit_caption(f_caption)
+            hemlo = await client.send_message(
+                chat_id=message.chat.id,
+                text='This file will be deleted in 60 minutes to avoid copyright infringement, make sure you forward it to your saved mssages.'
+            )
+            await asyncio.sleep(10)
+            await msg.delete()
+            await hemlo.delete()
+            await msg.edit_caption(f_caption)
             await client.send_message(
                 chat_id=message.chat.id,
-                text='Hello'
+                text='Your file has been deleted to avoid copyright infringement.'
             )
             return 
         except:
