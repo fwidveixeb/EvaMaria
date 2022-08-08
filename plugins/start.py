@@ -247,7 +247,7 @@ async def start(client, message):
                 chat_id=message.chat.id,
                 text='**NOTE: This file will be deleted in 10 minutes to avoid copyright infringement, make sure you forward it to your saved messages.**'
             )
-            await asyncio.sleep(5)
+            await asyncio.sleep(600)
             await msg.delete()
             await hemlo.delete()
             return await client.send_message(
