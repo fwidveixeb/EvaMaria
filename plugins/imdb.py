@@ -5,6 +5,7 @@ from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from info import IMDB_TEMPLATE
 import time
+from plugins.Helper.imdb import get_poster
 from datetime import datetime
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 import logging
@@ -27,7 +28,7 @@ async def imdb_search(client, message):
         btn = [[
                 InlineKeyboardButton(
                     text=f"{movie.get('title')} - {movie.get('year')}",
-                    callback_data=f"imdb{movie.movieID}",
+                    callback_data=f"imdb#{movie.movieID}",
                 )
             ]
             for movie in movies
@@ -38,7 +39,7 @@ async def imdb_search(client, message):
 @Client.on_callback_query(filters.regex('^imdb'))
 async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     i, movie = quer_y.data.split('#')
-    imdb = await get_poster(query=movie, id=True)
+    imd = await get_poster(query=movie, id=True)
     btn = [
             [
                 InlineKeyboardButton(
