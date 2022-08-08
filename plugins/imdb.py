@@ -62,7 +62,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
             kind = imdb['kind'],
             imdb_id = imdb["imdb_id"],
             cast = imdb["cast"],
-            runtime = imdb["runtime"],
+            runtime = imdb["rutime"],
             countries = imdb["countries"],
             certificates = imdb["certificates"],
             languages = imdb["languages"],
