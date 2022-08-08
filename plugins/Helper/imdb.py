@@ -2,6 +2,8 @@ import re
 from imdb import Cinemagoer
 from info import MAX_LIST_ELM
 
+imdb = Cinemagoer()
+
 def list_to_str(k):
     if not k:
         return "N/A"
