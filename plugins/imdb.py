@@ -1,8 +1,7 @@
 import os
 from pyrogram import Client, filters
-from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
+from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from info import IMDB_TEMPLATE
-from utils import extract_user, get_file_id, last_online
 import time
 from plugins.Helper.imdb import get_poster
 from datetime import datetime
@@ -33,10 +32,7 @@ async def imdb_search(client, message):
         ]
         await k.edit('👀 Here are the results which i fount on IMDb', reply_markup=InlineKeyboardMarkup(btn))
     else:
-        await message.reply(
-            text="""🙅 Pass me a value like <code>/imdb Jolly LLB 2</code>""",
-            pharse_mode='html')
-
+        await message.reply('🙅 Pass me a value like <code>/imdb Jolly LLB 2</code>')
         
 @Client.on_callback_query(filters.regex('^imdb'))
 async def imdb_callback(bot: Client, quer_y: CallbackQuery):
