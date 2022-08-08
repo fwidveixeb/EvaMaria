@@ -1,4 +1,6 @@
 import os
+import asyncio
+from info import ADMINS
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from info import IMDB_TEMPLATE
@@ -10,29 +12,29 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
-@Client.on_message(filters.command(["imdb"]))
+@Client.on_message(filters.command("imdb") & filters.user(ADMINS))
 async def imdb_search(client, message):
     await message.delete()
     if ' ' in message.text:
-        k = await message.reply('Searching ImDB')
+        k = await message.reply('`Processing...`')
         r, title = message.text.split(None, 1)
         movies = await get_poster(title, bulk=True)
         
         if not movies:
-            return await message.reply(
-                text="""🙄 No results found, check spelling on google.""")
+            await k.edit('No results found.')
+            await asyncio.sleep(5)
+            return await k.delete()
                   
         btn = [[
                 InlineKeyboardButton(
                     text=f"{movie.get('title')} - {movie.get('year')}",
-                    callback_data=f"imdb#{movie.movieID}",
+                    callback_data=f"imdb{movie.movieID}",
                 )
             ]
             for movie in movies
         ]
         await k.edit('👀 Here are the results which i fount on IMDb', reply_markup=InlineKeyboardMarkup(btn))
-    else:
-        await message.reply('🙅 Pass me a value like <code>/imdb Jolly LLB 2</code>')
+    
         
 @Client.on_callback_query(filters.regex('^imdb'))
 async def imdb_callback(bot: Client, quer_y: CallbackQuery):
