@@ -248,11 +248,12 @@ async def start(client, message):
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
                 except:
                     return 
+            await msg.edit_caption(f_caption)
             await client.send_message(
                 chat_id=message.chat.id,
                 text='Hello'
             )
-            return await msg.edit_caption(f_caption)
+            return 
         except:
             return
     
