@@ -345,6 +345,10 @@ async def start(client, message):
                 except:
                     return
             await msg.edit_caption(f_caption)
+            hemlo = await client.send_message('This file will be deleted in 1 hour, make sure you forward it to your saved messages.')
+            await asyncio.sleep(10)
+            await msg.delete()
+            await hemlo.delete()
             return
         except:
             pass
