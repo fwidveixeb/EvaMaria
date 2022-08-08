@@ -329,7 +329,6 @@ async def start(client, message):
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
-            await client.send_message('hello')
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id
@@ -339,10 +338,6 @@ async def start(client, message):
             title = file.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
-            hemlo = await client.send_message('This file will be deleted in 1 hour, make sure you forward it to your saved messages.')
-            await asyncio.sleep(10)
-            await msg.delete()
-            await hemlo.delete()
             if CUSTOM_FILE_CAPTION:
                 try:
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
