@@ -343,15 +343,16 @@ async def start(client, message):
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
                 except:
                     return
-            #await msg.edit_caption(f_caption)
             hemlo = await client.send_message('This file will be deleted in 1 hour, make sure you forward it to your saved messages.')
+            await msg.edit_caption(f_caption)
+            #hemlo = await client.send_message('This file will be deleted in 1 hour, make sure you forward it to your saved messages.')
             await asyncio.sleep(10)
             await msg.delete()
             await hemlo.delete()
             return
         except:
             pass
-        return await message.reply('No such file exist.')
+        return 
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
