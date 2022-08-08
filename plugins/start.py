@@ -252,8 +252,7 @@ async def start(client, message):
             await hemlo.delete()
             return await client.send_message(
                 chat_id=message.chat.id,
-                text='Your file has been deleted to avoid copyright infringement, send /cmds or /help to know about other features.',
-                reply_to_message_id=message.message.id
+                text='Your file has been deleted to avoid copyright infringement, send /cmds or /help to know about other features.'
             ) 
         except:
             return
