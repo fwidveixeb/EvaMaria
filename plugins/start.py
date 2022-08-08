@@ -229,8 +229,8 @@ async def start(client, message):
     except:
         file_id = data
         pre = ""
-        
-    else:
+    files_ = await get_file_details(file_id)           
+    elif not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
             msg = await client.send_cached_media(
