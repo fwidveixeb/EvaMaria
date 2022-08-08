@@ -46,6 +46,10 @@ class Bot(Client):
         f = end_time - start_time + 9
         p = f"Successfully restarted in {f} seconds."
         await self.send_message(chat_id=1250003833, text=p)
+        
+    async def stop(self, *args):
+        await super().stop()
+        logging.info("Bot stopped. Bye.")
 
 app = Bot()
 app.run()
