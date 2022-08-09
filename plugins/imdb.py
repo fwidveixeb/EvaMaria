@@ -45,7 +45,7 @@ async def imdb_search(client, message):
             kind = imdb['kind'],
             imdb_id = imdb["imdb_id"],
             cast = imdb["cast"],
-            runtime = imdb["rutime"],
+            runtime = imdb["runtime"],
             countries = imdb["countries"],
             certificates = imdb["certificates"],
             languages = imdb["languages"],
