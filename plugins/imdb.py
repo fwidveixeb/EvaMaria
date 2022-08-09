@@ -7,8 +7,6 @@ def listToString(s):
  str1 = " "
  return (str1.join(s))
 
-logger.setLevel(logging.ERROR)
-
 @Client.on_message(filters.command("imdb"))
 async def imdb_search(client, message):
     
