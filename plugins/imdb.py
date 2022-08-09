@@ -1,14 +1,14 @@
-import os
-import asyncio
+from logging
+from imdb import IMDb
 from info import ADMINS
-from pyrogram import Client, filters
-from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
-from info import IMDB_TEMPLATE
-import time
 from utils import get_poster
-from datetime import datetime
+from info import IMDB_TEMPLATE
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-import logging
+from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
+
+imdb = IMDb()
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
