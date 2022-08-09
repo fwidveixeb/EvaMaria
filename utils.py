@@ -135,6 +135,12 @@ async def is_subscribed(bot, query):
             return True
     return False
 
+async def save_group_settings(group_id, key, value):
+    current = await get_settings(group_id)
+    current[key] = value
+    temp.SETTINGS[group_id] = current
+    await db.update_settings(group_id, current)
+
 async def broadcast_messages(user_id, message):
     try:
         await message.copy(chat_id=user_id)
