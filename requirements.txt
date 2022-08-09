@@ -1,4 +1,4 @@
-pyrogram==1.4.10
+pyrogram==2.0.35
 wkhtmltopdf
 pytest-shutil
 htmlwebshot
