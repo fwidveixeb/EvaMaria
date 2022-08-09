@@ -66,8 +66,8 @@ async def imdb_search(client, message):
     await message.reply_photo(photo=p, caption=c, reply_markup=btn)
     
         
-@Client.on_callback_query(filters.regex('^imdb'))
-async def imdb_callback(bot: Client, quer_y: CallbackQuery):
+#@Client.on_callback_query(filters.regex('^imdb'))
+#async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     i, movie = quer_y.data.split('#')
     imdb = await get_poster(query=movie, id=True)
     btn = [
