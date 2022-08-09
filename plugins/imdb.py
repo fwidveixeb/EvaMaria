@@ -42,7 +42,7 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     imdb = await get_poster(query=movie, id=True)
     btn = [
             [
-                InlineKeyboardButton(
+                InlineKeyboardutton(
                     text=f"📥 {imdb.get('title')}",
                     url=f"https://hagadmansa.com/movies/{imdb.get('title')}".replace(' ', '-')
                 )
