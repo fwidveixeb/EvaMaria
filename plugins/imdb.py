@@ -13,21 +13,18 @@ async def imdb_search(client, message):
     
     await message.delete()
     data = message.command[1:]
+    print(data)
     
-    a = await get_poster(data)
-    title = a['title']
-    genre = a['genres']
-    date = a['release_date']
-    rating = a['rating']
-    time = a['runtime']
-    p = a['poster']
+    imdb = await get_poster(data)
+    title = imdb['title']
+    p = imdb['poster']
 
     btn = InlineKeyboardMarkup(
        [
            [
                 InlineKeyboardutton(
-                    text=f"📥 {imdb.get('title')}",
-                    url=f"https://hagadmansa.com/movies/{imdb.get('title')}".replace(' ', '-')
+                    text=f"📥 {title}",
+                    url=f"https://hagadmansa.com/movies/{title}".replace(' ', '-')
                 )
             ]
         ]
