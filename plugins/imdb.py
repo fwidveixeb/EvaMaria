@@ -1,4 +1,4 @@
-from logging
+import logging
 from imdb import IMDb
 from info import ADMINS
 from utils import get_poster
