@@ -6,6 +6,11 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 
 logger = logging.getLogger(__name__)
+
+def listToString(s):
+ str1 = " "
+ return (str1.join(s))
+
 logger.setLevel(logging.ERROR)
 
 @Client.on_message(filters.command("imdb"))
@@ -13,9 +18,10 @@ async def imdb_search(client, message):
     
     await message.delete()
     data = message.command[1:]
-    print(data)
+    pata = listToString(data)
+    print(pata)
     
-    imdb = await get_poster(data)
+    imdb = await get_poster(pata)
     title = imdb['title']
     p = imdb['poster']
 
