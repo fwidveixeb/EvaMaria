@@ -19,7 +19,6 @@ async def imdb_search(client, message):
     await message.delete()
     data = message.command[1:]
     pata = listToString(data)
-    print(pata)
     
     imdb = await get_poster(pata)
     title = imdb['title']
@@ -28,7 +27,7 @@ async def imdb_search(client, message):
     btn = InlineKeyboardMarkup(
        [
            [
-                InlineKeyboardutton(
+                InlineKeyboardButton(
                     text=f"📥 {title}",
                     url=f"https://hagadmansa.com/movies/{title}".replace(' ', '-')
                 )
