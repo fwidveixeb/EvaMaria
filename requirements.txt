@@ -21,7 +21,7 @@ umongo==3.0.1
 requests
 bs4
 pytz
-IMDbPY==2022.7.9
+imdbpy==2021.4.18
 python-dotenv
 telegraph==2.1.0
 PyUltroid
