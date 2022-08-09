@@ -2,7 +2,7 @@ import logging
 from utils import get_poster
 from info import IMDB_TEMPLATE
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 
 imdb = IMDb()
@@ -16,7 +16,7 @@ async def imdb_search(client, message):
     await message.delete()
     data = message.command[1:]
     
-    a = await get_poster('bad boys 1995')
+    a = await get_poster(data)
     title = a['title']
     genre = a['genres']
     date = a['release_date']
