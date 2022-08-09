@@ -5,8 +5,6 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 
-imdb = IMDb()
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
