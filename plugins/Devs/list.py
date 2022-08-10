@@ -9,10 +9,12 @@ async def list(bot, message):
   
   list = await message.reply("`Processing...`")
  
-  files = message.command[1]
-  
   if len(message.command) == 1:
-      files = "*"
+      try:
+        files = "*"
+      except:
+        files += message.command[1]
+  
   elif files.endswith("/"):
       files += "*"
   elif "*" not in files:
