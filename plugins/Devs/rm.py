@@ -16,7 +16,7 @@ async def rm(bot, message):
     
   try:
     os.remove(suar)
-    await ul.delete()
-    await hemlo.edit(f"Successfully removed `{lama}`.")
+    await rm.delete()
+    await hemlo.edit(f"Successfully removed `{suar}`.")
   except:
-    return await ul.edit('`Either the Directory is empty or Incorrect.`')
+    return await rm.edit('`Either the Directory is empty or Incorrect.`')
