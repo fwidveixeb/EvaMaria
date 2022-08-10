@@ -14,6 +14,8 @@ from database.users_chats_db import db
 from bs4 import BeautifulSoup
 import requests
 
+#hello
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
