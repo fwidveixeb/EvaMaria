@@ -65,7 +65,7 @@ async def media_receive_handler(bot, message):
     if not replied:
         return await message.reply('Reply to a message to get a shareable link.')
     file_type = replied.media
-    if file_type not in ["audio", 'video', 'document']:
+    if file_type not in [enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO, enums.MessageMediaType.DOCUMENT]:
         return await message.reply("Reply to a supported media")
     banned_user = filters.create(banned_users)
     await message.delete()
