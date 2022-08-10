@@ -10,7 +10,7 @@ async def rename(bot, message):
   
     rn = await message.reply("`Processing...`")
     
-    if (" " in message.text) and (update.reply_to_message is not None):
+    if (" " in message.text) and (message.reply_to_message is not None):
         cmd, file_name = message.text.split(" ", 1)
         if len(file_name) > 128:
             return await rn.edit('File name can not be longer then 128.')
