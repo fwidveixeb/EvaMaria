@@ -10,7 +10,8 @@ async def ul(bot, message):
     return await ul.edit('`No path given to upload.`')
   
   else:
-    lama = message.command[1:]
+    lama = message.command[1]
+    print(lama)
     
   try:
     await message.reply_document(
