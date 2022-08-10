@@ -13,6 +13,7 @@ async def rename(bot, message):
     
     if (" " in message.text) and (message.reply_to_message is not None):
         file_name = message.text.split(" ", 1)
+        print(file_name)
         if len(file_name) > 128:
             return await rn.edit('File name can not be longer than 128 alphabets.')
         
