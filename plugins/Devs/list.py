@@ -8,6 +8,9 @@ from plugins.Helper.humanbytes import humanbytes as hb
 async def list(bot, message):
   
   list = await message.reply("`Processing...`")
+  
+  if len(message.command) == 1:
+    files = "*"
 
   files = message.command[1]
   if not files:
