@@ -13,7 +13,7 @@ async def list(bot, message):
       try:
         files = "*"
       except:
-        files += message.command[1]
+        files = message.command[1]
         
   #files = message.command[1]
   
