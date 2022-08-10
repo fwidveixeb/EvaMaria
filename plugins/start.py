@@ -9,14 +9,12 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, CUSTOM_FILE_CAPTION
-from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
-from database.connections_mdb import active_connection
+
 import re
 import json
 import base64
 logger = logging.getLogger(__name__)
 
-BATCH_FILES = {}
 
 LOG_TEXT_G = """#NewGroup
 Group = {}(<code>{}</code>)
@@ -232,27 +230,18 @@ async def start(client, message):
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
-            msg = await client.send_cached_media(
-                chat_id=message.from_user.id,
-                file_id=file_id
-            )
+            msg = await message.reply_cached_media(file_id)
             filetype = msg.media
             file = getattr(msg, filetype)
             title = file.file_name
             size = file.file_size
             f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
-            await msg.edit_caption(f_caption)
-            hemlo = await client.send_message(
-                chat_id=message.chat.id,
-                text='**NOTE: This file will be deleted in 10 minutes to avoid copyright infringement, make sure you forward it to your saved messages.**'
-            )
+            await msg.edit(f_caption)
+            hemlo = await message.reply('**NOTE: This file will be deleted in 10 minutes to avoid copyright infringement, make sure you forward it to your saved messages.**')
             await asyncio.sleep(600)
             await msg.delete()
             await hemlo.delete()
-            return await client.send_message(
-                chat_id=message.chat.id,
-                text='Your file has been deleted to avoid copyright infringement, send /cmds or /help to know about other features.'
-            ) 
-        except:
-            return
+            return await message.reply("Your file has been deleted to avoid copyright infringement, send /cmds or /help to know about other features.")
+        except Exception as e:
+            return await message.reply(e)
     
