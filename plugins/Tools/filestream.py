@@ -2,7 +2,7 @@ import asyncio
 import base64
 import urllib.parse
 from info import ADMINS
-from pyrogram import Client
+from pyrogram import Client, enums
 import logging
 from typing import Any, Optional
 from pyrogram import filters
