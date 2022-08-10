@@ -23,22 +23,24 @@ async def rename(bot, message):
             progress_args=('Downloading...', rn, time_)
         )
         
-        os.rename(the_real_download_location, file_name)
-        await rn.edit("`Starting uploading to Telegram...`")
+        if the_real_download_location is not None:
+          
+            os.rename(the_real_download_location, file_name)
+            await rn.edit("`Starting uploading to Telegram...`")  
             
-        time_ = time.time()
-        await message.reply_document(
-            document=file_name,
-            thumb='resources/devoloper.png',
-            caption=file_name,
-            progress=progress,
-            progress_args=('Uploading...', rn, time_)
-        )
-        try:
-            os.remove(file_name)
-        except:
-            pass
-        await rn.edit('Successfully renamed and Uploaded.')
-    else:
-        await rn.edit('Reply to file and provide a new name')
+            time_ = time.time()
+            await message.reply_document(
+                document=file_name,
+                thumb='resources/devoloper.png',
+                caption=file_name,
+                progress=progress,
+                progress_args=('Uploading...', rn, time_)
+            )
+            try:
+                os.remove(file_name)
+            except:
+                pass
+            await rn.edit('Successfully renamed and Uploaded.')
+        else:
+            await rn.edit('Reply to file and provide a new name')
     
