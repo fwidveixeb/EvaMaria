@@ -5,6 +5,10 @@ from pyrogram import Client, filters
 from plugins.Helper.progress import progress
 from pyrogram.types import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 
+def listToString(s):
+  str1 = " "
+  return (str1.join(s))
+  
 @Client.on_message(filters.command('rename') & filters.user(ADMINS))
 async def rename(bot, message):
   
@@ -13,7 +17,8 @@ async def rename(bot, message):
     
     if (" " in message.text) and (message.reply_to_message is not None):
       
-        file_name = message.text.split(" ", 1)
+        filename = message.command[1:]
+        fila_name = listToString(filename)
         
         if len(file_name) > 128:
             return await rn.edit('File name can not be longer than 128 alphabets.')
@@ -25,14 +30,14 @@ async def rename(bot, message):
             progress_args=('Downloading...', rn, time_)
         )
  
-        os.rename(the_real_download_location, file_name[1])
+        os.rename(the_real_download_location, file_name)
         await rn.edit("`Trying to upload...`")  
             
         time_ = time.time()
         await message.reply_document(
-            document=file_name[1],
+            document=file_name,
             thumb='resources/devoloper.png',
-            caption=file_name[1],
+            caption=file_name,
             progress=progress,
             progress_args=('Uploading...', rn, time_)
         )
