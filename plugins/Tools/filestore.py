@@ -6,7 +6,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from typing import Any, Optional
 from urllib.parse import quote_plus
 from Vars import Var
-from pyrogram import filters, Client
+from pyrogram import filters, Client, enums
 from pyrogram.file_id import FileId
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
 from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, PUBLIC_FILE_STORE
@@ -34,7 +34,7 @@ async def gen_link_s(bot, message):
     if not replied:
         return await message.reply('Reply to a File, Video or Audio only.')
     file_type = replied.media
-    if file_type not in ["video", 'audio', 'document']:
+    if file_type not in [enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO, enums.MessageMediaType.DOCUMENT]:
         return await message.reply("Reply to a File, Video or Audio only.")
     file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
