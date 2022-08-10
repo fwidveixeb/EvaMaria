@@ -16,23 +16,23 @@ async def rename(bot, message):
         if len(file_name) > 128:
             return await rn.edit('File name can not be longer than 128 alphabets.')
         
-        time = time.time()
+        time_ = time.time()
         the_real_download_location = await bot.download_media(
             message=replied,
             progress=progress,
-            progress_args=('Downloading...', rn, time)
+            progress_args=('Downloading...', rn, time_)
         )
         
         os.rename(the_real_download_location, file_name)
         await rn.edit("`Starting uploading to Telegram...`")
             
-        time = time.time()
+        time_ = time.time()
         await message.reply_document(
             document=file_name,
             thumb='resources/devoloper.png',
             caption=file_name,
             progress=progress,
-            progress_args=('Uploading...', rn, time)
+            progress_args=('Uploading...', rn, time_)
         )
         try:
             os.remove(file_name)
