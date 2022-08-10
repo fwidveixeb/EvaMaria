@@ -18,7 +18,7 @@ async def rename(bot, message):
         c_time = time.time()
         the_real_download_location = await bot.download_media(
             message=message.reply_to_message,
-            progress=progress
+            progress=progress,
             progress_args=('Downloading to my server', rn, c_time)
         )
         if the_real_download_location is not None:
