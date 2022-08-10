@@ -10,10 +10,9 @@ async def list(bot, message):
   list = await message.reply("`Processing...`")
  
   if len(message.command) == 1:
-      try:
-        files = "*"
-      except:
-        files = message.command[1]
+      files = "*"
+  else: 
+      files = message.command[1]
         
   #files = message.command[1]
   
