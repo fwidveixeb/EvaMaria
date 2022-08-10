@@ -232,6 +232,7 @@ async def start(client, message):
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
+            await bot.send_message(message.chat.id, 'hello')
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id
