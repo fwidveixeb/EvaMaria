@@ -2,7 +2,7 @@ import os
 from info import ADMINS
 from pyrogram import Client, filters
 
-@Client.on_message(filters.command('logs') & filters.user(ADMINS))
+@Client.on_message(filters.command(['log', 'logs']) & filters.user(ADMINS))
 async def logs(bot, message):
     try:
         os.rename('TelegramBot.log', 'Hagadmansa.log')
