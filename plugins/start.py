@@ -130,97 +130,97 @@ async def start(client, message):
          await asyncio.sleep(0.5)    
          return await filestream.edit(FILESTREAM_TXT)
     elif message.command[1].lower() == "github":
-     github = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await github.edit(GITHUB_TXT)
+         github = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await github.edit(GITHUB_TXT)
     elif message.command[1].lower() == "glitch":
-     glitch = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await glitch.edit(GLITCH_TXT)
+         glitch = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await glitch.edit(GLITCH_TXT)
     elif message.command[1].lower() == "hex":
-     hexn = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await hexn.edit(HEX_TXT)
+         hexn = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await hexn.edit(HEX_TXT)
     elif message.command[1].lower() == "host":
-     host = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await host.edit(HOST_TXT)
+         host = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await host.edit(HOST_TXT)
     elif message.command[1].lower() == "img":
-     img = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await img.edit(IMG_TXT)
+         img = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await img.edit(IMG_TXT)
     elif message.command[1].lower() == "info":
-     info = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await info.edit(INFO_TXT)
+         info = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await info.edit(INFO_TXT)
     elif message.command[1].lower() == "ip":
-     ip = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await ip.edit(IP_TXT)
+         ip = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await ip.edit(IP_TXT)
     elif message.command[1].lower() == "joke":
-     joke = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await joke.edit(JOKE_TXT)
+         joke = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await joke.edit(JOKE_TXT)
     elif message.command[1].lower() == "meaning":
-     meaning = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await meaning.edit(MEANING_TXT)
+         meaning = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await meaning.edit(MEANING_TXT)
     elif message.command[1].lower() == "ncode":
-     ncode = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await ncode.edit(NCODE_TXT)
+         ncode = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await ncode.edit(NCODE_TXT)
     elif message.command[1].lower() == "nekobin":
-     nekobin = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await nekobin.edit(NEKOBIN_TXT)
+         nekobin = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await nekobin.edit(NEKOBIN_TXT)
     elif message.command[1].lower() == "pexels":
-     pexels = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await pexels.edit(PEXELS_TXT)
+         pexels = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await pexels.edit(PEXELS_TXT)
     elif message.command[1].lower() == "phlogo":
-     phlogo = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await phlogo.edit(PHLOGO_TXT)
+         phlogo = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await phlogo.edit(PHLOGO_TXT)
     elif message.command[1].lower() == "picsum":
-     picsum = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await picsum.edit(PICSUM_TXT)
+         picsum = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await picsum.edit(PICSUM_TXT)
     elif message.command[1].lower() == "qrcode":
-     qrcode = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await qrcode.edit(QRCODE_TXT)
+         qrcode = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await qrcode.edit(QRCODE_TXT)
     elif message.command[1].lower() == "quote":
-     quote = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await quote.edit(QUOTE_TXT)
+         quote = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await quote.edit(QUOTE_TXT)
     elif message.command[1].lower() == "rmbg":
-     rmbg = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await rmbg.edit(RMBG_TXT)
+         rmbg = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await rmbg.edit(RMBG_TXT)
     elif message.command[1].lower() == "spacebin":
-     spacebin = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await spacebin.edit(SPACEBIN_TXT)
+         spacebin = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await spacebin.edit(SPACEBIN_TXT)
     elif message.command[1].lower() == "telegraph":
-     telegraph = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await telegraph.edit(TELEGRAPH_TXT)
+         telegraph = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await telegraph.edit(TELEGRAPH_TXT)
     elif message.command[1].lower() == "tpdne":
-     tpdne = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await tpdne.edit(TPDNE_TXT)
+         tpdne = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await tpdne.edit(TPDNE_TXT)
     elif message.command[1].lower() == "truth":
-     truth = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await truth.edit(TRUTH_TXT)
+         truth = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await truth.edit(TRUTH_TXT)
     elif message.command[1].lower() == "ud":
-     ud = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await ud.edit(UD_TXT)
+         ud = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await ud.edit(UD_TXT)
     elif message.command[1].lower() == "whois":
-     whois = await message.reply("`Processing...`")
-     await asyncio.sleep(0.5)
-     return await whois.edit(WHOIS_TXT)
+         whois = await message.reply("`Processing...`")
+         await asyncio.sleep(0.5)
+         return await whois.edit(WHOIS_TXT)
     
     data = message.command[1]
     try:
@@ -232,7 +232,6 @@ async def start(client, message):
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
-            await bot.send_message(message.chat.id, 'hello')
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id
@@ -240,7 +239,7 @@ async def start(client, message):
             filetype = msg.media
             file = getattr(msg, filetype)
             title = file.file_name
-            size=get_size(file.file_size)
+            size = file.file_size
             f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
             await msg.edit_caption(f_caption)
             hemlo = await client.send_message(
