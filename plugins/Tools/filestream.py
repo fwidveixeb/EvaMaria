@@ -70,9 +70,9 @@ async def media_receive_handler(bot, message):
     banned_user = filters.create(banned_users)
     await message.delete()
     log_msg = await bot.copy_message(chat_id=Var.BIN_CHANNEL, from_chat_id=message.chat.id, message_id=message.reply_to_message_id)
-    short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message_id}"
+    short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.message.id}.
     logging.info(f"Generated: {short_link} for {message.from_user.first_name}")
-    edit=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message_id}** Link: **[Hold Me]({short_link})**"
+    edit=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.message.id}** Link: **[Hold Me]({short_link})**"
     reply=f"<code>{short_link}</code>"
     
     await message.reply(
