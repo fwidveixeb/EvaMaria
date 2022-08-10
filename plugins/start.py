@@ -232,7 +232,7 @@ async def start(client, message):
         try:
             msg = await message.reply_cached_media(file_id)
             filetype = msg.media
-            file = getattr(msg, filetype)
+            file = getattr(msg, filetype.value)
             title = file.file_name
             size = file.file_size
             f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
