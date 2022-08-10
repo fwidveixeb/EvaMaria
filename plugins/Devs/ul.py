@@ -1,6 +1,7 @@
 import time
 from info import ADMINS
 from pyrogram import Client, filters
+from plugins.Helper.progress import progress
 
 @Client.on_message(filters.command("ul") & filters.user(ADMINS))
 async def ul(bot, message):
@@ -16,7 +17,8 @@ async def ul(bot, message):
   try:
     hemlo = await message.reply_document(
     document=lama,
-    thumb="resources/devoloper.png"
+    thumb="resources/devoloper.png",
+    progress=progress
     )
     await ul.delete()
     await hemlo.edit(f"Successfully uploaded `{lama}`.")
