@@ -1,9 +1,10 @@
+import time
 from info import ADMINS
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("ul") & filters.user(ADMINS))
 async def ul(bot, message):
-  
+
   ul = await message.reply("`Processing...`")
   
   if len(message.command) == 1:
@@ -11,12 +12,13 @@ async def ul(bot, message):
   
   else:
     lama = message.command[1]
-    print(lama)
     
   try:
-    await message.reply_document(
+    hemlo = await message.reply_document(
     document=lama,
     thumb="resources/devoloper.png"
     )
+    await ul.delete()
+    await hemlo.edit(f"Successfully uploaded `{lama}`.")
   except:
     return await ul.edit('`Either the Directory is empty or Incorrect.`')
