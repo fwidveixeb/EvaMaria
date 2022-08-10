@@ -12,8 +12,9 @@ async def rename(bot, message):
     replied = message.reply_to_message
     
     if (" " in message.text) and (message.reply_to_message is not None):
+      
         file_name = message.text.split(" ", 1)
-        print(file_name)
+        
         if len(file_name) > 128:
             return await rn.edit('File name can not be longer than 128 alphabets.')
         
@@ -30,7 +31,7 @@ async def rename(bot, message):
             except:
                 pass
           
-            os.rename(the_real_download_location, file_name)
+            os.rename(the_real_download_location, file_name[1])
             await rn.edit("`Successfully renamed, now trying to upload...`")  
             
             time_ = time.time()
