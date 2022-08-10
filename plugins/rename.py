@@ -24,26 +24,20 @@ async def rename(bot, message):
             progress=progress,
             progress_args=('Downloading...', rn, time_)
         )
-        
-        if the_real_download_location is not None:
-            try:
-                  await rn.edit('`Successfully downloaded, now trying to rename...`')
-            except:
-                pass
-          
-            os.rename(the_real_download_location, file_name[1])
-            await rn.edit("`Successfully renamed, now trying to upload...`")  
+ 
+        os.rename(the_real_download_location, file_name[1])
+        await rn.edit("`Trying to upload...`")  
             
-            time_ = time.time()
-            await message.reply_document(
-                document=file_name[1],
-                thumb='resources/devoloper.png',
-                caption=file_name[1],
-                progress=progress,
-                progress_args=('Uploading...', rn, time_)
-            )
-            try:
-                os.remove(file_name)
+        time_ = time.time()
+        await message.reply_document(
+            document=file_name[1],
+            thumb='resources/devoloper.png',
+            caption=file_name[1],
+            progress=progress,
+            progress_args=('Uploading...', rn, time_)
+        )
+        try:
+            os.remove(file_name)
             except:
                 pass
             await rn.edit('Successfully Uploaded.')
