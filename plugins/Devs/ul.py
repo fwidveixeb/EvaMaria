@@ -1,3 +1,4 @@
+from info import ADMINS
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("ul") & filters.user(ADMINS))
