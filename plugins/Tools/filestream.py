@@ -73,14 +73,13 @@ async def media_receive_handler(bot, message):
     short_link = f"{Var.URL}{get_hash(log_msg)}{log_msg.id}"
     logging.info(f"Generated: {short_link} for {message.from_user.first_name}")
     edit=f"User: **{message.from_user.mention(style='md')}** User ID: **#u{message.from_user.id}** Hash: **#{get_hash(log_msg)}{log_msg.id}** Link: **[Hold Me]({short_link})**"
-    reply=f"<code>{short_link}</code>"
+  
     
     await message.reply(
-        text=f"{reply}",
+        text=f"`{short_link}`",
         quote=True,
-        parse_mode="html",
         disable_web_page_preview=True
         )
     
-    await log_msg.edit(f"{edit}")
+    await log_msg.edit(edit)
     
