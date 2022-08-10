@@ -36,16 +36,15 @@ async def gen_link_s(bot, message):
     file_type = replied.media
     if file_type not in [enums.MessageMediaType.VIDEO, enums.MessageMediaType.AUDIO, enums.MessageMediaType.DOCUMENT]:
         return await message.reply("Reply to a File, Video or Audio only.")
-    file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
+    file_id, ref = unpack_new_file_id((getattr(replied, file_type.value)).file_id)
     string = 'filep_' if message.text.lower().strip() == "/plink" else 'file_'
     string += file_id
     outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
     file_link = f'https://t.me/{temp.U_NAME}?start={outstr}'
     await message.delete()
     await message.reply_text(
-             text=f"<code>{file_link}</code>",
+             text=f"`{file_link}`",
              quote=True,
-             parse_mode="html",
              disable_web_page_preview=True
              )
     
