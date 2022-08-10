@@ -15,7 +15,7 @@ async def list(bot, message):
       except:
         files += message.command[1]
         
-  files = message.command[1]
+  #files = message.command[1]
   
   if files.endswith("/"):
       files += "*"
