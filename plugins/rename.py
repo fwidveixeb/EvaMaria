@@ -36,11 +36,8 @@ async def rename(bot, message):
             progress=progress,
             progress_args=('Uploading...', rn, time_)
         )
-        try:
-            os.remove(file_name)
-            except:
-                pass
-            await rn.edit('Successfully Uploaded.')
-        else:
-            await rn.edit('Reply to file and provide a new name')
+        os.remove(file_name)
+        await rn.edit('Successfully Uploaded.')
+    else:
+        await rn.edit('Reply to file and provide a new name')
     
