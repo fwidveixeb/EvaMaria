@@ -4,7 +4,7 @@ from info import ADMINS
 from pyrogram import Client, filters
 from plugins.Helper.humanbytes import humanbytes as hb
 
-@Client.on_message(filters.command("list") & filters.user(ADMINS))
+@Client.on_message(filters.command("ls") & filters.user(ADMINS))
 async def list(bot, message):
   
   list = await message.reply("`Processing...`")
@@ -13,8 +13,6 @@ async def list(bot, message):
       files = "*"
   else: 
       files = message.command[1]
-        
-  #files = message.command[1]
   
   if files.endswith("/"):
       files += "*"
@@ -22,7 +20,7 @@ async def list(bot, message):
       files += "/*"
   files = glob.glob(files)
   if not files:
-      return await list.edit("Directory Empty or Incorrect.")
+      return await list.edit("`Either the Directory is empty or Incorrect.`")
   pyfiles = []
   jsons = []
   vdos = []
