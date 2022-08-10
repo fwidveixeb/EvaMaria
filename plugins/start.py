@@ -61,8 +61,7 @@ async def start(client, message):
         await message.reply_photo(
             photo="https://telegra.ph/file/bcaca021044aac6ac3804.jpg",
             caption=f"Hello {message.from_user.mention}, I can provide you movies, apart from that i've a lot of featurs.\n\nJust visit my website www.hagadmansa.com to download movies else send /cmds or /help to know my other features.",
-            reply_markup=reply_markup,
-            parse_mode='html'
+            reply_markup=reply_markup
         )
         return
     
