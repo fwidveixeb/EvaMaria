@@ -36,9 +36,9 @@ async def rename(bot, message):
             
             time_ = time.time()
             await message.reply_document(
-                document=file_name,
+                document=file_name[1],
                 thumb='resources/devoloper.png',
-                caption=file_name,
+                caption=file_name[1],
                 progress=progress,
                 progress_args=('Uploading...', rn, time_)
             )
