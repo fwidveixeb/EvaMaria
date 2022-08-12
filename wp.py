@@ -4,7 +4,7 @@ from pyromod import listen
 from pyrogram import Client, filters
 
 @Bot.on_message(filters.command('wp') & filters.user(ADMINS))
-async def wp(_, msg: Message):
+async def wp(bt, msg):
   
   wp = await message.reply('Process Started.')
   first = await Bot.ask(chat.id, "Send me first text")
