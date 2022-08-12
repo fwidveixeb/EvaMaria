@@ -1,5 +1,6 @@
 from bot import Bot
 from info import ADMINS
+from pyromod import listen
 from pyrogram import Client, filters
 
 @Bot.on_message(filters.command('wp') & filters.user(ADMINS))
@@ -12,3 +13,5 @@ async def wp(_, msg: Message):
   second_text = second.txt
   final = first_text + second_text
   await wp.edit(final)
+  
+Bot.run()
