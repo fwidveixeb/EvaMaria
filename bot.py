@@ -20,6 +20,19 @@ from database.users_chats_db import db
 from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
 
+@Bot.on_message(filters.command('wp') & filters.user(ADMINS))
+async def wp(bt, msg):
+  
+  wp = await message.reply('Process Started.')
+  first = await Bot.ask(chat.id, "Send me first text")
+  first_text = first.txt
+  second = await Bot.ask(chat.id, "Send me second text")
+  second_text = second.txt
+  final = first_text + second_text
+  await wp.edit(final)
+  
+Bot.run(self)
+
 # Creating client
 class Bot(Client):
 
@@ -58,3 +71,5 @@ class Bot(Client):
         logging.info("Bot stopped. Bye.")
 
 # Starting client
+app = Bot()
+app.run
