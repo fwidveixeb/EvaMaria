@@ -92,7 +92,7 @@ async def publish(bot, message):
 
 </body>
 </html>"""
-  mama = content.replace('one', e.text).replace('two' f.text).replace('three', g.text).replace('four', h.text)
+  mama = content.replace('one', e.text).replace('two', f.text).replace('three', g.text).replace('four', h.text)
   x.content = mama
   x.post_status = "publish"
   client.call(posts.NewPost(x))
