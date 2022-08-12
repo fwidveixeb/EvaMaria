@@ -13,7 +13,7 @@ logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("imdbpy").setLevel(logging.ERROR)
 
 # Other entities from Pyrogram and database
-from pyrogram import Client, __version__
+from pyrogram import Client, filters, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
