@@ -18,7 +18,7 @@ async def publish(bot, message):
   # Creating random slug
   ok = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
   ko = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-  io = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  io = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
   
   papa = random.choice(ok) + random.choice(io) + random.choice(ko) + random.choice(ok) + random.choice(io) + random.choice(ko)
   
