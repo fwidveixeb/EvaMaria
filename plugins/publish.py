@@ -1,7 +1,7 @@
 # Importing modules
 import random
 from info import ADMINS
-from pyrogram import Client, filters
+from pyrogram import Client as cl, filters
 
 # Importing WordPress modules
 from wordpress_xmlrpc import Client
@@ -9,7 +9,7 @@ from wordpress_xmlrpc import WordPressPost
 from wordpress_xmlrpc.methods import posts
 
 # Creating command
-@Client.on_message(filters.command('publish') & filters.user(ADMINS))
+@cl.on_message(filters.command('publish') & filters.user(ADMINS))
 async def publish(bot, message):
   
   # Sending a simple message
