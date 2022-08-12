@@ -23,7 +23,7 @@ async def publish(bot, message):
   papa = random.choice(ok) + random.choice(io) + random.choice(ko) + random.choice(ok) + random.choice(io) + random.choice(ko)
   
   # Defining Wordpress Password
-  client = Client("https://hagadmansa.com/xmlrpc.php", "himanshurastogiofficial", "GyanSamuh@rty")
+  client = Client("https://link.hagadmansa.com/xmlrpc.php", "himanshurastogiofficial", "GyanSamuh@rty")
   
   # Getting message ids
   a =  message.id - 8
