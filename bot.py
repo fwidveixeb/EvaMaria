@@ -1,3 +1,7 @@
+# Getting Pyromod
+from pyromod import listen
+
+# Time and Logging
 import time
 import logging
 import logging.config
@@ -8,6 +12,7 @@ logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 logging.getLogger("imdbpy").setLevel(logging.ERROR)
 
+# Other entities from Pyrogram and database
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
@@ -15,6 +20,7 @@ from database.users_chats_db import db
 from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
 
+# Creating client
 class Bot(Client):
 
     def __init__(self):
@@ -51,6 +57,6 @@ class Bot(Client):
         await super().stop()
         logging.info("Bot stopped. Bye.")
 
+# Starting client
 app = Bot()
 app.run()
-
