@@ -31,7 +31,6 @@ async def wp(bt, msg):
   final = first_text + second_text
   await wp.edit(final)
   
-Bot.run(self)
 
 # Creating client
 class Bot(Client):
