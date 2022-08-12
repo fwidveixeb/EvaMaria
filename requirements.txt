@@ -1,3 +1,4 @@
+python-wordpress-xmlrpc
 pyrogram>=2.0.30
 wkhtmltopdf
 pytest-shutil
@@ -24,4 +25,3 @@ pytz
 imdbpy==2021.4.18
 python-dotenv
 telegraph==2.1.0
-PyUltroid
