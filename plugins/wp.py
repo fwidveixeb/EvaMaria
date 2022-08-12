@@ -1,4 +1,5 @@
 from info import ADMINS
+from bot import Bot
 from pyrogram import Client, filters
 
 @Bot.on_message(filters.command('wp') & filters.user(ADMINS))
