@@ -59,4 +59,4 @@ class Bot(Client):
 
 # Starting client
 app = Bot()
-app.run()
+await app.run()
