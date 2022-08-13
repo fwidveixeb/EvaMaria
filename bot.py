@@ -20,7 +20,7 @@ from utils import temp
 from info import ADMINS
   
 # Creating client
-class Bot(Client):
+class bot(Client):
 
     def __init__(self):
         super().__init__(
