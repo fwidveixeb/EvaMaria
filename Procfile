@@ -1,1 +1,1 @@
-worker: python3 plugins.wp.py
+worker: python3 wp.py
