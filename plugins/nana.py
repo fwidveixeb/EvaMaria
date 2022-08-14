@@ -6,7 +6,7 @@ from pyrogram import filters
 @bot.on_message(filters.command("mama") & filters.user(ADMINS))
 async def genStr(bt, message):
   
-  await message.reply('Hello')
+  await message.reply('Hello kon?')
   
   one = await bot.ask(message.chat.id, "send me a file.")
   await message.reply_cached_media(one.document.file_id)
