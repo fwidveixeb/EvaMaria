@@ -1,4 +1,4 @@
-"""from bot import bot
+from bot import bot
 from info import ADMINS
 from pyromod import listen
 from pyrogram import Client, filters
@@ -13,4 +13,5 @@ async def genStr(bt, message):
   await message.reply_cached_media(two.document.file_id)
   
 if __name__ == "__main__":
-    bot.run()"""
+    app=bot()
+    app.run()
