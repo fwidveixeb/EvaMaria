@@ -1,1 +1,1 @@
-worker: python3 wp.py
+worker: python3 bot.py
