@@ -1,4 +1,4 @@
-'''from bot import bot
+from bot import bot
 from info import ADMINS
 from pyromod import listen
 from pyrogram import Client, filters
@@ -14,4 +14,4 @@ async def genStr(bt, message):
   
 if __name__ == "__main__":
   app=bot()
-  app.run()'''
+  app.run()
