@@ -1,9 +1,9 @@
 from bot import bot
 from info import ADMINS
 from pyromod import listen
-from pyrogram import Client, filters
+from pyrogram import filters
 
-@bot.on_message(filters.command("lala") & filters.user(ADMINS))
+@bot.on_message(filters.command("mama") & filters.user(ADMINS))
 async def genStr(bt, message):
   
   await message.reply('Hello')
