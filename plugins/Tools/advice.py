@@ -13,3 +13,8 @@ async def advice(bot, message):
     await advice.edit(o)
   except Exception as e:
     await advice.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
+    
+@Client.on_message(filters.command("nana"))
+async def advice(bot, message):
+  
+  advice = await message.reply("`Processing...`")
