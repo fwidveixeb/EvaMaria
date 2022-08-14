@@ -3,7 +3,7 @@ from info import ADMINS
 from pyromod import listen
 from pyrogram import Client, filters
 
-@bot.on_message(filters.command('kaka') & filters.user(ADMINS))
+@bot.on_message(filters.command("kaka") & filters.user(ADMINS))
 async def genStr(bt, message):
   
   one = await bot.ask(message.chat.id, "send me a file.")
