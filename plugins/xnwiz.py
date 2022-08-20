@@ -34,9 +34,9 @@ async def publish(bot, message):
   client = Client("https://link.hagadmansa.com/xmlrpc.php", "himanshurastogiofficial", "GyanSamuh@rty")
   
   # Getting message ids
-  a = message.id - 4
-  b = message.id - 3
-  c = message.id - 2
+  a = message.id - 8
+  b = message.id - 6
+  c = message.id - 3
   d = message.id - 1
   
   # Finding text from message ids
