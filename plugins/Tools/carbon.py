@@ -19,10 +19,7 @@ async def carbon(bot, message):
   elif len(message.command) == 2 and message.command[1] in ["random", "Random"]:
      bg = rom
   elif len(message.command) == 2 and message.command[1] in ["colorlist", "Colorlist"]:
-     return await carbon.edit(
-       text="Here is the [List](https://telegra.ph/List-of-Colors-07-31) of Colors.",
-       disable_web_page_preview=True
-     )
+     return await carbon.edit("[Here](https://telegra.ph/List-of-Colors-07-31) is the list of Colors.")
   else:
      bg = message.command[1]
     
