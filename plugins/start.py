@@ -58,7 +58,7 @@ async def start(client, message):
             ]])
         await message.reply_photo(
             photo="https://telegra.ph/file/bcaca021044aac6ac3804.jpg",
-            caption=f"Hello {message.from_user.mention}, I can provide you movies, apart from that i've a lot of featurs.\n\nJust visit my website www.hagadmansa.com to download movies else send /cmds or /help to know my other features.",
+            caption=f"Hello {message.from_user.mention}, I am a powerful bot devoloped by @Hagadmansa, I've a lot of featurs.\n\nJust send /cmds or /help to know my features.",
             reply_markup=reply_markup
         )
         return
@@ -230,7 +230,7 @@ async def start(client, message):
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
-            msg = await message.reply_cached_media(file_id)
+            '''msg = await message.reply_cached_media(file_id)
             filetype = msg.media
             file = getattr(msg, filetype.value)
             title = file.file_name
@@ -241,7 +241,10 @@ async def start(client, message):
             await asyncio.sleep(600)
             await msg.delete()
             await hemlo.delete()
-            return await message.reply("Your file has been deleted to avoid copyright infringement, send /cmds or /help to know about other features.")
+            return await message.reply("Your file has been deleted to avoid copyright infringement, send /cmds or /help to know about other features.")'''
+            papa = await message.reply('Sorry this service is unavailable right now [[ Read more ](https://t.me/Hagadmansa/1609)].')
+            await asyncio.sleep(10)
+            await papa.delete()
         except Exception as e:
             return await message.reply(e)
     
