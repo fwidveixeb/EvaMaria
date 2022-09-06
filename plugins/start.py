@@ -242,7 +242,7 @@ async def start(client, message):
             await msg.delete()
             await hemlo.delete()
             return await message.reply("Your file has been deleted to avoid copyright infringement, send /cmds or /help to know about other features.")'''
-            papa = await message.reply('Sorry this service is unavailable right now [[ Read more ](https://t.me/Hagadmansa/1609)].')
+            papa = await message.reply('Sorry this service is unavailable right now. [Read more](https://t.me/Hagadmansa/1609)')
             await asyncio.sleep(10)
             await papa.delete()
         except Exception as e:
