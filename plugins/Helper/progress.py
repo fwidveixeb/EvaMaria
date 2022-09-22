@@ -1,8 +1,8 @@
 import os
 import time
 import math
-import shutil
-import psutil
+#import shutil
+#import psutil
 
 async def progress(current, total, ud_type, message, start):
     
@@ -24,7 +24,7 @@ async def progress(current, total, ud_type, message, start):
             ''.join(["□" for i in range(10 - math.floor(percentage / 10))]),
             round(percentage, 2))
         
-        cpu = psutil.cpu_percent(interval=0.5)
+        """cpu = psutil.cpu_percent(interval=0.5)
         ram = psutil.virtual_memory().percent
         
         total, used, free = shutil.disk_usage('.')
@@ -32,18 +32,14 @@ async def progress(current, total, ud_type, message, start):
         disk = psutil.disk_usage('/').percent
         used = humanbytes(used)
         free = humanbytes(free)
+        
+        <b>CPU:</b> {4}% | <b>RAM:</b> {5}%\n<b>Total:</b> {6} | <b>Disk:</b> {7}%\n<b>Used:</b> {8} | <b>Free:</b> {9}"""
 
-        tmp = progress + "<b>Processed:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}\n\n <b>CPU:</b> {4}% | <b>RAM:</b> {5}%\n<b>Total:</b> {6} | <b>Disk:</b> {7}%\n<b>Used:</b> {8} | <b>Free:</b> {9}".format(
+        tmp = progress + "<b>Processed:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}".format(
             humanbytes(current),
             humanbytes(total),
             humanbytes(speed),
-            estimated_total_time if estimated_total_time != '' else "0 s",
-            cpu,
-            ram,
-            total,
-            disk,
-            used,
-            free
+            estimated_total_time if estimated_total_time != '' else "0 s"
         )
         try:
             await message.edit(
