@@ -9,7 +9,7 @@ def listToString(s):
   str1 = " "
   return (str1.join(s))
   
-@Client.on_message(filters.command('rename') & filters.user(ADMINS))
+@Client.on_message(filters.command('rename'))
 async def rename(bot, message):
   
     rn = await message.reply("`Trying to download...`")
