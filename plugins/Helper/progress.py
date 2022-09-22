@@ -1,6 +1,8 @@
 import os
 import time
 import math
+import shutil
+import psutil
 
 async def progress(current, total, ud_type, message, start):
     
@@ -21,13 +23,27 @@ async def progress(current, total, ud_type, message, start):
             ''.join(["■" for i in range(math.floor(percentage / 10))]),
             ''.join(["□" for i in range(10 - math.floor(percentage / 10))]),
             round(percentage, 2))
+        
+        cpu = psutil.cpu_percent(interval=0.5)
+        ram = psutil.virtual_memory().percent
+        
+        total, used, free = shutil.disk_usage('.')
+        total = humanbytes(total)
+        disk = psutil.disk_usage('/').percent
+        used = humanbytes(used)
+        free = humanbytes(free)
 
-        tmp = progress + "<b>Processed:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}".format(
+        tmp = progress + "<b>Processed:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}\n\n <b>CPU:</b> {4} | <b>RAM:</b> {5}\n<b>Total:</b> {6} | <b>Disk:</b> {7}\n<b>Used:</b> {8} | <b>Free:</b> {9}".format(
             humanbytes(current),
             humanbytes(total),
             humanbytes(speed),
-            # elapsed_time if elapsed_time != '' else "0 s",
-            estimated_total_time if estimated_total_time != '' else "0 s"
+            estimated_total_time if estimated_total_time != '' else "0 s",
+            cpu,
+            ram,
+            total,
+            disk,
+            used,
+            free
         )
         try:
             await message.edit(
