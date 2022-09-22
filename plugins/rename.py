@@ -36,7 +36,7 @@ async def rename(bot, message):
             thumb='resources/devoloper.png',
             caption=file_name,
             progress=progress,
-            progress_args=(f'**Name:** `{file_name}`\n**Status:** Uploading..., rn, time_)
+            progress_args=(f'**Name:** `{file_name}`\n**Status:** Uploading...', rn, time_)
         )
         os.remove(file_name)
         await rn.delete()
