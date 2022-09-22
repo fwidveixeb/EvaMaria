@@ -1,5 +1,6 @@
 python-wordpress-xmlrpc
 pyromod
+psutil
 pyrogram>=2.0.30
 wkhtmltopdf
 pytest-shutil
