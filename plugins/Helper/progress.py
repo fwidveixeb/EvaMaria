@@ -1,8 +1,6 @@
 import os
 import time
 import math
-from pyrogram.types import Message
-
 
 async def progress(current, total, ud_type, message, start):
     
@@ -38,7 +36,6 @@ async def progress(current, total, ud_type, message, start):
         except:
             pass
 
-
 def humanbytes(size):
     # https://stackoverflow.com/a/49361727/4723940
     # 2**10 = 1024
@@ -51,7 +48,6 @@ def humanbytes(size):
         size /= power
         n += 1
     return str(round(size, 2)) + " " + Dic_powerN[n]
-
 
 def TimeFormatter(milliseconds: int) -> str:
     seconds, milliseconds = divmod(int(milliseconds), 1000)
