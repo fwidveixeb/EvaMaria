@@ -33,7 +33,7 @@ async def progress(current, total, ud_type, message, start):
         used = humanbytes(used)
         free = humanbytes(free)
 
-        tmp = progress + "<b>Processed:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}\n\n <b>CPU:</b> {4} | <b>RAM:</b> {5}\n<b>Total:</b> {6} | <b>Disk:</b> {7}\n<b>Used:</b> {8} | <b>Free:</b> {9}".format(
+        tmp = progress + "<b>Processed:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}\n\n <b>CPU:</b> {4}% | <b>RAM:</b> {5}%\n<b>Total:</b> {6} | <b>Disk:</b> {7}%\n<b>Used:</b> {8} | <b>Free:</b> {9}".format(
             humanbytes(current),
             humanbytes(total),
             humanbytes(speed),
