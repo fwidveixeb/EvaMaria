@@ -20,11 +20,11 @@ async def progress(current, total, ud_type, message, start):
         estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
         progress = "[{0}{1}] {2}%\n".format(
-            ''.join(["■" for i in range(math.floor(percentage / 5))]),
-            ''.join(["□" for i in range(10 - math.floor(percentage / 5))]),
-            round(percentage, 2))
+            ''.join(["■" for i in range(math.floor(percentage / 2.5))]),
+            ''.join(["□" for i in range(10 - math.floor(percentage / 2.5))]),
+            round(percentage, 1))
 
-        tmp = progress + "<b>Processed:</b>{0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}".format(
+        tmp = progress + "<b>Processed:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}".format(
             humanbytes(current),
             humanbytes(total),
             humanbytes(speed),
@@ -33,7 +33,7 @@ async def progress(current, total, ud_type, message, start):
         )
         try:
             await message.edit(
-                text="{}\n {}".format(ud_type,tmp)
+                text="{}\n{}".format(ud_type,tmp)
             )
         except:
             pass
