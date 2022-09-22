@@ -1,17 +1,11 @@
 import os
 import time
 import math
-from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import Message
 
 
 async def progress(current, total, ud_type, message, start):
-    reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("🚫Cancel", callback_data = "closeme")
-                ]
-            ]
-        )
+    
     now = time.time()
     diff = now - start
     if round(diff % 10.00) == 0 or current == total:
@@ -25,12 +19,12 @@ async def progress(current, total, ud_type, message, start):
         elapsed_time = TimeFormatter(milliseconds=elapsed_time)
         estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
-        progress = "[{0}{1}] \n <b>📊Percentage:</b> {2}%\n".format(
+        progress = "[{0}{1}] {2}%\n".format(
             ''.join(["■" for i in range(math.floor(percentage / 5))]),
-            ''.join(["□" for i in range(20 - math.floor(percentage / 5))]),
+            ''.join(["□" for i in range(10 - math.floor(percentage / 5))]),
             round(percentage, 2))
 
-        tmp = progress + "<b>✅Completed:</b>{0} \n<b>📁Total Size:</b> {1}\n<b>🚀Speed:</b> {2}/s\n<b>⌚️ETA:</b> {3}\n".format(
+        tmp = progress + "<b>Processed:</b>{0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}".format(
             humanbytes(current),
             humanbytes(total),
             humanbytes(speed),
@@ -39,7 +33,7 @@ async def progress(current, total, ud_type, message, start):
         )
         try:
             await message.edit(
-                text="{}\n {}".format(ud_type,tmp), reply_markup=reply_markup
+                text="{}\n {}".format(ud_type,tmp)
             )
         except:
             pass
