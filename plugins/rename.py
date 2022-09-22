@@ -20,14 +20,11 @@ async def rename(bot, message):
         filename = message.command[1:]
         file_name = listToString(filename)
         
-        if len(file_name) > 128:
-            return await rn.edit('File name can not be longer than 128 alphabets.')
-        
         time_ = time.time()
         the_real_download_location = await bot.download_media(
             message=replied,
             progress=progress,
-            progress_args=('Downloading...', rn, time_)
+            progress_args=(f'**Name:** `{file_name}`\n**Status:** Downloading...', rn, time_)
         )
  
         os.rename(the_real_download_location, file_name)
@@ -39,10 +36,10 @@ async def rename(bot, message):
             thumb='resources/devoloper.png',
             caption=file_name,
             progress=progress,
-            progress_args=('Uploading...', rn, time_)
+            progress_args=(f'**Name:** `{file_name}`\n**Status:** Uploading..., rn, time_)
         )
         os.remove(file_name)
-        await rn.edit('Successfully Uploaded.')
+        await rn.delete()
     else:
-        await rn.edit('Reply to file and provide a new name')
+        await rn.edit('Reply to file and provide a new name.')
     
