@@ -22,7 +22,7 @@ async def progress(current, total, ud_type, message, start):
         progress = "[{0}{1}] {2}%\n".format(
             ''.join(["■" for i in range(math.floor(percentage / 2.5))]),
             ''.join(["□" for i in range(10 - math.floor(percentage / 2.5))]),
-            round(percentage, 1))
+            round(percentage, 2))
 
         tmp = progress + "<b>Processed:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}".format(
             humanbytes(current),
