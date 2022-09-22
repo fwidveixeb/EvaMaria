@@ -12,7 +12,7 @@ def listToString(s):
 @Client.on_message(filters.command('rename'))
 async def rename(bot, message):
   
-    rn = await message.reply("`Trying to download...`")
+    rn = await message.reply("`Processing...`")
     replied = message.reply_to_message
     
     if (" " in message.text) and (message.reply_to_message is not None):
@@ -28,7 +28,6 @@ async def rename(bot, message):
         )
  
         os.rename(the_real_download_location, file_name)
-        await rn.edit("`Trying to upload...`")  
             
         time_ = time.time()
         await message.reply_document(
