@@ -35,7 +35,7 @@ async def progress(current, total, ud_type, message, start):
         
         <b>CPU:</b> {4}% | <b>RAM:</b> {5}%\n<b>Total:</b> {6} | <b>Disk:</b> {7}%\n<b>Used:</b> {8} | <b>Free:</b> {9}"""
 
-        tmp = progress + "<b>Processed:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}".format(
+        tmp = progress + "<b>Process:</b> {0} of {1}\n<b>Speed:</b> {2}/s | <b>ETA:</b> {3}".format(
             humanbytes(current),
             humanbytes(total),
             humanbytes(speed),
