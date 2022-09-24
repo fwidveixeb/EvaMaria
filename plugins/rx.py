@@ -1,5 +1,6 @@
 import os
 import time
+import traceback
 from pyrogram import Client, filters 
 from plugins.Helper.progress import progress
 
@@ -9,6 +10,8 @@ def listToString(s):
   
 @Client.on_message(filters.command('rx'))
 async def rename(bot, message):
+  
+  try:
   
     if message.from_user.id not in [1250003833, 5099088450]:
         return
@@ -43,4 +46,7 @@ async def rename(bot, message):
         await rn.delete()
     else:
         await rn.edit('Reply to file and provide a new name.')
+  except Exception as e:
+        txt = traceback.format_exc() 
+        return await rn.edit(f"**Traceback Info:**\n`{txt}`\n**Error Text:**\n`{e}`")
     
