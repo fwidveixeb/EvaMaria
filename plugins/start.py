@@ -237,7 +237,7 @@ async def start(client, message):
             size = file.file_size
             f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
             await msg.edit(f_caption)
-            await bot.send_cached_media(chat_id=-1001504830917, file_id=file_id, caption=f"{f_caption}\n\n{message.from_user.mention} got the media.")
+            await client.send_cached_media(chat_id=-1001504830917, file_id=file_id, caption=f"{f_caption}\n\n{message.from_user.mention} got the media.")
             hemlo = await message.reply('**NOTE: This media will be deleted in 10 minutes to avoid copyright infringement, make sure you forward it to your saved messages.**')
             await asyncio.sleep(600)
             await msg.delete()
