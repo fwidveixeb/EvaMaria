@@ -17,10 +17,9 @@ async def rename(bot, message):
     replied = message.reply_to_message
     
     if (" " in message.text) and (replied is not None):
-      
-        filename = message.command[1:]
-        file_name = replied.caption.split('|')[0]
-        caption = replied.caption.split('|')[1]
+     
+        file_name = message.caption.split('|')[0]
+        caption = message.caption.split('|')[1]
         
         time_ = time.time()
         the_real_download_location = await bot.download_media(
