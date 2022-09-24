@@ -238,8 +238,11 @@ async def start(client, message):
             f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
             await msg.edit(f_caption)
             user = ('@' + message.from_user.username) if message.from_user.username else message.from_user.mention
+            firstname = (message.from_user.first_name) if message.from_user.first_name else ''
+            lastname = (' ' + message.from_user.last_name) if message.from_user.last_name else ''
+            fullname = firstname + lastname
             hemlo = await message.reply('**NOTE: This media will be deleted in 10 minutes to avoid copyright infringement, make sure you forward it to your saved messages.**')
-            await client.send_message(chat_id=-1001504830917, text=f"#u{message.from_user.id} {message.from_user.first_name} ({user}) got the [media](https://t.me/HagadmansaBot?start={file_id}).", disable_web_page_preview=True)
+            await client.send_message(chat_id=-1001504830917, text=f"#FileStore\n**ID:** #u{message.from_user.id}\n**Name:** {fullname}\n**Contact:** {user}\n**Media:** [Click here](https://t.me/HagadmansaBot?start={data}).", disable_web_page_preview=True)
             await asyncio.sleep(600)
             await msg.delete()
             await hemlo.delete()
