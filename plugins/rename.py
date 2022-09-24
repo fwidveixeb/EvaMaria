@@ -8,7 +8,7 @@ def listToString(s):
   str1 = " "
   return (str1.join(s))
   
-@Client.on_message(filters.command('rename'))
+@Client.on_message(filters.command('rename') & filter.user(ADMINS))
 async def rename(bot, message):
   
     rn = await message.reply(text="`Processing...`", reply_to_message_id=message.reply_to_message.id)
