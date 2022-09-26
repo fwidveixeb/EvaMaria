@@ -2,6 +2,7 @@ import os
 import logging
 import random
 import asyncio
+import traceback
 from plugins.help import ADVICE_TXT, BULLY_TXT, CARBON_TXT, DAGD_TXT, DARE_TXT, DECIDE_TXT, DNS_TXT, DOB_TXT, DOC_TXT, FACT_TXT, FAKEINFO_TXT, FILESTORE_TXT, FILESTREAM_TXT, GITHUB_TXT, GLITCH_TXT, HEX_TXT, HOST_TXT, IMG_TXT, INFO_TXT, IP_TXT, JOKE_TXT, MEANING_TXT, NCODE_TXT, NEKOBIN_TXT, PEXELS_TXT, PHLOGO_TXT, PICSUM_TXT, QRCODE_TXT, QUOTE_TXT, RMBG_TXT, SPACEBIN_TXT, TELEGRAPH_TXT, TPDNE_TXT, TRUTH_TXT, UD_TXT, WHOIS_TXT
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired, FloodWait
@@ -232,8 +233,9 @@ async def start(client, message):
             await mat.edit(f"<b>{tat['caption']}</b>")
         await hola.delete()
         os.remove(file)
-    except:
-        pass
+    except Exception as e:
+        txt = traceback.format_exc() 
+        await message.reply(f"**Traceback Info:**\n`{txt}`\n**Error Text:**\n`{e}`")
     
     try:
         pre, file_id = data.split('_', 1)
@@ -264,7 +266,8 @@ async def start(client, message):
             '''papa = await message.reply('Sorry this service is unavailable right now. [Read more](https://t.me/Hagadmansa/1609)')
             await asyncio.sleep(10)
             await papa.delete()'''
-        except:
-            pass
+        except Exception as e:
+            txt = traceback.format_exc() 
+            return await response.edit(f"**Traceback Info:**\n`{txt}`\n**Error Text:**\n`{e}`")
     else:
         await message.reply("Sorry i couldn't understand what your command.")
