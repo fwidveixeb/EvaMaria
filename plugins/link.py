@@ -4,7 +4,7 @@ import traceback
 from helper import randomName
 from pyrogram import Client, filters
 from plugins.Helper.humanbytes import humanbytes
-from helper import getNew, fileId, fileSize, fileCaption
+from helper import getNew, fileId, fileSize, fileName
 
 CHAT = -1001504830917
 
