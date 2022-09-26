@@ -224,8 +224,8 @@ async def start(client, message):
     data = message.command[1]
         
     try:
-        hola = await bot.send_cached_media(CHAT, data)
-        file = await bot.download_media(hola)
+        hola = await client.send_cached_media(CHAT, data)
+        file = await client.download_media(hola)
         with open(file) as data:
             tata = json.loads(data.read())
         for tat in tata:
@@ -233,9 +233,8 @@ async def start(client, message):
             await mat.edit(f"<b>{tat['caption']}</b>")
         await hola.delete()
         os.remove(file)
-    except Exception as e:
-        txt = traceback.format_exc() 
-        await message.reply(f"**Traceback Info:**\n`{txt}`\n**Error Text:**\n`{e}`")
+    except:
+        pass
     
     try:
         pre, file_id = data.split('_', 1)
