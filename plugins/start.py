@@ -236,9 +236,8 @@ async def start(client, message):
             await mat.edit(f"<b>{tat['caption']}</b>")
         await hola.delete()
         os.remove(file)
-    except Exception as e:
-        txt = traceback.format_exc() 
-        return await message.reply(f"**Traceback Info:**\n`{txt}`\n**Error Text:**\n`{e}`")
+    except:
+        pass
     
     try:
         pre, file_id = data.split('_', 1)
