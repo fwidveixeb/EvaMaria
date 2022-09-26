@@ -221,6 +221,22 @@ async def start(client, message):
          return await whois.edit(WHOIS_TXT)
     
     data = message.command[1]
+        
+    try:
+        hola = await bot.send_cached_media(CHAT, data)
+        file = await bot.download_media(hola)
+        with open(file) as data:
+            tata = json.loads(data.read())
+        for tat in tata:
+            await message.reply_cached_media(
+                file_id = tat['Id'],
+                caption = f"<b>{tat['caption']}</b>"
+            )
+        await hola.delete()
+        os.remove(file)
+    except:
+        pass
+    
     try:
         pre, file_id = data.split('_', 1)
     except:
@@ -250,6 +266,7 @@ async def start(client, message):
             '''papa = await message.reply('Sorry this service is unavailable right now. [Read more](https://t.me/Hagadmansa/1609)')
             await asyncio.sleep(10)
             await papa.delete()'''
-        except Exception as e:
-            return await message.reply(e)
-    
+        except:
+            pass
+    else:
+        await message.reply("Sorry i couldn't understand what your command.")
