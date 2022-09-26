@@ -236,7 +236,7 @@ async def start(client, message):
         os.remove(file)
     except Exception as e:
         txt = traceback.format_exc() 
-        return await response.edit(f"**Traceback Info:**\n`{txt}`\n**Error Text:**\n`{e}`")
+        return await message.reply(f"**Traceback Info:**\n`{txt}`\n**Error Text:**\n`{e}`")
     
     try:
         pre, file_id = data.split('_', 1)
@@ -269,6 +269,6 @@ async def start(client, message):
             await papa.delete()'''
         except Exception as e:
             txt = traceback.format_exc() 
-            return await response.edit(f"**Traceback Info:**\n`{txt}`\n**Error Text:**\n`{e}`")
+            return await message.reply(f"**Traceback Info:**\n`{txt}`\n**Error Text:**\n`{e}`")
     else:
         await message.reply("Sorry i couldn't understand what your command.")
