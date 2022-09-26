@@ -1,4 +1,5 @@
 import glob
+import base64
 import random
 from struct import pack
 from typing import Any, Optional
