@@ -1,7 +1,12 @@
 import glob
+import random
 from struct import pack
 from typing import Any, Optional
 from pyrogram.file_id import FileId
+
+def randomName():
+    name = random.choice(abcd) + random.choice(numbers) + random.choice(ABCD) + random.choice(abcd) + random.choice(numbers) + random.choice(ABCD) 
+    return name
 
 def encode_file_id(s: bytes) -> str:
     r = b""
