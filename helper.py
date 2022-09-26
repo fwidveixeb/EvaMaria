@@ -4,6 +4,10 @@ from struct import pack
 from typing import Any, Optional
 from pyrogram.file_id import FileId
 
+abcd = "abcdefghijklmnopqrstuvwxyz"
+ABCD = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+numbers = "1234567890"
+
 def randomName():
     name = random.choice(abcd) + random.choice(numbers) + random.choice(ABCD) + random.choice(abcd) + random.choice(numbers) + random.choice(ABCD) 
     return name
