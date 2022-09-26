@@ -228,10 +228,8 @@ async def start(client, message):
         with open(file) as data:
             tata = json.loads(data.read())
         for tat in tata:
-            await message.reply_cached_media(
-                file_id = tat['Id'],
-                caption = f"<b>{tat['caption']}</b>"
-            )
+            mat = await message.reply_cached_media(tat['Id'])
+            await mat.edit(f"<b>{tat['caption']}</b>")
         await hola.delete()
         os.remove(file)
     except:
