@@ -1,5 +1,6 @@
 import os
 import json
+import asyncio
 import traceback
 from helper import randomName
 from pyrogram import Client, filters
@@ -18,6 +19,7 @@ async def spacebin(bot, message):
   
     if replied:
         try:
+            await message.delete()
             rn = randomName() + ".json"
             outList = []
             for x in range(1):
@@ -25,8 +27,10 @@ async def spacebin(bot, message):
             with open(rn, "w+") as out:
                 json.dump(outList, out)
             mm = await bot.send_document(CHAT, rn)
-            await message.reply(f'https://t.me/HagadmansaBot?start={getNew(fileId(mm))[0]}')
+            nn = await message.reply(f'https://t.me/HagadmansaBot?start={getNew(fileId(mm))[0]}')
             await mm.delete()
+            await asyncio.sleep(10)
+            await nn.delete()
             os.remove(rn)
         except Exception as e:
             txt = traceback.format_exc() 
