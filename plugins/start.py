@@ -234,11 +234,16 @@ async def start(client, message):
         for tat in tata:
             mat = await message.reply_cached_media(tat['Id'])
             await mat.edit(f"<b>{tat['caption']}</b>")
+        pat = await message.reply('**NOTE: This media will be deleted in 10 minutes to avoid copyright infringement, make sure you forward it to your saved messages.**')
         await hola.delete()
         os.remove(file)
+        await asyncio.sleep(600)
+        await mat.delete()   
+        await pat.delete()
+        return await message.reply("Your media has been deleted to avoid copyright infringement, send /cmds or /help to know other features.") 
     except:
+        os.remove(file)
         pass
-    
     try:
         pre, file_id = data.split('_', 1)
     except:
