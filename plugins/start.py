@@ -238,7 +238,7 @@ async def start(client, message):
         firstname = (message.from_user.first_name) if message.from_user.first_name else ''
         lastname = (' ' + message.from_user.last_name) if message.from_user.last_name else ''
         pat = await message.reply('**NOTE: This media will be deleted in 10 minutes to avoid copyright infringement, make sure you forward it to your saved messages.**')
-        await client.send_message(chat_id=-1001504830917, text=f"#MovieTime\n**ID:** #u{message.from_user.id}\n**Name:** {firstname+lastname}\n**Contact:** {user}\n**Media:** [{tat['caption']}](https://t.me/HagadmansaBot?start={tat['Id']}).", disable_web_page_preview=True)
+        await client.send_message(chat_id=-1001504830917, text=f"#MovieTime\n**ID:** #u{message.from_user.id}\n**Name:** {firstname+lastname}\n**Contact:** {user}\n**Media:** [Click jere](https://t.me/HagadmansaBot?start={data})\n**Media Name:** {tat['caption']}.", disable_web_page_preview=True)
         await hola.delete()
         os.remove(file)
         await asyncio.sleep(600)
