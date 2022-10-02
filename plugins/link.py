@@ -27,7 +27,7 @@ async def spacebin(bot, message):
             with open(rn, "w+") as out:
                 json.dump(outList, out)
             mm = await bot.send_document(CHAT, rn)
-            nn = await message.reply(f'https://t.me/HagadmansaBot?start={getNew(fileId(mm))[0]}')
+            nn = await message.reply(text=f'https://t.me/HagadmansaBot?start={getNew(fileId(mm))[0]}', disable_web_page_preview=True)
             await mm.delete()
             await asyncio.sleep(10)
             await nn.delete()
