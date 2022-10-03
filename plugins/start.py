@@ -246,7 +246,6 @@ async def start(client, message):
         await pat.delete()
         return await message.reply("Your media has been deleted to avoid copyright infringement, send /cmds or /help to know other features.") 
     except:
-        os.remove(file)
         pass
     try:
         pre, file_id = data.split('_', 1)
