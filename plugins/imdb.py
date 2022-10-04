@@ -7,6 +7,16 @@ def listToString(s):
  str1 = " "
  return (str1.join(s))
 
+async def searchIMDb(query):
+    imdb = await get_poster(query)
+    try:
+        Id = imdb['imdb_id']
+        return imdb
+    except TypeError:
+        imdb = await searchIMDb(query)
+        return imdb
+
+
 @Client.on_message(filters.command("imdb"))
 async def imdb_search(client, message):
     
@@ -14,7 +24,7 @@ async def imdb_search(client, message):
     data = message.command[1:]
     pata = listToString(data)
     
-    imdb = await get_poster(pata)
+    imdb = await searchIMDb(pata)
     title = imdb['title']
     p = imdb['poster']
 
