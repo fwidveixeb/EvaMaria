@@ -77,7 +77,7 @@ async def errorNotification(bot, message):
         await bot.edit_message_text(
             chat_id=chat_id,
             message_id=messageId,
-            text=f"❌ Something went wrong while uploading {movie} on website, contact Admin."
+            text=f"❌ Something went wrong while uploading **{movie}** on website, reported to admin."
         )
     except Exception as e:
         txt = traceback.format_exc() 
