@@ -56,7 +56,7 @@ async def editNotification(bot, message):
         await bot.edit_message_text(
             chat_id=chat_id,
             message_id=messageId,
-            text=f"✅ Successfully Uploaded **{moviename} [{str(quality)} Qualities]** on website in {time}.\n\n {getBold(text)}",
+            text=f"✅ Successfully Uploaded **{moviename} [{str(quality)} Qualities]** on website in {time}.\n\n{getBold(text)}",
             reply_markup=reply_markup
         )
     except Exception as e:
