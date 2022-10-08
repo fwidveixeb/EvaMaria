@@ -2,6 +2,7 @@ from utils import get_poster
 from info import IMDB_TEMPLATE
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 
 def listToString(s):
  str1 = " "
@@ -23,23 +24,20 @@ async def imdb_search(client, message):
     await message.delete()
     data = message.command[1:]
     pata = listToString(data)
-    
     imdb = await searchIMDb(pata)
-    title = imdb['title']
-    p = imdb['poster']
 
-    btn = InlineKeyboardMarkup(
+    reply_markup = InlineKeyboardMarkup(
        [
            [
                 InlineKeyboardButton(
-                    text=f"📥 {title}",
-                    url=f"https://hagadmansa.com/movies/{title}".replace(' ', '-')
+                    text=f"📥 {imdb['title']}",
+                    url=f"https://hagadmansa.com/movies/{imdb['title']}".replace(' ', '-')
                 )
             ]
         ]
     )
 
-    c = IMDB_TEMPLATE.format(
+    caption = IMDB_TEMPLATE.format(
             title = imdb['title'],
             votes = imdb['votes'],
             aka = imdb["aka"],
@@ -69,4 +67,23 @@ async def imdb_search(client, message):
             url = imdb['url']
     )
         
-    await message.reply_photo(photo=p, caption=c, reply_markup=btn)
+    try:
+        await message.reply_photo(
+            photo = imdb['poster'],
+            caption = caption,
+            reply_markup = reply_markup
+        )
+    except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
+            pic = imdb['poster']
+            poster = pic.replace('.jpg', "._V1_UX360.jpg")
+            await message.reply(
+            photo = poster,
+            caption = caption,
+            reply_markup = reply_markup
+        )
+    except Exception:
+            await message.reply(
+            photo = "https://telegra.ph/file/3e5e63094d28f9c870a8b.jpg",
+            caption = caption,
+            reply_markup = reply_markup
+        )
