@@ -17,13 +17,14 @@ async def searchIMDb(query):
         imdb = await searchIMDb(query)
         return imdb
 
-
-@Client.on_message(filters.command("imdb"))
+@Client.on_message(filters.command("rimdb"))
 async def imdb_search(client, message):
     
     await message.delete()
-    data = message.command[1:]
-    pata = listToString(data)
+    data = listToString(message.command[1:]).split('|')
+    title = data[0]
+    qualities = data[1]
+    languages = data[2]
     imdb = await searchIMDb(pata)
 
     reply_markup = InlineKeyboardMarkup(
@@ -37,7 +38,7 @@ async def imdb_search(client, message):
         ]
     )
 
-    caption = IMDB_TEMPLATE.format(
+    fcaption = IMDB_TEMPLATE.format(
             title = imdb['title'],
             votes = imdb['votes'],
             aka = imdb["aka"],
@@ -66,6 +67,8 @@ async def imdb_search(client, message):
             rating = imdb['rating'],
             url = imdb['url']
     )
+    
+    caption = fcaption + f"\n**📂 Qualities** - {qualities}\n**🗣 Languages** - {languages}"
         
     try:
         await message.reply_photo(
@@ -77,12 +80,12 @@ async def imdb_search(client, message):
             pic = imdb['poster']
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             await message.reply(
-            photo = poster,
-            caption = caption,
-            reply_markup = reply_markup
-        )
+                photo = poster,
+                caption = caption,
+                reply_markup = reply_markup
+            )
     except Exception:
-            await message.reply(
+            await message.reply_photo(
             photo = "https://telegra.ph/file/3e5e63094d28f9c870a8b.jpg",
             caption = caption,
             reply_markup = reply_markup
