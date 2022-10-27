@@ -41,11 +41,11 @@ def addMovieToUpcomingList(rawData):
 
 # This function is to get the movie from list and delete that also
 def giveMovie():
-    permission = [x for x in variables.find({}, {"_id":0, "uploadPermission": 1})][0]["uploadPermission"]
-    if permission == "false":
+    mode = list(variables.find({}, {"_id": 0, "maintenanceMode": 1}))[0]["maintenanceMode"]
+    if mode == "off":
         return "Permission Denied", ""
     try:
-        movie = [x for x in upcomingMovies.find({}, {"_id":0, "movieName": 1, "releaseYear": 1})][0]
+        movie = list(upcomingMovies.find({}, {"_id": 0, "movieName": 1, "releaseYear": 1}))[0]
         upcomingMovies.delete_one(movie)
         return movie["movieName"].title(), movie["releaseYear"]
     except IndexError:
