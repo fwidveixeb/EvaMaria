@@ -59,11 +59,11 @@ def petrionaMessageId(messageId):
     variables.update_one(old, new)
     return
     
-def setPermission(permission):
-    if len([x for x in variables.find({}, {"_id":0, "uploadPermission": 1})]) == 0:
-        variables.insert_one({"uploadPermission": "ture"})
-    old = [x for x in variables.find({}, {"_id":0, "uploadPermission": 1})][0]
-    new = {"$set": {"uploadPermission": permission}}
+def maintenanceMode(mode):
+    if len(list(variables.find({}, {"_id": 0, "maintenanceMode": 1}))) == 0:
+        variables.insert_one({"maintenanceMode": "off"})
+    old = list(variables.find({}, {"_id": 0, "maintenanceMode": 1}))[0]
+    new = {"$set": {"maintenanceMode": mode}}
     variables.update_one(old, new)
     return
    
