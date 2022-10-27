@@ -42,7 +42,7 @@ def addMovieToUpcomingList(rawData):
 # This function is to get the movie from list and delete that also
 def giveMovie():
     mode = list(variables.find({}, {"_id": 0, "maintenanceMode": 1}))[0]["maintenanceMode"]
-    if mode == "off":
+    if mode == "on":
         return "Permission Denied", ""
     try:
         movie = list(upcomingMovies.find({}, {"_id": 0, "movieName": 1, "releaseYear": 1}))[0]
