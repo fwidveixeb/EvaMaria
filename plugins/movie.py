@@ -27,18 +27,20 @@ async def giveMovie(bot, message):
     except Exception as e:
         return await message.reply(f"**Traceback Info:**\n`{traceback.format_exc()}`\n**Error Text:**\n`{e}`")
     
-@bot.on_message(filters.command('setpermission'))
-async def setpermission(bot, message):
+@bot.on_message(filters.command('maintenance'))
+async def maintenanceCommand(bot, message):
     try:
         if len(message.command) == 1:
-                return await message.reply("Give me 'true' or 'false'.")
-        mongo.setPermission(message.command[1])
-        movie = mongo.variables.find({}, {"_id":0, "petrionaUploading": 1, "files": 1})[0]["petrionaUploading"]
-        status = '.' if movie == "false" else f' after **{movie}**.'
-        if message.command[1] == "false":
-            return await message.reply(f"Okay, I won't be uploading more movies{status}")
-        if message.command[1] == "true":
-            return await message.reply(f"Okay, I'll upload movies.")
+            mode = list(mongo.variables.find({}, {"_id": 0, "maintenanceMode": 1}))[0]["maintenanceMode"]
+            return await message.reply(f"Maintenance mode is now **{mode.title()}**.")
+        if message.command[1].lower() == "on":
+            mongo.maintenanceMode("on")
+            await message.reply(f"Maintenance mode is now **On**.")
+        elif message.command[1].lower() == "off":
+            mongo.maintenanceMode("off")
+            await message.reply(f"Maintenance mode is now **Off**.")
+        else:
+            await message.reply("Sorry, I couldn't understand your command.")
     except Exception as e:
         return await message.reply(f"**Traceback Info:**\n`{traceback.format_exc()}`\n**Error Text:**\n`{e}`")
     
