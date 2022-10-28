@@ -58,7 +58,7 @@ async def updateStatusMessage(bot):
         await bot.edit_message_caption(
             chat_id="Hagadmansa",
             message_id=2,
-            text=f"**Current Uploading**\n{uploading}\n**Upcoming Uploads**\n{upcoming}"
+            caption=f"**Current Uploading**\n{uploading}\n**Upcoming Uploads**\n{upcoming}"
         )
     except MessageNotModified:
             pass
