@@ -55,7 +55,7 @@ async def updateStatusMessage(bot):
     if len(upcoming) == 0:
         upcoming = "No Upcoming!"
     try:
-        await bot.edit_message_text(
+        await bot.edit_message_caption(
             chat_id="Hagadmansa",
             message_id=2,
             text=f"**Current Uploading**\n{uploading}\n**Upcoming Uploads**\n{upcoming}"
