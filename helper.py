@@ -1,13 +1,81 @@
-import glob
-import base64
-import random
 from struct import pack
 from typing import Any, Optional
+import glob, mongo, base64, random
 from pyrogram.file_id import FileId
+from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified
 
 abcd = "abcdefghijklmnopqrstuvwxyz"
 ABCD = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 numbers = "1234567890"
+
+def listToString(data):
+    return " ".join(data)
+
+async def sendStatusMessage(message, messageId=None):
+    upcoming = ""
+    uploading = ""
+    chata = [x for x in mongo.upcomingMovies.find({}, {"_id":0, "movieName": 1, "releaseYear": 1})]
+    now = list(mongo.variables.find({}, {"_id":0, "petrionaUploading": 1, "files": 1}))
+    mode = list(mongo.variables.find({}, {"_id":0, "maintenanceMode": 1}))[0]["maintenanceMode"]
+    for x in range(len(now)):
+        if now[x]["petrionaUploading"] == "false":
+            uploading += ""
+        else:
+            uploading += f"**{x+1}:** {now[x]['petrionaUploading']} [{now[x]['files']} Qualities]\n"
+    for x in range(len(chata)):
+        upcoming += f"**{x+1}:** {(chata[x]['movieName']).title()} ({chata[x]['releaseYear']})\n"   
+    if len(uploading) == 0:
+        uploading = "No Uploads!\n"
+    if mode == "on" and uploading == "No Uploads!\n":
+        uploading = "Maintenance Mode Enabled!\n"
+    if len(upcoming) == 0:
+        upcoming = "No Upcoming!"
+    return await message.reply(
+        text=f"**Current Uploading**\n{uploading}\n**Upcoming Uploads**\n{upcoming}",
+        reply_to_message_id=messageId
+    )
+
+async def updateStatusMessage(bot):
+    upcoming = ""
+    uploading = ""
+    chata = [x for x in mongo.upcomingMovies.find({}, {"_id":0, "movieName": 1, "releaseYear": 1})]
+    now = list(mongo.variables.find({}, {"_id":0, "petrionaUploading": 1, "files": 1}))
+    mode = list(mongo.variables.find({}, {"_id":0, "maintenanceMode": 1}))[0]["maintenanceMode"]
+    for x in range(len(now)):
+        if now[x]["petrionaUploading"] == "false":
+            uploading += ""
+        else:
+            uploading += f"**{x+1}:** {now[x]['petrionaUploading']} [{now[x]['files']} Qualities]\n"
+    for x in range(len(chata)):
+        upcoming += f"**{x+1}:** {(chata[x]['movieName']).title()} ({chata[x]['releaseYear']})\n"   
+    if len(uploading) == 0:
+        uploading = "No Uploads!\n"
+    if mode == "on" and uploading == "No Uploads!\n":
+        uploading = "Maintenance Mode Enabled!\n"
+    if len(upcoming) == 0:
+        upcoming = "No Upcoming!"
+    try:
+        await bot.edit_message_text(
+            chat_id="Hagadmansa",
+            message_id=2,
+            text=f"**Current Uploading**\n{uploading}\n**Upcoming Uploads**\n{upcoming}"
+        )
+    except MessageNotModified:
+            pass
+#     except PeerIdInvalid:
+#         msg = await bot.send_message(
+#             chat_id=HAGADMANSA_LOG,
+#             text="Demo Text"
+#         )
+#         await msg.delete()
+#         try:
+#             await bot.edit_message_text(
+#                 chat_id="Hagadmansa",
+#                 message_id=1579,
+#                 text=f"**Current Uploading**\n{uploading}\n**Upcoming Uploads**\n{upcoming}"
+#             )
+#         except MessageNotModified:
+#             pass
 
 def randomName():
     name = random.choice(abcd) + random.choice(numbers) + random.choice(ABCD) + random.choice(abcd) + random.choice(numbers) + random.choice(ABCD) 
