@@ -26,7 +26,7 @@ async def imdb_search(client, message):
     title = data[0]
     qualities = data[1]
     languages = data[2]
-    imdb = await searchIMDb(pata)
+    imdb = await searchIMDb(title)
 
     reply_markup = InlineKeyboardMarkup(
        [
