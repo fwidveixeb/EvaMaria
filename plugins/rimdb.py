@@ -1,3 +1,4 @@
+import traceback
 from utils import get_poster
 from info import IMDB_TEMPLATE
 from pyrogram import Client, filters
@@ -19,7 +20,7 @@ async def searchIMDb(query):
 
 @Client.on_message(filters.command("rimdb"))
 async def imdb_search(client, message):
-    
+  try:
     await message.delete()
     data = listToString(message.command[1:]).split('|')
     title = data[0]
@@ -90,3 +91,5 @@ async def imdb_search(client, message):
             caption = caption,
             reply_markup = reply_markup
         )
+  except Exception as e:
+   return await message.reply(f"**Traceback Info:**\n`{traceback.format_exc()}`\n**Error Text:**\n`{e}`")
