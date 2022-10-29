@@ -80,7 +80,7 @@ async def imdb_search(client, message):
     except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb['poster']
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply(
+            await message.reply_photo(
                 photo = poster,
                 caption = caption,
                 reply_markup = reply_markup
