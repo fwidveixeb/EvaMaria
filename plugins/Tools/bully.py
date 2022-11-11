@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 async def bully(bot, message):
   
   bully = await message.reply("`Processing...`")
-  API = "https://api.safone.tech/bully"
+  API = "https://api.safone.me/bully"
   try:
     m = requests.get(f"{API}").json()
     n = m['bully']
