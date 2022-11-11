@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 async def advice(bot, message):
   
   advice = await message.reply("`Processing...`")
-  API = "https://api.safone.tech/advice"
+  API = "https://api.safone.me/advice"
   try:
     m = requests.get(f"{API}").json()
     n = m['advice']
@@ -14,3 +14,4 @@ async def advice(bot, message):
   except Exception as e:
     await advice.edit(f"#Error {e}\n\n Forward this to @HagadmansaChat")
     
+ 
