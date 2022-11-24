@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 async def truth(bot, message):
   
   truth = await message.reply("`Processing...`")
-  API = "https://api.safone.tech/truth?category=classic"
+  API = "https://api.safone.me/truth?category=classic"
   try:
     m = requests.get(f"{API}").json()
     n = m['truth']

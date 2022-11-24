@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 async def joke(bot, message):
   
   joke = await message.reply("`Processing...`")
-  API = "https://api.safone.tech/joke"
+  API = "https://api.safone.me/joke"
   try:
     m = requests.get(f"{API}").json()
     n = m['joke']

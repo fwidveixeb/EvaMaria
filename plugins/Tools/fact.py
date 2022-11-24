@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 async def fact(bot, message):
   
   fact = await message.reply("`Processing...`")
-  API = "https://api.safone.tech/fact"
+  API = "https://api.safone.me/fact"
   try:
     m = requests.get(f"{API}").json()
     n = m['fact']

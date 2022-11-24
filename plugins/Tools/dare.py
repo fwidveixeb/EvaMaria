@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 async def dare(bot, message):
   
   dare = await message.reply("`Processing...`")
-  API = "https://api.safone.tech/dare?category=classic"
+  API = "https://api.safone.me/dare?category=classic"
   try:
     m = requests.get(f"{API}").json()
     n = m['dare']

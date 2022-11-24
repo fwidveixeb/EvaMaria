@@ -8,7 +8,7 @@ async def fakeinfo(bot, message):
   
   id = message.chat.id
   m = await message.reply("`Processing...`")
-  API = "https://api.safone.tech/fakeinfo?gender=anything"
+  API = "https://api.safone.me/fakeinfo?gender=anything"
   k = requests.get(f"{API}").json()
     
   #Personal Details
