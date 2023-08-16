@@ -1,6 +1,7 @@
 # Time and Logging
 import time
 import logging
+import asyncio
 import logging.config
 from pyromod import listen
 
@@ -57,4 +58,10 @@ class bot(Client):
         logging.info("Bot stopped. Bye.")      
 
 # Starting client
-bot().run()
+async def main():
+    my_bot = bot()
+    await my_bot.start()
+    await asyncio.gather(my_bot.run(), my_bot.stop())
+
+if __name__ == "__main__":
+    asyncio.run(main())
