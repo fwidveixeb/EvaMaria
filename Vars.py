@@ -5,8 +5,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Var(object):
-    HEROKU_API_KEY = environ['HEROKU_API_KEY']
-    HEROKU_APP_NAME = environ['HEROKU_APP_NAME']
-    BIN_CHANNEL = int(environ.get("BIN_CHANNEL", None))
+    BIN_CHANNEL = -1001772604217
     URL = f"https://download.hagadmansa.com/"
-    RMBG_API = environ['RMBG_API']
+    RMBG_API = 'vLKz8CD7MaaZVKgLTwZVPu5L'
