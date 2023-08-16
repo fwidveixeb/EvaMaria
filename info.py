@@ -38,7 +38,8 @@ AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
 # MongoDB information
 # DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_URI = 'mongodb+srv://HagadMansaBot:ziBdam-qorki3-gadvec@cluster0.wxdaa.mongodb.net/HagadmansaBot?retryWrites=true&w=majority'
+# DATABASE_URI = 'mongodb+srv://HagadMansaBot:ziBdam-qorki3-gadvec@cluster0.wxdaa.mongodb.net/HagadmansaBot?retryWrites=true&w=majority'
+DATABASE_URI = 'mongodb+srv://HagadMansaBot:ziBdam-qorki3-gadvec@cluster0.wxdaa.mongodb.net/?retryWrites=true&w=majority'
 DATABASE_NAME = environ.get('DATABASE_NAME', "HagadmansaRobot")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
