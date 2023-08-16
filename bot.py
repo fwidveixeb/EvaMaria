@@ -59,11 +59,10 @@ class bot(Client):
         logging.info("Bot stopped. Bye.")      
 
 # Starting client
-async def main():
-    my_bot = bot()
-    await my_bot.start()
-    await asyncio.gather(my_bot.run(), my_bot.stop())
+# async def main():
+#     my_bot = bot()
+#     await my_bot.start()
 
-if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+# if __name__ == "__main__":
+#     loop = asyncio.get_event_loop()
+#     loop.run_until_complete(main())
