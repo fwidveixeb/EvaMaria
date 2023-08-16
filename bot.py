@@ -20,7 +20,6 @@ from info import SESSION, API_ID, API_HASH, BOT_TOKEN, LOG_STR
 from utils import temp
 from info import ADMINS
 
-loop = asyncio.get_event_loop()
   
 # Creating client
 class bot(Client):
@@ -66,4 +65,5 @@ async def main():
     await asyncio.gather(my_bot.run(), my_bot.stop())
 
 if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
