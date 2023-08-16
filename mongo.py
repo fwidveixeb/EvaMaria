@@ -2,7 +2,7 @@ import pymongo
 from bson.objectid import ObjectId
 
 # Connecting to mongo client
-client = pymongo.MongoClient("mongodb+srv://PaperPlane:PaperPlane@cluster0.dqen3xq.mongodb.net/?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://HagadMansaBot:ziBdam-qorki3-gadvec@cluster0.wxdaa.mongodb.net/?retryWrites=true&w=majority")
 myDatabase = client.MOVIES
 variables = myDatabase.variables
 userRequests = myDatabase.userRequests
